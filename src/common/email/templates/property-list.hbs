@@ -1,0 +1,173 @@
+<!-- src/common/email/templates/property-list.hbs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    td {
+      padding: 0;
+    }
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+    a {
+      text-decoration: none;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Ensures border-radius is respected */
+    }
+    .header {
+      background-color: #0056b3; /* A shade of blue for branding */
+      padding: 20px;
+      text-align: center;
+    }
+    .header img {
+      max-width: 180px;
+      height: auto;
+    }
+    .content {
+      padding: 20px;
+    }
+    h1 {
+      color: #333333;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    p {
+      color: #666666;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .property-card {
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      background-color: #f9f9f9;
+      overflow: hidden; /* For rounded corners */
+    }
+    .property-card-content {
+      padding: 15px;
+    }
+    .property-card img {
+      width: 100%; /* Make image fill its container */
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    .property-card h2 {
+      color: #0056b3;
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: left; /* Align title left within card */
+      font-size: 20px;
+    }
+    .property-card p.detail {
+      margin: 0 0 8px 0; /* Increased margin for details */
+      color: #555555;
+    }
+    .property-card p.brief { /* Specific style for brief description */
+      margin: 0 0 15px 0; /* More margin below brief */
+      color: #444444;
+      line-height: 1.5;
+    }
+    .button {
+      display: inline-block;
+      background-color: #28a745; /* Green button */
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .footer {
+      background-color: #eeeeee;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #aaaaaa;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .separator {
+      border-bottom: 1px dashed #cccccc;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://via.placeholder.com/180x60?text=Logo+PNG" alt="Logo Propietas">
+    </div>
+    <div class="content">
+      <h1>Listado de Propiedades de tu Interés</h1>
+      <p>Hola, aquí tienes las propiedades que solicitaste:</p>
+
+      {{#each properties}}
+        <div class="property-card">
+          {{#if this.imgCover.thumbWeb}}
+            <img src="{{this.imgCover.thumbWeb}}" alt="Imagen de {{this.address}}">
+          {{else}}
+            <img src="https://via.placeholder.com/600x400?text=No+Image" alt="No Image Available">
+          {{/if}}
+          <div class="property-card-content">
+            <h2>{{this.detailedDescription.title}}</h2>
+            <p class="detail"><strong>Tipo:</strong> {{this.type}}</p>
+            <p class="detail"><strong>Dirección:</strong> {{this.address}}</p>
+            {{#if this.detailedDescription.brief}}
+              <p class="brief">{{this.detailedDescription.brief}}</p>
+            {{/if}}
+
+            {{#if this.valueForSale}}
+              <p class="detail"><strong>Precio de Venta:</strong> {{this.valueForSale.amount}} {{this.valueForSale.currency}}</p>
+            {{/if}}
+            {{#if this.valueForRent}}
+              <p class="detail"><strong>Precio de Alquiler:</strong> {{this.valueForRent.amount}} {{this.valueForRent.currency}}</p>
+            {{/if}}
+
+            <p class="detail"><strong>Habitaciones:</strong> {{this.detailedDescription.bedrooms}}</p>
+            <p class="detail"><strong>Baños:</strong> {{this.detailedDescription.bathrooms}}</p>
+            <p class="detail"><strong>Ambientes:</strong> {{this.detailedDescription.rooms}}</p>
+            <!-- Add more details here -->
+
+            <a href="https://www.ipropietas.com.ar/listing_details_05/{{this._id}}" class="button">Ver Propiedad</a>
+          </div>
+        </div>
+        {{#unless @last}}
+          <div class="separator"></div>
+        {{/unless}}
+      {{/each}}
+
+      <p>¡Gracias por confiar en Propietas!</p>
+    </div>
+    <div class="footer">
+      Este email fue enviado por Propietas.
+    </div>
+  </div>
+</body>
+</html>

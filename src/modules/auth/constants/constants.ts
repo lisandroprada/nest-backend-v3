@@ -1,0 +1,3 @@
+export const jwtConstants = {
+  secret: 'MI PERRITO COLORADO TIENE CUATRO NARICES COMO CUALQUIER OTRO PATO',
+};

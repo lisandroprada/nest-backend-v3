@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InmoGestión - Gestión Inmobiliaria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Integración de FontAwesome para iconos -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* Animación de background */
+      body {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 123, 255, 0.7) 25%,
+          rgba(255, 255, 255, 0.7) 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+      }
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Transición suave */
+      .transition-colors {
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+
+      /* Animaciones al hacer scroll */
+      .animate-fadeIn {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease-out;
+      }
+
+      .animate-fadeIn.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-white text-gray-900 transition-colors duration-300"
+    id="mainBody"
+  >
+    <!-- Sticky Menu -->
+    <header
+      class="sticky top-0 bg-blue-500 p-6 text-white flex justify-between items-center shadow-lg z-50"
+    >
+      <h1 class="text-3xl font-bold">InmoGestión</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li>
+            <a href="#caracteristicas" class="hover:text-gray-200"
+              >Características</a
+            >
+          </li>
+          <li><a href="#pricing" class="hover:text-gray-200">Precios</a></li>
+          <li>
+            <a href="#casos-exito" class="hover:text-gray-200"
+              >Casos de Éxito</a
+            >
+          </li>
+          <li><a href="#contacto" class="hover:text-gray-200">Contacto</a></li>
+        </ul>
+      </nav>
+      <button
+        id="toggleDarkMode"
+        class="bg-white text-blue-500 px-4 py-2 rounded-md focus:outline-none"
+      >
+        Modo Nocturno
+      </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="text-center py-20 bg-gradient-to-r from-blue-500 to-blue-700 text-white"
+    >
+      <h2 class="text-5xl font-bold mb-4 animate-fadeIn">
+        Gestiona tus propiedades de manera eficiente
+      </h2>
+      <p class="text-lg mb-6 animate-fadeIn">
+        Una solución completa para gestionar y optimizar tus bienes
+        inmobiliarios.
+      </p>
+      <a
+        href="#contacto"
+        class="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-200 animate-fadeIn"
+      >
+        Contáctanos
+      </a>
+    </section>
+
+    <!-- Características Section -->
+    <section id="caracteristicas" class="py-16 bg-gray-100 animate-fadeIn">
+      <div class="container mx-auto text-center">
+        <h3 class="text-4xl font-bold text-blue-600 mb-12">
+          Características Principales
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1504418316763-34d0878a15c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGltbW92ZWx0eSUyMGhvbWV8ZW58MHx8fHwxNjE5NzA4MzAy&ixlib=rb-1.2.1&q=80&w=400"
+              alt="Gestión de Propiedades"
+              class="rounded-md mb-4"
+            />
+            <h4 class="text-2xl font-semibold mb-2">Gestión de Propiedades</h4>
+            <p>
+              Control total sobre las propiedades, su estado y disponibilidad.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fHJlcG9ydHN8ZW58MHx8fHwxNjE5NzA4MzAy&ixlib=rb-1.2.1&q=80&w=400"
+              alt="Reportes Personalizados"
+              class="rounded-md mb-4"
+            />
+            <h4 class="text-2xl font-semibold mb-2">Reportes Personalizados</h4>
+            <p>
+              Genera reportes detallados de rendimiento y estados de cuenta.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1581091215367-91bdb3a42eeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGN1c3RvbWVyJTIwc2VydmljZXN8ZW58MHx8fHwxNjE5NzA4MzAy&ixlib=rb-1.2.1&q=80&w=400"
+              alt="Soporte 24/7"
+              class="rounded-md mb-4"
+            />
+            <h4 class="text-2xl font-semibold mb-2">Soporte 24/7</h4>
+            <p>
+              Atención al cliente para resolver cualquier incidencia en
+              cualquier momento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16">
+      <div class="container mx-auto text-center animate-fadeIn">
+        <h3 class="text-4xl font-bold text-blue-600 mb-12">
+          Planes de Precios
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="border rounded-lg p-8 bg-white shadow-lg">
+            <h4 class="text-2xl font-semibold mb-4">Básico</h4>
+            <p class="text-3xl font-bold mb-6">$29/mes</p>
+            <a
+              href="#contacto"
+              class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+              >Contratar</a
+            >
+          </div>
+          <div class="border rounded-lg p-8 bg-blue-500 text-white shadow-lg">
+            <h4 class="text-2xl font-semibold mb-4">Pro</h4>
+            <p class="text-3xl font-bold mb-6">$59/mes</p>
+            <a
+              href="#contacto"
+              class="bg-white text-blue-600 px-6 py-2 rounded-md hover:bg-gray-100"
+              >Contratar</a
+            >
+          </div>
+          <div class="border rounded-lg p-8 bg-white shadow-lg">
+            <h4 class="text-2xl font-semibold mb-4">Empresarial</h4>
+            <p class="text-3xl font-bold mb-6">A consultar</p>
+            <a
+              href="#contacto"
+              class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+              >Solicitar Información</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Casos de Éxito Section -->
+    <section id="casos-exito" class="py-16 bg-gray-100 animate-fadeIn">
+      <div class="container mx-auto text-center">
+        <h3 class="text-4xl font-bold text-blue-600 mb-12">Casos de Éxito</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1490187581496-0a7b739e19b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDEwfHxoZWFkJTIwc2hvdHN8ZW58MHx8fHwxNjE5NzA4MzAy&ixlib=rb-1.2.1&q=80&w=400"
+              alt="Caso de Éxito 1"
+              class="rounded-md mb-4"
+            />
+            <p>
+              "Gracias a InmoGestión hemos logrado mejorar nuestra eficiencia en
+              la gestión de propiedades en un 40%."
+            </p>
+            <h4 class="text-xl font-semibold mt-4">InmoProyectos</h4>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1556740749-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDE3fHxjdXN0b21lcnxlbnwwfHx8fDE2MTk3MDgzMDI&ixlib=rb-1.2.1&q=80&w=400"
+              alt="Caso de Éxito 2"
+              class="rounded-md mb-4"
+            />
+            <p>
+              "El software nos ha permitido optimizar nuestro proceso de
+              alquiler, haciéndolo mucho más rápido."
+            </p>
+            <h4 class="text-xl font-semibold mt-4">PropiedadesMax</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-16 animate-fadeIn">
+      <div class="container mx-auto text-center">
+        <h3 class="text-4xl font-bold text-blue-600 mb-12">Contacto</h3>
+        <form class="w-full max-w-lg mx-auto">
+          <div class="mb-4">
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="w-full p-3 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="email"
+              placeholder="Correo Electrónico"
+              class="w-full p-3 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <textarea
+              placeholder="Mensaje"
+              class="w-full p-3 border border-gray-300 rounded-md"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-8">
+      <div class="container mx-auto text-center">
+        <h4 class="text-xl font-semibold mb-4">
+          Síguenos en nuestras redes sociales
+        </h4>
+        <div class="flex justify-center space-x-6">
+          <a href="#" class="text-white hover:text-gray-200"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" class="text-white hover:text-gray-200"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" class="text-white hover:text-gray-200"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+        <p class="mt-6">© 2024 InmoGestión. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript para Modo Nocturno -->
+    <script>
+      const toggleDarkMode = document.getElementById('toggleDarkMode');
+      const body = document.getElementById('mainBody');
+
+      toggleDarkMode.addEventListener('click', () => {
+        body.classList.toggle('bg-white');
+        body.classList.toggle('text-gray-900');
+        body.classList.toggle('bg-gray-900');
+        body.classList.toggle('text-gray-100');
+
+        // Cambiar texto del botón
+        toggleDarkMode.textContent =
+          toggleDarkMode.textContent === 'Modo Nocturno'
+            ? 'Modo Claro'
+            : 'Modo Nocturno';
+      });
+
+      // Añadir animación al hacer scroll
+      const elements = document.querySelectorAll('.animate-fadeIn');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      });
+
+      elements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
