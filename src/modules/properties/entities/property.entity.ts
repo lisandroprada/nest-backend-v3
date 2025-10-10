@@ -144,6 +144,12 @@ export class Property extends Document {
   @Prop({ type: String, index: true })
   identificador_tributario: string;
 
+  @Prop({ type: String })
+  titulo: string;
+
+  @Prop({ type: String })
+  descripcion: string;
+
   @Prop({ type: DatosRegistroPropiedadSchema })
   datos_registro_propiedad: DatosRegistroPropiedad;
 
@@ -270,3 +276,33 @@ export class Property extends Document {
 }
 
 export const PropertySchema = SchemaFactory.createForClass(Property);
+
+// Virtual para obtener el título, con fallback a la dirección
+PropertySchema.virtual('titulo_display').get(function () {
+  if (this.titulo) {
+    return this.titulo;
+  }
+
+  // Construir título desde la dirección
+  if (this.direccion) {
+    const partes = [];
+    if (this.direccion.calle) partes.push(this.direccion.calle);
+    if (this.direccion.numero) partes.push(this.direccion.numero);
+    if (this.direccion.piso_dpto) partes.push(this.direccion.piso_dpto);
+
+    return partes.length > 0 ? partes.join(' ') : 'Propiedad sin título';
+  }
+
+  return 'Propiedad sin título';
+});
+
+// Asegurar que los virtuals se serialicen en JSON
+PropertySchema.set('toJSON', {
+  virtuals: true,
+  transform: function (doc, ret) {
+    delete ret.__v;
+    return ret;
+  },
+});
+
+PropertySchema.set('toObject', { virtuals: true });

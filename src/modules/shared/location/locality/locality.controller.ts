@@ -25,7 +25,7 @@ export class LocalityController {
   }
 
   @Get()
-  @Auth(ValidRoles.user)
+  @Auth(ValidRoles.user, ValidRoles.admin, ValidRoles.superUser)
   findAll() {
     return this.localityService.findAll();
   }

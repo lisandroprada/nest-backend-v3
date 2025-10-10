@@ -25,7 +25,7 @@ export class ProvinceController {
   }
 
   @Get()
-  @Auth(ValidRoles.user)
+  @Auth(ValidRoles.user, ValidRoles.admin, ValidRoles.superUser)
   findAll(@Query('populate') populate?: string) {
     return this.provinceService.findAll(populate);
   }

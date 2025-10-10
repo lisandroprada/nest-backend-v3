@@ -12,6 +12,40 @@ import {
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
+class DireccionDto {
+  @IsString()
+  @IsOptional()
+  calle?: string;
+
+  @IsString()
+  @IsOptional()
+  numero?: string;
+
+  @IsString()
+  @IsOptional()
+  piso_dpto?: string;
+
+  @IsMongoId()
+  @IsOptional()
+  provincia_id?: string;
+
+  @IsMongoId()
+  @IsOptional()
+  localidad_id?: string;
+
+  @IsString()
+  @IsOptional()
+  codigo_postal?: string;
+
+  @IsNumber()
+  @IsOptional()
+  latitud?: number;
+
+  @IsNumber()
+  @IsOptional()
+  longitud?: number;
+}
+
 class DocumentoDigitalDto {
   @IsString()
   @IsNotEmpty()
@@ -208,6 +242,20 @@ export class CreatePropertyDto {
   @IsString()
   @IsOptional()
   identificador_tributario?: string;
+
+  @IsString()
+  @IsOptional()
+  titulo?: string;
+
+  @IsString()
+  @IsOptional()
+  descripcion?: string;
+
+  // Direccion de la propiedad
+  @ValidateNested()
+  @Type(() => DireccionDto)
+  @IsOptional()
+  direccion?: DireccionDto;
 
   // Caracteristicas de la propiedad
   @ValidateNested()
