@@ -10,7 +10,7 @@ import { IndexValue } from '../entities/index-value.entity';
 import {
   getMonthNameEs,
   MESES_ES,
-} from 'src/modules/shared/utils/constants/dates';
+} from 'src/modules/utils/constants/dates';
 import * as https from 'https';
 
 @Injectable()

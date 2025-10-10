@@ -1,0 +1,152 @@
+[
+  {
+    "_id": {
+      "$oid": "68de6f42edfa775c6741352d"
+    },
+    "propietarios_ids": [
+      {
+        "$oid": "68dd8bb0042fc44a6a9509b1"
+      }
+    ],
+    "identificador_interno": "DEPTO-CABALLITO-3AMB",
+    "identificador_tributario": "055-123456-7",
+    "datos_registro_propiedad": {
+      "folio": "5678/21",
+      "tomo": "45-B",
+      "fecha_registro": {
+        "$date": "2015-03-10T00:00:00.000Z"
+      }
+    },
+    "direccion": {
+      "calle": "Av. Pedro Goyena",
+      "numero": "850",
+      "piso_dpto": "7B",
+      "provincia_id": {
+        "$oid": "633c5e9b1e9b7c2b6c8f2d32"
+      },
+      "localidad_id": {
+        "$oid": "633c5e9b1e9b7c2b6c8f2d33"
+      },
+      "codigo_postal": "C1424AON",
+      "latitud": -34.6244,
+      "longitud": -58.4422
+    },
+    "caracteristicas": {
+      "dormitorios": 2,
+      "banos": 1,
+      "ambientes": 3,
+      "metraje_total": 75,
+      "metraje_cubierto": 70,
+      "antiguedad_anos": 10,
+      "cochera": 0,
+      "estado_general": "EXCELENTE",
+      "orientacion": "NORTE",
+      "amenities": [
+        {
+          "$oid": "68e1d8a0b4d9a2a7a3f8b9f2"
+        },
+        {
+          "$oid": "68e1d8a0b4d9a2a7a3f8b9f3"
+        }
+      ]
+    },
+    "servicios_impuestos": [],
+    "consorcio_nombre": "Consorcio Goyena 850",
+    "tipo_expensas": "ORDINARIAS",
+    "img_cover_url": "/uploads/properties/DEPTO-CABALLITO-3AMB/cover.jpg",
+    "valor_alquiler": 950,
+    "proposito": "VIVIENDA",
+    "status": "DISPONIBLE",
+    "estado_ocupacional": "DISPONIBLE",
+    "contrato_vigente_id": null,
+    "documentos_digitales": [
+      {
+        "nombre": "Escritura",
+        "url": "/uploads/properties/DEPTO-CABALLITO-3AMB/escritura.pdf"
+      },
+      {
+        "nombre": "Plano",
+        "url": "/uploads/properties/DEPTO-CABALLITO-3AMB/plano.pdf"
+      }
+    ],
+    "usuario_creacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "usuario_modificacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "createdAt": {
+      "$date": "2025-10-05T11:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-05T11:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "68e0b1a2f2c8dd9cb262d4e8"
+    },
+    "propietarios_ids": [
+      {
+        "$oid": "68dd8bb0042fc44a6a9509b1"
+      }
+    ],
+    "identificador_interno": "CASA-NORDELTA-4AMB",
+    "identificador_tributario": "123-987654-1",
+    "direccion": {
+      "calle": "El Yacare",
+      "numero": "123",
+      "piso_dpto": "",
+      "provincia_id": {
+        "$oid": "633c5e9b1e9b7c2b6c8f2d32"
+      },
+      "localidad_id": {
+        "$oid": "633c5e9b1e9b7c2b6c8f2d33"
+      },
+      "codigo_postal": "B1670",
+      "latitud": -34.4167,
+      "longitud": -58.6333
+    },
+    "caracteristicas": {
+      "dormitorios": 3,
+      "banos": 3,
+      "ambientes": 4,
+      "metraje_total": 300,
+      "metraje_cubierto": 220,
+      "antiguedad_anos": 5,
+      "cochera": 2,
+      "estado_general": "A ESTRENAR",
+      "orientacion": "ESTE",
+      "amenities": []
+    },
+    "servicios_impuestos": [
+      {
+        "proveedor_id": {
+          "$oid": "68de7b23f2c8dd9cb262cca6"
+        },
+        "identificador_servicio": "AGUAS-987654",
+        "porcentaje_aplicacion": 100
+      }
+    ],
+    "valor_venta": 450000,
+    "proposito": "VIVIENDA",
+    "status": "ALQUILADO",
+    "estado_ocupacional": "ALQUILADA",
+    "contrato_vigente_id": {
+      "$oid": "68de7db976b76e5f5cd82d50"
+    },
+    "documentos_digitales": [],
+    "usuario_creacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "usuario_modificacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "createdAt": {
+      "$date": "2025-10-06T15:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-06T15:20:00.000Z"
+    }
+  }
+]

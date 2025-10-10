@@ -59,6 +59,26 @@ const ServicioImpuestoSchema = SchemaFactory.createForClass(ServicioImpuesto);
 
 @Schema({ _id: false })
 class Caracteristicas {
+  @Prop({
+    type: String,
+    enum: [
+      'departamento',
+      'casa',
+      'ph',
+      'oficina',
+      'local_comercial',
+      'galpon',
+      'lote',
+      'quinta',
+      'chacra',
+      'estudio',
+      'loft',
+      'duplex',
+      'triplex',
+    ],
+  })
+  tipo_propiedad: string;
+
   @Prop({ type: Number })
   dormitorios: number;
 
@@ -82,11 +102,30 @@ class Caracteristicas {
 
   @Prop({
     type: String,
-    enum: ['A ESTRENAR', 'EXCELENTE', 'BUENO', 'A RECICLAR'],
+    enum: [
+      'EXCELENTE',
+      'MUY_BUENO',
+      'BUENO',
+      'REGULAR',
+      'MALO',
+      'A_REFACCIONAR',
+    ],
   })
   estado_general: string;
 
-  @Prop({ type: String, enum: ['NORTE', 'SUR', 'ESTE', 'OESTE'] })
+  @Prop({
+    type: String,
+    enum: [
+      'NORTE',
+      'SUR',
+      'ESTE',
+      'OESTE',
+      'NORESTE',
+      'NOROESTE',
+      'SURESTE',
+      'SUROESTE',
+    ],
+  })
   orientacion: string;
 
   @Prop({ type: [{ type: Types.ObjectId, ref: 'Amenity' }], index: true })
@@ -132,11 +171,43 @@ export class Property extends Document {
   @Prop({ type: Number })
   valor_alquiler: number;
 
+  // Nuevos campos de precios avanzados
+  @Prop({ type: Object })
+  valor_venta_detallado: {
+    monto: number;
+    moneda: string; // 'USD', 'ARS'
+    es_publico: boolean;
+    descripcion: string;
+  };
+
+  @Prop({ type: Object })
+  valor_alquiler_detallado: {
+    monto: number;
+    moneda: string;
+    es_publico: boolean;
+    descripcion: string;
+  };
+
+  // Flags de publicación
+  @Prop({ type: Boolean, default: false })
+  publicar_para_venta: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  publicar_para_alquiler: boolean;
+
   @Prop({
     type: String,
     enum: ['COMERCIAL', 'VIVIENDA', 'INDUSTRIAL', 'MIXTO'],
   })
   proposito: string;
+
+  @Prop({
+    type: String,
+    enum: ['DISPONIBLE', 'ALQUILADO', 'RESERVADO', 'INACTIVO'],
+    default: 'DISPONIBLE',
+    index: true,
+  })
+  status: string;
 
   @Prop({
     type: String,
@@ -157,6 +228,39 @@ export class Property extends Document {
 
   @Prop({ type: [Object] })
   documentos_digitales: { nombre: string; url: string }[];
+
+  // Campos para gestión de multimedia
+  @Prop({ type: Array })
+  imagenes: {
+    nombre: string;
+    url: string;
+    orden: number;
+    es_portada: boolean;
+    versiones: { thumb: string; slider: string; original: string };
+  }[];
+
+  @Prop({ type: Array })
+  planos: { nombre: string; url: string; descripcion: string }[];
+
+  // Campos para lotes y mapa satelital
+  @Prop({ type: Object })
+  imagen_satelital: {
+    nombre: string;
+    url: string;
+    ancho: number;
+    alto: number;
+    pixels_por_metro: number;
+  };
+
+  @Prop({ type: Array })
+  lotes: {
+    id: string;
+    coordenadas: { x: number; y: number }[];
+    status: string;
+    precio: number;
+    moneda: string;
+    superficie_m2: number;
+  }[];
 
   @Prop({ type: Types.ObjectId, ref: 'User' })
   usuario_creacion_id: Types.ObjectId;

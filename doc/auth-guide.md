@@ -154,3 +154,164 @@ export enum ValidRoles {
 6.  Compara los roles del `request.user` con los roles permitidos.
 7.  Si el usuario tiene el rol adecuado (o si no se requieren roles específicos), el acceso es concedido.
 8.  Finalmente, la lógica del método del controlador se ejecuta. Si se usa `@GetUser()`, este extrae la información de `request.user` y la inyecta en el parámetro correspondiente.
+
+---
+
+## Endpoints de Autenticación para el Frontend
+
+Esta sección detalla cómo interactuar con los endpoints de autenticación de la API desde una aplicación de frontend.
+
+**URL Base de la API (Desarrollo):** `http://localhost:3050`
+
+### Manejo del JWT
+
+La autenticación se basa en JSON Web Tokens (JWT). El flujo es el siguiente:
+1.  Después de un `login` o `register` exitoso, el backend devuelve un `access_token` (el JWT).
+2.  El frontend **debe guardar este token** de forma segura (por ejemplo, en `localStorage` o `sessionStorage`).
+3.  Para cada solicitud a un endpoint protegido, el frontend **debe incluir el token** en el encabezado `Authorization`.
+    -   **Header:** `Authorization`
+    -   **Value:** `Bearer <access_token>` (reemplazando `<access_token>` con el token real).
+4.  Cuando el usuario cierra sesión, el frontend debe eliminar el token del almacenamiento.
+
+---
+
+### 1. Login de Usuario
+
+-   **Endpoint:** `POST /auth/login`
+-   **Descripción:** Autentica a un usuario con su email y contraseña.
+-   **Request Body:**
+    ```json
+    {
+      "email": "user@example.com",
+      "password": "Password123",
+      "rememberMe": false
+    }
+    ```
+    -   `email` (string, requerido): Email del usuario.
+    -   `password` (string, requerido): Contraseña del usuario.
+    -   `rememberMe` (boolean, opcional): No tiene efecto en el backend actualmente, pero se puede usar en el frontend para decidir dónde guardar el token (`localStorage` vs `sessionStorage`).
+-   **Success Response (201):**
+    ```json
+    {
+      "user": {
+        "isActive": true,
+        "roles": ["user"],
+        "photo": "",
+        "pinCode": "",
+        "createdAt": "2023-10-27T12:00:00.000Z",
+        "avatar": "",
+        "_id": "653b...f",
+        "username": "testuser",
+        "email": "user@example.com"
+      },
+      "access_token": "ey...Q"
+    }
+    ```
+    -   `user`: Objeto con la información del usuario.
+    -   `access_token`: El JWT que debe ser guardado por el frontend.
+-   **Error Responses:**
+    -   `401 Unauthorized`: Si las credenciales son incorrectas (`User not found` o `Password is incorrect`).
+
+---
+
+### 2. Registro de Usuario
+
+-   **Endpoint:** `POST /auth/register`
+-   **Descripción:** Crea un nuevo usuario.
+-   **Request Body:**
+    ```json
+    {
+      "email": "newuser@example.com",
+      "username": "newuser",
+      "password": "Password123",
+      "roles": ["user"]
+    }
+    ```
+    -   `email` (string, requerido): Email del nuevo usuario.
+    -   `username` (string, requerido): Nombre de usuario.
+    -   `password` (string, requerido): Contraseña. Debe cumplir con los requisitos de seguridad (mínimo 6 caracteres, una mayúscula, una minúscula y un número/símbolo).
+    -   `roles` (string[], opcional): Roles a asignar. Por defecto será `['user']`.
+-   **Success Response (201):**
+    ```json
+    {
+      "ok": true,
+      "message": "Usuario registrado exitosamente",
+      "userObject": {
+        "isActive": true,
+        "roles": ["user"],
+        ...
+      },
+      "token": "ey...Q"
+    }
+    ```
+    -   `token`: El JWT para el nuevo usuario. El frontend debe guardarlo y considerar al usuario como autenticado.
+-   **Error Responses:**
+    -   `400 Bad Request`: Si el email ya existe o la contraseña no cumple los requisitos.
+
+---
+
+### 3. Verificar Estado de Autenticación
+
+-   **Endpoint:** `POST /auth/check-auth-status`
+-   **Descripción:** Verifica la validez del token actual y devuelve los datos del usuario y un nuevo token. Es útil para revalidar la sesión cuando la aplicación se carga.
+-   **Headers:**
+    -   `Authorization: Bearer <access_token>`
+-   **Request Body:** (Vacío)
+-   **Success Response (201):**
+    ```json
+    {
+      "user": { ... },
+      "token": "ey...Q"
+    }
+    ```
+    -   `user`: El objeto del usuario autenticado.
+    -   `token`: Un nuevo token con la misma información pero con una fecha de expiración renovada. El frontend debería reemplazar el token antiguo por este.
+-   **Error Responses:**
+    -   `401 Unauthorized`: Si el token no es válido o ha expirado.
+
+---
+
+### 4. Solicitar Restablecimiento de Contraseña
+
+-   **Endpoint:** `POST /auth/forgot-password`
+-   **Descripción:** Inicia el flujo para restablecer la contraseña. El backend envía un email al usuario con un token de restablecimiento.
+-   **Request Body:**
+    ```json
+    {
+      "email": "user@example.com"
+    }
+    ```
+    -   `email` (string, requerido): El email del usuario que olvidó su contraseña.
+-   **Success Response (201):**
+    ```json
+    {
+      "message": "Password reset email sent"
+    }
+    ```
+-   **Error Responses:**
+    -   `404 Not Found`: Si el email no está registrado en el sistema.
+
+---
+
+### 5. Restablecer Contraseña
+
+-   **Endpoint:** `POST /auth/reset-password`
+-   **Descripción:** Establece una nueva contraseña para el usuario usando el token recibido por email.
+-   **Request Body:**
+    ```json
+    {
+      "token": "a1b2...c3d4",
+      "newPassword": "NewPassword456"
+    }
+    ```
+    -   `token` (string, requerido): El token de restablecimiento que el usuario recibió en su email.
+    -   `newPassword` (string, requerido): La nueva contraseña. Debe cumplir los requisitos de seguridad.
+-   **Success Response (201):**
+    ```json
+    {
+      "message": "Password has been reset successfully",
+      "email": "user@example.com"
+    }
+    ```
+-   **Error Responses:**
+    -   `401 Unauthorized`: Si el token es inválido o ha expirado.

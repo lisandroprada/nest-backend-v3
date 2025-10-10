@@ -40,13 +40,29 @@ export class PaginationService {
       sortOrder[field] = direction;
     }
 
-    const queryConditions = { ...filter };
+    const queryConditions: any = { ...filter };
 
-    // --- NUEVO: Búsqueda avanzada para campos populados ---
     if (search && search.criteria.length > 0) {
+      const orClauses = [];
+
       for (const criterion of search.criteria) {
         const { field, term, operation } = criterion;
-        // Detectar patrón owners[fullName]
+        const orFields = field.split(',');
+
+        // --- OR Logic for multi-field search ---
+        if (orFields.length > 1) {
+          const orQuery = orFields.map(f => {
+            if (operation === SearchOperation.CONTAINS) {
+              return { [f]: { $regex: new RegExp(accentInsensitive(term), 'i') } };
+            }
+            // Add other operations for OR search if needed in the future
+            return { [f]: term };
+          });
+          orClauses.push(...orQuery);
+          continue; // Continue to the next criterion
+        }
+
+        // --- AND Logic for single fields (existing logic) ---
         const populatedFieldMatch = field.match(/(\w+)\[(\w+)\]/);
         if (
           populatedFieldMatch &&
@@ -54,25 +70,21 @@ export class PaginationService {
           populatedFieldMatch[2] === 'fullName' &&
           operation === SearchOperation.CONTAINS
         ) {
-          // Buscar en Party los IDs de owners cuyo fullName matchee
           const PartyModel = model.db.model('Party');
           const ownerDocs = await PartyModel.find({
             fullName: { $regex: new RegExp(accentInsensitive(term), 'i') },
           }).select('_id');
-          // Convertir todos los IDs a ObjectId
           const ownerIds = ownerDocs.map((doc) => doc._id.toString());
           if (ownerIds.length === 0) {
-            // Si no hay coincidencias, forzar filtro imposible para devolver 0 resultados
             queryConditions['_id'] = null;
             break;
           }
           queryConditions['owners'] = { $in: ownerIds };
-          continue; // Saltear el resto del procesamiento para este criterio
+          continue;
         }
-        // Permitir subcampos embebidos (ej: owner.fullName, associatedServices.serviceCompany.fullName)
+
         switch (operation) {
           case SearchOperation.EQUALS:
-            // Intenta convertir a número si corresponde
             const parsed = Number(term);
             if (!isNaN(parsed) && term.trim() !== '') {
               queryConditions[field] = parsed;
@@ -113,6 +125,10 @@ export class PaginationService {
             }
             break;
         }
+      }
+
+      if (orClauses.length > 0) {
+        queryConditions['$or'] = orClauses;
       }
     }
 

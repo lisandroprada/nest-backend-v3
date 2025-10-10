@@ -1,4 +1,13 @@
-import { Controller, Post, Get, Put, Body, Param, Query, Patch, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Get,
+  Body,
+  Param,
+  Query,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { PropertiesService } from './properties.service';
 import { Auth, GetUser } from '../auth/decorators';
 import { ValidRoles } from '../auth/interfaces';
@@ -10,42 +19,54 @@ import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id
 
 @Controller('properties')
 export class PropertiesController {
-    constructor(private readonly propertiesService: PropertiesService) {}
+  constructor(private readonly propertiesService: PropertiesService) {}
 
-    @Post()
-    @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
-    async create(
-        @Body() createPropertyDto: CreatePropertyDto,
-        @GetUser() user: User,
-    ) {
-        return this.propertiesService.create(createPropertyDto, user._id.toString());
-    }
+  @Post()
+  @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
+  async create(
+    @Body() createPropertyDto: CreatePropertyDto,
+    @GetUser() user: User,
+  ) {
+    return this.propertiesService.create(
+      createPropertyDto,
+      user._id.toString(),
+    );
+  }
 
-    @Get()
-    @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente, ValidRoles.contabilidad)
-    async findAll(@Query() paginationDto: PaginationDto) {
-        return this.propertiesService.findAll(paginationDto);
-    }
+  @Get()
+  @Auth(
+    ValidRoles.admin,
+    ValidRoles.superUser,
+    ValidRoles.agente,
+    ValidRoles.contabilidad,
+  )
+  async findAll(@Query() paginationDto: PaginationDto) {
+    return this.propertiesService.findAll(paginationDto);
+  }
 
-    @Get(':id')
-    @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
-    async findOne(@Param('id', ParseMongoIdPipe) id: string) {
-        return this.propertiesService.findOne(id);
-    }
+  @Get(':id')
+  @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
+  async findOne(@Param('id', ParseMongoIdPipe) id: string) {
+    return this.propertiesService.findOne(id);
+  }
 
-    @Patch(':id')
-    @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
-    async update(
-        @Param('id', ParseMongoIdPipe) id: string,
-        @Body() updatePropertyDto: UpdatePropertyDto,
-        @GetUser() user: User,
-    ) {
-        return this.propertiesService.update(id, updatePropertyDto, user._id.toString());
-    }
+  @Patch(':id')
+  @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
+  async update(
+    @Param('id', ParseMongoIdPipe) id: string,
+    @Body() updatePropertyDto: UpdatePropertyDto,
+    @GetUser() user: User,
+  ) {
+    return this.propertiesService.update(
+      id,
+      updatePropertyDto,
+      user._id.toString(),
+    );
+  }
 
-    @Delete(':id')
-    @Auth(ValidRoles.superUser)
-    async remove(@Param('id', ParseMongoIdPipe) id: string) {
-        return this.propertiesService.remove(id);
-    }
+  @Delete(':id')
+  @Auth(ValidRoles.superUser)
+  async remove(@Param('id', ParseMongoIdPipe) id: string) {
+    return this.propertiesService.remove(id);
+  }
 }

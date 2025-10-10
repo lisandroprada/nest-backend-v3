@@ -52,21 +52,13 @@ const RedSocialSchema = SchemaFactory.createForClass(RedSocial);
 
 @Schema({ timestamps: true })
 export class Agent extends Document {
-  @Prop({
-    type: [String],
-    enum: Object.values(AgenteRoles),
-    required: true,
-  })
+  @Prop({ type: [String], enum: Object.values(AgenteRoles), required: true })
   rol: AgenteRoles[];
 
   @Prop({ type: String, enum: ['FISICA', 'JURIDICA'], required: true })
   persona_tipo: string;
 
-  @Prop({
-    type: String,
-    enum: ['RI', 'CF', 'MONOTRIBUTO'],
-    required: true,
-  })
+  @Prop({ type: String, enum: ['RI', 'CF', 'MONOTRIBUTO'], required: true })
   nomenclador_fiscal: string;
 
   @Prop({ type: String, unique: true, required: true, index: true })
@@ -128,7 +120,6 @@ export class Agent extends Document {
 
   @Prop({ type: [String] })
   pdf_attachment_names: string[];
-
 
   @Prop({
     type: [

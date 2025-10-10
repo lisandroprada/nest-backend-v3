@@ -11,15 +11,15 @@ import { EnvConfiguration } from './common/config/env.config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LocalityModule } from './modules/shared/location/locality/locality.module';
 import { ProvinceModule } from './modules/shared/location/province/province.module';
-import { UniqueIdServiceService } from './modules/shared/services/unique-id/unique-id-service.service';
-import { UniqueIdModule } from './modules/shared/services/unique-id/unique-id.module';
+import { UniqueIdServiceService } from './modules/services/unique-id/unique-id-service.service';
+import { UniqueIdModule } from './modules/services/unique-id/unique-id.module';
 import { IndexValueModule } from './modules/external-apis/index-value/index-value.module';
 import { ScheduleModule } from '@nestjs/schedule';
-import { SequenceModule } from './modules/shared/sequence/sequence.module';
+import { SequenceModule } from './modules/sequence/sequence.module';
 import { CommonModule } from './common/common.module';
 import { AppConfigServiceModule } from './utils/app-config-service/app-config-service.module';
-import { GoogleMapsService } from './modules/shared/services/google-maps/google-maps.service';
-import { NlpService } from './modules/shared/services/nlp/nlp.service';
+import { GoogleMapsService } from './modules/services/google-maps/google-maps.service';
+import { NlpService } from './modules/services/nlp/nlp.service';
 import { EmailsModule } from './modules/emails/emails.module';
 import { AgentsModule } from './modules/agents/agents.module';
 import { PropertiesModule } from './modules/properties/properties.module';
@@ -43,6 +43,8 @@ import { DetectedExpensesModule } from './modules/detected-expenses/detected-exp
 import { ExpensesModule } from './modules/expenses/expenses.module';
 
 import { FiscalModule } from './modules/fiscal/fiscal.module';
+
+import { ValuationsModule } from './modules/valuations/valuations.module';
 
 @Module({
   imports: [
@@ -94,6 +96,7 @@ import { FiscalModule } from './modules/fiscal/fiscal.module';
     DetectedExpensesModule,
     ExpensesModule,
     FiscalModule,
+    ValuationsModule,
   ],
   controllers: [AppController],
   providers: [

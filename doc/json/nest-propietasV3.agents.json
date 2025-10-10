@@ -1,0 +1,146 @@
+[
+  {
+    "_id": {
+      "$oid": "68dd8bb0042fc44a6a9509b1"
+    },
+    "rol": [
+      "LOCADOR"
+    ],
+    "persona_tipo": "FISICA",
+    "nomenclador_fiscal": "RI",
+    "identificador_fiscal": "202450379112",
+    "nombre_razon_social": "Pérez, Juan Carlos",
+    "nombres": "Juan Carlos",
+    "apellidos": "Pérez",
+    "documento_tipo": "DNI",
+    "documento_numero": "24503791",
+    "email_principal": "juan.perez@email.com",
+    "telefonos": [
+      {
+        "numero": "+5491155551234",
+        "tipo": "MOVIL"
+      }
+    ],
+    "direccion_fiscal": {
+      "calle": "Av. Siempre Viva",
+      "numero": "742",
+      "piso_dpto": "",
+      "provincia_id": { "$oid": "633c5e9b1e9b7c2b6c8f2d32" },
+      "localidad_id": { "$oid": "633c5e9b1e9b7c2b6c8f2d33" },
+      "codigo_postal": "B1602"
+    },
+    "cuentas_bancarias": [
+      {
+        "cbu_alias": "JUAN.PEREZ.ALIAS",
+        "cbu_numero": "0170421840000005555555",
+        "banco": "BANCO DE LA PLAZA",
+        "moneda": "ARS"
+      }
+    ],
+    "status": "ACTIVO",
+    "usuario_creacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "usuario_modificacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "createdAt": {
+      "$date": "2025-10-01T20:14:40.736Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-01T20:14:40.736Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "68de7b1ef2c8dd9cb262cca2"
+    },
+    "rol": [
+      "LOCATARIO"
+    ],
+    "persona_tipo": "FISICA",
+    "nomenclador_fiscal": "CF",
+    "identificador_fiscal": "27328889995",
+    "nombre_razon_social": "García, María Elena",
+    "nombres": "María Elena",
+    "apellidos": "García",
+    "documento_tipo": "DNI",
+    "documento_numero": "32888999",
+    "email_principal": "maria.garcia@email.com",
+    "telefonos": [
+      {
+        "numero": "+5491155559876",
+        "tipo": "MOVIL"
+      }
+    ],
+    "direccion_fiscal": {
+      "calle": "Av. Rivadavia",
+      "numero": "5000",
+      "piso_dpto": "3B",
+      "provincia_id": { "$oid": "633c5e9b1e9b7c2b6c8f2d32" },
+      "localidad_id": { "$oid": "633c5e9b1e9b7c2b6c8f2d33" },
+      "codigo_postal": "C1406GMA"
+    },
+    "cuentas_bancarias": [],
+    "status": "ACTIVO",
+    "usuario_creacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "usuario_modificacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "createdAt": {
+      "$date": "2025-10-02T13:16:14.916Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-02T13:16:14.916Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "68de7b23f2c8dd9cb262cca6"
+    },
+    "rol": [
+      "PROVEEDOR"
+    ],
+    "persona_tipo": "JURIDICA",
+    "nomenclador_fiscal": "RI",
+    "identificador_fiscal": "30112233445",
+    "nombre_razon_social": "Aguas Continentales S.A.",
+    "email_principal": "facturacion@aguascontinentales.com",
+    "direccion_fiscal": {
+      "calle": "Suipacha",
+      "numero": "1000",
+      "piso_dpto": "Piso 10",
+      "provincia_id": { "$oid": "633c5e9b1e9b7c2b6c8f2d32" },
+      "localidad_id": { "$oid": "633c5e9b1e9b7c2b6c8f2d33" },
+      "codigo_postal": "C1008AAS"
+    },
+    "check_automatizado": true,
+    "dominios_notificacion": [
+      "aguascontinentales.com",
+      "avisos.aguas.com.ar"
+    ],
+    "servicio_id_regex": "Nro de Cliente: (\\d+)",
+    "monto_regex": "Total a pagar: \\$([\\d,.]+)",
+    "pdf_search_key": "Total a Pagar",
+    "pdf_attachment_names": [
+      "factura.pdf",
+      "aviso_de_deuda_*.pdf"
+    ],
+    "cuentas_bancarias": [],
+    "status": "ACTIVO",
+    "usuario_creacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "usuario_modificacion_id": {
+      "$oid": "68db21fda9d864c1d89234c3"
+    },
+    "createdAt": {
+      "$date": "2025-10-02T13:16:19.501Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-02T13:16:19.501Z"
+    }
+  }
+]

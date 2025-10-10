@@ -7,6 +7,7 @@ import { AfipService } from './afip.service';
 import { AuthModule } from '../auth/auth.module';
 import { AccountingEntriesModule } from '../accounting-entries/accounting-entries.module';
 import { AgentsModule } from '../agents/agents.module';
+import { FiscalReportsService } from './fiscal-reports.service';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AgentsModule } from '../agents/agents.module';
     AgentsModule,
   ],
   controllers: [FiscalController],
-  providers: [FiscalDocumentsService, AfipService],
+  providers: [FiscalDocumentsService, AfipService, FiscalReportsService],
+  exports: [FiscalDocumentsService, FiscalReportsService],
 })
 export class FiscalModule {}
