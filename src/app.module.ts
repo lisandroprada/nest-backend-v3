@@ -45,6 +45,8 @@ import { ExpensesModule } from './modules/expenses/expenses.module';
 import { FiscalModule } from './modules/fiscal/fiscal.module';
 
 import { ValuationsModule } from './modules/valuations/valuations.module';
+import { CuitModule } from './modules/cuit/cuit.module';
+
 
 @Module({
   imports: [
@@ -97,6 +99,7 @@ import { ValuationsModule } from './modules/valuations/valuations.module';
     ExpensesModule,
     FiscalModule,
     ValuationsModule,
+    CuitModule,
   ],
   controllers: [AppController],
   providers: [

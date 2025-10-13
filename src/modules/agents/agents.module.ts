@@ -6,6 +6,7 @@ import { Agent, AgentSchema } from './entities/agent.entity';
 import { AuthModule } from '../auth/auth.module';
 import { AccountingEntriesModule } from '../accounting-entries/accounting-entries.module';
 import { CommonModule } from 'src/common/common.module';
+import { CuitModule } from '../cuit/cuit.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { CommonModule } from 'src/common/common.module';
     AuthModule,
     AccountingEntriesModule,
     CommonModule,
+    CuitModule,
   ],
   controllers: [AgentsController],
   providers: [AgentsService],

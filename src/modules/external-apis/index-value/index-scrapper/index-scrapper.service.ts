@@ -7,10 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ErrorsService } from 'src/common/errors/errors.service';
 import { IndexValue } from '../entities/index-value.entity';
-import {
-  getMonthNameEs,
-  MESES_ES,
-} from 'src/modules/utils/constants/dates';
+import { getMonthNameEs, MESES_ES } from 'src/modules/utils/constants/dates';
 import * as https from 'https';
 
 @Injectable()
@@ -59,7 +56,16 @@ export class IndexScrapperService {
     try {
       const url =
         'https://apis.datos.gob.ar/series/api/series/?ids=145.3_INGNACNAL_DICI_M_15&metadata=full';
-      const response = await axios.get(url);
+
+      // Configuración con timeout y reintentos
+      const response = await axios.get(url, {
+        timeout: 30000, // 30 segundos
+        httpsAgent: new https.Agent({ keepAlive: true }),
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; NestBackend/1.0)',
+        },
+      });
+
       const seriesData = response.data.data;
 
       const documentsIPC = seriesData.map((datum) => {
@@ -83,7 +89,19 @@ export class IndexScrapperService {
 
       await this.saveNewDocuments(documentsIPC, 'IPC');
     } catch (error) {
-      console.error('Error al obtener los datos del IPC:', error);
+      // Si es timeout o error de red, solo loguear sin lanzar excepción
+      if (
+        error.code === 'ECONNABORTED' ||
+        error.code === 'ETIMEDOUT' ||
+        error.response?.status === 524
+      ) {
+        console.warn(
+          '⚠️ API IPC temporalmente no disponible (timeout/524). Se reintentará en el próximo cron.',
+        );
+        return; // Salir silenciosamente
+      }
+
+      console.error('Error al obtener los datos del IPC:', error.message);
       this.errorsService.handleDatabaseError(error);
     }
   }

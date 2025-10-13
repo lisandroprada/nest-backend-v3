@@ -6,6 +6,8 @@ import {
   IsObject,
   IsOptional,
   ValidateNested,
+  IsBoolean,
+  IsDateString,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { AgenteRoles } from '../constants/agent-roles.enum';
@@ -45,6 +47,38 @@ export class CreateAgentDto {
   @IsString()
   @IsNotEmpty()
   identificador_fiscal: string;
+
+  @IsString()
+  @IsNotEmpty()
+  nombre_razon_social: string;
+
+  @IsString()
+  @IsOptional()
+  nombres: string;
+
+  @IsString()
+  @IsOptional()
+  apellidos: string;
+
+  @IsEnum(['MASCULINO', 'FEMENINO', 'PERSONA_JURIDICA'])
+  @IsOptional()
+  genero: string;
+
+  @IsEnum(['DNI', 'LE', 'LC', 'PASAPORTE'])
+  @IsOptional()
+  documento_tipo: string;
+
+  @IsString()
+  @IsOptional()
+  documento_numero: string;
+
+  @IsBoolean()
+  @IsOptional()
+  cuit_validado?: boolean;
+
+  @IsDateString()
+  @IsOptional()
+  cuit_validado_en?: string;
 
   @IsObject()
   @IsOptional()

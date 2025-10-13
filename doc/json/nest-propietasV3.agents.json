@@ -7,6 +7,7 @@
       "LOCADOR"
     ],
     "persona_tipo": "FISICA",
+    "genero": "MASCULINO",
     "nomenclador_fiscal": "RI",
     "identificador_fiscal": "202450379112",
     "nombre_razon_social": "Pérez, Juan Carlos",
@@ -59,6 +60,7 @@
       "LOCATARIO"
     ],
     "persona_tipo": "FISICA",
+    "genero": "FEMENINO",
     "nomenclador_fiscal": "CF",
     "identificador_fiscal": "27328889995",
     "nombre_razon_social": "García, María Elena",
@@ -104,6 +106,7 @@
       "PROVEEDOR"
     ],
     "persona_tipo": "JURIDICA",
+    "genero": "PERSONA_JURIDICA",
     "nomenclador_fiscal": "RI",
     "identificador_fiscal": "30112233445",
     "nombre_razon_social": "Aguas Continentales S.A.",

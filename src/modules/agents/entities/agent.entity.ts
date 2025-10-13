@@ -64,6 +64,27 @@ export class Agent extends Document {
   @Prop({ type: String, unique: true, required: true, index: true })
   identificador_fiscal: string;
 
+  @Prop({ type: Boolean, default: false })
+  cuit_validado: boolean;
+
+  @Prop({ type: Date })
+  cuit_validado_en: Date;
+
+  @Prop({
+    type: {
+      nombre: String,
+      tipoPersona: String,
+      ganancias: String,
+      iva: String,
+    },
+  })
+  cuit_datos_afip: {
+    nombre?: string;
+    tipoPersona?: string;
+    ganancias?: string;
+    iva?: string;
+  };
+
   @Prop({ type: String, required: true })
   nombre_razon_social: string;
 
@@ -72,6 +93,9 @@ export class Agent extends Document {
 
   @Prop({ type: String })
   apellidos: string;
+
+  @Prop({ type: String, enum: ['MASCULINO', 'FEMENINO', 'PERSONA_JURIDICA'] })
+  genero: string;
 
   @Prop({ type: String, enum: ['DNI', 'LE', 'LC', 'PASAPORTE'] })
   documento_tipo: string;

@@ -60,4 +60,13 @@ export class AgentsController {
   async getBalance(@Param('id', ParseMongoIdPipe) agentId: string) {
     return this.agentsService.getAgentBalance(agentId);
   }
+
+  @Patch(':id/validar-cuit')
+  @Auth(ValidRoles.admin, ValidRoles.superUser)
+  async validarCuit(
+    @Param('id', ParseMongoIdPipe) id: string,
+    @GetUser() user: User,
+  ) {
+    return this.agentsService.validarCuit(id, user._id.toString());
+  }
 }
