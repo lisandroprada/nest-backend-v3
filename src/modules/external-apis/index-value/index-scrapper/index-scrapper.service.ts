@@ -7,7 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ErrorsService } from 'src/common/errors/errors.service';
 import { IndexValue } from '../entities/index-value.entity';
-import { getMonthNameEs, MESES_ES } from 'src/modules/utils/constants/dates';
+import { getMonthNameEs, MESES_ES } from 'src/utils/constants/dates';
 import * as https from 'https';
 
 @Injectable()
@@ -21,41 +21,68 @@ export class IndexScrapperService {
   // Tarea automática para actualizar los índices diariamente a medianoche
   @Cron('0 0 * * *')
   async handleCron() {
+    const summary = await this.triggerUpdate();
+    console.log('Resumen de la tarea automática de actualización:', summary);
+  }
+
+  async triggerUpdate() {
+    const summary = {
+      IPC: { newRecords: 0, status: 'pending', error: null },
+      CASAPROPIA: { newRecords: 0, status: 'pending', error: null },
+      ICL: { newRecords: 0, status: 'pending', error: null },
+    };
+
+    console.log('Ejecutando tarea de actualización de índices...');
+
     try {
-      console.log('Ejecutando tarea automática para actualizar los índices...');
-      await this.updateIndexData('IPC');
-      await this.updateIndexData('CASAPROPIA');
-      await this.updateIndexData('ICL');
+      summary.IPC.newRecords = await this.updateIndexData('IPC');
+      summary.IPC.status = 'success';
     } catch (error) {
-      console.error(
-        'Error durante la tarea automática de actualización:',
-        error,
-      );
+      summary.IPC.status = 'failed';
+      summary.IPC.error = error.message;
+      console.error('Error al actualizar IPC:', error);
     }
+
+    try {
+      summary.CASAPROPIA.newRecords = await this.updateIndexData('CASAPROPIA');
+      summary.CASAPROPIA.status = 'success';
+    } catch (error) {
+      summary.CASAPROPIA.status = 'failed';
+      summary.CASAPROPIA.error = error.message;
+      console.error('Error al actualizar CASAPROPIA:', error);
+    }
+
+    try {
+      summary.ICL.newRecords = await this.updateIndexData('ICL');
+      summary.ICL.status = 'success';
+    } catch (error) {
+      summary.ICL.status = 'failed';
+      summary.ICL.error = error.message;
+      console.error('Error al actualizar ICL:', error);
+    }
+
+    return summary;
   }
 
   // Método general para manejar la actualización de diferentes índices
-  async updateIndexData(formula: string): Promise<void> {
+  async updateIndexData(formula: string): Promise<number> {
     switch (formula) {
       case 'IPC':
-        await this.updateIPC();
-        break;
+        return await this.updateIPC();
       case 'CASAPROPIA':
-        await this.updateCasaPropia();
-        break;
+        return await this.updateCasaPropia();
       case 'ICL':
-        await this.updateICL();
-        break;
+        return await this.updateICL();
       default:
         throw new Error(`Fórmula ${formula} no soportada`);
     }
   }
 
   // Actualización del IPC desde una API externa
-  private async updateIPC(): Promise<void> {
+  private async updateIPC(): Promise<number> {
     try {
       const url =
-        'https://apis.datos.gob.ar/series/api/series/?ids=145.3_INGNACNAL_DICI_M_15&metadata=full';
+        'https://apis.datos.gob.ar/series/api/series/?ids=103.1_I2N_2016_M_15&metadata=full';
 
       // Configuración con timeout y reintentos
       const response = await axios.get(url, {
@@ -87,7 +114,7 @@ export class IndexScrapperService {
 
       console.log('Documentos IPC generados:', documentsIPC);
 
-      await this.saveNewDocuments(documentsIPC, 'IPC');
+      return await this.saveNewDocuments(documentsIPC, 'IPC');
     } catch (error) {
       // Si es timeout o error de red, solo loguear sin lanzar excepción
       if (
@@ -98,16 +125,17 @@ export class IndexScrapperService {
         console.warn(
           '⚠️ API IPC temporalmente no disponible (timeout/524). Se reintentará en el próximo cron.',
         );
-        return; // Salir silenciosamente
+        return 0; // Salir silenciosamente
       }
 
       console.error('Error al obtener los datos del IPC:', error.message);
       this.errorsService.handleDatabaseError(error);
+      return 0;
     }
   }
 
   // Actualización del índice "Casa Propia" mediante scrapping
-  private async updateCasaPropia(): Promise<void> {
+  private async updateCasaPropia(): Promise<number> {
     try {
       const url = 'https://ikiwi.net.ar/prestamos/coeficiente-casa-propia/';
       const response = await axios.get(url);
@@ -143,18 +171,20 @@ export class IndexScrapperService {
         });
       });
 
-      await this.saveNewDocuments(documentosCasaPropia, 'CASAPROPIA');
+      return await this.saveNewDocuments(documentosCasaPropia, 'CASAPROPIA');
     } catch (error) {
       console.error(
         'Error durante el scrapping del índice Casa Propia:',
         error,
       );
       this.errorsService.handleDatabaseError(error);
+      return 0;
     }
   }
 
   // Actualización del ICL desde la nueva API externa del BCRA v3.0
-  private async updateICL(): Promise<void> {
+  private async updateICL(): Promise<number> {
+    let totalSaved = 0;
     try {
       const lastRecord = await this.indexValueModel
         .findOne({ formula: 'ICL' })
@@ -184,7 +214,7 @@ export class IndexScrapperService {
             'Respuesta inesperada de la API BCRA v3.0:',
             response.data,
           );
-          return;
+          return totalSaved;
         }
 
         const seriesData = response.data.results;
@@ -207,17 +237,18 @@ export class IndexScrapperService {
           };
         });
 
-        await this.saveNewDocuments(documentosICL, 'ICL');
+        totalSaved += await this.saveNewDocuments(documentosICL, 'ICL');
         startDate = nextEndDate.plus({ days: 1 });
       }
     } catch (error) {
       console.error('Error al obtener los datos del ICL (v3.0):', error);
       this.errorsService.handleDatabaseError(error);
     }
+    return totalSaved;
   }
 
   // Método genérico para guardar nuevos documentos
-  async saveNewDocuments(documents: any[], formula: string): Promise<void> {
+  async saveNewDocuments(documents: any[], formula: string): Promise<number> {
     try {
       console.log(`Intentando insertar documentos para la fórmula: ${formula}`);
       console.log('Documentos recibidos para insertar:', documents);
@@ -251,11 +282,14 @@ export class IndexScrapperService {
         const insertResult =
           await this.indexValueModel.insertMany(nuevosDocumentos);
         console.log(`Datos nuevos insertados para ${formula}:`, insertResult);
+        return insertResult.length;
       } else {
         console.log(`No hay nuevos datos para insertar para ${formula}`);
+        return 0;
       }
     } catch (error) {
       console.error(`Error al insertar documentos en la colección:`, error);
+      return 0;
     }
   }
 }

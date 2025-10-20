@@ -5,7 +5,9 @@ export class AfipService {
   private readonly logger = new Logger(AfipService.name);
 
   async authorizeAndGetToken(): Promise<any> {
-    this.logger.debug('Connecting to AFIP to get authorization token... (Placeholder)');
+    this.logger.debug(
+      'Connecting to AFIP to get authorization token... (Placeholder)',
+    );
     // Here would be the logic to connect to AFIP WSAA (Web Service de Autenticación y Autorización)
     // and get the TA (Token de Autorización).
     return {
@@ -16,7 +18,9 @@ export class AfipService {
   }
 
   async getProximoNroComprobante(pv: number, tipo: string): Promise<number> {
-    this.logger.debug(`Getting next invoice number for PV ${pv} and type ${tipo}... (Placeholder)`);
+    this.logger.debug(
+      `Getting next invoice number for PV ${pv} and type ${tipo}... (Placeholder)`,
+    );
     // Here would be the logic to call FECompUltimoAutorizado from AFIP WSFE.
     return 12345; // Mock response
   }
@@ -33,8 +37,14 @@ export class AfipService {
     };
   }
 
-  async getComprobanteDetalle(pv: number, tipo: string, numero: number): Promise<any> {
-    this.logger.debug(`Getting invoice details for ${pv}-${tipo}-${numero}... (Placeholder)`);
+  async getComprobanteDetalle(
+    pv: number,
+    tipo: string,
+    numero: number,
+  ): Promise<any> {
+    this.logger.debug(
+      `Getting invoice details for ${pv}-${tipo}-${numero}... (Placeholder)`,
+    );
     // Here would be the logic to call FECompConsultar from AFIP WSFE.
     return {
       // Mock response
@@ -42,7 +52,9 @@ export class AfipService {
   }
 
   async getTiposComprobantes(): Promise<any[]> {
-    this.logger.debug('Getting allowed invoice types from AFIP... (Placeholder)');
+    this.logger.debug(
+      'Getting allowed invoice types from AFIP... (Placeholder)',
+    );
     // Here would be the logic to call FEParamGetTiposCbte from AFIP WSFE.
     return [
       { Id: '01', Desc: 'Factura A' },

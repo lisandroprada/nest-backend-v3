@@ -1,4 +1,10 @@
-import { IsString, IsNotEmpty, IsEnum, IsObject, ValidateNested } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsEnum,
+  IsObject,
+  ValidateNested,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 class TemplateDto {

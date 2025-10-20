@@ -25,7 +25,9 @@ export class AmenitiesService {
   }
 
   update(id: string, updateAmenityDto: UpdateAmenityDto) {
-    return this.amenityModel.findByIdAndUpdate(id, updateAmenityDto, { new: true }).exec();
+    return this.amenityModel
+      .findByIdAndUpdate(id, updateAmenityDto, { new: true })
+      .exec();
   }
 
   remove(id: string) {

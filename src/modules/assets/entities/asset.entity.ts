@@ -6,7 +6,11 @@ class HistorialEstado {
   @Prop({ type: Date, required: true })
   fecha: Date;
 
-  @Prop({ type: String, enum: ['NUEVO', 'BUENO', 'DESGASTE', 'DAÑADO', 'EN_REPARACION'], required: true })
+  @Prop({
+    type: String,
+    enum: ['NUEVO', 'BUENO', 'DESGASTE', 'DAÑADO', 'EN_REPARACION'],
+    required: true,
+  })
   estado_item: string;
 
   @Prop({ type: Types.ObjectId, ref: 'Contract' })
@@ -19,7 +23,12 @@ const HistorialEstadoSchema = SchemaFactory.createForClass(HistorialEstado);
 
 @Schema({ timestamps: true })
 export class Asset extends Document {
-  @Prop({ type: Types.ObjectId, ref: 'InventoryItem', required: true, index: true })
+  @Prop({
+    type: Types.ObjectId,
+    ref: 'InventoryItem',
+    required: true,
+    index: true,
+  })
   catalogo_id: Types.ObjectId;
 
   @Prop({ type: Types.ObjectId, ref: 'Property', required: true, index: true })
@@ -31,7 +40,11 @@ export class Asset extends Document {
   @Prop({ type: Date })
   fecha_adquisicion: Date;
 
-  @Prop({ type: String, enum: ['NUEVO', 'ACTIVO', 'EN_REPARACION', 'DE_BAJA'], required: true })
+  @Prop({
+    type: String,
+    enum: ['NUEVO', 'ACTIVO', 'EN_REPARACION', 'DE_BAJA'],
+    required: true,
+  })
   estado_actual: string;
 
   @Prop({ type: [HistorialEstadoSchema] })

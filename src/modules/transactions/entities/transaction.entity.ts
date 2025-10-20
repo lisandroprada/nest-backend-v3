@@ -6,7 +6,12 @@ export class Transaction extends Document {
   @Prop({ type: Types.ObjectId, ref: 'AccountingEntry', index: true })
   referencia_asiento: Types.ObjectId;
 
-  @Prop({ type: Types.ObjectId, ref: 'FinancialAccount', required: true, index: true })
+  @Prop({
+    type: Types.ObjectId,
+    ref: 'FinancialAccount',
+    required: true,
+    index: true,
+  })
   cuenta_financiera_id: Types.ObjectId;
 
   @Prop({ type: Date, required: true, index: true, default: Date.now })

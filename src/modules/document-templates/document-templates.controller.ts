@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Put,
+} from '@nestjs/common';
 import { DocumentTemplatesService } from './document-templates.service';
 import { CreateDocumentTemplateDto } from './dto/create-document-template.dto';
 import { UpdateDocumentTemplateDto } from './dto/update-document-template.dto';
@@ -26,7 +35,10 @@ export class DocumentTemplatesController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateDto: UpdateDocumentTemplateDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateDto: UpdateDocumentTemplateDto,
+  ) {
     return this.templatesService.update(id, updateDto);
   }
 

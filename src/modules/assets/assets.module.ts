@@ -7,7 +7,13 @@ import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Asset.name, schema: AssetSchema, collection: 'activos_propiedad' }]),
+    MongooseModule.forFeature([
+      {
+        name: Asset.name,
+        schema: AssetSchema,
+        collection: 'activos_propiedad',
+      },
+    ]),
     AuthModule,
   ],
   controllers: [AssetsController],

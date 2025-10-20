@@ -1,4 +1,10 @@
-import { IsString, IsNotEmpty, IsMongoId, IsNumber, IsPositive } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsMongoId,
+  IsNumber,
+  IsPositive,
+} from 'class-validator';
 
 export class AssignExpenseDto {
   @IsMongoId()

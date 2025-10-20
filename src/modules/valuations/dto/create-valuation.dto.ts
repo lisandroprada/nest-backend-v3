@@ -1,4 +1,13 @@
-import { IsString, IsNotEmpty, IsMongoId, IsOptional, IsNumber, IsPositive, IsObject, IsArray } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsMongoId,
+  IsOptional,
+  IsNumber,
+  IsPositive,
+  IsObject,
+  IsArray,
+} from 'class-validator';
 
 export class CreateValuationDto {
   @IsMongoId()

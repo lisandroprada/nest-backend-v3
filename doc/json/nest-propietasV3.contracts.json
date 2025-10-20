@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "68f29f7b7dfa837ba5263f65"
+  },
+  "firmas_completas": true,
+  "documentacion_completa": true,
+  "visita_realizada": true,
+  "inventario_actualizado": true,
+  "fotos_inventario": [
+    "placeholder.jpg"
+  ],
+  "propiedad_id": "831ae8648718496c969af8fb",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "07b31ee078bbba35980d58a0",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "FIADOR"
+    }
+  ],
+  "inventario_items": [],
+  "fecha_inicio": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  },
+  "fecha_final": {
+    "$date": "2028-01-01T00:00:00.000Z"
+  },
+  "duracion_meses": 36,
+  "penalidad_rescision_monto": 0,
+  "rescision_dias_preaviso_minimo": 30,
+  "rescision_dias_sin_penalidad": 90,
+  "rescision_porcentaje_penalidad": 10,
+  "tipo_contrato": "VIVIENDA_UNICA",
+  "status": "VIGENTE",
+  "terminos_financieros": {
+    "monto_base_vigente": 400000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 400000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "ajuste_programado": {
+    "$date": "2025-05-02T00:00:00.000Z"
+  },
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "createdAt": {
+    "$date": "2025-10-17T19:56:43.533Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T19:56:55.474Z"
+  },
+  "__v": 0
+}]

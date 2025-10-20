@@ -31,16 +31,17 @@ export class IndexValueController {
     return this.indexValueService.getIndexHistory(formula, limit);
   }
 
-  // Actualizar manualmente un índice desde la API o mediante scrapping
-  @Post('/update/:formula')
-  async updateIndexValue(@Param('formula') formula: string) {
+  @Post('/update/all')
+  async updateAllIndices() {
     try {
-      // Llamamos al servicio de scrapping para actualizar el índice
-      await this.indexScrapperService.updateIndexData(formula);
-      return { message: `Actualización del índice ${formula} completada.` };
+      const summary = await this.indexScrapperService.triggerUpdate();
+      return {
+        message: 'Actualización de todos los índices completada.',
+        summary,
+      };
     } catch (error) {
       return {
-        message: `Error al actualizar el índice ${formula}: ${error.message}`,
+        message: `Error al actualizar los índices: ${error.message}`,
       };
     }
   }

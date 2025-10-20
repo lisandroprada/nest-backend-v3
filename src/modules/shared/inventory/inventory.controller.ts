@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { InventoryService } from './inventory.service';
 import { CreateInventoryItemDto } from './dto/create-inventory-item.dto';
 import { UpdateInventoryItemDto } from './dto/update-inventory-item.dto';
@@ -26,7 +34,10 @@ export class InventoryController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateInventoryItemDto: UpdateInventoryItemDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateInventoryItemDto: UpdateInventoryItemDto,
+  ) {
     return this.inventoryService.update(id, updateInventoryItemDto);
   }
 

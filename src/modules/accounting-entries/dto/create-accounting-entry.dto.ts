@@ -40,6 +40,10 @@ export class CreateAccountingEntryDto {
 
   @IsDateString()
   @IsNotEmpty()
+  fecha_imputacion: string;
+
+  @IsDateString()
+  @IsNotEmpty()
   fecha_vencimiento: string;
 
   @IsString()

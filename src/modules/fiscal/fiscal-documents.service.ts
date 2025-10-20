@@ -10,7 +10,8 @@ import { IssueInvoiceDto } from './dto/issue-invoice.dto';
 @Injectable()
 export class FiscalDocumentsService {
   constructor(
-    @InjectModel(FiscalDocument.name) private readonly fiscalDocModel: Model<FiscalDocument>,
+    @InjectModel(FiscalDocument.name)
+    private readonly fiscalDocModel: Model<FiscalDocument>,
     private readonly afipService: AfipService,
     private readonly accountingEntriesService: AccountingEntriesService,
     private readonly agentsService: AgentsService,
@@ -20,7 +21,9 @@ export class FiscalDocumentsService {
     const { asientos_asociados_ids } = issueDto;
 
     // 1. Get accounting entries and validate them
-    const entries = await this.accountingEntriesService.find({ _id: { $in: asientos_asociados_ids } });
+    const entries = await this.accountingEntriesService.find({
+      _id: { $in: asientos_asociados_ids },
+    });
     if (entries.length !== asientos_asociados_ids.length) {
       throw new NotFoundException('One or more accounting entries not found.');
     }
@@ -33,8 +36,16 @@ export class FiscalDocumentsService {
     const clientId = firstEntry.partidas[0].agente_id;
     const client = await this.agentsService.findOne(clientId.toString());
 
-    const total_base_imponible = entries.reduce((sum, e) => sum + e.partidas.reduce((s, p) => s + (p.monto_base_imponible || 0), 0), 0);
-    const total_iva = entries.reduce((sum, e) => sum + e.partidas.reduce((s, p) => s + (p.monto_iva_calculado || 0), 0), 0);
+    const total_base_imponible = entries.reduce(
+      (sum, e) =>
+        sum + e.partidas.reduce((s, p) => s + (p.monto_base_imponible || 0), 0),
+      0,
+    );
+    const total_iva = entries.reduce(
+      (sum, e) =>
+        sum + e.partidas.reduce((s, p) => s + (p.monto_iva_calculado || 0), 0),
+      0,
+    );
     const monto_total_fiscal = total_base_imponible + total_iva;
 
     // 3. Determine invoice type (A or B)
@@ -42,7 +53,10 @@ export class FiscalDocumentsService {
     const tipo_comprobante = client.nomenclador_fiscal === 'RI' ? '01' : '06'; // Simplified logic
 
     // 4. Get next invoice number
-    const nextInvoiceNumber = await this.afipService.getProximoNroComprobante(punto_venta, tipo_comprobante);
+    const nextInvoiceNumber = await this.afipService.getProximoNroComprobante(
+      punto_venta,
+      tipo_comprobante,
+    );
 
     // 5. Submit to AFIP
     const afipResponse = await this.afipService.submitInvoice({

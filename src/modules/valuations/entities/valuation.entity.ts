@@ -6,7 +6,11 @@ export class Valuation extends Document {
   @Prop({ type: Types.ObjectId, ref: 'Property', index: true })
   propiedad_original_id: Types.ObjectId;
 
-  @Prop({ type: [{ type: Types.ObjectId, ref: 'Agent' }], required: true, index: true })
+  @Prop({
+    type: [{ type: Types.ObjectId, ref: 'Agent' }],
+    required: true,
+    index: true,
+  })
   clientes_solicitantes_ids: Types.ObjectId[];
 
   @Prop({ type: Types.ObjectId, ref: 'Agent', required: true, index: true })
@@ -27,7 +31,12 @@ export class Valuation extends Document {
   @Prop({ type: Number, required: true })
   valor_estimado_final: number;
 
-  @Prop({ type: String, enum: ['PENDIENTE_COBRO', 'FINALIZADA', 'ENTREGADA'], default: 'PENDIENTE_COBRO', index: true })
+  @Prop({
+    type: String,
+    enum: ['PENDIENTE_COBRO', 'FINALIZADA', 'ENTREGADA'],
+    default: 'PENDIENTE_COBRO',
+    index: true,
+  })
   estado_tasacion: string;
 }
 

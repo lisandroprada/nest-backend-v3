@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { DetectedExpensesService } from './detected-expenses.service';
 import { CreateDetectedExpenseDto } from './dto/create-detected-expense.dto';
 import { UpdateDetectedExpenseDto } from './dto/update-detected-expense.dto';
@@ -8,7 +16,9 @@ import { ValidRoles } from '../auth/interfaces';
 @Controller('detected-expenses')
 @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.contabilidad)
 export class DetectedExpensesController {
-  constructor(private readonly detectedExpensesService: DetectedExpensesService) {}
+  constructor(
+    private readonly detectedExpensesService: DetectedExpensesService,
+  ) {}
 
   @Post()
   create(@Body() createDto: CreateDetectedExpenseDto) {

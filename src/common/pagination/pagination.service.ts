@@ -51,9 +51,11 @@ export class PaginationService {
 
         // --- OR Logic for multi-field search ---
         if (orFields.length > 1) {
-          const orQuery = orFields.map(f => {
+          const orQuery = orFields.map((f) => {
             if (operation === SearchOperation.CONTAINS) {
-              return { [f]: { $regex: new RegExp(accentInsensitive(term), 'i') } };
+              return {
+                [f]: { $regex: new RegExp(accentInsensitive(term), 'i') },
+              };
             }
             // Add other operations for OR search if needed in the future
             return { [f]: term };
@@ -148,13 +150,24 @@ export class PaginationService {
         user: 'User',
       };
 
+      // Mapeo de alias de campos para populate
+      const fieldAliasMap = {
+        propiedad: 'propiedad_id',
+        agente: 'agente_id',
+        contrato: 'contrato_id',
+        usuario: 'usuario_id',
+      };
+
       populateFields.forEach((field) => {
+        // Verificar si el campo tiene un alias
+        const actualField = fieldAliasMap[field] || field;
         const modelName = fieldToModelMap[field];
+
         if (modelName) {
-          query = query.populate({ path: field, model: modelName });
+          query = query.populate({ path: actualField, model: modelName });
         } else {
           // Si no está en el mapeo, intentar populate simple (para casos especiales)
-          query = query.populate(field);
+          query = query.populate(actualField);
         }
       });
     }

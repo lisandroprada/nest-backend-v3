@@ -24,14 +24,22 @@ export class FiscalDocument extends Document {
   @Prop({ type: String, required: true, unique: true })
   CAE: string;
 
-  @Prop({ type: String, enum: ['APROBADO', 'RECHAZADO', 'PENDIENTE'], required: true })
+  @Prop({
+    type: String,
+    enum: ['APROBADO', 'RECHAZADO', 'PENDIENTE'],
+    required: true,
+  })
   estado_AFIP: string;
 
-  @Prop({ type: [{ type: Types.ObjectId, ref: 'AccountingEntry' }], required: true })
+  @Prop({
+    type: [{ type: Types.ObjectId, ref: 'AccountingEntry' }],
+    required: true,
+  })
   asientos_asociados_ids: Types.ObjectId[];
 
   @Prop({ type: Object })
   detalles_errores: any;
 }
 
-export const FiscalDocumentSchema = SchemaFactory.createForClass(FiscalDocument);
+export const FiscalDocumentSchema =
+  SchemaFactory.createForClass(FiscalDocument);

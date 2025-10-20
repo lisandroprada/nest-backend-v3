@@ -1,137 +1,165 @@
-[
-  {
-    "_id": {
-      "$oid": "68de7db05ef4c4702a92debb"
-    },
-    "codigo": "CXC_ALQ",
-    "nombre": "Cuentas por Cobrar - Alquileres",
-    "tipo_cuenta": "ACTIVO",
-    "descripcion": "Deuda de los locatarios por cánones de alquiler devengados.",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
+[{
+  "_id": {
+    "$oid": "68de7db05ef4c4702a92debb"
   },
-  {
-    "_id": {
-      "$oid": "68de7db05ef4c4702a92debc"
-    },
-    "codigo": "CXP_LOC",
-    "nombre": "Cuentas por Pagar - Locadores",
-    "tipo_cuenta": "PASIVO",
-    "descripcion": "Obligación de liquidar al propietario el monto neto de las rentas cobradas.",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
+  "codigo": "CXC_ALQ",
+  "nombre": "Cuentas por Cobrar - Alquileres",
+  "tipo_cuenta": "ACTIVO",
+  "descripcion": "Deuda de los locatarios por cánones de alquiler devengados.",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "68de7db05ef4c4702a92debc"
   },
-  {
-    "_id": {
-      "$oid": "68de7db05ef4c4702a92debd"
-    },
-    "codigo": "ING_HNR",
-    "nombre": "Ingresos por Honorarios de Administración",
-    "tipo_cuenta": "INGRESO",
-    "descripcion": "Comisiones por gestión administrativa y cobranza de alquileres.",
-    "tasa_iva_aplicable": 0.21,
-    "es_facturable": true
+  "codigo": "CXP_LOC",
+  "nombre": "Cuentas por Pagar - Locadores",
+  "tipo_cuenta": "PASIVO",
+  "descripcion": "Obligación de liquidar al propietario el monto neto de las rentas cobradas.",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "68de7db05ef4c4702a92debd"
   },
-  {
-    "_id": {
-      "$oid": "68de7db05ef4c4702a92debe"
-    },
-    "codigo": "PAS_DEP",
-    "nombre": "Pasivo - Depósitos en Garantía Recibidos",
-    "tipo_cuenta": "PASIVO",
-    "descripcion": "Obligación con el locatario por los depósitos recibidos, indexados y pendientes de devolución.",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
+  "codigo": "ING_HNR",
+  "nombre": "Ingresos por Honorarios de Administración",
+  "tipo_cuenta": "INGRESO",
+  "descripcion": "Comisiones por gestión administrativa y cobranza de alquileres.",
+  "tasa_iva_aplicable": 0.21,
+  "es_facturable": true
+},
+{
+  "_id": {
+    "$oid": "68de7db05ef4c4702a92debe"
   },
-  {
-    "_id": {
-      "$oid": "68de7db05ef4c4702a92debf"
-    },
-    "codigo": "ACT_FID",
-    "nombre": "Activo - Caja/Banco Fiduciario",
-    "tipo_cuenta": "ACTIVO",
-    "descripcion": "Cuenta donde se guarda el dinero de los depósitos en garantía (Activo de terceros).",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
+  "codigo": "PAS_DEP",
+  "nombre": "Pasivo - Depósitos en Garantía Recibidos",
+  "tipo_cuenta": "PASIVO",
+  "descripcion": "Obligación con el locatario por los depósitos recibidos, indexados y pendientes de devolución.",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "68de7db05ef4c4702a92debf"
   },
-  {
-    "codigo": "ING_HNR_INIC",
-    "nombre": "Ingresos por Honorarios de Inicio de Contrato",
-    "tipo_cuenta": "INGRESO",
-    "descripcion": "Comisiones por gestión de firma y entrega de propiedad.",
-    "tasa_iva_aplicable": 0.21,
-    "es_facturable": true
+  "codigo": "ACT_FID",
+  "nombre": "Activo - Caja/Banco Fiduciario",
+  "tipo_cuenta": "ACTIVO",
+  "descripcion": "Cuenta donde se guarda el dinero de los depósitos en garantía (Activo de terceros).",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bbc"
   },
-  {
-    "codigo": "ING_HNR_VEND",
-    "nombre": "Ingresos por Honorarios de Venta (Vendedor)",
-    "tipo_cuenta": "INGRESO",
-    "descripcion": "Comisión por intermediación inmobiliaria (Vendedor).",
-    "tasa_iva_aplicable": 0.21,
-    "es_facturable": true
+  "codigo": "ING_HNR_INIC",
+  "nombre": "Ingresos por Honorarios de Inicio de Contrato",
+  "tipo_cuenta": "INGRESO",
+  "descripcion": "Comisiones por gestión de firma y entrega de propiedad.",
+  "tasa_iva_aplicable": 0.21,
+  "es_facturable": true
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bbd"
   },
-  {
-    "codigo": "ING_HNR_COMP",
-    "nombre": "Ingresos por Honorarios de Venta (Comprador)",
-    "tipo_cuenta": "INGRESO",
-    "descripcion": "Comisión por intermediación inmobiliaria (Comprador).",
-    "tasa_iva_aplicable": 0.21,
-    "es_facturable": true
+  "codigo": "ING_HNR_VEND",
+  "nombre": "Ingresos por Honorarios de Venta (Vendedor)",
+  "tipo_cuenta": "INGRESO",
+  "descripcion": "Comisión por intermediación inmobiliaria (Vendedor).",
+  "tasa_iva_aplicable": 0.21,
+  "es_facturable": true
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bbe"
   },
-  {
-    "codigo": "ING_TASAC",
-    "nombre": "Ingresos por Servicios de Tasación",
-    "tipo_cuenta": "INGRESO",
-    "descripcion": "Honorarios por servicios profesionales de valuación de inmuebles.",
-    "tasa_iva_aplicable": 0.21,
-    "es_facturable": true
+  "codigo": "ING_HNR_COMP",
+  "nombre": "Ingresos por Honorarios de Venta (Comprador)",
+  "tipo_cuenta": "INGRESO",
+  "descripcion": "Comisión por intermediación inmobiliaria (Comprador).",
+  "tasa_iva_aplicable": 0.21,
+  "es_facturable": true
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bbf"
   },
-  {
-    "codigo": "ING_OBRAS",
-    "nombre": "Ingresos por Honorarios de Obra",
-    "tipo_cuenta": "INGRESO",
-    "descripcion": "Comisiones por administración y gestión de proyectos de construcción.",
-    "tasa_iva_aplicable": 0.21,
-    "es_facturable": true
+  "codigo": "ING_TASAC",
+  "nombre": "Ingresos por Servicios de Tasación",
+  "tipo_cuenta": "INGRESO",
+  "descripcion": "Honorarios por servicios profesionales de valuación de inmuebles.",
+  "tasa_iva_aplicable": 0.21,
+  "es_facturable": true
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bc0"
   },
-  {
-    "codigo": "ING_VARIOS",
-    "nombre": "Ingresos por Servicios Profesionales Varios",
-    "tipo_cuenta": "INGRESO",
-    "descripcion": "Ingresos misceláneos por servicios no clasificados.",
-    "tasa_iva_aplicable": 0.21,
-    "es_facturable": true
+  "codigo": "ING_OBRAS",
+  "nombre": "Ingresos por Honorarios de Obra",
+  "tipo_cuenta": "INGRESO",
+  "descripcion": "Comisiones por administración y gestión de proyectos de construcción.",
+  "tasa_iva_aplicable": 0.21,
+  "es_facturable": true
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bc1"
   },
-  {
-    "codigo": "CXP_PROV",
-    "nombre": "Cuentas por Pagar - Proveedores (Generales)",
-    "tipo_cuenta": "PASIVO",
-    "descripcion": "Registro de la obligación de pago por facturas de proveedores.",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
+  "codigo": "ING_VARIOS",
+  "nombre": "Ingresos por Servicios Profesionales Varios",
+  "tipo_cuenta": "INGRESO",
+  "descripcion": "Ingresos misceláneos por servicios no clasificados.",
+  "tasa_iva_aplicable": 0.21,
+  "es_facturable": true
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bc2"
   },
-  {
-    "codigo": "CXP_RETENCION",
-    "nombre": "Cuentas por Pagar - Retenciones Fiscales",
-    "tipo_cuenta": "PASIVO",
-    "descripcion": "Registro de las retenciones realizadas y pendientes de depositar a entes fiscales.",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
+  "codigo": "CXP_PROV",
+  "nombre": "Cuentas por Pagar - Proveedores (Generales)",
+  "tipo_cuenta": "PASIVO",
+  "descripcion": "Registro de la obligación de pago por facturas de proveedores.",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bc3"
   },
-  {
-    "codigo": "CXP_OBRAS",
-    "nombre": "Cuentas por Pagar - Proveedores de Obra",
-    "tipo_cuenta": "PASIVO",
-    "descripcion": "Pasivo específico para obras de infraestructura.",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
+  "codigo": "CXP_RETENCION",
+  "nombre": "Cuentas por Pagar - Retenciones Fiscales",
+  "tipo_cuenta": "PASIVO",
+  "descripcion": "Registro de las retenciones realizadas y pendientes de depositar a entes fiscales.",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bc4"
   },
-  {
-    "codigo": "CXC_REINT",
-    "nombre": "Cuentas por Cobrar - Reintegro de Gastos",
-    "tipo_cuenta": "ACTIVO",
-    "descripcion": "Se utiliza cuando la Inmobiliaria paga un gasto que debe ser cobrado a un Locador/Locatario.",
-    "tasa_iva_aplicable": 0,
-    "es_facturable": false
-  }
-]
+  "codigo": "CXP_OBRAS",
+  "nombre": "Cuentas por Pagar - Proveedores de Obra",
+  "tipo_cuenta": "PASIVO",
+  "descripcion": "Pasivo específico para obras de infraestructura.",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "68f028f8853d3916c9f78bc5"
+  },
+  "codigo": "CXC_REINT",
+  "nombre": "Cuentas por Cobrar - Reintegro de Gastos",
+  "tipo_cuenta": "ACTIVO",
+  "descripcion": "Se utiliza cuando la Inmobiliaria paga un gasto que debe ser cobrado a un Locador/Locatario.",
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+}]

@@ -17,11 +17,17 @@ export class DocumentsService {
     if (context.type === 'contract') {
       const contract = await this.contractsService.findOne(context.id);
       if (!contract) {
-        throw new NotFoundException(`Contract with ID ${context.id} not found.`);
+        throw new NotFoundException(
+          `Contract with ID ${context.id} not found.`,
+        );
       }
 
-      const landlord = await this.agentsService.findOne(contract.partes.find(p => p.rol === 'LOCADOR').agente_id.toString());
-      const tenant = await this.agentsService.findOne(contract.partes.find(p => p.rol === 'LOCATARIO').agente_id.toString());
+      const landlord = await this.agentsService.findOne(
+        contract.partes.find((p) => p.rol === 'LOCADOR').agente_id.toString(),
+      );
+      const tenant = await this.agentsService.findOne(
+        contract.partes.find((p) => p.rol === 'LOCATARIO').agente_id.toString(),
+      );
 
       data = {
         contrato: contract,

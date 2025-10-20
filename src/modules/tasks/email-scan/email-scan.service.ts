@@ -18,14 +18,20 @@ export class EmailScanService {
 
     // 1. Get provider configuration
     // const providers = await this.agentsService.findAllProvidersWithAutomation();
-    this.logger.debug('Step 1: Fetching provider configurations... (Placeholder)');
+    this.logger.debug(
+      'Step 1: Fetching provider configurations... (Placeholder)',
+    );
 
     // 2. Connect to IMAP server and scan emails
-    this.logger.debug('Step 2: Connecting to IMAP and scanning emails... (Placeholder)');
+    this.logger.debug(
+      'Step 2: Connecting to IMAP and scanning emails... (Placeholder)',
+    );
     // const emails = await connectAndFetchEmails(providers);
 
     // 3. & 4. Analyze emails and attachments
-    this.logger.debug('Step 3 & 4: Analyzing emails and attachments... (Placeholder)');
+    this.logger.debug(
+      'Step 3 & 4: Analyzing emails and attachments... (Placeholder)',
+    );
     // for (const email of emails) {
     //   const extractedData = analyzeEmailAndAttachments(email, providers);
 

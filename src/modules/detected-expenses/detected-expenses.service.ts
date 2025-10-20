@@ -8,7 +8,8 @@ import { UpdateDetectedExpenseDto } from './dto/update-detected-expense.dto';
 @Injectable()
 export class DetectedExpensesService {
   constructor(
-    @InjectModel(DetectedExpense.name) private readonly detectedExpenseModel: Model<DetectedExpense>,
+    @InjectModel(DetectedExpense.name)
+    private readonly detectedExpenseModel: Model<DetectedExpense>,
   ) {}
 
   create(createDto: CreateDetectedExpenseDto) {
@@ -25,7 +26,9 @@ export class DetectedExpensesService {
   }
 
   update(id: string, updateDto: UpdateDetectedExpenseDto) {
-    return this.detectedExpenseModel.findByIdAndUpdate(id, updateDto, { new: true }).exec();
+    return this.detectedExpenseModel
+      .findByIdAndUpdate(id, updateDto, { new: true })
+      .exec();
   }
 
   remove(id: string) {

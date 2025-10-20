@@ -25,7 +25,9 @@ export class AssetsService {
   }
 
   update(id: string, updateAssetDto: UpdateAssetDto) {
-    return this.assetModel.findByIdAndUpdate(id, updateAssetDto, { new: true }).exec();
+    return this.assetModel
+      .findByIdAndUpdate(id, updateAssetDto, { new: true })
+      .exec();
   }
 
   remove(id: string) {

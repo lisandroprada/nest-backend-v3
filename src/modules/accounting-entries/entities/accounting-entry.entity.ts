@@ -35,11 +35,13 @@ class Partida {
 }
 const PartidaSchema = SchemaFactory.createForClass(Partida);
 
-
 @Schema({ timestamps: true })
 export class AccountingEntry extends Document {
   @Prop({ type: Types.ObjectId, ref: 'Contract', index: true })
   contrato_id: Types.ObjectId;
+
+  @Prop({ type: Date, required: true, index: true })
+  fecha_imputacion: Date;
 
   @Prop({ type: Date, required: true, index: true })
   fecha_vencimiento: Date;
@@ -52,9 +54,21 @@ export class AccountingEntry extends Document {
 
   @Prop({
     type: String,
-    enum: ['PENDIENTE', 'PAGADO', 'PAGADO_PARCIAL', 'ANULADO', 'CONDONADO', 'PENDIENTE_APROBACION', 'LIQUIDADO', 'ANULADO_POR_RESCISION', 'PENDIENTE_FACTURAR', 'FACTURADO'],
+    enum: [
+      'PENDIENTE',
+      'PENDIENTE_AJUSTE',
+      'PAGADO',
+      'PAGADO_PARCIAL',
+      'ANULADO',
+      'CONDONADO',
+      'PENDIENTE_APROBACION',
+      'LIQUIDADO',
+      'ANULADO_POR_RESCISION',
+      'PENDIENTE_FACTURAR',
+      'FACTURADO',
+    ],
     default: 'PENDIENTE',
-    index: true
+    index: true,
   })
   estado: string;
 
@@ -78,12 +92,82 @@ export class AccountingEntry extends Document {
 
   @Prop({ type: Types.ObjectId, ref: 'User' })
   usuario_modificacion_id: Types.ObjectId;
+
+  // Campos de pago
+  @Prop({ type: Date })
+  fecha_pago?: Date;
+
+  @Prop({ type: String })
+  metodo_pago?: string;
+
+  @Prop({ type: String })
+  comprobante?: string;
+
+  // Campos de anulación
+  @Prop({ type: Date })
+  fecha_anulacion?: Date;
+
+  @Prop({ type: String })
+  motivo_anulacion?: string;
+
+  @Prop({ type: String })
+  tipo_motivo_anulacion?: string;
+
+  // Campos de condonación
+  @Prop({ type: Date })
+  fecha_condonacion?: Date;
+
+  @Prop({ type: Number })
+  monto_condonado?: number;
+
+  @Prop({ type: String })
+  motivo_condonacion?: string;
+
+  // Campos de liquidación
+  @Prop({ type: Date })
+  fecha_liquidacion?: Date;
+
+  @Prop({ type: String })
+  metodo_liquidacion?: string;
+
+  @Prop({ type: String })
+  comprobante_liquidacion?: string;
+
+  // Historial de cambios
+  @Prop({
+    type: [
+      {
+        fecha: Date,
+        usuario_id: Types.ObjectId,
+        accion: String,
+        estado_anterior: String,
+        estado_nuevo: String,
+        monto: Number,
+        observaciones: String,
+      },
+    ],
+    default: [],
+  })
+  historial_cambios: Array<{
+    fecha: Date;
+    usuario_id: Types.ObjectId;
+    accion: string;
+    estado_anterior?: string;
+    estado_nuevo?: string;
+    monto?: number;
+    observaciones?: string;
+  }>;
 }
 
-export const AccountingEntrySchema = SchemaFactory.createForClass(AccountingEntry);
+export const AccountingEntrySchema =
+  SchemaFactory.createForClass(AccountingEntry);
 
 // Índice compuesto sugerido por el DDD
-AccountingEntrySchema.index({ contrato_id: 1, estado: 1, fecha_vencimiento: 1 });
+AccountingEntrySchema.index({
+  contrato_id: 1,
+  estado: 1,
+  fecha_vencimiento: 1,
+});
 
 // Índice para optimizar el cálculo de saldo de agentes
 AccountingEntrySchema.index({ 'partidas.agente_id': 1, estado: 1 });

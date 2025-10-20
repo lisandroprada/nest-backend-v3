@@ -8,7 +8,8 @@ import { UpdateDocumentTemplateDto } from './dto/update-document-template.dto';
 @Injectable()
 export class DocumentTemplatesService {
   constructor(
-    @InjectModel(DocumentTemplate.name) private readonly docTemplateModel: Model<DocumentTemplate>,
+    @InjectModel(DocumentTemplate.name)
+    private readonly docTemplateModel: Model<DocumentTemplate>,
   ) {}
 
   create(createDto: CreateDocumentTemplateDto) {
@@ -25,7 +26,9 @@ export class DocumentTemplatesService {
   }
 
   update(id: string, updateDto: UpdateDocumentTemplateDto) {
-    return this.docTemplateModel.findByIdAndUpdate(id, updateDto, { new: true }).exec();
+    return this.docTemplateModel
+      .findByIdAndUpdate(id, updateDto, { new: true })
+      .exec();
   }
 
   remove(id: string) {

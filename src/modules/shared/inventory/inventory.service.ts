@@ -8,7 +8,8 @@ import { UpdateInventoryItemDto } from './dto/update-inventory-item.dto';
 @Injectable()
 export class InventoryService {
   constructor(
-    @InjectModel(InventoryItem.name) private readonly inventoryItemModel: Model<InventoryItem>,
+    @InjectModel(InventoryItem.name)
+    private readonly inventoryItemModel: Model<InventoryItem>,
   ) {}
 
   create(createInventoryItemDto: CreateInventoryItemDto) {
@@ -25,7 +26,9 @@ export class InventoryService {
   }
 
   update(id: string, updateInventoryItemDto: UpdateInventoryItemDto) {
-    return this.inventoryItemModel.findByIdAndUpdate(id, updateInventoryItemDto, { new: true }).exec();
+    return this.inventoryItemModel
+      .findByIdAndUpdate(id, updateInventoryItemDto, { new: true })
+      .exec();
   }
 
   remove(id: string) {

@@ -8,7 +8,6 @@ import {
   IsNumber,
   IsObject,
   IsOptional,
-  IsString,
   ValidateNested,
 } from 'class-validator';
 import { AgenteRoles } from '../../agents/constants/agent-roles.enum';
@@ -35,9 +34,47 @@ class TerminosFinancierosDto {
   @IsNumber()
   @IsOptional()
   interes_mora_diaria?: number;
+
+  @IsEnum(['INCLUIDO', 'MAS_IVA'])
+  @IsOptional()
+  iva_calculo_base?: string;
+
+  @IsNumber()
+  @IsOptional()
+  comision_administracion_porcentaje?: number;
+
+  @IsNumber()
+  @IsOptional()
+  honorarios_locador_porcentaje?: number;
+
+  @IsNumber()
+  @IsOptional()
+  honorarios_locatario_porcentaje?: number;
+
+  @IsNumber()
+  @IsOptional()
+  ajuste_periodicidad_meses?: number;
 }
 
 export class CreateContractDto {
+  @IsOptional()
+  firmas_completas?: boolean;
+
+  @IsOptional()
+  documentacion_completa?: boolean;
+
+  @IsOptional()
+  visita_realizada?: boolean;
+
+  @IsOptional()
+  inventario_actualizado?: boolean;
+
+  @IsOptional()
+  @IsArray()
+  fotos_inventario?: string[];
+  @IsEnum(['VIGENTE', 'FINALIZADO', 'RESCINDIDO', 'PENDIENTE'])
+  @IsOptional()
+  status?: string;
   @IsMongoId()
   @IsNotEmpty()
   propiedad_id: string;
@@ -55,6 +92,10 @@ export class CreateContractDto {
   @IsNotEmpty()
   fecha_final: string;
 
+  @IsEnum(['VIVIENDA_UNICA', 'VIVIENDA', 'COMERCIAL', 'TEMPORARIO', 'OTROS'])
+  @IsOptional()
+  tipo_contrato?: string;
+
   @IsObject()
   @ValidateNested()
   @Type(() => TerminosFinancierosDto)
@@ -71,4 +112,8 @@ export class CreateContractDto {
   @IsEnum(['AL_ORIGEN', 'AL_ULTIMO_ALQUILER'])
   @IsOptional()
   deposito_tipo_ajuste?: string;
+
+  @IsNumber()
+  @IsOptional()
+  duracion_meses?: number;
 }

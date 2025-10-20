@@ -41,36 +41,45 @@ export class FiscalReportsService {
       },
       {
         $project: {
-            _id: 0,
-            year: '$_id.year',
-            month: '$_id.month',
-            totalFacturado: '$totalFacturado',
-            numeroFacturas: '$numeroFacturas',
-            stdDev: { $stdDevPop: '$monthlyData' },
-        }
-      }
+          _id: 0,
+          year: '$_id.year',
+          month: '$_id.month',
+          totalFacturado: '$totalFacturado',
+          numeroFacturas: '$numeroFacturas',
+          stdDev: { $stdDevPop: '$monthlyData' },
+        },
+      },
     ]);
 
-    const totalBilled = historicalData.reduce((acc, item) => acc + item.totalFacturado, 0);
+    const totalBilled = historicalData.reduce(
+      (acc, item) => acc + item.totalFacturado,
+      0,
+    );
     const averageBilling = totalBilled / historicalData.length;
 
-    const regressionData = historicalData.map((item, index) => [index, item.totalFacturado]);
+    const regressionData = historicalData.map((item, index) => [
+      index,
+      item.totalFacturado,
+    ]);
     const { m, b } = simpleStatistics.linearRegression(regressionData);
 
     const projection = [];
     for (let i = 1; i <= 3; i++) {
-        const nextMonthIndex = regressionData.length + i - 1;
-        projection.push(m * nextMonthIndex + b);
+      const nextMonthIndex = regressionData.length + i - 1;
+      projection.push(m * nextMonthIndex + b);
     }
 
     return {
       historicalData,
       kpis: {
         averageBilling,
-        totalInvoices: historicalData.reduce((acc, item) => acc + item.numeroFacturas, 0),
-        dispersion: historicalData.map(item => item.stdDev), // This is monthly, maybe an average is better
+        totalInvoices: historicalData.reduce(
+          (acc, item) => acc + item.numeroFacturas,
+          0,
+        ),
+        dispersion: historicalData.map((item) => item.stdDev), // This is monthly, maybe an average is better
         projection,
-      }
+      },
     };
   }
 }

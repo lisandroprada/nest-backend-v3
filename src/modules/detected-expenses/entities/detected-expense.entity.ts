@@ -9,7 +9,11 @@ export class DetectedExpense extends Document {
   @Prop({ type: Date, default: Date.now, index: true })
   fecha_deteccion: Date;
 
-  @Prop({ type: String, enum: ['FACTURA_DISPONIBLE', 'AVISO_DEUDA', 'AVISO_CORTE'], required: true })
+  @Prop({
+    type: String,
+    enum: ['FACTURA_DISPONIBLE', 'AVISO_DEUDA', 'AVISO_CORTE'],
+    required: true,
+  })
   tipo_alerta: string;
 
   @Prop({ type: String, required: true, index: true })
@@ -18,7 +22,12 @@ export class DetectedExpense extends Document {
   @Prop({ type: Number })
   monto_estimado: number;
 
-  @Prop({ type: String, enum: ['PENDIENTE_VALIDACION', 'ASIGNADO', 'DESCARTADO'], default: 'PENDIENTE_VALIDACION', index: true })
+  @Prop({
+    type: String,
+    enum: ['PENDIENTE_VALIDACION', 'ASIGNADO', 'DESCARTADO'],
+    default: 'PENDIENTE_VALIDACION',
+    index: true,
+  })
   estado_procesamiento: string;
 
   @Prop({ type: String })
@@ -28,4 +37,5 @@ export class DetectedExpense extends Document {
   adjunto_referencia_url: string;
 }
 
-export const DetectedExpenseSchema = SchemaFactory.createForClass(DetectedExpense);
+export const DetectedExpenseSchema =
+  SchemaFactory.createForClass(DetectedExpense);

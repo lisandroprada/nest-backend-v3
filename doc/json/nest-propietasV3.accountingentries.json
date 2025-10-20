@@ -1,0 +1,5688 @@
+[{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491533"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 12/2024",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 12/2024",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 12/2024",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 12/2024",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.621Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.621Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491535"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-02-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 01/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 01/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 01/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 01/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.625Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.625Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491537"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-03-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 02/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 02/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 02/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 02/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.629Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.629Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491539"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-04-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 03/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 03/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 03/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 03/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.632Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.632Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49153b"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-05-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 04/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 04/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 04/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 04/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.634Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.634Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49153d"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-06-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 05/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 05/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 05/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 05/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.636Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.636Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49153f"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-07-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 06/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 06/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 06/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 06/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.639Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.639Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491541"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-08-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 07/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 07/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 07/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 07/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.641Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.641Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491543"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-09-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 08/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 08/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 08/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 08/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.645Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.645Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491545"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-10-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 09/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 09/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 09/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 09/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.646Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.646Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491547"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-11-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 10/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 10/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 10/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 10/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.648Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.648Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491549"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-12-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 11/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 11/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 11/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 11/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.650Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.650Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49154b"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 12/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 12/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 12/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 12/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.651Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.651Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49154d"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-02-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 01/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 01/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 01/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 01/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.653Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.653Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49154f"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-03-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 02/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 02/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 02/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 02/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.655Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.655Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491551"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-04-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 03/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 03/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 03/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 03/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.657Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.657Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491553"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-05-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 04/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 04/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 04/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 04/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.658Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.658Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491555"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-06-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 05/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 05/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 05/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 05/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.659Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.659Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491557"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-07-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 06/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 06/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 06/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 06/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.660Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.660Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491559"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-08-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 07/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 07/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 07/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 07/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.661Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.661Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49155b"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-09-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 08/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 08/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 08/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 08/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.662Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.662Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49155d"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-10-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 09/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 09/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 09/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 09/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.663Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.663Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49155f"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-11-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 10/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 10/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 10/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 10/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.664Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.664Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491561"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-12-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 11/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 11/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 11/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 11/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.665Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.665Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491563"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 12/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 12/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 12/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 12/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.666Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.666Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491565"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-02-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 01/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 01/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 01/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 01/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.667Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.667Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491567"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-03-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 02/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 02/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 02/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 02/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.668Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.668Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491569"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-04-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 03/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 03/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 03/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 03/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.669Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.669Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49156b"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-05-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 04/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 04/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 04/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 04/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.670Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.670Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49156d"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-06-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 05/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 05/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 05/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 05/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.671Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.671Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49156f"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-07-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 06/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 06/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 06/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 06/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.671Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.671Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491571"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-08-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 07/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 07/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 07/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 07/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.672Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.672Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491573"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-09-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 08/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 08/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 08/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 08/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.673Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.673Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491575"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-10-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 09/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 09/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 09/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 09/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.674Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.674Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491577"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-11-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 10/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 10/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 10/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 10/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.675Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.675Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc491579"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-12-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 11/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 11/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 11/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 11/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.676Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.676Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49157b"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2028-01-01T00:00:00.000Z"
+  },
+  "descripcion": "Registro de depósito en garantía",
+  "tipo_asiento": "Deposito en Garantia",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debe"
+      },
+      "descripcion": "Recepción de depósito en garantía",
+      "debe": 0,
+      "haber": 850000,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debf"
+      },
+      "descripcion": "Ingreso de depósito en garantía a caja/banco",
+      "debe": 850000,
+      "haber": 0,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.676Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.676Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49157d"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Honorarios locador - Cuota 1/1",
+  "tipo_asiento": "Honorarios Locador",
+  "estado": "PENDIENTE",
+  "monto_original": 612000,
+  "monto_actual": 612000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Descuento honorarios locador - Cuota 1/1",
+      "debe": 612000,
+      "haber": 0,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68f028f8853d3916c9f78bbc"
+      },
+      "descripcion": "Ingreso honorarios locador - Cuota 1/1",
+      "debe": 0,
+      "haber": 612000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.677Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.677Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be5a90da5e9fcc49157f"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Honorarios locatario - Cuota 1/1",
+  "tipo_asiento": "Honorarios Locatario",
+  "estado": "PENDIENTE",
+  "monto_original": 612000,
+  "monto_actual": 612000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Cargo honorarios locatario - Cuota 1/1",
+      "debe": 612000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68f028f8853d3916c9f78bbc"
+      },
+      "descripcion": "Ingreso honorarios locatario - Cuota 1/1",
+      "debe": 0,
+      "haber": 612000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:26.678Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:26.678Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc491593"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 12/2024",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 12/2024",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 12/2024",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 12/2024",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.859Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.859Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc491595"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-02-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 01/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 01/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 01/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 01/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.869Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.869Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc491597"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-03-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 02/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 02/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 02/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 02/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.871Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.871Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc491599"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-04-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 03/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 03/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 03/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 03/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.873Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.873Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc49159b"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-05-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 04/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 04/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 04/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 04/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.875Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.875Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc49159d"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-06-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 05/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 05/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 05/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 05/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.876Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.876Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc49159f"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-07-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 06/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 06/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 06/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 06/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.878Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.878Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915a1"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-08-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 07/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 07/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 07/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 07/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.879Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.879Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915a3"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-09-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 08/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 08/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 08/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 08/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.880Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.880Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915a5"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-10-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 09/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 09/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 09/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 09/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.882Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.882Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915a7"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-11-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 10/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 10/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 10/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 10/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.883Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.883Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915a9"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-12-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 11/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 11/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 11/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 11/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.885Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.885Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915ab"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 12/2025",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 12/2025",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 12/2025",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 12/2025",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.886Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.886Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915ad"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-02-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 01/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 01/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 01/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 01/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.888Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.888Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915af"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-03-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 02/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 02/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 02/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 02/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.889Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.889Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915b1"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-04-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 03/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 03/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 03/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 03/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.890Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.890Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915b3"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-05-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 04/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 04/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 04/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 04/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.891Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.891Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915b5"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-06-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 05/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 05/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 05/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 05/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.892Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.892Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915b7"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-07-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 06/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 06/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 06/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 06/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.893Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.893Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915b9"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-08-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 07/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 07/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 07/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 07/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.894Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.894Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915bb"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-09-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 08/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 08/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 08/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 08/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.895Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.895Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915bd"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-10-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 09/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 09/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 09/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 09/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.896Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.896Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915bf"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-11-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 10/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 10/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 10/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 10/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.898Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.898Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915c1"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2026-12-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 11/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 11/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 11/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 11/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.899Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.899Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915c3"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 12/2026",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 12/2026",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 12/2026",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 12/2026",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.901Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.901Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915c5"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-02-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 01/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 01/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 01/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 01/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.904Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.904Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915c7"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-03-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 02/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 02/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 02/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 02/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.906Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.906Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915c9"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-04-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 03/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 03/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 03/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 03/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.907Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.907Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915cb"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-05-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 04/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 04/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 04/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 04/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.908Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.908Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915cd"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-06-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 05/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 05/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 05/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 05/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.909Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.909Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915cf"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-07-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 06/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 06/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 06/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 06/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.910Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915d1"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-08-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 07/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 07/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 07/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 07/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.912Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.912Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915d3"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-09-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 08/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE_AJUSTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 08/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 08/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 08/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": true,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.913Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.913Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915d5"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-10-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 09/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 09/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 09/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 09/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.914Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.914Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915d7"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-11-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 10/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 10/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 10/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 10/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.915Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.915Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915d9"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2027-12-11T00:00:00.000Z"
+  },
+  "descripcion": "Devengamiento alquiler 11/2027",
+  "tipo_asiento": "Alquiler",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Alquiler 11/2027",
+      "debe": 850000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Crédito por alquiler 11/2027",
+      "debe": 0,
+      "haber": 782000,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debd"
+      },
+      "descripcion": "Honorarios por alquiler 11/2027",
+      "debe": 0,
+      "haber": 68000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.916Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.916Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915db"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2028-01-01T00:00:00.000Z"
+  },
+  "descripcion": "Registro de depósito en garantía",
+  "tipo_asiento": "Deposito en Garantia",
+  "estado": "PENDIENTE",
+  "monto_original": 850000,
+  "monto_actual": 850000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debe"
+      },
+      "descripcion": "Recepción de depósito en garantía",
+      "debe": 0,
+      "haber": 850000,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debf"
+      },
+      "descripcion": "Ingreso de depósito en garantía a caja/banco",
+      "debe": 850000,
+      "haber": 0,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.917Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.917Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915dd"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Honorarios locador - Cuota 1/1",
+  "tipo_asiento": "Honorarios Locador",
+  "estado": "PENDIENTE",
+  "monto_original": 612000,
+  "monto_actual": 612000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debc"
+      },
+      "descripcion": "Descuento honorarios locador - Cuota 1/1",
+      "debe": 612000,
+      "haber": 0,
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68f028f8853d3916c9f78bbc"
+      },
+      "descripcion": "Ingreso honorarios locador - Cuota 1/1",
+      "debe": 0,
+      "haber": 612000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.919Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.919Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68f2be6390da5e9fcc4915df"
+  },
+  "contrato_id": {
+    "$oid": "68f2be5a90da5e9fcc49152b"
+  },
+  "fecha_vencimiento": {
+    "$date": "2025-01-11T00:00:00.000Z"
+  },
+  "descripcion": "Honorarios locatario - Cuota 1/1",
+  "tipo_asiento": "Honorarios Locatario",
+  "estado": "PENDIENTE",
+  "monto_original": 612000,
+  "monto_actual": 612000,
+  "partidas": [
+    {
+      "cuenta_id": {
+        "$oid": "68de7db05ef4c4702a92debb"
+      },
+      "descripcion": "Cargo honorarios locatario - Cuota 1/1",
+      "debe": 612000,
+      "haber": 0,
+      "agente_id": "ff94422a4f362edab22860ba",
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    },
+    {
+      "cuenta_id": {
+        "$oid": "68f028f8853d3916c9f78bbc"
+      },
+      "descripcion": "Ingreso honorarios locatario - Cuota 1/1",
+      "debe": 0,
+      "haber": 612000,
+      "monto_pagado_acumulado": 0,
+      "es_iva_incluido": false,
+      "tasa_iva_aplicada": 0,
+      "monto_base_imponible": 0,
+      "monto_iva_calculado": 0
+    }
+  ],
+  "es_ajustable": false,
+  "usuario_creacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "usuario_modificacion_id": {
+    "$oid": "44c47c6eb8582c27fbc2c7f4"
+  },
+  "historial_cambios": [],
+  "createdAt": {
+    "$date": "2025-10-17T22:08:35.920Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-17T22:08:35.920Z"
+  },
+  "__v": 0
+}]

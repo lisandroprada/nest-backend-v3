@@ -1,5 +1,36 @@
 # Changelog - Property Module Upgrade
 
+## [2.1.0] - 2025-10-15
+
+### 🔄 BREAKING CHANGES
+
+#### Cálculo de Honorarios de Creación de Contrato
+
+- ⚠️ **CAMBIO IMPORTANTE**: Los honorarios de locador/locatario ahora se calculan como **porcentaje del monto total del contrato** (duración × valor inicial), no del monto mensual
+- ✨ Nuevo método `generateHonorariosEntries()` en `ContractsService` para generar asientos de honorarios al crear contrato
+- 🔧 Actualizado `calculateInitialPayments()` para usar el nuevo cálculo en preview
+- 📚 Nueva documentación: `doc/CONTRACTS/HONORARIOS_CALCULATION_CHANGE.md`
+- 📝 Actualizada documentación de API con ejemplos y fórmulas correctas
+
+**Impacto del cambio:**
+
+Contrato de 36 meses × $100,000/mes con 2% honorarios locador:
+
+- **Antes:** $100,000 × 2% = $2,000
+- **Ahora:** $3,600,000 × 2% = $72,000 ✅
+
+**Archivos modificados:**
+
+- `src/modules/contracts/contracts.service.ts`
+- `doc/CONTRACTS/CALCULATE_INITIAL_PAYMENTS_API.md`
+- `doc/CONTRACTS/INDEX.md`
+
+**Scripts de prueba:**
+
+- `scripts/test-honorarios-calculation.sh`
+
+---
+
 ## [2.0.0] - 2025-10-09
 
 ### 🎉 Nuevas Características

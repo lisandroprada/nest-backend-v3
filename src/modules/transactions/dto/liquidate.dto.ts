@@ -1,4 +1,11 @@
-import { IsArray, IsDateString, IsMongoId, IsNotEmpty, IsNumber, IsPositive } from 'class-validator';
+import {
+  IsArray,
+  IsDateString,
+  IsMongoId,
+  IsNotEmpty,
+  IsNumber,
+  IsPositive,
+} from 'class-validator';
 
 export class LiquidateDto {
   @IsMongoId()

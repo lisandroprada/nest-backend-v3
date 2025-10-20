@@ -9,8 +9,8 @@ import { Agent } from './entities/agent.entity';
 import { CreateAgentDto } from './dto/create-agent.dto';
 import { UpdateAgentDto } from './dto/update-agent.dto';
 import { AccountingEntriesService } from '../accounting-entries/accounting-entries.service';
-import { PaginationDto } from 'src/common/pagination/dto/pagination.dto';
-import { PaginationService } from 'src/common/pagination/pagination.service';
+import { PaginationDto } from '../../common/pagination/dto/pagination.dto';
+import { PaginationService } from '../../common/pagination/pagination.service';
 import { CuitService } from '../cuit/cuit.service';
 
 @Injectable()

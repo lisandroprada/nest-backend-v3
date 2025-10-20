@@ -9,8 +9,8 @@ import { Property } from './entities/property.entity';
 import { AgentsService } from '../agents/agents.service';
 import { CreatePropertyDto } from './dto/create-property.dto';
 import { UpdatePropertyDto } from './dto/update-property.dto';
-import { PaginationDto } from 'src/common/pagination/dto/pagination.dto';
-import { PaginationService } from 'src/common/pagination/pagination.service';
+import { PaginationDto } from '../../common/pagination/dto/pagination.dto';
+import { PaginationService } from '../../common/pagination/pagination.service';
 
 @Injectable()
 export class PropertiesService {

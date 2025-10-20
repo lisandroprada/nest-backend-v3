@@ -11,7 +11,10 @@ export class DocumentsController {
   constructor(private readonly documentsService: DocumentsService) {}
 
   @Post('generate-pdf')
-  async generatePdf(@Body() generateDto: GenerateDocumentDto, @Res() res: Response) {
+  async generatePdf(
+    @Body() generateDto: GenerateDocumentDto,
+    @Res() res: Response,
+  ) {
     const html = await this.documentsService.generateDocument(generateDto);
     // For now, we return the HTML. In the future, this will be a PDF file.
     res.header('Content-Type', 'text/html');

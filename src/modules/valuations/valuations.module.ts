@@ -9,7 +9,13 @@ import { PropertiesModule } from '../properties/properties.module';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Valuation.name, schema: ValuationSchema, collection: 'tasaciones' }]),
+    MongooseModule.forFeature([
+      {
+        name: Valuation.name,
+        schema: ValuationSchema,
+        collection: 'tasaciones',
+      },
+    ]),
     AuthModule,
     AccountingEntriesModule,
     PropertiesModule,

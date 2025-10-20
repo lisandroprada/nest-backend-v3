@@ -46,7 +46,7 @@ import { FiscalModule } from './modules/fiscal/fiscal.module';
 
 import { ValuationsModule } from './modules/valuations/valuations.module';
 import { CuitModule } from './modules/cuit/cuit.module';
-
+import { ContractSettingsModule } from './modules/contract-settings/contract-settings.module';
 
 @Module({
   imports: [
@@ -100,6 +100,7 @@ import { CuitModule } from './modules/cuit/cuit.module';
     FiscalModule,
     ValuationsModule,
     CuitModule,
+    ContractSettingsModule,
   ],
   controllers: [AppController],
   providers: [

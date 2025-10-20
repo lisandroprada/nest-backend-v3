@@ -25,12 +25,56 @@ class TerminosFinancieros {
 
   @Prop({ type: String, enum: ['INCLUIDO', 'MAS_IVA'], default: 'MAS_IVA' })
   iva_calculo_base: string;
+
+  // Honorarios variables por contrato
+  @Prop({ type: Number, required: true })
+  comision_administracion_porcentaje: number;
+
+  @Prop({ type: Number, default: 0 })
+  honorarios_locador_porcentaje: number;
+
+  @Prop({ type: Number, default: 1 })
+  honorarios_locador_cuotas: number;
+
+  @Prop({ type: Number, default: 0 })
+  honorarios_locatario_porcentaje: number;
+
+  @Prop({ type: Number, default: 1 })
+  honorarios_locatario_cuotas: number;
+
+  // Ajustes de alquiler
+  @Prop({ type: Number, default: 0 })
+  ajuste_porcentaje: number;
+
+  @Prop({ type: Number, default: 12 })
+  ajuste_periodicidad_meses: number;
+
+  @Prop({ type: Boolean, default: false })
+  ajuste_es_fijo: boolean;
+
+  @Prop({ type: Number, default: 0 })
+  indice_valor_inicial: number;
 }
 const TerminosFinancierosSchema =
   SchemaFactory.createForClass(TerminosFinancieros);
 
 @Schema({ timestamps: true })
 export class Contract extends Document {
+  // Hitos de activación
+  @Prop({ type: Boolean, default: false })
+  firmas_completas: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  documentacion_completa: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  visita_realizada: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  inventario_actualizado: boolean;
+
+  @Prop({ type: [String], default: [] })
+  fotos_inventario: string[];
   @Prop({ type: Types.ObjectId, ref: 'Property', required: true, index: true })
   propiedad_id: Types.ObjectId;
 
@@ -46,8 +90,35 @@ export class Contract extends Document {
   @Prop({ type: Date, required: true })
   fecha_final: Date;
 
+  @Prop({ type: Number, required: true })
+  duracion_meses: number;
+
   @Prop({ type: Date })
   fecha_recision_anticipada: Date;
+
+  @Prop({ type: Date })
+  fecha_notificacion_rescision: Date;
+
+  @Prop({ type: Number, default: 0 })
+  penalidad_rescision_monto: number;
+
+  @Prop({ type: String })
+  penalidad_rescision_motivo: string;
+
+  @Prop({ type: Number, default: 30 })
+  rescision_dias_preaviso_minimo: number;
+
+  @Prop({ type: Number, default: 90 })
+  rescision_dias_sin_penalidad: number;
+
+  @Prop({ type: Number, default: 10 })
+  rescision_porcentaje_penalidad: number;
+
+  @Prop({
+    type: String,
+    enum: ['VIVIENDA_UNICA', 'VIVIENDA', 'COMERCIAL', 'TEMPORARIO', 'OTROS'],
+  })
+  tipo_contrato: string;
 
   @Prop({
     type: String,
@@ -62,6 +133,9 @@ export class Contract extends Document {
 
   @Prop({ type: Number })
   deposito_monto: number;
+
+  @Prop({ type: Number, default: 1 })
+  deposito_cuotas: number;
 
   @Prop({ type: String, enum: ['AL_ORIGEN', 'AL_ULTIMO_ALQUILER'] })
   deposito_tipo_ajuste: string;

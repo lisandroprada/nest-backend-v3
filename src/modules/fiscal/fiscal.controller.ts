@@ -13,16 +13,21 @@ export class FiscalController {
   constructor(
     private readonly fiscalDocumentsService: FiscalDocumentsService,
     private readonly fiscalReportsService: FiscalReportsService,
-    ) {}
+  ) {}
 
   @Post('invoices/issue')
   issueInvoice(@Body() issueDto: IssueInvoiceDto, @GetUser() user: User) {
-    return this.fiscalDocumentsService.issueInvoice(issueDto, user._id.toString());
+    return this.fiscalDocumentsService.issueInvoice(
+      issueDto,
+      user._id.toString(),
+    );
   }
 
   @Get('reports/billing-summary')
   getBillingSummary(@Query('months') months: string) {
-    return this.fiscalReportsService.getBillingSummary(parseInt(months, 10) || 12);
+    return this.fiscalReportsService.getBillingSummary(
+      parseInt(months, 10) || 12,
+    );
   }
 
   // Other endpoints from the specification can be added here...

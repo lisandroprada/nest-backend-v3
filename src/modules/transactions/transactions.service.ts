@@ -29,10 +29,15 @@ export class TransactionsService {
     // 2. Imputar el pago al asiento contable (Lógica central de cobro)
     const { referencia_asiento, monto } = createTransactionDto;
 
-    await this.accountingEntriesService.imputePayment(
-      referencia_asiento,
-      monto,
-    );
+    // Imputar el pago usando el método correcto
+    await this.accountingEntriesService.marcarComoPagado(referencia_asiento, {
+      monto_pagado: monto,
+      fecha_pago: new Date().toISOString(),
+      metodo_pago: 'TRANSFERENCIA', // Ajustar según contexto
+      comprobante: '',
+      usuario_id: userId,
+      observaciones: 'Imputación automática desde transacción',
+    });
 
     return newTransaction;
   }
@@ -75,9 +80,9 @@ export class TransactionsService {
       );
     }
 
-    const accountingEntry = await this.accountingEntriesService.findById(
-      transaction.referencia_asiento.toString(),
-    );
+    const accountingEntry = await this.accountingEntriesService[
+      'accountingEntryModel'
+    ].findById(transaction.referencia_asiento.toString());
     if (!accountingEntry) {
       throw new NotFoundException(
         `Accounting entry with ID ${transaction.referencia_asiento} not found.`,
