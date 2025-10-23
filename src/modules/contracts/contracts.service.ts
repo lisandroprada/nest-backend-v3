@@ -23,6 +23,8 @@ import {
   PartidaPreviewDto,
 } from './dto/calculate-initial-payments.dto';
 import * as fs from 'fs';
+import { AgentsService } from '../agents/agents.service';
+import { Property } from '../properties/entities/property.entity';
 
 @Injectable()
 export class ContractsService {
@@ -43,6 +45,7 @@ export class ContractsService {
     private readonly propertiesService: PropertiesService,
     private readonly paginationService: PaginationService,
     private readonly contractSettingsService: ContractSettingsService,
+    private readonly agentsService: AgentsService,
   ) {}
 
   private async loadAccountIds(): Promise<void> {
@@ -189,30 +192,41 @@ export class ContractsService {
       }
     }
 
-    const updatedContract = await this.contractModel.findByIdAndUpdate(
-      id,
-      {
-        ...updateContractDto,
-        usuario_modificacion_id: new Types.ObjectId(userId),
-      },
-      { new: true },
-    );
+    const updatedContract = await this.contractModel
+      .findByIdAndUpdate(
+        id,
+        {
+          ...updateContractDto,
+          usuario_modificacion_id: new Types.ObjectId(userId),
+        },
+        { new: true },
+      )
+      .populate('propiedad_id');
     if (!updatedContract) {
       throw new NotFoundException(`Contract with ID "${id}" not found.`);
     }
 
     if (generarAsientos) {
       await this.loadAccountIds();
-      await this.generateInitialAccountingEntries(updatedContract, userId);
-      await this.generateDepositEntry(updatedContract, userId);
-      await this.generateHonorariosEntries(updatedContract, userId);
+      await this.generateInitialAccountingEntries(
+        updatedContract as unknown as Contract & { propiedad_id: Property },
+        userId,
+      );
+      await this.generateDepositEntry(
+        updatedContract as unknown as Contract & { propiedad_id: Property },
+        userId,
+      );
+      await this.generateHonorariosEntries(
+        updatedContract as unknown as Contract & { propiedad_id: Property },
+        userId,
+      );
     }
 
     return updatedContract;
   }
 
   private async generateDepositEntry(
-    contract: Contract,
+    contract: Contract & { propiedad_id: Property },
     userId: string,
   ): Promise<void> {
     const locatario = contract.partes.find(
@@ -220,65 +234,148 @@ export class ContractsService {
     );
     if (!locatario) return;
 
+    const locatarioAgent = await this.agentsService.findOne(
+      locatario.agente_id.toString(),
+    );
+
+    if (!locatarioAgent) {
+      console.warn(
+        `Agente locatario con ID ${locatario.agente_id} no encontrado para el depósito.`,
+      );
+    }
+
+    const locatarioName = locatarioAgent
+      ? locatarioAgent.nombres
+      : 'Locatario Desconocido';
+
+    const propertyAddress = contract.propiedad_id
+      ? `${contract.propiedad_id.direccion.calle} ${contract.propiedad_id.direccion.numero}, ${contract.propiedad_id.direccion.localidad_id}`
+      : 'Propiedad Desconocida';
+
     const cuentaPasivoDepositoId = this.accountIdsCache['PAS_DEP'];
     const cuentaActivoFiduciarioId = this.accountIdsCache['ACT_FID'];
+
+    const descripcionBase = 'Registro de depósito en garantía';
+
+    const metadata = {
+      propertyAddress: propertyAddress,
+
+      locatarioName: locatarioName,
+    };
 
     const partidas = [
       {
         cuenta_id: cuentaPasivoDepositoId,
+
         descripcion: 'Recepción de depósito en garantía',
+
         debe: 0,
+
         haber: contract.deposito_monto,
+
         agente_id: locatario.agente_id,
+
         es_iva_incluido: false,
+
         tasa_iva_aplicada: 0,
+
         monto_base_imponible: 0,
+
         monto_iva_calculado: 0,
       },
+
       {
         cuenta_id: cuentaActivoFiduciarioId,
+
         descripcion: 'Ingreso de depósito en garantía a caja/banco',
+
         debe: contract.deposito_monto,
+
         haber: 0,
+
         es_iva_incluido: false,
+
         tasa_iva_aplicada: 0,
+
         monto_base_imponible: 0,
+
         monto_iva_calculado: 0,
       },
     ];
 
     const montoOriginal = partidas.reduce((sum, p) => sum + (p.debe || 0), 0);
+
     const montoActual = montoOriginal;
 
     const entryPayload = {
       contrato_id: contract._id as Types.ObjectId,
+
       tipo_asiento: 'Deposito en Garantia',
+
       fecha_imputacion: new Date(contract.fecha_inicio),
+
       fecha_vencimiento: new Date(contract.fecha_inicio),
-      descripcion: 'Registro de depósito en garantía',
+
+      descripcion: descripcionBase,
+
       partidas: partidas.map((p) =>
-        p.agente_id
-          ? { ...p, agente_id: new Types.ObjectId(p.agente_id) }
-          : p,
+        p.agente_id ? { ...p, agente_id: new Types.ObjectId(p.agente_id) } : p,
       ),
+
       monto_original: montoOriginal,
+
       monto_actual: montoActual,
+
       usuario_creacion_id: new Types.ObjectId(userId),
+
       usuario_modificacion_id: new Types.ObjectId(userId),
+
+      metadata: metadata,
     };
 
     await this.accountingEntriesService.create(entryPayload);
   }
 
   private async generateHonorariosEntries(
-    contract: Contract,
+    contract: Contract & { propiedad_id: Property },
     userId: string,
   ): Promise<void> {
     const { terminos_financieros, fecha_inicio, fecha_final, partes } =
       contract;
+
+    const propertyAddress = contract.propiedad_id
+      ? `${contract.propiedad_id.direccion.calle} ${contract.propiedad_id.direccion.numero}, ${contract.propiedad_id.direccion.localidad_id}`
+      : 'Propiedad Desconocida';
+
     const locador = partes.find((p) => p.rol === AgenteRoles.LOCADOR);
     const locatario = partes.find((p) => p.rol === AgenteRoles.LOCATARIO);
     if (!locador || !locatario) return;
+
+    const locadorAgent = await this.agentsService.findOne(
+      locador.agente_id.toString(),
+    );
+
+    if (!locadorAgent) {
+      console.warn(`Agente locador con ID ${locador.agente_id} no encontrado.`);
+    }
+
+    const locatarioAgent = await this.agentsService.findOne(
+      locatario.agente_id.toString(),
+    );
+
+    if (!locatarioAgent) {
+      console.warn(
+        `Agente locatario con ID ${locatario.agente_id} no encontrado.`,
+      );
+    }
+
+    const locadorName = locadorAgent
+      ? locadorAgent.nombres
+      : 'Locador Desconocido';
+
+    const locatarioName = locatarioAgent
+      ? locatarioAgent.nombres
+      : 'Locatario Desconocido';
 
     const cuentaLocadorId = this.accountIdsCache['CXP_LOC'];
     const cuentaDeudaLocatarioId = this.accountIdsCache['CXC_ALQ'];
@@ -300,10 +397,18 @@ export class ContractsService {
       const montoPorCuota = montoTotalHonorarios / cuotasLocador;
       for (let i = 0; i < cuotasLocador; i++) {
         const fechaVenc = fechaInicio.plus({ months: i, days: 10 });
+        const descripcionBase = `Honorarios locador - Cuota ${i + 1}/${cuotasLocador}`;
+        const metadata = {
+          propertyAddress: propertyAddress,
+          locadorName: locadorName,
+          locatarioName: locatarioName,
+          cuota: `${i + 1}/${cuotasLocador}`,
+        };
+
         const partidas = [
           {
             cuenta_id: cuentaLocadorId,
-            descripcion: `Descuento honorarios locador - Cuota ${i + 1}/${cuotasLocador}`,
+            descripcion: `Descuento honorarios locador - Cuota ${i + 1}`,
             debe: montoPorCuota,
             haber: 0,
             agente_id: locador.agente_id,
@@ -314,7 +419,7 @@ export class ContractsService {
           },
           {
             cuenta_id: cuentaIngresoInmoId,
-            descripcion: `Ingreso honorarios locador - Cuota ${i + 1}/${cuotasLocador}`,
+            descripcion: `Ingreso honorarios locador - Cuota ${i + 1}`,
             debe: 0,
             haber: montoPorCuota,
             es_iva_incluido: false,
@@ -333,7 +438,7 @@ export class ContractsService {
           tipo_asiento: 'Honorarios Locador',
           fecha_imputacion: fechaInicio.plus({ months: i }).toJSDate(),
           fecha_vencimiento: fechaVenc.toJSDate(),
-          descripcion: `Honorarios locador - Cuota ${i + 1}/${cuotasLocador}`,
+          descripcion: descripcionBase,
           partidas: partidas.map((p) =>
             p.agente_id
               ? { ...p, agente_id: new Types.ObjectId(p.agente_id) }
@@ -343,6 +448,7 @@ export class ContractsService {
           monto_actual: montoActual,
           usuario_creacion_id: new Types.ObjectId(userId),
           usuario_modificacion_id: new Types.ObjectId(userId),
+          metadata: metadata,
         });
       }
     }
@@ -356,10 +462,18 @@ export class ContractsService {
       const montoPorCuota = montoTotalHonorarios / cuotasLocatario;
       for (let i = 0; i < cuotasLocatario; i++) {
         const fechaVenc = fechaInicio.plus({ months: i, days: 10 });
+        const descripcionBase = `Honorarios locatario - Cuota ${i + 1}/${cuotasLocatario}`;
+        const metadata = {
+          propertyAddress: propertyAddress,
+          locadorName: locadorName,
+          locatarioName: locatarioName,
+          cuota: `${i + 1}/${cuotasLocatario}`,
+        };
+
         const partidas = [
           {
             cuenta_id: cuentaDeudaLocatarioId,
-            descripcion: `Cargo honorarios locatario - Cuota ${i + 1}/${cuotasLocatario}`,
+            descripcion: `Cargo honorarios locatario - Cuota ${i + 1}`,
             debe: montoPorCuota,
             haber: 0,
             agente_id: locatario.agente_id,
@@ -370,7 +484,7 @@ export class ContractsService {
           },
           {
             cuenta_id: cuentaIngresoInmoId,
-            descripcion: `Ingreso honorarios locatario - Cuota ${i + 1}/${cuotasLocatario}`,
+            descripcion: `Ingreso honorarios locatario - Cuota ${i + 1}`,
             debe: 0,
             haber: montoPorCuota,
             es_iva_incluido: false,
@@ -389,7 +503,7 @@ export class ContractsService {
           tipo_asiento: 'Honorarios Locatario',
           fecha_imputacion: fechaInicio.plus({ months: i }).toJSDate(),
           fecha_vencimiento: fechaVenc.toJSDate(),
-          descripcion: `Honorarios locatario - Cuota ${i + 1}/${cuotasLocatario}`,
+          descripcion: descripcionBase,
           partidas: partidas.map((p) =>
             p.agente_id
               ? { ...p, agente_id: new Types.ObjectId(p.agente_id) }
@@ -399,13 +513,14 @@ export class ContractsService {
           monto_actual: montoActual,
           usuario_creacion_id: new Types.ObjectId(userId),
           usuario_modificacion_id: new Types.ObjectId(userId),
+          metadata: metadata,
         });
       }
     }
   }
 
   private async generateInitialAccountingEntries(
-    contract: Contract,
+    contract: Contract & { propiedad_id: Property },
     userId: string,
   ): Promise<void> {
     const logData = {
@@ -427,14 +542,14 @@ export class ContractsService {
     const { terminos_financieros, fecha_inicio, fecha_final, partes } =
       contract;
 
-    const cuentaDeudaLocatarioId = this.accountIdsCache['CXC_ALQ'];
-    const cuentaIngresoLocadorId = this.accountIdsCache['CXP_LOC'];
-    const cuentaIngresoInmoId = this.accountIdsCache['ING_HNR'];
-
     const settings = await this.contractSettingsService.getSettings();
     const porcentajeHonorarios =
       (terminos_financieros.comision_administracion_porcentaje ??
         (settings.comision_administracion_default || 0)) / 100;
+
+    const propertyAddress = contract.propiedad_id
+      ? `${contract.propiedad_id.direccion.calle} ${contract.propiedad_id.direccion.numero}, ${contract.propiedad_id.direccion.localidad_id}`
+      : 'Propiedad Desconocida';
 
     const locador = partes.find((p) => p.rol === AgenteRoles.LOCADOR);
     const locatario = partes.find((p) => p.rol === AgenteRoles.LOCATARIO);
@@ -443,6 +558,38 @@ export class ContractsService {
         'Se requiere un locador y un locatario en las partes del contrato',
       );
     }
+
+    const locadorAgent = await this.agentsService.findOne(
+      locador.agente_id.toString(),
+    );
+
+    if (!locadorAgent) {
+      console.warn(
+        `Agente locador con ID ${locador.agente_id} no encontrado para honorarios.`,
+      );
+    }
+
+    const locatarioAgent = await this.agentsService.findOne(
+      locatario.agente_id.toString(),
+    );
+
+    if (!locatarioAgent) {
+      console.warn(
+        `Agente locatario con ID ${locatario.agente_id} no encontrado para honorarios.`,
+      );
+    }
+
+    const locadorName = locadorAgent
+      ? locadorAgent.nombres
+      : 'Locador Desconocido';
+
+    const locatarioName = locatarioAgent
+      ? locatarioAgent.nombres
+      : 'Locatario Desconocido';
+
+    const cuentaDeudaLocatarioId = this.accountIdsCache['CXC_ALQ'];
+    const cuentaIngresoLocadorId = this.accountIdsCache['CXP_LOC'];
+    const cuentaIngresoInmoId = this.accountIdsCache['ING_HNR'];
 
     const fechaInicio = DateTime.fromJSDate(fecha_inicio);
     const fechaFinal = DateTime.fromJSDate(fecha_final);
@@ -466,6 +613,14 @@ export class ContractsService {
       if (esMesAjuste && tipoIndice !== 'FIJO') {
         estado = 'PENDIENTE_AJUSTE';
       }
+
+      const descripcionBase = `Alquiler ${fechaPeriodo.toFormat('MM/yyyy')}`;
+      const metadata = {
+        propertyAddress: propertyAddress,
+        locadorName: locadorName,
+        locatarioName: locatarioName,
+        periodo: fechaPeriodo.toFormat('MM/yyyy'),
+      };
 
       const montoHonorarios = montoAlquiler * porcentajeHonorarios;
       const montoParaLocador = montoAlquiler - montoHonorarios;
@@ -499,9 +654,7 @@ export class ContractsService {
         },
         {
           cuenta_id: cuentaIngresoLocadorId,
-          descripcion: `Crédito por alquiler ${fechaPeriodo.toFormat(
-            'MM/yyyy',
-          )}`,
+          descripcion: `Crédito por alquiler ${fechaPeriodo.toFormat('MM/yyyy')}`,
           debe: 0,
           haber: montoParaLocador,
           agente_id: new Types.ObjectId(locador.agente_id),
@@ -527,12 +680,13 @@ export class ContractsService {
       console.log('[GENERATE ASIENTO]', {
         contrato_id: contract._id,
         fecha_vencimiento: fechaVencimiento,
-        descripcion: `Devengamiento alquiler ${fechaPeriodo.toFormat('MM/yyyy')}`,
+        descripcion: descripcionBase,
         partidas,
         monto_original: montoOriginal,
         monto_actual: montoActual,
         estado,
         es_ajustable: estado === 'PENDIENTE_AJUSTE',
+        metadata: metadata,
       });
       if (!partidas || partidas.length === 0) {
         console.error(
@@ -540,7 +694,7 @@ export class ContractsService {
           {
             contrato_id: contract._id,
             fecha_vencimiento: fechaVencimiento,
-            descripcion: `Devengamiento alquiler ${fechaPeriodo.toFormat('MM/yyyy')}`,
+            descripcion: descripcionBase,
           },
         );
       }
@@ -549,7 +703,7 @@ export class ContractsService {
         tipo_asiento: 'Alquiler',
         fecha_imputacion: fechaPeriodo.toJSDate(),
         fecha_vencimiento: fechaVencimiento,
-        descripcion: `Devengamiento alquiler ${fechaPeriodo.toFormat('MM/yyyy')}`,
+        descripcion: descripcionBase,
         partidas: partidas,
         monto_original: montoOriginal,
         monto_actual: montoActual,
@@ -557,6 +711,7 @@ export class ContractsService {
         usuario_modificacion_id: new Types.ObjectId(userId),
         estado,
         es_ajustable: estado === 'PENDIENTE_AJUSTE',
+        metadata: metadata,
       });
     }
   }
@@ -814,8 +969,8 @@ export class ContractsService {
         fechaFinal.diff(fechaInicio, 'months').months,
       );
       const montoTotalContrato = mesesContrato * montoBase;
-      const montoTotalHonorarios = montoTotalContrato * porcentajeHonLocatario;
-      const montoPorCuota = montoTotalHonorarios / cuotasLocatario;
+      const montoPorCuota =
+        (montoTotalContrato * porcentajeHonLocatario) / cuotasLocatario;
 
       for (let i = 0; i < cuotasLocatario; i++) {
         const fechaVenc = fechaInicio.plus({ months: i, days: 10 });

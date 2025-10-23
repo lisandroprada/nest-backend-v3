@@ -99,9 +99,7 @@ export class AccountingEntriesService {
       query.contrato_id = new Types.ObjectId(filterParams.contrato_id);
     }
     if (filterParams.agente_id) {
-      query['partidas.agente_id'] = new Types.ObjectId(
-        filterParams.agente_id,
-      );
+      query['partidas.agente_id'] = new Types.ObjectId(filterParams.agente_id);
     }
     if (filterParams.tipo_asiento) {
       query.tipo_asiento = filterParams.tipo_asiento;
@@ -251,10 +249,7 @@ export class AccountingEntriesService {
   /**
    * Calcula el estado de cuenta de un agente (saldo neto hasta la fecha de corte)
    */
-  async getEstadoCuentaByAgente(
-    agentId: string,
-    filters: any,
-  ): Promise<any> {
+  async getEstadoCuentaByAgente(agentId: string, filters: any): Promise<any> {
     const { fecha_desde, fecha_hasta, incluir_anulados = false } = filters;
 
     const matchStage: any = { 'partidas.agente_id': agentId };
@@ -279,19 +274,21 @@ export class AccountingEntriesService {
       { $sort: { fecha_imputacion: 1 } },
     ];
 
-    const movimientos = await this.accountingEntryModel.aggregate(pipeline as PipelineStage[]);
+    const movimientos = await this.accountingEntryModel.aggregate(
+      pipeline as PipelineStage[],
+    );
 
     let saldo_acumulado = 0;
     let total_debe = 0;
     let total_haber = 0;
     let total_pagado = 0;
 
-    const movimientosConSaldo = movimientos.map(m => {
+    const movimientosConSaldo = movimientos.map((m) => {
       const debe = m.partidas.debe || 0;
       const haber = m.partidas.haber || 0;
       const pagado = m.partidas.monto_pagado_acumulado || 0;
 
-      saldo_acumulado += (debe - haber);
+      saldo_acumulado += debe - haber;
       total_debe += debe;
       total_haber += haber;
       total_pagado += pagado;
@@ -303,7 +300,9 @@ export class AccountingEntriesService {
         monto_pagado_acumulado: pagado,
         saldo_partida: debe - pagado,
         saldo_acumulado,
-        pagado: m.estado === 'PAGADO' || (m.estado === 'PAGADO_PARCIAL' && pagado >= debe),
+        pagado:
+          m.estado === 'PAGADO' ||
+          (m.estado === 'PAGADO_PARCIAL' && pagado >= debe),
       };
     });
 
@@ -314,8 +313,9 @@ export class AccountingEntriesService {
         total_haber,
         total_pagado,
         saldo_final: total_debe - total_haber,
-        asientos_pendientes: movimientosConSaldo.filter(m => !m.pagado).length,
-        asientos_pagados: movimientosConSaldo.filter(m => m.pagado).length,
+        asientos_pendientes: movimientosConSaldo.filter((m) => !m.pagado)
+          .length,
+        asientos_pagados: movimientosConSaldo.filter((m) => m.pagado).length,
         total_movimientos: movimientos.length,
       },
       movimientos: movimientosConSaldo,
@@ -387,14 +387,15 @@ export class AccountingEntriesService {
     return this.accountingEntryModel.aggregate(pipeline);
   }
 
-  async find(filter: any): Promise<AccountingEntry[]> {
-    return this.accountingEntryModel.find(filter).exec();
+  async find(filter: any, session?: any): Promise<AccountingEntry[]> {
+    return this.accountingEntryModel.find(filter, null, { session }).exec();
   }
 
-  async markAsInvoiced(asientoIds: string[]) {
+  async markAsInvoiced(asientoIds: string[], session?: any) {
     return this.accountingEntryModel.updateMany(
       { _id: { $in: asientoIds } },
       { $set: { estado: 'FACTURADO' } },
+      { session },
     );
   }
 
@@ -622,8 +623,11 @@ export class AccountingEntriesService {
   async anularAsiento(
     asientoId: string,
     dto: AnularAsientoDto,
+    session?: any,
   ): Promise<AccountingEntry> {
-    const asiento = await this.accountingEntryModel.findById(asientoId);
+    const asiento = await this.accountingEntryModel.findById(asientoId, null, {
+      session,
+    });
 
     if (!asiento) {
       throw new NotFoundException('Asiento no encontrado');
@@ -659,7 +663,7 @@ export class AccountingEntriesService {
       observaciones: `Motivo: ${dto.motivo}. ${dto.observaciones || ''}`,
     });
 
-    return await asiento.save();
+    return await asiento.save({ session });
   }
 
   /**
@@ -668,8 +672,11 @@ export class AccountingEntriesService {
   async condonarDeuda(
     asientoId: string,
     dto: CondonarAsientoDto,
+    session?: any,
   ): Promise<AccountingEntry> {
-    const asiento = await this.accountingEntryModel.findById(asientoId);
+    const asiento = await this.accountingEntryModel.findById(asientoId, null, {
+      session,
+    });
 
     if (!asiento) {
       throw new NotFoundException('Asiento no encontrado');
@@ -746,7 +753,7 @@ export class AccountingEntriesService {
       observaciones: `Condonado: ${montoCondonar}. Motivo: ${dto.motivo}. Autorizado por: ${dto.usuario_autorizador_id}. ${dto.observaciones || ''}`,
     });
 
-    return await asiento.save();
+    return await asiento.save({ session });
   }
 
   /**
@@ -755,8 +762,11 @@ export class AccountingEntriesService {
   async liquidarAPropietario(
     asientoId: string,
     dto: LiquidarAsientoDto,
+    session?: any,
   ): Promise<AccountingEntry> {
-    const asiento = await this.accountingEntryModel.findById(asientoId);
+    const asiento = await this.accountingEntryModel.findById(asientoId, null, {
+      session,
+    });
 
     if (!asiento) {
       throw new NotFoundException('Asiento no encontrado');
@@ -785,7 +795,7 @@ export class AccountingEntriesService {
       observaciones: `Liquidado al propietario. Método: ${dto.metodo_liquidacion}. ${dto.observaciones || ''}`,
     });
 
-    return await asiento.save();
+    return await asiento.save({ session });
   }
 
   /**

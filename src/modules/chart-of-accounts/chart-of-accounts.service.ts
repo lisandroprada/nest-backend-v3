@@ -86,4 +86,8 @@ export class ChartOfAccountsService {
 
     return accountIdsMap;
   }
+
+  async find(filter: any, session?: any): Promise<ChartOfAccount[]> {
+    return this.chartOfAccountModel.find(filter, null, { session }).exec();
+  }
 }

@@ -37,4 +37,8 @@ export class CreateTransactionDto {
   @IsString()
   @IsOptional()
   referencia_bancaria?: string;
+
+  @IsMongoId()
+  @IsOptional()
+  receipt_id?: string;
 }

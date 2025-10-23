@@ -59,4 +59,29 @@ export class FinancialAccountsService {
     }
     return { deleted: true };
   }
+
+  async updateBalance(
+    accountId: string,
+    amount: number,
+    type: 'INGRESO' | 'EGRESO',
+    session: any, // Mongoose session
+  ): Promise<FinancialAccount> {
+    const update =
+      type === 'INGRESO'
+        ? { $inc: { saldo_inicial: amount } }
+        : { $inc: { saldo_inicial: -amount } };
+
+    const updatedAccount = await this.financialAccountModel.findByIdAndUpdate(
+      accountId,
+      update,
+      { new: true, session },
+    );
+
+    if (!updatedAccount) {
+      throw new NotFoundException(
+        `Cuenta financiera con ID "${accountId}" no encontrada para actualizar el saldo.`,
+      );
+    }
+    return updatedAccount;
+  }
 }

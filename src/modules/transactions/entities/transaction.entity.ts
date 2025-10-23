@@ -26,6 +26,9 @@ export class Transaction extends Document {
   @Prop({ type: String })
   descripcion: string;
 
+  @Prop({ type: Types.ObjectId, ref: 'Receipt' })
+  receipt_id?: Types.ObjectId;
+
   @Prop({ type: Boolean, default: false, index: true })
   conciliado: boolean;
 

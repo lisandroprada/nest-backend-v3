@@ -1,45 +1,33 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, Inject, forwardRef } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Transaction } from './entities/transaction.entity';
 import { AccountingEntriesService } from '../accounting-entries/accounting-entries.service';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
 import { LiquidateDto } from './dto/liquidate.dto';
+import { ReceiptsService } from '../receipts/receipts.service';
 
 @Injectable()
 export class TransactionsService {
   constructor(
     @InjectModel(Transaction.name)
     private readonly transactionModel: Model<Transaction>,
-    private readonly accountingEntriesService: AccountingEntriesService, // Inyección clave
+    private readonly accountingEntriesService: AccountingEntriesService,
+    @Inject(forwardRef(() => ReceiptsService))
+    private readonly receiptsService: ReceiptsService,
   ) {}
 
-  async createTransactionAndImpute(
+  async create(
     createTransactionDto: CreateTransactionDto,
     userId: string,
+    session: any, // Mongoose session
   ): Promise<Transaction> {
-    // 1. Guardar la transacción (registro de flujo de caja)
     const newTransaction = new this.transactionModel({
       ...createTransactionDto,
       usuario_creacion_id: new Types.ObjectId(userId),
       usuario_modificacion_id: new Types.ObjectId(userId),
     });
-    await newTransaction.save();
-
-    // 2. Imputar el pago al asiento contable (Lógica central de cobro)
-    const { referencia_asiento, monto } = createTransactionDto;
-
-    // Imputar el pago usando el método correcto
-    await this.accountingEntriesService.marcarComoPagado(referencia_asiento, {
-      monto_pagado: monto,
-      fecha_pago: new Date().toISOString(),
-      metodo_pago: 'TRANSFERENCIA', // Ajustar según contexto
-      comprobante: '',
-      usuario_id: userId,
-      observaciones: 'Imputación automática desde transacción',
-    });
-
-    return newTransaction;
+    return await newTransaction.save({ session });
   }
 
   async liquidate(
@@ -80,23 +68,24 @@ export class TransactionsService {
       );
     }
 
-    const accountingEntry = await this.accountingEntriesService[
-      'accountingEntryModel'
-    ].findById(transaction.referencia_asiento.toString());
-    if (!accountingEntry) {
+    if (!transaction.receipt_id) {
       throw new NotFoundException(
-        `Accounting entry with ID ${transaction.referencia_asiento} not found.`,
+        `Transaction with ID ${transactionId} is not associated with a receipt.`,
       );
     }
 
-    return {
-      receipt_id: transaction._id,
-      date: transaction.fecha_transaccion,
-      amount: transaction.monto,
-      concept: accountingEntry.descripcion,
-      message:
-        'This is a placeholder for the receipt. PDF generation should be implemented here.',
-    };
+    const receipt = await this.receiptsService.findOne(
+      transaction.receipt_id.toString(),
+    );
+    if (!receipt) {
+      throw new NotFoundException(
+        `Receipt with ID ${transaction.receipt_id} not found.`,
+      );
+    }
+
+    // Aquí podrías poblar más datos del recibo si fuera necesario (agente, asientos, etc.)
+    // Por ahora, devolvemos la información básica del recibo.
+    return receipt;
   }
 
   async getAgentPendingLiquidation(agentId: string) {

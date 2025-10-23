@@ -15,5 +15,6 @@ import {
   ],
   controllers: [FinancialAccountsController],
   providers: [FinancialAccountsService],
+  exports: [FinancialAccountsService],
 })
 export class FinancialAccountsModule {}

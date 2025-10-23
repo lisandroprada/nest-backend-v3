@@ -1,3 +1,4 @@
+import { AgentsModule } from '../agents/agents.module';
 import { Module } from '@nestjs/common';
 import { ContractsService } from './contracts.service';
 import { ContractReportsService } from './contract-reports.service';
@@ -31,6 +32,7 @@ import { ContractSettingsModule } from '../contract-settings/contract-settings.m
     CommonModule,
     IndexValueModule,
     ContractSettingsModule,
+    AgentsModule,
   ],
 
   controllers: [ContractsController, ContractsMigrationController],

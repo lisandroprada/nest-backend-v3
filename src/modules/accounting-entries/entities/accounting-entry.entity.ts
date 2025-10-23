@@ -52,6 +52,9 @@ export class AccountingEntry extends Document {
   @Prop({ type: String, required: true })
   tipo_asiento: string; // e.g., 'Alquiler', 'Expensa', 'Interes', 'Deposito en Garantía'
 
+  @Prop({ type: Object }) // Nuevo campo para metadatos estructurados
+  metadata?: Record<string, any>;
+
   @Prop({
     type: String,
     enum: [

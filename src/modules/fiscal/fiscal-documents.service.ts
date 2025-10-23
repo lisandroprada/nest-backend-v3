@@ -17,13 +17,14 @@ export class FiscalDocumentsService {
     private readonly agentsService: AgentsService,
   ) {}
 
-  async issueInvoice(issueDto: IssueInvoiceDto, userId: string) {
+  async issueInvoice(issueDto: IssueInvoiceDto, userId: string, session?: any) {
     const { asientos_asociados_ids } = issueDto;
 
     // 1. Get accounting entries and validate them
-    const entries = await this.accountingEntriesService.find({
-      _id: { $in: asientos_asociados_ids },
-    });
+    const entries = await this.accountingEntriesService.find(
+      { _id: { $in: asientos_asociados_ids } },
+      session,
+    );
     if (entries.length !== asientos_asociados_ids.length) {
       throw new NotFoundException('One or more accounting entries not found.');
     }
@@ -78,10 +79,13 @@ export class FiscalDocumentsService {
       asientos_asociados_ids,
       detalles_errores: afipResponse.detalles_errores,
     });
-    await fiscalDocument.save();
+    await fiscalDocument.save({ session });
 
     // 7. Update accounting entries status
-    await this.accountingEntriesService.markAsInvoiced(asientos_asociados_ids);
+    await this.accountingEntriesService.markAsInvoiced(
+      asientos_asociados_ids,
+      session,
+    );
 
     return fiscalDocument;
   }
