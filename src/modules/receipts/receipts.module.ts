@@ -10,6 +10,7 @@ import { TransactionsModule } from '../transactions/transactions.module';
 import { AuthModule } from '../auth/auth.module';
 import { FiscalModule } from '../fiscal/fiscal.module';
 import { ChartOfAccountsModule } from '../chart-of-accounts/chart-of-accounts.module';
+import { AgentsModule } from '../agents/agents.module'; // Import AgentsModule
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ChartOfAccountsModule } from '../chart-of-accounts/chart-of-accounts.mo
     AuthModule,
     FiscalModule,
     ChartOfAccountsModule,
+    AgentsModule, // Add AgentsModule here
   ],
   controllers: [ReceiptsController],
   providers: [ReceiptsService],

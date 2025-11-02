@@ -16,7 +16,7 @@
 | ----- | ------------------------- | ------------- | ----------------- |
 | **1** | Migración de Contratos    | ✅ COMPLETADO | 100% ████████████ |
 | **2** | API de Consultas          | ✅ COMPLETADO | 100% ████████████ |
-| **3** | Acciones (Pagar/Anular)   | 🟡 PENDIENTE  | 0% ░░░░░░░░░░░░   |
+| **3** | Acciones (Pagar/Anular)   | ✅ COMPLETADO | 100% ████████████ |
 | **4** | Exportaciones (PDF/Excel) | 🟡 PENDIENTE  | 0% ░░░░░░░░░░░░   |
 | **5** | Frontend Angular          | 🟡 PENDIENTE  | 0% ░░░░░░░░░░░░   |
 | **6** | Testing E2E               | 🟡 PENDIENTE  | 0% ░░░░░░░░░░░░   |
@@ -94,27 +94,27 @@ Tests de compilación:    0 errors ✅
 
 ---
 
-## 🟡 FASE 3: Acciones sobre Asientos (PENDIENTE)
+## ✅ FASE 3: Acciones sobre Asientos (COMPLETADA)
 
-### Tareas Pendientes
+### Tareas Completadas
 
 ```
-Progreso: 0 / 4  [0%] ░░░░░░░░░░░░
+Progreso: 4 / 4  [100%] ████████████
 ```
 
-| Funcionalidad          | Estado  | Prioridad |
-| ---------------------- | ------- | --------- |
-| Marcar como pagado     | ⏳ TODO | 🔴 ALTA   |
-| Anular asiento         | ⏳ TODO | 🔴 ALTA   |
-| Condonar deuda         | ⏳ TODO | 🟡 MEDIA  |
-| Registrar pago parcial | ⏳ TODO | 🟡 MEDIA  |
+| Funcionalidad          | Estado        | Prioridad |
+| ---------------------- | ------------- | --------- |
+| Marcar como pagado     | ✅ COMPLETADO | 🔴 ALTA   |
+| Anular asiento         | ✅ COMPLETADO | 🔴 ALTA   |
+| Condonar deuda         | ✅ COMPLETADO | 🟡 MEDIA  |
+| Registrar pago parcial | ✅ COMPLETADO | 🟡 MEDIA  |
 
-### Endpoints a Implementar
+### Endpoints Implementados
 
-- ⏳ POST `/api/v1/accounting-entries/:id/pagar`
-- ⏳ POST `/api/v1/accounting-entries/:id/anular`
-- ⏳ POST `/api/v1/accounting-entries/:id/condonar`
-- ⏳ POST `/api/v1/accounting-entries/:id/pago-parcial`
+- ✅ POST `/api/v1/accounting-entries/:id/pagar`
+- ✅ POST `/api/v1/accounting-entries/:id/anular`
+- ✅ POST `/api/v1/accounting-entries/:id/condonar`
+- ✅ POST `/api/v1/accounting-entries/:id/pago-parcial`
 
 ---
 
@@ -228,7 +228,7 @@ _(Estimados basados en hardware local)_
 
 - ✅ Semana 1: Migración de contratos
 - ✅ Semana 2: API de consultas
-- ⏳ Semana 3: Acciones sobre asientos
+- ✅ Semana 3: Acciones sobre asientos
 - ⏳ Semana 4: Exportaciones PDF/Excel
 
 ### Q1 2026

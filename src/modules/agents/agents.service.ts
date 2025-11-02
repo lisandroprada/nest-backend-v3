@@ -12,6 +12,7 @@ import { AccountingEntriesService } from '../accounting-entries/accounting-entri
 import { PaginationDto } from '../../common/pagination/dto/pagination.dto';
 import { PaginationService } from '../../common/pagination/pagination.service';
 import { CuitService } from '../cuit/cuit.service';
+import { BanksService } from '../banks/banks.service'; // Import BanksService
 
 @Injectable()
 export class AgentsService {
@@ -20,6 +21,7 @@ export class AgentsService {
     private readonly accountingEntriesService: AccountingEntriesService,
     private readonly paginationService: PaginationService,
     private readonly cuitService: CuitService,
+    private readonly banksService: BanksService, // Inject BanksService
   ) {}
 
   async create(createAgentDto: CreateAgentDto, userId: string): Promise<Agent> {
@@ -33,11 +35,13 @@ export class AgentsService {
   }
 
   async findAll(paginationDto: PaginationDto) {
-    return this.paginationService.paginate(this.agentModel, paginationDto);
+    return this.paginationService.paginate(this.agentModel, paginationDto, {
+      populate: 'cuentas_bancarias.bank_id',
+    });
   }
 
   async findOne(id: string): Promise<Agent> {
-    const agent = await this.agentModel.findById(id);
+    const agent = await this.agentModel.findById(id).populate('cuentas_bancarias.bank_id');
     if (!agent) {
       throw new NotFoundException(`Agent with ID "${id}" not found.`);
     }

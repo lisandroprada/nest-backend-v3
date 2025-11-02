@@ -21,22 +21,37 @@ class AsientoImputacionDto {
   montoImputado: number;
 }
 
+import { IsEnum } from 'class-validator';
+
+export enum TipoFlujoNeto {
+  INGRESO = 'INGRESO',
+  EGRESO = 'EGRESO',
+}
+
 export class CreateReceiptDto {
   @IsNumber()
   @IsPositive()
-  monto_total: number;
+  monto_total_imputado: number; // Nuevo nombre: El monto total del array de imputaciones.
+
+  @IsNumber()
+  @IsPositive()
+  monto_recibido_fisico: number; // CRÍTICO: El operador ingresa el efectivo/transferencia.
+
+  @IsEnum(TipoFlujoNeto)
+  @IsNotEmpty()
+  tipo_flujo_neto: TipoFlujoNeto; // NUEVO: Resultado de la compensación: 'INGRESO' o 'EGRESO'.
 
   @IsString()
   @IsNotEmpty()
   metodo_pago: string; // 'efectivo', 'transferencia', 'cheque', 'tarjeta', 'otro'
 
-  @IsOptional()
   @IsString()
-  comprobante_externo?: string; // Referencia externa, ej. número de transferencia
+  @IsNotEmpty()
+  comprobante_externo: string; // CRÍTICO: ID de la transferencia/cheque. Debe ser obligatorio para Conciliación.
 
   @IsMongoId()
   @IsNotEmpty()
-  cuenta_financiera_id: string;
+  cuenta_afectada_id: string; // Renombrado: La cuenta de la Inmobiliaria (origen si es Egreso, destino si es Ingreso).
 
   @IsMongoId()
   @IsNotEmpty()

@@ -71,9 +71,9 @@
 **Funcionalidades:**
 
 - ✅ CRUD de asientos contables
-- 🔄 Consultas y filtros (PENDIENTE DESARROLLO)
-- 🔄 Estados de cuenta por agente (PENDIENTE)
-- 🔄 Reportes globales (PENDIENTE)
+- ✅ Consultas y filtros (OPERATIVO)
+- ✅ Estados de cuenta por agente (OPERATIVO)
+- ✅ Reportes globales (OPERATIVO)
 
 ---
 
@@ -238,11 +238,9 @@ db.accountingentries.deleteMany({ contrato_id: ObjectId('...') });
 
 ---
 
-## 📋 Próximos Pasos - Consultas y Frontend
+## ✅ Próximos Pasos - Consultas y Frontend (COMPLETADO)
 
-### 1. Endpoints de Consulta (PENDIENTE)
-
-#### GET `/api/v1/accounting-entries`
+#### GET `/api/v1/accounting-entries` (IMPLEMENTADO)
 
 **Filtros necesarios:**
 
@@ -260,7 +258,7 @@ db.accountingentries.deleteMany({ contrato_id: ObjectId('...') });
 }
 ```
 
-#### GET `/api/v1/accounting-entries/estado-cuenta/:agente_id`
+#### GET `/api/v1/accounting-entries/estado-cuenta/:agente_id` (IMPLEMENTADO)
 
 **Descripción:** Estado de cuenta de un agente (propietario/inquilino)
 
@@ -293,7 +291,7 @@ db.accountingentries.deleteMany({ contrato_id: ObjectId('...') });
 }
 ```
 
-#### GET `/api/v1/accounting-entries/resumen-global`
+#### GET `/api/v1/accounting-entries/resumen-global` (IMPLEMENTADO)
 
 **Descripción:** Resumen global de todos los asientos
 
@@ -318,7 +316,7 @@ db.accountingentries.deleteMany({ contrato_id: ObjectId('...') });
 }
 ```
 
-### 2. Servicios a Implementar
+### 2. Servicios Implementados
 
 ```typescript
 // accounting-entries.service.ts
@@ -355,7 +353,7 @@ async findWithFilters(filters: AccountingEntryFilters) {
 }
 ```
 
-### 3. Frontend - Componentes Necesarios
+### 3. Frontend - Componentes Necesarios (PENDIENTE)
 
 #### Tabla de Asientos Contables
 
@@ -532,4 +530,4 @@ mongosh mongodb://localhost:27017/nest-propietasV3 --eval "
 
 **Versión:** 1.0.0  
 **Última migración exitosa:** 14/10/2025 01:33:46 AM  
-**Próxima tarea:** Implementar endpoints de consulta y estados de cuenta
+**Próxima tarea:** Integrar con frontend

@@ -80,6 +80,9 @@ importers:
       multer:
         specifier: ^2.0.1
         version: 2.0.2
+      papaparse:
+        specifier: ^5.5.3
+        version: 5.5.3
       passport-jwt:
         specifier: ^4.0.1
         version: 4.0.1
@@ -3240,6 +3243,9 @@ packages:
 
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
+
+  papaparse@5.5.3:
+    resolution: {integrity: sha512-5QvjGxYVjxO59MGU2lHVYpRWBBtKHnlIAcSe1uNFCkkptUh63NFRj0FJQm7nR67puEruUci/ZkjmEFrjCAyP4A==}
 
   param-case@2.1.1:
     resolution: {integrity: sha512-eQE845L6ot89sk2N8liD8HAuH4ca6Vvr7VWAWwt7+kvvG5aBcPmmphQ68JsEG2qa9n1TykS2DLeMt363AAH8/w==}
@@ -8088,6 +8094,8 @@ snapshots:
     optional: true
 
   package-json-from-dist@1.0.1: {}
+
+  papaparse@5.5.3: {}
 
   param-case@2.1.1:
     dependencies:

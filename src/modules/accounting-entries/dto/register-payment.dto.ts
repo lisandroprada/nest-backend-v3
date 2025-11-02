@@ -6,13 +6,13 @@ import {
   Min,
 } from 'class-validator';
 
-export class PagarAsientoDto {
+export class RegisterPaymentDto {
   @IsDateString()
   fecha_pago: string; // Fecha real del pago
 
   @IsNumber()
   @Min(0)
-  monto_pagado: number; // Monto total pagado
+  monto_pagado: number; // Monto que se está pagando en esta transacción
 
   @IsOptional()
   @IsString()

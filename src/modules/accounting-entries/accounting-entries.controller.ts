@@ -1,14 +1,15 @@
-import { Controller, Get, Query, Param, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
 import { AccountingEntriesService } from './accounting-entries.service';
-import { Auth } from '../auth/decorators';
-import { ValidRoles } from '../auth/interfaces';
+import { Auth } from '../auth/decorators/auth.decorators';
+import { ValidRoles } from '../auth/interfaces/valid-roles.interface';
+import { ApplyMoraBatchDto } from './dto/apply-mora-batch.dto';
+import { RegisterPaymentDto } from './dto/register-payment.dto';
+import { MoraCandidatesQueryDto } from './dto/mora-candidates-query.dto';
 import { PaginationDto } from 'src/common/pagination/dto/pagination.dto';
-import { PagarAsientoDto } from './dto/pagar-asiento.dto';
-import { PagoParcialDto } from './dto/pago-parcial.dto';
+import { AccountingEntryFiltersDto } from './dto/accounting-entry-filters.dto';
 import { AnularAsientoDto } from './dto/anular-asiento.dto';
 import { CondonarAsientoDto } from './dto/condonar-asiento.dto';
 import { LiquidarAsientoDto } from './dto/liquidar-asiento.dto';
-import { AccountingEntryFiltersDto } from './dto/accounting-entry-filters.dto';
 
 @Controller('accounting-entries')
 @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.contabilidad)
@@ -16,6 +17,28 @@ export class AccountingEntriesController {
   constructor(
     private readonly accountingEntriesService: AccountingEntriesService,
   ) {}
+
+  // ==================== GESTIÓN DE MORA ====================
+
+  /**
+   * GET /accounting-entries/mora-candidates
+   * Obtiene una lista de asientos en mora que son candidatos para aplicar intereses.
+   */
+  @Get('mora-candidates')
+  async getMoraCandidates(@Query() queryDto: MoraCandidatesQueryDto) {
+    return this.accountingEntriesService.getMoraCandidates(queryDto);
+  }
+
+  /**
+   * POST /accounting-entries/apply-mora
+   * Aplica intereses a un lote de asientos en mora y genera los nuevos asientos de débito.
+   */
+  @Post('apply-mora')
+  async applyMora(@Body() batchDto: ApplyMoraBatchDto) {
+    return this.accountingEntriesService.applyMoraToBatch(batchDto);
+  }
+
+  // =========================================================
 
   /**
    * GET /accounting-entries
@@ -38,7 +61,6 @@ export class AccountingEntriesController {
   /**
    * GET /accounting-entries/estado-cuenta/:agentId
    * Obtiene el estado de cuenta de un agente específico
-   * TODO: Implementar getEstadoCuentaByAgente en el servicio (Fase 2)
    */
   @Get('estado-cuenta/:agentId')
   async getEstadoCuenta(
@@ -50,16 +72,6 @@ export class AccountingEntriesController {
       filters,
     );
   }
-
-  /**
-   * GET /accounting-entries/resumen-global
-   * Obtiene resumen global del sistema contable
-   * TODO: Implementar getResumenGlobal en el servicio (Fase 2)
-   */
-  // @Get('resumen-global')
-  // async getResumenGlobal(@Query() filters: ResumenGlobalFiltersDto) {
-  //   return this.accountingEntriesService.getResumenGlobal(filters);
-  // }
 
   @Get('agent/:agentId/details')
   async getEntriesByAgent(
@@ -85,21 +97,20 @@ export class AccountingEntriesController {
   // ==================== FASE 3: ACCIONES SOBRE ASIENTOS ====================
 
   /**
-   * POST /accounting-entries/:id/pagar
-   * Marca un asiento como pagado (completo)
+   * @summary Registra un pago para un asiento contable.
+   * @description Este endpoint unificado maneja tanto pagos completos como parciales.
+   * El backend determina si el pago es parcial o total basado en el monto enviado y el saldo pendiente del asiento.
+   * Al recibir un pago, actualiza el estado del asiento a 'PAGADO_PARCIAL' o 'PAGADO' y registra la transacción en el historial del asiento para un seguimiento detallado.
+   * @param id El ID del asiento contable que recibe el pago.
+   * @param dto Un objeto con los detalles del pago, incluyendo el monto.
+   * @returns El asiento contable actualizado con el nuevo estado y el historial de cambios.
    */
-  @Post(':id/pagar')
-  async pagarAsiento(@Param('id') id: string, @Body() dto: PagarAsientoDto) {
-    return this.accountingEntriesService.marcarComoPagado(id, dto);
-  }
-
-  /**
-   * POST /accounting-entries/:id/pago-parcial
-   * Registra un pago parcial
-   */
-  @Post(':id/pago-parcial')
-  async pagarParcial(@Param('id') id: string, @Body() dto: PagoParcialDto) {
-    return this.accountingEntriesService.registrarPagoParcial(id, dto);
+  @Post(':id/register-payment')
+  async registerPayment(
+    @Param('id') id: string,
+    @Body() dto: RegisterPaymentDto,
+  ) {
+    return this.accountingEntriesService.registerPayment(id, dto);
   }
 
   /**

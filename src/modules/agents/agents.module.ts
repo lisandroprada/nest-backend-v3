@@ -7,6 +7,7 @@ import { AuthModule } from '../auth/auth.module';
 import { AccountingEntriesModule } from '../accounting-entries/accounting-entries.module';
 import { CommonModule } from 'src/common/common.module';
 import { CuitModule } from '../cuit/cuit.module';
+import { BanksModule } from '../banks/banks.module'; // Import BanksModule
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CuitModule } from '../cuit/cuit.module';
     AccountingEntriesModule,
     CommonModule,
     CuitModule,
+    BanksModule, // Add BanksModule here
   ],
   controllers: [AgentsController],
   providers: [AgentsService],

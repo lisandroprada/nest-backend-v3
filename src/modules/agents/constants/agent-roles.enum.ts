@@ -1,5 +1,6 @@
 export enum AgenteRoles {
   // Roles de Negocio
+  CLIENTE = 'CLIENTE',
   LOCADOR = 'LOCADOR',
   LOCATARIO = 'LOCATARIO',
   FIADOR = 'FIADOR',

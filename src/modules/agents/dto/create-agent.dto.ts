@@ -8,6 +8,8 @@ import {
   ValidateNested,
   IsBoolean,
   IsDateString,
+  IsMongoId,
+  ArrayMinSize,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { AgenteRoles } from '../constants/agent-roles.enum';
@@ -21,9 +23,9 @@ class CuentaBancariaDto {
   @IsNotEmpty()
   cbu_numero: string;
 
-  @IsString()
+  @IsMongoId()
   @IsNotEmpty()
-  banco: string;
+  bank_id: string; // Reference to the Bank entity
 
   @IsString()
   @IsNotEmpty()
@@ -32,8 +34,9 @@ class CuentaBancariaDto {
 
 export class CreateAgentDto {
   @IsArray()
+  @ArrayMinSize(0)
   @IsEnum(AgenteRoles, { each: true })
-  @IsNotEmpty()
+  @IsOptional()
   rol: AgenteRoles[];
 
   @IsEnum(['FISICA', 'JURIDICA'])

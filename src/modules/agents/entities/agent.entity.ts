@@ -52,7 +52,7 @@ const RedSocialSchema = SchemaFactory.createForClass(RedSocial);
 
 @Schema({ timestamps: true })
 export class Agent extends Document {
-  @Prop({ type: [String], enum: Object.values(AgenteRoles), required: true })
+  @Prop({ type: [String], enum: Object.values(AgenteRoles), required: false })
   rol: AgenteRoles[];
 
   @Prop({ type: String, enum: ['FISICA', 'JURIDICA'], required: true })
@@ -147,13 +147,18 @@ export class Agent extends Document {
 
   @Prop({
     type: [
-      { cbu_alias: String, cbu_numero: String, banco: String, moneda: String },
+      {
+        cbu_alias: String,
+        cbu_numero: String,
+        bank_id: { type: Types.ObjectId, ref: 'Bank' },
+        moneda: String,
+      },
     ],
   })
   cuentas_bancarias: {
     cbu_alias: string;
     cbu_numero: string;
-    banco: string;
+    bank_id: Types.ObjectId; // Reference to the Bank entity
     moneda: string;
   }[];
 

@@ -9,7 +9,13 @@ export class FinancialAccount extends Document {
   @Prop({
     type: String,
     required: true,
-    enum: ['BANCO', 'CAJA_CHICA'],
+    enum: [
+      'BANCO_CTA_CTE',
+      'BANCO_CAJA_AHORRO',
+      'CAJA_EFECTIVO',
+      'VALORES_A_DEPOSITAR',
+      'CUENTAS_POR_COBRAR',
+    ],
     index: true,
   })
   tipo: string;
@@ -33,8 +39,8 @@ export class FinancialAccount extends Document {
   @Prop({ type: String, sparse: true })
   alias?: string;
 
-  @Prop({ type: String, sparse: true })
-  nombre_banco?: string;
+  @Prop({ type: Types.ObjectId, ref: 'Bank', sparse: true })
+  bank_id?: Types.ObjectId; // Reference to the Bank entity
 
   @Prop({ type: Types.ObjectId, ref: 'User' })
   usuario_creacion_id: Types.ObjectId;

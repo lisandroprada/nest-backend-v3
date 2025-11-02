@@ -4,6 +4,7 @@ import {
   IsEnum,
   IsOptional,
   IsNumber,
+  IsMongoId,
 } from 'class-validator';
 
 export class CreateFinancialAccountDto {
@@ -11,11 +12,17 @@ export class CreateFinancialAccountDto {
   @IsNotEmpty()
   nombre: string;
 
-  @IsEnum(['BANCO', 'CAJA_CHICA'])
+  @IsEnum([
+    'BANCO_CTA_CTE',
+    'BANCO_CAJA_AHORRO',
+    'CAJA_EFECTIVO',
+    'VALORES_A_DEPOSITAR',
+    'CUENTAS_POR_COBRAR',
+  ])
   @IsNotEmpty()
   tipo: string;
 
-  @IsString()
+  @IsEnum(['ARS', 'USD', 'EUR'])
   @IsOptional()
   moneda: string = 'ARS';
 
@@ -39,7 +46,7 @@ export class CreateFinancialAccountDto {
   @IsOptional()
   alias?: string;
 
-  @IsString()
+  @IsMongoId()
   @IsOptional()
-  nombre_banco?: string;
+  bank_id?: string; // Reference to the Bank entity
 }

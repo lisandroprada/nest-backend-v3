@@ -89,4 +89,19 @@ export class FiscalDocumentsService {
 
     return fiscalDocument;
   }
+
+  async queueInvoiceGeneration(
+    asientoIds: string[],
+    userId: string,
+    session?: any,
+  ): Promise<void> {
+    // Aquí, en lugar de emitir la factura, marcamos los asientos para una posterior facturación.
+    // Esto podría implicar cambiar su estado a 'PENDIENTE_FACTURACION' o similar.
+    await this.accountingEntriesService.markAsPendingInvoice(
+      asientoIds,
+      userId,
+      session,
+    );
+    // Podríamos también registrar un evento o una tarea en una cola para un proceso asíncrono.
+  }
 }

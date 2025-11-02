@@ -7,8 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types, PipelineStage } from 'mongoose';
 import { AccountingEntry } from './entities/accounting-entry.entity';
 import { PaginationService } from '../../common/pagination/pagination.service';
-import { PagarAsientoDto } from './dto/pagar-asiento.dto';
-import { PagoParcialDto } from './dto/pago-parcial.dto';
+import { RegisterPaymentDto } from './dto/register-payment.dto';
 import {
   AnularAsientoDto,
   TipoMotivoAnulacion,
@@ -69,6 +68,23 @@ export class AccountingEntriesService {
     }
     return actualizados;
   }
+  
+  async getMoraCandidates(queryDto: any): Promise<any> {
+    // Placeholder implementation
+    return {
+      message: 'Endpoint getMoraCandidates not implemented yet.',
+      queryDto,
+    };
+  }
+
+  async applyMoraToBatch(batchDto: any): Promise<any> {
+    // Placeholder implementation
+    return {
+      message: 'Endpoint applyMoraToBatch not implemented yet.',
+      batchDto,
+    };
+  }
+
   constructor(
     @InjectModel(AccountingEntry.name)
     private readonly accountingEntryModel: Model<AccountingEntry>,
@@ -399,6 +415,24 @@ export class AccountingEntriesService {
     );
   }
 
+  async markAsPendingInvoice(
+    asientoIds: string[],
+    userId: string,
+    session?: any,
+  ): Promise<any> {
+    const updateResult = await this.accountingEntryModel.updateMany(
+      { _id: { $in: asientoIds } },
+      { $set: { estado: 'PENDIENTE_FACTURAR' } },
+      { session },
+    );
+
+    // Opcional: Registrar en el historial de cambios de cada asiento
+    // Esto podría ser costoso si hay muchos asientos, considerar si es necesario.
+    // Por ahora, solo actualizamos el estado.
+
+    return updateResult;
+  }
+
   async markAsLiquidated(asientoIds: string[]) {
     return this.accountingEntryModel.updateMany(
       { _id: { $in: asientoIds } },
@@ -484,11 +518,11 @@ export class AccountingEntriesService {
   // ==================== FASE 3: ACCIONES SOBRE ASIENTOS ====================
 
   /**
-   * Marcar asiento como pagado (completo)
+   * Registra un pago (total o parcial) para un asiento contable.
    */
-  async marcarComoPagado(
+  async registerPayment(
     asientoId: string,
-    dto: PagarAsientoDto,
+    dto: RegisterPaymentDto,
   ): Promise<AccountingEntry> {
     const asiento = await this.accountingEntryModel.findById(asientoId);
 
@@ -496,74 +530,17 @@ export class AccountingEntriesService {
       throw new NotFoundException('Asiento no encontrado');
     }
 
-    // Validar estado
-    if (['PAGADO', 'ANULADO', 'CONDONADO'].includes(asiento.estado)) {
-      throw new BadRequestException(
-        `El asiento en estado "${asiento.estado}" no puede ser pagado`,
-      );
-    }
-
-    // Validar monto
-    if (dto.monto_pagado < asiento.monto_actual) {
-      throw new BadRequestException(
-        'El monto pagado es menor al total del asiento. Use pago-parcial en su lugar.',
-      );
-    }
-
-    // Actualizar partidas (marcar como pagadas las que tienen debe > 0)
-    for (const partida of asiento.partidas) {
-      if (partida.debe > 0) {
-        partida.monto_pagado_acumulado = partida.debe;
-      }
-    }
-
-    // Actualizar estado y datos de pago
-    const estadoAnterior = asiento.estado;
-    asiento.estado = 'PAGADO';
-    asiento.fecha_pago = new Date(dto.fecha_pago);
-    asiento.metodo_pago = dto.metodo_pago;
-    asiento.comprobante = dto.comprobante;
-
-    // Registrar en historial
-    asiento.historial_cambios.push({
-      fecha: new Date(),
-      usuario_id: new Types.ObjectId(dto.usuario_id),
-      accion: 'PAGO_COMPLETO',
-      estado_anterior: estadoAnterior,
-      estado_nuevo: 'PAGADO',
-      monto: dto.monto_pagado,
-      observaciones: dto.observaciones,
-    });
-
-    return await asiento.save();
-  }
-
-  /**
-   * Registrar pago parcial
-   */
-  async registrarPagoParcial(
-    asientoId: string,
-    dto: PagoParcialDto,
-  ): Promise<AccountingEntry> {
-    const asiento = await this.accountingEntryModel.findById(asientoId);
-
-    if (!asiento) {
-      throw new NotFoundException('Asiento no encontrado');
-    }
-
-    // Validar estado
     if (['PAGADO', 'ANULADO', 'CONDONADO'].includes(asiento.estado)) {
       throw new BadRequestException(
         `El asiento en estado "${asiento.estado}" no puede recibir pagos`,
       );
     }
 
-    // Calcular saldo pendiente
-    const montoPagadoTotal = asiento.partidas.reduce(
+    const montoPagadoTotalAnterior = asiento.partidas.reduce(
       (sum, p) => sum + (p.monto_pagado_acumulado || 0),
       0,
     );
-    const saldoPendiente = asiento.monto_original - montoPagadoTotal;
+    const saldoPendiente = asiento.monto_actual - montoPagadoTotalAnterior;
 
     if (dto.monto_pagado > saldoPendiente) {
       throw new BadRequestException(
@@ -571,43 +548,42 @@ export class AccountingEntriesService {
       );
     }
 
-    // Distribuir pago entre partidas con debe > 0
-    let montoRestante = dto.monto_pagado;
+    let montoRestanteAPagar = dto.monto_pagado;
     for (const partida of asiento.partidas) {
-      if (partida.debe > 0 && montoRestante > 0) {
-        const deudaPartida =
-          partida.debe - (partida.monto_pagado_acumulado || 0);
+      if (partida.debe > 0 && montoRestanteAPagar > 0) {
+        const deudaPartida = partida.debe - (partida.monto_pagado_acumulado || 0);
         if (deudaPartida > 0) {
-          const montoAImputar = Math.min(montoRestante, deudaPartida);
+          const montoAImputar = Math.min(montoRestanteAPagar, deudaPartida);
           partida.monto_pagado_acumulado =
             (partida.monto_pagado_acumulado || 0) + montoAImputar;
-          montoRestante -= montoAImputar;
+          montoRestanteAPagar -= montoAImputar;
         }
       }
     }
 
-    // Calcular nuevo total pagado
-    const nuevoMontoPagado = asiento.partidas.reduce(
+    const nuevoMontoPagadoTotal = asiento.partidas.reduce(
       (sum, p) => sum + (p.monto_pagado_acumulado || 0),
       0,
     );
 
-    // Actualizar estado
     const estadoAnterior = asiento.estado;
-    if (nuevoMontoPagado >= asiento.monto_original) {
+    let accionHistorial: string;
+
+    if (nuevoMontoPagadoTotal >= asiento.monto_actual) {
       asiento.estado = 'PAGADO';
       asiento.fecha_pago = new Date(dto.fecha_pago);
       asiento.metodo_pago = dto.metodo_pago;
       asiento.comprobante = dto.comprobante;
-    } else if (nuevoMontoPagado > 0) {
+      accionHistorial = 'PAGO_COMPLETO';
+    } else {
       asiento.estado = 'PAGADO_PARCIAL';
+      accionHistorial = 'PAGO_PARCIAL';
     }
 
-    // Registrar en historial
     asiento.historial_cambios.push({
       fecha: new Date(),
       usuario_id: new Types.ObjectId(dto.usuario_id),
-      accion: 'PAGO_PARCIAL',
+      accion: accionHistorial,
       estado_anterior: estadoAnterior,
       estado_nuevo: asiento.estado,
       monto: dto.monto_pagado,
