@@ -13,6 +13,7 @@ import { PaginationDto } from '../../common/pagination/dto/pagination.dto';
 import { PaginationService } from '../../common/pagination/pagination.service';
 import { CuitService } from '../cuit/cuit.service';
 import { BanksService } from '../banks/banks.service'; // Import BanksService
+import { AgenteRoles } from './constants/agent-roles.enum';
 
 @Injectable()
 export class AgentsService {
@@ -41,11 +42,20 @@ export class AgentsService {
   }
 
   async findOne(id: string): Promise<Agent> {
-    const agent = await this.agentModel.findById(id).populate('cuentas_bancarias.bank_id');
+    const agent = await this.agentModel
+      .findById(id)
+      .populate('cuentas_bancarias.bank_id');
     if (!agent) {
       throw new NotFoundException(`Agent with ID "${id}" not found.`);
     }
     return agent;
+  }
+
+  /**
+   * Busca un agente por rol (por ejemplo, INMOBILIARIA)
+   */
+  async findOneByRole(role: AgenteRoles | string): Promise<Agent | null> {
+    return this.agentModel.findOne({ rol: role }).exec();
   }
 
   async update(

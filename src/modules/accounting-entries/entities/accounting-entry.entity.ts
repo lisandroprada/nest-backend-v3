@@ -21,6 +21,9 @@ class Partida {
   @Prop({ type: Number, default: 0 })
   monto_pagado_acumulado?: number; // Acumulador de pagos para partidas de débito
 
+  @Prop({ type: Number, default: 0 })
+  monto_liquidado?: number; // Acumulador de liquidaciones para partidas de crédito (HABER)
+
   @Prop({ type: Boolean, default: false })
   es_iva_incluido: boolean;
 
@@ -103,8 +106,8 @@ export class AccountingEntry extends Document {
   @Prop({ type: String })
   metodo_pago?: string;
 
-  @Prop({ type: String })
-  comprobante?: string;
+  @Prop({ type: Types.ObjectId, ref: 'Receipt' })
+  recibo_id?: Types.ObjectId; // Referencia al recibo generado
 
   // Campos de anulación
   @Prop({ type: Date })

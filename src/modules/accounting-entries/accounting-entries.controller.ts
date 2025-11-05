@@ -3,13 +3,12 @@ import { AccountingEntriesService } from './accounting-entries.service';
 import { Auth } from '../auth/decorators/auth.decorators';
 import { ValidRoles } from '../auth/interfaces/valid-roles.interface';
 import { ApplyMoraBatchDto } from './dto/apply-mora-batch.dto';
-import { RegisterPaymentDto } from './dto/register-payment.dto';
 import { MoraCandidatesQueryDto } from './dto/mora-candidates-query.dto';
 import { PaginationDto } from 'src/common/pagination/dto/pagination.dto';
 import { AccountingEntryFiltersDto } from './dto/accounting-entry-filters.dto';
 import { AnularAsientoDto } from './dto/anular-asiento.dto';
 import { CondonarAsientoDto } from './dto/condonar-asiento.dto';
-import { LiquidarAsientoDto } from './dto/liquidar-asiento.dto';
+import { ProcessReceiptDto } from './dto/process-receipt.dto';
 
 @Controller('accounting-entries')
 @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.contabilidad)
@@ -97,20 +96,24 @@ export class AccountingEntriesController {
   // ==================== FASE 3: ACCIONES SOBRE ASIENTOS ====================
 
   /**
-   * @summary Registra un pago para un asiento contable.
-   * @description Este endpoint unificado maneja tanto pagos completos como parciales.
-   * El backend determina si el pago es parcial o total basado en el monto enviado y el saldo pendiente del asiento.
-   * Al recibir un pago, actualiza el estado del asiento a 'PAGADO_PARCIAL' o 'PAGADO' y registra la transacción en el historial del asiento para un seguimiento detallado.
-   * @param id El ID del asiento contable que recibe el pago.
-   * @param dto Un objeto con los detalles del pago, incluyendo el monto.
-   * @returns El asiento contable actualizado con el nuevo estado y el historial de cambios.
+   * POST /accounting-entries/process-receipt
+   * Endpoint unificado para procesar todas las operaciones de cobros y pagos.
+   * Reemplaza los antiguos /register-payment y /liquidar.
+   *
+   * Ventajas:
+   * - Una sola forma de registrar operaciones (1 o N)
+   * - Genera comprobante único para todo el recibo
+   * - Calcula movimiento neto automáticamente
+   * - Soporta COBRO (DEBE) y PAGO (HABER) en la misma llamada
+   *
+   * Ejemplos de uso:
+   * - Cobrar 1 alquiler: 1 línea tipo COBRO
+   * - Liquidar 1 locador: 1 línea tipo PAGO
+   * - Recibo completo: N líneas mezclando COBRO y PAGO
    */
-  @Post(':id/register-payment')
-  async registerPayment(
-    @Param('id') id: string,
-    @Body() dto: RegisterPaymentDto,
-  ) {
-    return this.accountingEntriesService.registerPayment(id, dto);
+  @Post('process-receipt')
+  async processReceipt(@Body() dto: ProcessReceiptDto) {
+    return this.accountingEntriesService.processReceipt(dto);
   }
 
   /**
@@ -132,18 +135,6 @@ export class AccountingEntriesController {
     @Body() dto: CondonarAsientoDto,
   ) {
     return this.accountingEntriesService.condonarDeuda(id, dto);
-  }
-
-  /**
-   * POST /accounting-entries/:id/liquidar
-   * Liquida un asiento al propietario
-   */
-  @Post(':id/liquidar')
-  async liquidarAPropietario(
-    @Param('id') id: string,
-    @Body() dto: LiquidarAsientoDto,
-  ) {
-    return this.accountingEntriesService.liquidarAPropietario(id, dto);
   }
 
   /**

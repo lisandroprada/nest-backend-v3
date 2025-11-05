@@ -47,6 +47,9 @@ import { FiscalModule } from './modules/fiscal/fiscal.module';
 import { ValuationsModule } from './modules/valuations/valuations.module';
 import { CuitModule } from './modules/cuit/cuit.module';
 import { ContractSettingsModule } from './modules/contract-settings/contract-settings.module';
+import { CashBoxModule } from './modules/cash-box/cash-box.module';
+import { FinancialReportsModule } from './modules/financial-reports/financial-reports.module';
+import { SystemAdminModule } from './modules/system-admin/system-admin.module';
 
 @Module({
   imports: [
@@ -101,6 +104,9 @@ import { ContractSettingsModule } from './modules/contract-settings/contract-set
     ValuationsModule,
     CuitModule,
     ContractSettingsModule,
+    CashBoxModule,
+    FinancialReportsModule,
+    SystemAdminModule,
   ],
   controllers: [AppController],
   providers: [

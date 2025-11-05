@@ -48,6 +48,24 @@ export class ContractsService {
     private readonly agentsService: AgentsService,
   ) {}
 
+  private inmobiliariaAgentIdCache: Types.ObjectId | null = null;
+
+  private async getInmobiliariaAgentId(): Promise<Types.ObjectId | null> {
+    if (this.inmobiliariaAgentIdCache) return this.inmobiliariaAgentIdCache;
+    try {
+      const agent = await this.agentsService.findOneByRole(
+        AgenteRoles.INMOBILIARIA,
+      );
+      if (agent?._id) {
+        this.inmobiliariaAgentIdCache = agent._id as unknown as Types.ObjectId;
+        return this.inmobiliariaAgentIdCache;
+      }
+    } catch (e) {
+      // noop
+    }
+    return null;
+  }
+
   private async loadAccountIds(): Promise<void> {
     if (this.accountIdsCache) {
       return;
@@ -376,10 +394,11 @@ export class ContractsService {
     const locatarioName = locatarioAgent
       ? locatarioAgent.nombres
       : 'Locatario Desconocido';
-
     const cuentaLocadorId = this.accountIdsCache['CXP_LOC'];
     const cuentaDeudaLocatarioId = this.accountIdsCache['CXC_ALQ'];
     const cuentaIngresoInmoId = this.accountIdsCache['ING_HNR_INIC'];
+
+    const inmoAgentId = await this.getInmobiliariaAgentId();
 
     const fechaInicio = DateTime.fromJSDate(fecha_inicio);
     const fechaFinal = DateTime.fromJSDate(fecha_final);
@@ -422,6 +441,7 @@ export class ContractsService {
             descripcion: `Ingreso honorarios locador - Cuota ${i + 1}`,
             debe: 0,
             haber: montoPorCuota,
+            agente_id: inmoAgentId || undefined,
             es_iva_incluido: false,
             tasa_iva_aplicada: 0,
             monto_base_imponible: 0,
@@ -487,6 +507,7 @@ export class ContractsService {
             descripcion: `Ingreso honorarios locatario - Cuota ${i + 1}`,
             debe: 0,
             haber: montoPorCuota,
+            agente_id: inmoAgentId || undefined,
             es_iva_incluido: false,
             tasa_iva_aplicada: 0,
             monto_base_imponible: 0,
@@ -586,10 +607,11 @@ export class ContractsService {
     const locatarioName = locatarioAgent
       ? locatarioAgent.nombres
       : 'Locatario Desconocido';
-
     const cuentaDeudaLocatarioId = this.accountIdsCache['CXC_ALQ'];
     const cuentaIngresoLocadorId = this.accountIdsCache['CXP_LOC'];
     const cuentaIngresoInmoId = this.accountIdsCache['ING_HNR'];
+
+    const inmoAgentId = await this.getInmobiliariaAgentId();
 
     const fechaInicio = DateTime.fromJSDate(fecha_inicio);
     const fechaFinal = DateTime.fromJSDate(fecha_final);
@@ -668,6 +690,7 @@ export class ContractsService {
           descripcion: `Honorarios por alquiler ${fechaPeriodo.toFormat('MM/yyyy')}`,
           debe: 0,
           haber: montoHonorarios,
+          agente_id: inmoAgentId || undefined,
           es_iva_incluido: false,
           tasa_iva_aplicada: 0,
           monto_base_imponible: 0,
@@ -1305,6 +1328,7 @@ export class ContractsService {
     _fechaNotificacion: Date,
     _fechaRecision: Date,
   ) {
+    console.log(_contractId, _fechaNotificacion, _fechaRecision);
     // TODO: Implementar lógica de cálculo de rescisión
     return Promise.resolve({ monto_penalidad: 0 });
   }
@@ -1317,6 +1341,14 @@ export class ContractsService {
     _motivo: string,
     _userId: string,
   ) {
+    console.log(
+      _contractId,
+      _fechaNotificacion,
+      _fechaRecision,
+      _penalidadMonto,
+      _motivo,
+      _userId,
+    );
     // TODO: Implementar lógica de registro de rescisión
     return Promise.resolve({});
   }

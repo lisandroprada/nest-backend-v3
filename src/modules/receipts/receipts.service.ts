@@ -82,6 +82,7 @@ export class ReceiptsService {
           monto_pagado: imputacion.montoImputado,
           fecha_pago: new Date().toISOString(),
           metodo_pago: dto.metodo_pago,
+          cuenta_financiera_id: dto.cuenta_afectada_id,
           comprobante: numero_recibo.toString(),
           usuario_id: userId,
           observaciones: dto.observaciones,
@@ -219,12 +220,9 @@ export class ReceiptsService {
       );
 
       // 5. Actualizar Saldo de Cuenta Financiera
-      await this.financialAccountsService.updateBalance(
-        financialAccountToUpdate,
-        transactionAmount,
-        dto.tipo_flujo_neto === TipoFlujoNeto.INGRESO ? 'INGRESO' : 'EGRESO',
-        session,
-      );
+      // NOTA: El saldo ya fue actualizado por registerPayment() para cada asiento imputado
+      // No es necesario actualizar nuevamente aquí para evitar duplicación
+      // El registerPayment() ya llamó a updateBalance() con el monto correcto
 
       // 6. Generación de Factura Fiscal (Condicional)
       if (dto.emitir_factura && asientosFacturablesIds.length > 0) {

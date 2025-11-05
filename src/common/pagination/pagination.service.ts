@@ -94,7 +94,9 @@ export class PaginationService {
                 break;
               case SearchOperation.CONTAINS:
                 condition = {
-                  [singleField]: { $regex: new RegExp(accentInsensitive(term), 'i') },
+                  [singleField]: {
+                    $regex: new RegExp(accentInsensitive(term), 'i'),
+                  },
                 };
                 break;
               case SearchOperation.GREATER_THAN:
@@ -117,7 +119,9 @@ export class PaginationService {
                     const subField = `${match[1]}.${match[2]}`;
                     if (operation === SearchOperation.CONTAINS) {
                       condition = {
-                        [subField]: { $regex: new RegExp(accentInsensitive(term), 'i') },
+                        [subField]: {
+                          $regex: new RegExp(accentInsensitive(term), 'i'),
+                        },
                       };
                     } else {
                       condition = { [subField]: term };

@@ -45,9 +45,9 @@ export class CreateReceiptDto {
   @IsNotEmpty()
   metodo_pago: string; // 'efectivo', 'transferencia', 'cheque', 'tarjeta', 'otro'
 
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
-  comprobante_externo: string; // CRÍTICO: ID de la transferencia/cheque. Debe ser obligatorio para Conciliación.
+  comprobante_externo?: string; // CRÍTICO: ID de la transferencia/cheque. Debe ser obligatorio para Conciliación.
 
   @IsMongoId()
   @IsNotEmpty()

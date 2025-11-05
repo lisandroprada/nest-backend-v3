@@ -6,11 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { FinancialAccountsService } from './financial-accounts.service';
 import { CreateFinancialAccountDto } from './dto/create-financial-account.dto';
 import { UpdateFinancialAccountDto } from './dto/update-financial-account.dto';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id.pipe';
+import { MovementsQueryDto } from './dto/movements-query.dto';
 
 @Controller('financial-accounts')
 export class FinancialAccountsController {
@@ -26,6 +28,16 @@ export class FinancialAccountsController {
   @Get()
   findAll() {
     return this.financialAccountsService.findAll();
+  }
+
+  /**
+   * GET /financial-accounts/movements
+   * Obtiene los movimientos (transacciones) de cuentas financieras
+   * con paginación y filtros por fecha, tipo, cuenta, etc.
+   */
+  @Get('movements')
+  getMovements(@Query() query: MovementsQueryDto) {
+    return this.financialAccountsService.getMovements(query);
   }
 
   @Get(':id')

@@ -8,6 +8,7 @@ import {
 } from './entities/accounting-entry.entity';
 import { CommonModule } from 'src/common/common.module';
 import { AuthModule } from '../auth/auth.module';
+import { FinancialAccountsModule } from '../financial-accounts/financial-accounts.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AuthModule } from '../auth/auth.module';
     ]),
     CommonModule,
     AuthModule,
+    FinancialAccountsModule,
   ],
   controllers: [AccountingEntriesController],
   providers: [AccountingEntriesService],

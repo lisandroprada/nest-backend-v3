@@ -6,11 +6,16 @@ import {
   FinancialAccount,
   FinancialAccountSchema,
 } from './entities/financial-account.entity';
+import {
+  Transaction,
+  TransactionSchema,
+} from '../transactions/entities/transaction.entity';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: FinancialAccount.name, schema: FinancialAccountSchema },
+      { name: Transaction.name, schema: TransactionSchema },
     ]),
   ],
   controllers: [FinancialAccountsController],

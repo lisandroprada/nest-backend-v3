@@ -1,5 +1,6 @@
 import {
   IsDateString,
+  IsMongoId,
   IsNumber,
   IsOptional,
   IsString,
@@ -18,9 +19,8 @@ export class RegisterPaymentDto {
   @IsString()
   metodo_pago?: string; // 'efectivo', 'transferencia', 'cheque', 'tarjeta', 'otro'
 
-  @IsOptional()
-  @IsString()
-  comprobante?: string; // Número de comprobante/recibo
+  @IsMongoId()
+  cuenta_financiera_id: string; // ID de la cuenta financiera que recibe/paga
 
   @IsOptional()
   @IsString()

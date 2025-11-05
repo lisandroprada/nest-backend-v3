@@ -1,4 +1,4 @@
-import { IsDateString, IsOptional, IsString } from 'class-validator';
+import { IsDateString, IsMongoId, IsOptional, IsString } from 'class-validator';
 
 export class LiquidarAsientoDto {
   @IsDateString()
@@ -6,6 +6,12 @@ export class LiquidarAsientoDto {
 
   @IsString()
   metodo_liquidacion: string; // 'transferencia', 'cheque', 'efectivo', 'otro'
+
+  @IsMongoId()
+  cuenta_financiera_id: string; // ID de la cuenta financiera que realiza el pago
+
+  @IsMongoId()
+  agente_id: string; // ID del agente al que se liquida (propietario o inmobiliaria)
 
   @IsOptional()
   @IsString()

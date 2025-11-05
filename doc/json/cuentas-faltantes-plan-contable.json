@@ -1,0 +1,200 @@
+[
+  {
+    "codigo": "ING_LOC",
+    "nombre": "Ingreso por Alquiler Locador",
+    "tipo_cuenta": "INGRESO",
+    "descripcion": "Ingreso que corresponde al propietario por alquiler. Se registra en el HABER cuando se genera el asiento de alquiler mensual.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "ING_AJU",
+    "nombre": "Ingresos - Ajustes y Diferencias",
+    "tipo_cuenta": "INGRESO",
+    "descripcion": "Sobrantes de caja y otros ajustes positivos.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_SAL",
+    "nombre": "Egresos - Salarios y Cargas Sociales",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Gastos de personal: sueldos, cargas sociales, aportes patronales.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_SRV",
+    "nombre": "Egresos - Servicios",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Gastos en servicios: luz, agua, gas, internet, teléfono, hosting, software.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 21,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_ALQ",
+    "nombre": "Egresos - Alquiler Oficina",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Gasto por alquiler del local u oficina de la inmobiliaria.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_IMP",
+    "nombre": "Egresos - Impuestos y Tasas",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Impuestos municipales, ingresos brutos, IVA a pagar, ganancias, bienes personales.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_OPR",
+    "nombre": "Egresos - Gastos Operativos",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Gastos operativos varios: materiales de oficina, limpieza, mantenimiento, publicidad.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 21,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_HON",
+    "nombre": "Egresos - Honorarios Profesionales",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Honorarios pagados a profesionales externos: contadores, abogados, escribanos.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 21,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_COM",
+    "nombre": "Egresos - Comisiones Bancarias",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Comisiones y gastos bancarios, costos de transferencias, mantenimiento de cuentas.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 21,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_DEP",
+    "nombre": "Egresos - Depreciaciones",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Depreciación de activos fijos: muebles, equipos, vehículos.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_INT",
+    "nombre": "Egresos - Intereses Perdidos",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Intereses por financiamiento, préstamos bancarios o moras pagadas.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "EGR_AJU",
+    "nombre": "Egresos - Ajustes y Diferencias",
+    "tipo_cuenta": "EGRESO",
+    "descripcion": "Faltantes de caja y otros ajustes negativos.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "ACT_CAJ",
+    "nombre": "Activo - Caja Chica",
+    "tipo_cuenta": "ACTIVO",
+    "descripcion": "Efectivo disponible en caja chica para gastos menores.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "ACT_BCO",
+    "nombre": "Activo - Banco Cuenta Corriente",
+    "tipo_cuenta": "ACTIVO",
+    "descripcion": "Fondos en cuenta corriente bancaria de la inmobiliaria.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "ACT_INV",
+    "nombre": "Activo - Inversiones Temporarias",
+    "tipo_cuenta": "ACTIVO",
+    "descripcion": "Inversiones financieras de corto plazo: plazos fijos, fondos comunes de inversión.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "ACT_MUE",
+    "nombre": "Activo - Muebles y Útiles",
+    "tipo_cuenta": "ACTIVO",
+    "descripcion": "Bienes de uso: escritorios, sillas, archivadores, equipos de oficina.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "ACT_ROD",
+    "nombre": "Activo - Rodados",
+    "tipo_cuenta": "ACTIVO",
+    "descripcion": "Vehículos propiedad de la inmobiliaria.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "PAS_SAL",
+    "nombre": "Pasivo - Sueldos a Pagar",
+    "tipo_cuenta": "PASIVO",
+    "descripcion": "Sueldos devengados pendientes de pago.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "PAS_IMP",
+    "nombre": "Pasivo - Impuestos a Pagar",
+    "tipo_cuenta": "PASIVO",
+    "descripcion": "Impuestos devengados pendientes de pago: IVA, ingresos brutos, cargas sociales.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "PAT_CAP",
+    "nombre": "Patrimonio Neto - Capital Social",
+    "tipo_cuenta": "PATRIMONIO_NETO",
+    "descripcion": "Capital aportado por los socios o propietarios de la inmobiliaria.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "PAT_RES",
+    "nombre": "Patrimonio Neto - Resultados Acumulados",
+    "tipo_cuenta": "PATRIMONIO_NETO",
+    "descripcion": "Utilidades o pérdidas acumuladas de ejercicios anteriores.",
+    "es_imputable": true,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  },
+  {
+    "codigo": "PAT_RES_EJ",
+    "nombre": "Patrimonio Neto - Resultado del Ejercicio",
+    "tipo_cuenta": "PATRIMONIO_NETO",
+    "descripcion": "Ganancia o pérdida del ejercicio contable en curso.",
+    "es_imputable": false,
+    "tasa_iva_aplicable": 0,
+    "es_facturable": false
+  }
+]

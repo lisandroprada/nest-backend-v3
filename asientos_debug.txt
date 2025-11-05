@@ -115,3 +115,510 @@
   "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
   "status": "VIGENTE"
 }
+{
+  "timestamp": "2025-11-04T12:42:40.381Z",
+  "contrato_id": "6909f4b437dcfa5c4daecbd7",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T12:49:01.645Z",
+  "contrato_id": "6909f62d2079131f0c10d05b",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T13:06:49.385Z",
+  "contrato_id": "6909fa5e63da2bba5715a2fb",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T15:08:41.797Z",
+  "contrato_id": "690a16efdd97d18b1ccd00bf",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T15:29:18.530Z",
+  "contrato_id": "690a1bc1660024bf1704b777",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T20:29:34.559Z",
+  "contrato_id": "690a62217d1c2a35a0773584",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T21:01:06.119Z",
+  "contrato_id": "690a69877d1c2a35a0773715",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T21:34:13.000Z",
+  "contrato_id": "690a714c182382a7264f5e26",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T22:33:37.352Z",
+  "contrato_id": "690a7f3ace1177a07cee8815",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-04T22:41:49.837Z",
+  "contrato_id": "690a8126bff411728c9e82ef",
+  "fecha_inicio": "2025-11-04T00:00:00.000Z",
+  "fecha_final": "2028-11-04T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-05T10:37:33.409Z",
+  "contrato_id": "690b28e28650619f0c974e5b",
+  "fecha_inicio": "2025-11-05T00:00:00.000Z",
+  "fecha_final": "2028-11-05T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-05T15:25:11.679Z",
+  "contrato_id": "690b6c34c8fd22b8f8811544",
+  "fecha_inicio": "2025-11-05T00:00:00.000Z",
+  "fecha_final": "2028-11-05T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "71d0a041d95995f3226c012a",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "0a4930df65c1f723cd416a10",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "1521a1b35b969f83a6db2399",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 850000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 850000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}
+{
+  "timestamp": "2025-11-05T16:15:49.953Z",
+  "contrato_id": "690b782e9f0f1a21426dec3d",
+  "fecha_inicio": "2025-11-05T00:00:00.000Z",
+  "fecha_final": "2028-11-05T00:00:00.000Z",
+  "partes": [
+    {
+      "agente_id": "a34e951d87c5290bcfe4facf",
+      "rol": "LOCADOR"
+    },
+    {
+      "agente_id": "ff94422a4f362edab22860ba",
+      "rol": "LOCATARIO"
+    },
+    {
+      "agente_id": "e042f99085ba21e54925559b",
+      "rol": "FIADOR"
+    }
+  ],
+  "terminos_financieros": {
+    "monto_base_vigente": 1000000,
+    "indice_tipo": "ICL",
+    "interes_mora_diaria": 0.1,
+    "iva_calculo_base": "INCLUIDO",
+    "comision_administracion_porcentaje": 8,
+    "honorarios_locador_porcentaje": 2,
+    "honorarios_locador_cuotas": 1,
+    "honorarios_locatario_porcentaje": 2,
+    "honorarios_locatario_cuotas": 1,
+    "ajuste_porcentaje": 0,
+    "ajuste_periodicidad_meses": 4,
+    "ajuste_es_fijo": false,
+    "indice_valor_inicial": 0
+  },
+  "deposito_monto": 1000000,
+  "deposito_cuotas": 1,
+  "deposito_tipo_ajuste": "AL_ULTIMO_ALQUILER",
+  "status": "VIGENTE"
+}

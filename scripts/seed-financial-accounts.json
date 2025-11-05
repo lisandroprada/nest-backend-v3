@@ -1,0 +1,36 @@
+[
+  {
+    "nombre": "Caja Principal",
+    "tipo": "CAJA_EFECTIVO",
+    "moneda": "ARS",
+    "descripcion": "Caja principal de la inmobiliaria para efectivo",
+    "saldo_inicial": 0,
+    "status": "ACTIVA"
+  },
+  {
+    "nombre": "Banco Cuenta Corriente - Principal",
+    "tipo": "BANCO_CTA_CTE",
+    "moneda": "ARS",
+    "descripcion": "Cuenta corriente bancaria principal",
+    "saldo_inicial": 0,
+    "status": "ACTIVA",
+    "cbu": "0000000000000000000000",
+    "alias": "INMOBILIARIA.PRINCIPAL"
+  },
+  {
+    "nombre": "Caja Ahorro - Depósitos",
+    "tipo": "BANCO_CAJA_AHORRO",
+    "moneda": "ARS",
+    "descripcion": "Caja de ahorro para depósitos en garantía",
+    "saldo_inicial": 0,
+    "status": "ACTIVA"
+  },
+  {
+    "nombre": "Valores a Depositar",
+    "tipo": "VALORES_A_DEPOSITAR",
+    "moneda": "ARS",
+    "descripcion": "Cheques y valores pendientes de depósito",
+    "saldo_inicial": 0,
+    "status": "ACTIVA"
+  }
+]
