@@ -17,6 +17,7 @@ export class ResetSystemResponseDto {
     accountingEntries: number;
     transactions: number;
     receipts: number;
+    receiptFiles: number;
     cashBoxMovements: number;
     financialAccountsReset: number;
   };

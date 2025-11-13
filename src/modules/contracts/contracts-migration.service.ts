@@ -758,52 +758,96 @@ export class ContractsMigrationService {
     dryRun: boolean,
   ): Promise<void> {
     this.logger.debug(
-      `Generando asiento de depósito para contrato ${contract._id}`,
+      `Generando asientos de depósito para contrato ${contract._id}`,
     );
 
-    const { deposito_monto, fecha_final, partes } = contract;
+    const { deposito_monto, fecha_inicio, fecha_final, partes } = contract;
 
+    // Buscar LOCADOR y LOCATARIO
+    const locador = partes.find((p) => p.rol === AgenteRoles.LOCADOR);
     const locatario = partes.find((p) => p.rol === AgenteRoles.LOCATARIO);
 
     const depositoRedondeado = this.roundToTwoDecimals(deposito_monto);
 
-    const partidas = [
+    // ========================================
+    // ASIENTO 1: COBRO DEL DEPÓSITO AL LOCATARIO (fecha_inicio)
+    // ========================================
+    const partidasCobro = [
       {
-        cuenta_id: this.accountIdsCache['PASIVO_DEPOSITO'],
-        descripcion: 'Pasivo por depósito en garantía recibido',
-        debe: 0,
-        haber: depositoRedondeado,
-        agente_id: locatario.agente_id,
+        cuenta_id: this.accountIdsCache['CUENTAS_POR_COBRAR_ALQUILERES'],
+        descripcion: 'Depósito en garantía a cobrar al locatario',
+        debe: depositoRedondeado,
+        haber: 0,
+        agente_id: locatario.agente_id, // LOCATARIO debe pagar
       },
       {
         cuenta_id: this.accountIdsCache['ACTIVO_FIDUCIARIO'],
-        descripcion: 'Ingreso de depósito en garantía a caja/banco',
-        debe: depositoRedondeado,
-        haber: 0,
+        descripcion: 'Ingreso de depósito en garantía a caja/banco fiduciaria',
+        debe: 0,
+        haber: depositoRedondeado,
       },
     ];
 
     if (!dryRun) {
-      const partidasFinal = partidas.map((p) => ({
+      const partidasCobroFinal = partidasCobro.map((p) => ({
         ...p,
         es_iva_incluido: false,
         tasa_iva_aplicada: 0,
         monto_base_imponible: 0,
         monto_iva_calculado: 0,
       }));
-      const montoOriginal = partidasFinal.reduce(
-        (sum, p) => sum + (p.debe || 0),
-        0,
-      );
-      const montoActual = montoOriginal;
+      const montoOriginal = depositoRedondeado;
       await this.accountingEntriesService.create({
         contrato_id: contract._id as Types.ObjectId,
-        tipo_asiento: 'Deposito en Garantia',
-        fecha_vencimiento: fecha_final,
-        descripcion: 'Registro de depósito en garantía',
-        partidas: partidasFinal,
+        tipo_asiento: 'Deposito en Garantia - Cobro',
+        fecha_imputacion: fecha_inicio,
+        fecha_vencimiento: fecha_inicio,
+        descripcion: 'Cobro de depósito en garantía al locatario',
+        partidas: partidasCobroFinal,
         monto_original: montoOriginal,
-        monto_actual: montoActual,
+        monto_actual: montoOriginal,
+        usuario_creacion_id: new Types.ObjectId(userId),
+        usuario_modificacion_id: new Types.ObjectId(userId),
+      });
+    }
+
+    // ========================================
+    // ASIENTO 2: DEVOLUCIÓN DEL DEPÓSITO AL LOCADOR (fecha_final)
+    // ========================================
+    const partidasDevolucion = [
+      {
+        cuenta_id: this.accountIdsCache['ACTIVO_FIDUCIARIO'],
+        descripcion: 'Egreso de depósito en garantía desde caja/banco',
+        debe: depositoRedondeado,
+        haber: 0,
+      },
+      {
+        cuenta_id: this.accountIdsCache['PASIVO_DEPOSITO'],
+        descripcion: 'Depósito en garantía a devolver al locador',
+        debe: 0,
+        haber: depositoRedondeado,
+        agente_id: locador.agente_id, // LOCADOR debe recibir la devolución
+      },
+    ];
+
+    if (!dryRun) {
+      const partidasDevolucionFinal = partidasDevolucion.map((p) => ({
+        ...p,
+        es_iva_incluido: false,
+        tasa_iva_aplicada: 0,
+        monto_base_imponible: 0,
+        monto_iva_calculado: 0,
+      }));
+      const montoOriginal = depositoRedondeado;
+      await this.accountingEntriesService.create({
+        contrato_id: contract._id as Types.ObjectId,
+        tipo_asiento: 'Deposito en Garantia - Devolucion',
+        fecha_imputacion: fecha_final,
+        fecha_vencimiento: fecha_final,
+        descripcion: 'Devolución de depósito en garantía al locador',
+        partidas: partidasDevolucionFinal,
+        monto_original: montoOriginal,
+        monto_actual: montoOriginal,
         usuario_creacion_id: new Types.ObjectId(userId),
         usuario_modificacion_id: new Types.ObjectId(userId),
       });

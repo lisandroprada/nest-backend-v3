@@ -152,6 +152,7 @@ export class Agent extends Document {
         cbu_numero: String,
         bank_id: { type: Types.ObjectId, ref: 'Bank' },
         moneda: String,
+        cbu_tipo: String, // Cuenta corriente, Caja de Ahorro
       },
     ],
   })
@@ -160,6 +161,7 @@ export class Agent extends Document {
     cbu_numero: string;
     bank_id: Types.ObjectId; // Reference to the Bank entity
     moneda: string;
+    cbu_tipo: string;
   }[];
 
   @Prop({ type: String, select: false })

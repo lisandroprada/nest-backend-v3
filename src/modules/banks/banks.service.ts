@@ -4,8 +4,8 @@ import { Model } from 'mongoose';
 import { Bank } from './entities/bank.entity';
 import { CreateBankDto } from './dto/create-bank.dto';
 import { UpdateBankDto } from './dto/update-bank.dto';
-import { PaginationDto } from 'src/common/pagination/dto/pagination.dto';
-import { PaginationService } from 'src/common/pagination/pagination.service';
+import { PaginationDto } from '../../common/pagination/dto/pagination.dto';
+import { PaginationService } from '../../common/pagination/pagination.service';
 
 @Injectable()
 export class BanksService {

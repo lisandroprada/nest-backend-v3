@@ -1,7 +1,7 @@
 # Guía de Integración para Frontend - Módulo de Agentes
 
-**Fecha:** 2025-10-08
-**Versión:** 2.0
+**Fecha:** 2025-11-07
+**Versión:** 2.1
 **Autor:** Gemini Agent
 **Ámbito:** Documento técnico que describe la entidad `Agent`, sus endpoints y la estructura de datos completa para la creación y gestión de Clientes, Proveedores y otras entidades.
 
@@ -14,6 +14,34 @@ El módulo de `agents` es la base de datos central para todas las entidades (per
 Este enfoque unificado simplifica la arquitectura y permite que una misma entidad (ej. una persona que es propietaria y también proveedora de servicios) pueda tener múltiples roles sin duplicar datos.
 
 **URL Base de la API (Desarrollo):** `http://localhost:3050`
+
+---
+
+## 1.1. Populate Opcional (IMPORTANTE)
+
+El endpoint de listado (`GET /agents`) acepta el parámetro opcional `populate` para incluir datos completos de relaciones (por ejemplo, información del banco en las cuentas bancarias).
+
+### ¿Cuándo usar populate?
+
+- **SIN populate (recomendado para listados):** Más rápido, menor transferencia de datos, nunca falla por datos incompletos.
+
+  ```
+  GET /api/v1/agents?page=0&pageSize=10
+  ```
+
+- **CON populate (para vistas detalle):** Incluye datos completos de bancos, provincias, etc.
+  ```
+  GET /api/v1/agents?page=0&pageSize=10&populate=cuentas_bancarias.bank_id
+  ```
+
+### Ventajas del populate opcional
+
+✅ El frontend decide si necesita datos completos o solo IDs  
+✅ Listados rápidos sin populate  
+✅ Vistas detalle con populate en una sola consulta  
+✅ Nunca falla si el agente no tiene cuentas bancarias (devuelve array vacío)
+
+**Regla general:** No uses populate en listados/tablas. Úsalo solo en vistas detalle o edición donde necesites mostrar el nombre completo del banco.
 
 ---
 
@@ -271,6 +299,169 @@ No requiere body en el request.
   "updatedAt": "2025-01-12T14:30:00.000Z"
 }
 ```
+
+---
+
+## 7. Ejemplos de Uso del Endpoint de Listado
+
+### 7.1. Listado Simple (sin populate) - RECOMENDADO
+
+**Uso:** Tablas, grids, listados donde solo necesitas datos básicos.
+
+```bash
+curl 'http://localhost:3050/api/v1/agents?page=0&pageSize=10&sort=-createdAt' \
+  -H 'Authorization: Bearer TU_TOKEN_JWT'
+```
+
+**Respuesta:**
+
+```json
+{
+  "totalItems": 1575,
+  "totalPages": 158,
+  "items": [
+    {
+      "_id": "17cc4123501d2560c74c21a1",
+      "rol": ["CLIENTE"],
+      "persona_tipo": "FISICA",
+      "nombres": "Xiomara Yael",
+      "apellidos": "Martin Escobar",
+      "nombre_razon_social": null,
+      "documento_tipo": "DNI",
+      "documento_numero": "36757087",
+      "email_principal": "xiomytta_09@hotmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "createdAt": "2021-04-01T21:05:35.682Z"
+    }
+  ]
+}
+```
+
+**Ventajas:**
+
+- ✅ Respuesta más rápida
+- ✅ Menor carga en base de datos
+- ✅ Menor transferencia de datos
+- ✅ Nunca falla por datos incompletos
+
+---
+
+### 7.2. Listado con Populate (datos completos de bancos)
+
+**Uso:** Vista detalle, edición, reportes donde necesitas el nombre del banco.
+
+```bash
+curl 'http://localhost:3050/api/v1/agents?page=0&pageSize=10&sort=-createdAt&populate=cuentas_bancarias.bank_id' \
+  -H 'Authorization: Bearer TU_TOKEN_JWT'
+```
+
+**Respuesta:**
+
+```json
+{
+  "totalItems": 1575,
+  "totalPages": 158,
+  "items": [
+    {
+      "_id": "17cc4123501d2560c74c21a1",
+      "rol": ["CLIENTE"],
+      "nombres": "Xiomara Yael",
+      "apellidos": "Martin Escobar",
+      "cuentas_bancarias": [
+        {
+          "cbu_alias": "alias.cuenta",
+          "cbu_numero": "0170099220000012345678",
+          "bank_id": {
+            "_id": "64f1a9c7e7a1c2b3d4567890",
+            "nombre": "Banco Galicia",
+            "codigo": "007"
+          },
+          "moneda": "ARS"
+        }
+      ],
+      "status": "ACTIVO"
+    }
+  ]
+}
+```
+
+**Nota:** Si el agente no tiene cuentas bancarias, `cuentas_bancarias` será `[]`.
+
+---
+
+### 7.3. Filtro por Status (solo activos)
+
+```bash
+curl 'http://localhost:3050/api/v1/agents?page=0&pageSize=10&search[criteria][0][field]=status&search[criteria][0][term]=ACTIVO&search[criteria][0][operation]=eq' \
+  -H 'Authorization: Bearer TU_TOKEN_JWT'
+```
+
+---
+
+### 7.4. Búsqueda por Nombre
+
+```bash
+curl 'http://localhost:3050/api/v1/agents?search[criteria][0][field]=nombre_razon_social&search[criteria][0][term]=Martin&search[criteria][0][operation]=contains' \
+  -H 'Authorization: Bearer TU_TOKEN_JWT'
+```
+
+---
+
+### 7.5. Frontend - Listado Angular/React
+
+```typescript
+// Servicio Angular
+searchAgents(filters: any) {
+  const params = new HttpParams()
+    .set('page', filters.page || 0)
+    .set('pageSize', filters.pageSize || 10)
+    .set('sort', filters.sort || '-createdAt');
+
+  // Solo agregar populate si es necesario
+  if (filters.needBankData) {
+    params = params.set('populate', 'cuentas_bancarias.bank_id');
+  }
+
+  return this.http.get('/api/v1/agents', { params });
+}
+```
+
+---
+
+## 8. Errores Comunes y Soluciones
+
+### Error: Array vacío con totalItems > 0
+
+**Problema:** Antes, enviar `populate=cuentas_bancarias.bank_id` devolvía `{ totalItems: 0, items: [] }` aunque existían agentes.
+
+**Causa:** El populate fallaba si algunos agentes tenían `cuentas_bancarias` vacío.
+
+**Solución:** Actualizado en versión 2.1. Ahora el populate es opcional y nunca bloquea resultados. Si no necesitas datos del banco, no envíes el parámetro `populate`.
+
+---
+
+### Error: Token inválido
+
+**Respuesta:**
+
+```json
+{
+  "statusCode": 401,
+  "message": "Unauthorized"
+}
+```
+
+**Solución:** Renovar token o hacer login nuevamente.
+
+---
+
+## 9. Changelog
+
+- **2025-11-07 (v2.1):** Populate opcional para evitar conflictos con datos vacíos. Agregada sección de ejemplos de uso.
+- **2025-10-08 (v2.0):** Versión inicial completa.
+
+---
 
 #### Response Error (400 Bad Request)
 

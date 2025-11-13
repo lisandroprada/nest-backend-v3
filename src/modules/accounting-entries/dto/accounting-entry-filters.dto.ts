@@ -26,6 +26,7 @@ export class AccountingEntryFiltersDto {
     'PENDIENTE',
     'PAGADO',
     'PAGADO_PARCIAL',
+    'COBRADO', // DEBE cobrado pero HABER pendiente de liquidación
     'ANULADO',
     'CONDONADO',
     'PENDIENTE_APROBACION',

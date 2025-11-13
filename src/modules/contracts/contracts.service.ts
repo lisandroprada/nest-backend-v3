@@ -22,6 +22,7 @@ import {
   AsientoPreviewDto,
   PartidaPreviewDto,
 } from './dto/calculate-initial-payments.dto';
+import { DepositoPendienteResponseDto } from './dto/depositos-pendientes.dto';
 import * as fs from 'fs';
 import { AgentsService } from '../agents/agents.service';
 import { Property } from '../properties/entities/property.entity';
@@ -247,24 +248,25 @@ export class ContractsService {
     contract: Contract & { propiedad_id: Property },
     userId: string,
   ): Promise<void> {
+    // Buscar LOCADOR y LOCATARIO
+    const locador = contract.partes.find((p) => p.rol === AgenteRoles.LOCADOR);
     const locatario = contract.partes.find(
       (p) => p.rol === AgenteRoles.LOCATARIO,
     );
-    if (!locatario) return;
 
+    if (!locador || !locatario) return;
+
+    const locadorAgent = await this.agentsService.findOne(
+      locador.agente_id.toString(),
+    );
     const locatarioAgent = await this.agentsService.findOne(
       locatario.agente_id.toString(),
     );
 
-    if (!locatarioAgent) {
-      console.warn(
-        `Agente locatario con ID ${locatario.agente_id} no encontrado para el depósito.`,
-      );
-    }
-
+    const locadorName = locadorAgent ? locadorAgent.nombres : 'Desconocido';
     const locatarioName = locatarioAgent
       ? locatarioAgent.nombres
-      : 'Locatario Desconocido';
+      : 'Desconocido';
 
     const propertyAddress = contract.propiedad_id
       ? `${contract.propiedad_id.direccion.calle} ${contract.propiedad_id.direccion.numero}, ${contract.propiedad_id.direccion.localidad_id}`
@@ -272,86 +274,103 @@ export class ContractsService {
 
     const cuentaPasivoDepositoId = this.accountIdsCache['PAS_DEP'];
     const cuentaActivoFiduciarioId = this.accountIdsCache['ACT_FID'];
+    const cuentaCobrarAlquileresId = this.accountIdsCache['CXC_ALQ'];
 
-    const descripcionBase = 'Registro de depósito en garantía';
-
-    const metadata = {
-      propertyAddress: propertyAddress,
-
-      locatarioName: locatarioName,
-    };
-
-    const partidas = [
+    // ========================================
+    // ASIENTO 1: COBRO DEL DEPÓSITO AL LOCATARIO (fecha_inicio)
+    // ========================================
+    const partidasCobro = [
       {
-        cuenta_id: cuentaPasivoDepositoId,
-
-        descripcion: 'Recepción de depósito en garantía',
-
-        debe: 0,
-
-        haber: contract.deposito_monto,
-
-        agente_id: locatario.agente_id,
-
+        cuenta_id: cuentaCobrarAlquileresId,
+        descripcion: 'Depósito en garantía a cobrar al locatario',
+        debe: contract.deposito_monto,
+        haber: 0,
+        agente_id: locatario.agente_id, // LOCATARIO debe pagar
         es_iva_incluido: false,
-
         tasa_iva_aplicada: 0,
-
         monto_base_imponible: 0,
-
         monto_iva_calculado: 0,
       },
-
       {
         cuenta_id: cuentaActivoFiduciarioId,
-
-        descripcion: 'Ingreso de depósito en garantía a caja/banco',
-
-        debe: contract.deposito_monto,
-
-        haber: 0,
-
+        descripcion: 'Ingreso de depósito en garantía a caja/banco fiduciaria',
+        debe: 0,
+        haber: contract.deposito_monto,
         es_iva_incluido: false,
-
         tasa_iva_aplicada: 0,
-
         monto_base_imponible: 0,
-
         monto_iva_calculado: 0,
       },
     ];
 
-    const montoOriginal = partidas.reduce((sum, p) => sum + (p.debe || 0), 0);
-
-    const montoActual = montoOriginal;
-
-    const entryPayload = {
-      contrato_id: contract._id as Types.ObjectId,
-
-      tipo_asiento: 'Deposito en Garantia',
-
-      fecha_imputacion: new Date(contract.fecha_inicio),
-
-      fecha_vencimiento: new Date(contract.fecha_inicio),
-
-      descripcion: descripcionBase,
-
-      partidas: partidas.map((p) =>
-        p.agente_id ? { ...p, agente_id: new Types.ObjectId(p.agente_id) } : p,
-      ),
-
-      monto_original: montoOriginal,
-
-      monto_actual: montoActual,
-
-      usuario_creacion_id: new Types.ObjectId(userId),
-
-      usuario_modificacion_id: new Types.ObjectId(userId),
-
-      metadata: metadata,
+    const metadataCobro = {
+      propertyAddress: propertyAddress,
+      locatarioName: locatarioName,
     };
 
-    await this.accountingEntriesService.create(entryPayload);
+    await this.accountingEntriesService.create({
+      contrato_id: contract._id as Types.ObjectId,
+      tipo_asiento: 'Deposito en Garantia - Cobro',
+      fecha_imputacion: new Date(contract.fecha_inicio),
+      fecha_vencimiento: new Date(contract.fecha_inicio),
+      descripcion: 'Cobro de depósito en garantía al locatario',
+      partidas: partidasCobro.map((p) =>
+        p.agente_id ? { ...p, agente_id: new Types.ObjectId(p.agente_id) } : p,
+      ),
+      monto_original: contract.deposito_monto,
+      monto_actual: contract.deposito_monto,
+      usuario_creacion_id: new Types.ObjectId(userId),
+      usuario_modificacion_id: new Types.ObjectId(userId),
+      metadata: metadataCobro,
+    });
+
+    // ========================================
+    // ASIENTO 2: DEVOLUCIÓN DEL DEPÓSITO AL LOCADOR (fecha_final)
+    // ========================================
+    const partidasDevolucion = [
+      {
+        cuenta_id: cuentaActivoFiduciarioId,
+        descripcion: 'Egreso de depósito en garantía desde caja/banco',
+        debe: contract.deposito_monto,
+        haber: 0,
+        es_iva_incluido: false,
+        tasa_iva_aplicada: 0,
+        monto_base_imponible: 0,
+        monto_iva_calculado: 0,
+      },
+      {
+        cuenta_id: cuentaPasivoDepositoId,
+        descripcion: 'Depósito en garantía a devolver al locador',
+        debe: 0,
+        haber: contract.deposito_monto,
+        agente_id: locador.agente_id, // LOCADOR debe recibir la devolución
+        es_iva_incluido: false,
+        tasa_iva_aplicada: 0,
+        monto_base_imponible: 0,
+        monto_iva_calculado: 0,
+      },
+    ];
+
+    const metadataDevolucion = {
+      propertyAddress: propertyAddress,
+      locadorName: locadorName,
+    };
+
+    await this.accountingEntriesService.create({
+      contrato_id: contract._id as Types.ObjectId,
+      tipo_asiento: 'Deposito en Garantia - Devolucion',
+      fecha_imputacion: new Date(contract.fecha_final),
+      fecha_vencimiento: new Date(contract.fecha_final),
+      descripcion: 'Devolución de depósito en garantía al locador',
+      partidas: partidasDevolucion.map((p) =>
+        p.agente_id ? { ...p, agente_id: new Types.ObjectId(p.agente_id) } : p,
+      ),
+      monto_original: contract.deposito_monto,
+      monto_actual: contract.deposito_monto,
+      usuario_creacion_id: new Types.ObjectId(userId),
+      usuario_modificacion_id: new Types.ObjectId(userId),
+      metadata: metadataDevolucion,
+    });
   }
 
   private async generateHonorariosEntries(
@@ -891,19 +910,20 @@ export class ContractsService {
         descripcion: 'Registro de depósito en garantía',
         partidas: [
           {
-            cuenta_codigo: cuentaPasivoInfo.codigo,
-            cuenta_nombre: cuentaPasivoInfo.nombre,
-            descripcion: 'Recepción de depósito en garantía',
-            debe: 0,
-            haber: montoDeposito,
-            agente_id: locatario.agente_id,
-          },
-          {
             cuenta_codigo: cuentaActivoInfo.codigo,
             cuenta_nombre: cuentaActivoInfo.nombre,
-            descripcion: 'Ingreso de depósito en garantía a caja/banco',
+            descripcion:
+              'Ingreso de depósito en garantía a caja/banco fiduciaria',
             debe: montoDeposito,
             haber: 0,
+          },
+          {
+            cuenta_codigo: cuentaPasivoInfo.codigo,
+            cuenta_nombre: cuentaPasivoInfo.nombre,
+            descripcion: 'Depósito en garantía a devolver al locador',
+            debe: 0,
+            haber: montoDeposito,
+            agente_id: locador.agente_id, // CORREGIDO: Ahora es el LOCADOR
           },
         ],
         total_debe: montoDeposito,
@@ -1351,5 +1371,160 @@ export class ContractsService {
     );
     // TODO: Implementar lógica de registro de rescisión
     return Promise.resolve({});
+  }
+
+  /**
+   * Obtiene la lista de depósitos en garantía pendientes de devolución
+   * Filtra contratos próximos a finalizar o finalizados
+   */
+  async getDepositosPendientes(
+    filters: any,
+  ): Promise<DepositoPendienteResponseDto[]> {
+    const { fecha_desde, fecha_hasta, solo_proximos_a_vencer = true } = filters;
+
+    // Construir query para contratos
+    const query: any = {
+      status: { $in: ['VIGENTE', 'FINALIZADO'] },
+      deposito_monto: { $gt: 0 },
+    };
+
+    // Si solo_proximos_a_vencer, filtrar por fecha_final
+    if (solo_proximos_a_vencer) {
+      const hoy = new Date();
+      const dentro30Dias = new Date();
+      dentro30Dias.setDate(dentro30Dias.getDate() + 30);
+      query.fecha_final = { $gte: hoy, $lte: dentro30Dias };
+    } else if (fecha_desde || fecha_hasta) {
+      query.fecha_final = {};
+      if (fecha_desde) query.fecha_final.$gte = new Date(fecha_desde);
+      if (fecha_hasta) query.fecha_final.$lte = new Date(fecha_hasta);
+    }
+
+    const contratos = await this.contractModel
+      .find(query)
+      .populate('propiedad_id')
+      .exec();
+
+    const resultado: DepositoPendienteResponseDto[] = [];
+
+    for (const contrato of contratos) {
+      // Buscar el asiento de depósito en garantía
+      const asientosDeposito =
+        await this.accountingEntriesService.findByContractAndType(
+          contrato._id.toString(),
+          'Deposito en Garantia',
+        );
+
+      if (asientosDeposito.length === 0) continue;
+
+      const asientoDeposito = asientosDeposito[0];
+
+      // Buscar la partida HABER del depósito (obligación con el locador)
+      const partidaHaber = asientoDeposito.partidas.find(
+        (p) => p.haber > 0 && p.agente_id,
+      );
+
+      if (!partidaHaber) continue;
+
+      const montoOriginal = partidaHaber.haber;
+      const montoLiquidado = partidaHaber.monto_liquidado || 0;
+      const saldoPendiente = montoOriginal - montoLiquidado;
+
+      // Calcular monto a devolver según tipo_ajuste
+      let montoADevolver = montoOriginal;
+      let ultimoMontoAlquiler: number | undefined;
+
+      if (contrato.deposito_tipo_ajuste === 'AL_ULTIMO_ALQUILER') {
+        // Buscar el último asiento de alquiler para obtener el monto actualizado
+        const ultimosAlquileres =
+          await this.accountingEntriesService.findByContractAndType(
+            contrato._id.toString(),
+            'Alquiler',
+          );
+
+        if (ultimosAlquileres.length > 0) {
+          // Ordenar por fecha_imputacion descendente
+          ultimosAlquileres.sort(
+            (a, b) =>
+              b.fecha_imputacion.getTime() - a.fecha_imputacion.getTime(),
+          );
+          const ultimoAlquiler = ultimosAlquileres[0];
+          ultimoMontoAlquiler = ultimoAlquiler.monto_actual;
+          montoADevolver = ultimoMontoAlquiler;
+        }
+      }
+
+      // Obtener agentes
+      const locador = contrato.partes.find(
+        (p) => p.rol === AgenteRoles.LOCADOR,
+      );
+      const locatario = contrato.partes.find(
+        (p) => p.rol === AgenteRoles.LOCATARIO,
+      );
+
+      if (!locador || !locatario) continue;
+
+      const locadorAgent = await this.agentsService.findOne(
+        locador.agente_id.toString(),
+      );
+      const locatarioAgent = await this.agentsService.findOne(
+        locatario.agente_id.toString(),
+      );
+
+      // Calcular días hasta finalización
+      const hoy = DateTime.now();
+      const fechaFinal = DateTime.fromJSDate(contrato.fecha_final);
+      const diasHastaFinalizacion = Math.ceil(
+        fechaFinal.diff(hoy, 'days').days,
+      );
+
+      // Determinar estado de liquidación
+      let estadoLiquidacion: 'PENDIENTE' | 'LIQUIDADO_PARCIAL' | 'LIQUIDADO' =
+        'PENDIENTE';
+      if (montoLiquidado >= montoADevolver) {
+        estadoLiquidacion = 'LIQUIDADO';
+      } else if (montoLiquidado > 0) {
+        estadoLiquidacion = 'LIQUIDADO_PARCIAL';
+      }
+
+      const propiedad = contrato.propiedad_id as any;
+      const direccionPropiedad = propiedad
+        ? `${propiedad.direccion.calle} ${propiedad.direccion.numero}, ${propiedad.direccion.localidad_id}`
+        : 'Propiedad Desconocida';
+
+      resultado.push({
+        contrato_id: contrato._id.toString(),
+        numero_contrato: contrato._id.toString(), // Usar _id como número de contrato
+        fecha_inicio: contrato.fecha_inicio,
+        fecha_final: contrato.fecha_final,
+        dias_hasta_finalizacion: diasHastaFinalizacion,
+        locador: {
+          agente_id: locador.agente_id.toString(),
+          nombre: locadorAgent ? locadorAgent.nombres : 'Desconocido',
+        },
+        locatario: {
+          agente_id: locatario.agente_id.toString(),
+          nombre: locatarioAgent ? locatarioAgent.nombres : 'Desconocido',
+        },
+        propiedad: {
+          direccion: direccionPropiedad,
+        },
+        deposito: {
+          monto_original: montoOriginal,
+          monto_a_devolver: montoADevolver,
+          tipo_ajuste: contrato.deposito_tipo_ajuste,
+          ultimo_monto_alquiler: ultimoMontoAlquiler,
+          asiento_id: asientoDeposito._id.toString(),
+          estado_liquidacion: estadoLiquidacion,
+          monto_liquidado: montoLiquidado,
+          saldo_pendiente: saldoPendiente,
+        },
+      });
+    }
+
+    // Ordenar por días hasta finalización (más próximos primero)
+    return resultado.sort(
+      (a, b) => a.dias_hasta_finalizacion - b.dias_hasta_finalizacion,
+    );
   }
 }

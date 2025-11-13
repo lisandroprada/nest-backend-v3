@@ -10,7 +10,11 @@ import { TransactionsModule } from '../transactions/transactions.module';
 import { AuthModule } from '../auth/auth.module';
 import { FiscalModule } from '../fiscal/fiscal.module';
 import { ChartOfAccountsModule } from '../chart-of-accounts/chart-of-accounts.module';
-import { AgentsModule } from '../agents/agents.module'; // Import AgentsModule
+import { AgentsModule } from '../agents/agents.module';
+import { PdfGeneratorService } from './services/pdf-generator.service';
+import { EmailService } from './services/email.service';
+import { WhatsAppService } from './services/whatsapp.service';
+import { PaginationService } from '../../common/pagination/pagination.service';
 
 @Module({
   imports: [
@@ -25,7 +29,13 @@ import { AgentsModule } from '../agents/agents.module'; // Import AgentsModule
     AgentsModule, // Add AgentsModule here
   ],
   controllers: [ReceiptsController],
-  providers: [ReceiptsService],
+  providers: [
+    ReceiptsService,
+    PdfGeneratorService,
+    EmailService,
+    WhatsAppService,
+    PaginationService,
+  ],
   exports: [ReceiptsService],
 })
 export class ReceiptsModule {}

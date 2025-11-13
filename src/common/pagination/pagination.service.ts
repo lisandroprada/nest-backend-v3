@@ -138,10 +138,14 @@ export class PaginationService {
       }
     }
 
-    // Combine all conditions with $and if there are multiple, otherwise use the single condition
-    let finalFilter: any = {};
+    // Combine base filter + search conditions
+    let finalFilter: any = { ...filter };
     if (queryConditions.length > 0) {
-      finalFilter = { $and: queryConditions };
+      if (Object.keys(finalFilter).length > 0) {
+        finalFilter = { $and: [finalFilter, ...queryConditions] };
+      } else {
+        finalFilter = { $and: queryConditions };
+      }
     }
 
     let query = model
@@ -193,7 +197,7 @@ export class PaginationService {
       .exec();
 
     const totalItems = await model
-      .countDocuments(queryConditions)
+      .countDocuments(finalFilter)
       .collation({ locale: 'es', strength: 1 });
     const totalPages = Math.ceil(totalItems / pageSize);
 

@@ -30,6 +30,10 @@ class CuentaBancariaDto {
   @IsString()
   @IsNotEmpty()
   moneda: string;
+
+  @IsString()
+  @IsNotEmpty()
+  cbu_tipo: string;
 }
 
 export class CreateAgentDto {

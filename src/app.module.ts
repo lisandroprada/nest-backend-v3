@@ -50,6 +50,8 @@ import { ContractSettingsModule } from './modules/contract-settings/contract-set
 import { CashBoxModule } from './modules/cash-box/cash-box.module';
 import { FinancialReportsModule } from './modules/financial-reports/financial-reports.module';
 import { SystemAdminModule } from './modules/system-admin/system-admin.module';
+import { SystemConfigModule } from './modules/system-config/system-config.module';
+import { BankingSyncModule } from './modules/banking-sync/banking-sync.module';
 
 @Module({
   imports: [
@@ -107,6 +109,8 @@ import { SystemAdminModule } from './modules/system-admin/system-admin.module';
     CashBoxModule,
     FinancialReportsModule,
     SystemAdminModule,
+    SystemConfigModule,
+    BankingSyncModule,
   ],
   controllers: [AppController],
   providers: [

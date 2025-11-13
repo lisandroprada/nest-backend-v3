@@ -100,4 +100,49 @@ export class TransactionsService {
   async calculateAgentBalance(agentId: string) {
     return this.accountingEntriesService.calculateAgentBalance(agentId);
   }
+
+  /**
+   * Busca transacciones no conciliadas para matching de conciliación bancaria
+   */
+  async findUnreconciledTransactions(filters: {
+    tipo: 'INGRESO' | 'EGRESO';
+    monto: number;
+    fechaDesde: Date;
+    fechaHasta: Date;
+    limit?: number;
+  }): Promise<Transaction[]> {
+    return this.transactionModel
+      .find({
+        conciliado: false,
+        tipo: filters.tipo,
+        monto: filters.monto,
+        fecha_transaccion: {
+          $gte: filters.fechaDesde,
+          $lte: filters.fechaHasta,
+        },
+      })
+      .limit(filters.limit || 50)
+      .exec();
+  }
+
+  /**
+   * Marca una transacción como conciliada
+   */
+  async markAsReconciled(
+    transactionId: string | Types.ObjectId,
+  ): Promise<Transaction> {
+    const result = await this.transactionModel.findByIdAndUpdate(
+      transactionId,
+      {
+        $set: { conciliado: true, fecha_conciliacion: new Date() },
+      },
+      { new: true },
+    );
+    if (!result) {
+      throw new NotFoundException(
+        `Transaction with ID ${transactionId} not found`,
+      );
+    }
+    return result;
+  }
 }

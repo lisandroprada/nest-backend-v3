@@ -48,6 +48,16 @@ export class ContractsController {
     return this.contractsService.findAll(paginationDto);
   }
 
+  /**
+   * GET /contracts/depositos-pendientes
+   * Obtiene la lista de depósitos en garantía pendientes de devolución
+   */
+  @Get('depositos-pendientes')
+  @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.contabilidad)
+  async getDepositosPendientes(@Query() filters: any) {
+    return this.contractsService.getDepositosPendientes(filters);
+  }
+
   @Get(':id')
   @Auth(
     ValidRoles.admin,

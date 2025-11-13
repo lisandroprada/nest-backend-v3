@@ -1,4 +1,10 @@
-import { IsDateString, IsMongoId, IsOptional, IsString } from 'class-validator';
+import {
+  IsDateString,
+  IsMongoId,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class LiquidarAsientoDto {
   @IsDateString()
@@ -12,6 +18,10 @@ export class LiquidarAsientoDto {
 
   @IsMongoId()
   agente_id: string; // ID del agente al que se liquida (propietario o inmobiliaria)
+
+  @IsOptional()
+  @IsNumber()
+  monto_a_liquidar?: number; // Monto específico a liquidar (si no se especifica, liquida todo disponible)
 
   @IsOptional()
   @IsString()

@@ -23,7 +23,7 @@ Resetea el sistema eliminando todos los datos operacionales.
 - ✅ **Contratos** (`contracts`)
 - ✅ **Asientos contables** (`accountingentries`)
 - ✅ **Transacciones** (`transactions`)
-- ✅ **Recibos** (`receipts`)
+- ✅ **Recibos** (`receipts` y archivos asociados)
 - ✅ **Movimientos de caja** (`cashboxmovements`)
 - ✅ **Saldos de cuentas financieras** (se resetean a 0)
 
@@ -58,6 +58,7 @@ Resetea el sistema eliminando todos los datos operacionales.
     "accountingEntries": 14285,
     "transactions": 87,
     "receipts": 21,
+    "receiptFiles": 21,
     "cashBoxMovements": 0,
     "financialAccountsReset": 3
   },
@@ -77,6 +78,7 @@ Resetea el sistema eliminando todos los datos operacionales.
     "accountingEntries": 14285,
     "transactions": 87,
     "receipts": 21,
+    "receiptFiles": 21,
     "cashBoxMovements": 0,
     "financialAccountsReset": 3
   },
@@ -193,10 +195,11 @@ El servicio elimina datos en el siguiente orden para respetar las dependencias:
 
 1. **Cash Box Movements** (dependen de receipts y transactions)
 2. **Transactions** (pueden depender de receipts)
-3. **Receipts**
-4. **Accounting Entries** (dependen de contracts)
-5. **Contracts**
-6. **Financial Accounts** (resetea saldos a 0)
+3. **Receipts** (documentos de la base de datos)
+4. **Receipt Files** (archivos físicos en `uploads/receipts`)
+5. **Accounting Entries** (dependen de contracts)
+6. **Contracts**
+7. **Financial Accounts** (resetea saldos a 0)
 
 ---
 
@@ -210,12 +213,14 @@ El servicio registra logs detallados durante el reseteo:
    - Contratos: 838
    - Asientos contables: 14285
    - Transacciones: 87
-   - Recibos: 21
+   - Recibos (DB): 21
+   - Recibos (Archivos): 21
    - Movimientos de caja: 0
    - Cuentas financieras a resetear: 3
 🗑️  Eliminando movimientos de caja...
 🗑️  Eliminando transacciones...
-🗑️  Eliminando recibos...
+🗑️  Eliminando recibos de la base de datos...
+🗑️  Eliminando archivos de recibos...
 🗑️  Eliminando asientos contables...
 🗑️  Eliminando contratos...
 🔄 Reseteando saldos de cuentas financieras a saldo_inicial original...

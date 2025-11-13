@@ -6,6 +6,7 @@ import { ContractsService } from './modules/contracts/contracts.service';
 import { Contract } from './modules/contracts/entities/contract.entity';
 import { AccountingEntry } from './modules/accounting-entries/entities/accounting-entry.entity';
 import { PaginationService } from './common/pagination/pagination.service';
+import { FinancialAccountsService } from './modules/financial-accounts/financial-accounts.service';
 import { ChartOfAccountsService } from './modules/chart-of-accounts/chart-of-accounts.service';
 import { PropertiesService } from './modules/properties/properties.service';
 import { ContractSettingsService } from './modules/contract-settings/contract-settings.service';
@@ -21,6 +22,10 @@ describe('Integridad de Asientos Contables', () => {
       providers: [
         AccountingEntriesService,
         ContractsService,
+        {
+          provide: FinancialAccountsService,
+          useValue: {}, // Stub: métodos no requeridos por pruebas actuales
+        },
         {
           provide: getModelToken(Contract.name),
           useValue: {

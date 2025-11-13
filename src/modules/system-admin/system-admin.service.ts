@@ -1,6 +1,8 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Contract } from '../contracts/entities/contract.entity';
 import { AccountingEntry } from '../accounting-entries/entities/accounting-entry.entity';
 import { Transaction } from '../transactions/entities/transaction.entity';
@@ -42,7 +44,7 @@ export class SystemAdminService {
    * - Contratos
    * - Asientos contables
    * - Transacciones
-   * - Recibos
+   * - Recibos (documentos y archivos)
    * - Movimientos de caja
    * - Resetea saldos de cuentas financieras a saldo_inicial
    *
@@ -73,12 +75,13 @@ export class SystemAdminService {
       accountingEntries: 0,
       transactions: 0,
       receipts: 0,
+      receiptFiles: 0, // Nuevo contador para archivos de recibos
       cashBoxMovements: 0,
       financialAccountsReset: 0,
     };
 
     try {
-      // 1. Contar registros antes de eliminar
+      // 1. Contar registros y archivos antes de eliminar
       const contractsCount = await this.contractModel.countDocuments();
       const entriesCount = await this.accountingEntryModel.countDocuments();
       const transactionsCount = await this.transactionModel.countDocuments();
@@ -87,33 +90,55 @@ export class SystemAdminService {
       const financialAccountsCount =
         await this.financialAccountModel.countDocuments();
 
+      const receiptsDir = path.join(process.cwd(), 'uploads', 'receipts');
+      const receiptFiles = fs.existsSync(receiptsDir)
+        ? (await fs.promises.readdir(receiptsDir)).filter(
+            (file) => file !== '.gitkeep',
+          )
+        : [];
+      const receiptFilesCount = receiptFiles.length;
+
       this.logger.log('📊 Registros a eliminar:');
       this.logger.log(`   - Contratos: ${contractsCount}`);
       this.logger.log(`   - Asientos contables: ${entriesCount}`);
       this.logger.log(`   - Transacciones: ${transactionsCount}`);
-      this.logger.log(`   - Recibos: ${receiptsCount}`);
+      this.logger.log(`   - Recibos (DB): ${receiptsCount}`);
+      this.logger.log(`   - Recibos (Archivos): ${receiptFilesCount}`);
       this.logger.log(`   - Movimientos de caja: ${cashBoxCount}`);
       this.logger.log(
         `   - Cuentas financieras a resetear: ${financialAccountsCount}`,
       );
 
       if (!isDryRun) {
-        // 2. Eliminar movimientos de caja (dependen de receipts y transactions)
+        // 2. Eliminar movimientos de caja
         this.logger.log('🗑️  Eliminando movimientos de caja...');
         const cashBoxResult = await this.cashBoxMovementModel.deleteMany({});
         deletedCounts.cashBoxMovements = cashBoxResult.deletedCount || 0;
 
-        // 3. Eliminar transacciones (pueden depender de receipts)
+        // 3. Eliminar transacciones
         this.logger.log('🗑️  Eliminando transacciones...');
         const transactionsResult = await this.transactionModel.deleteMany({});
         deletedCounts.transactions = transactionsResult.deletedCount || 0;
 
-        // 4. Eliminar recibos
-        this.logger.log('🗑️  Eliminando recibos...');
+        // 4. Eliminar recibos (documentos de la DB)
+        this.logger.log('🗑️  Eliminando recibos de la base de datos...');
         const receiptsResult = await this.receiptModel.deleteMany({});
         deletedCounts.receipts = receiptsResult.deletedCount || 0;
 
-        // 5. Eliminar asientos contables (dependen de contratos)
+        // 4.1. Eliminar archivos de recibos
+        this.logger.log('🗑️  Eliminando archivos de recibos...');
+        for (const file of receiptFiles) {
+          try {
+            await fs.promises.unlink(path.join(receiptsDir, file));
+            deletedCounts.receiptFiles++;
+          } catch (err) {
+            this.logger.error(
+              `No se pudo eliminar el archivo ${file}: ${err.message}`,
+            );
+          }
+        }
+
+        // 5. Eliminar asientos contables
         this.logger.log('🗑️  Eliminando asientos contables...');
         const entriesResult = await this.accountingEntryModel.deleteMany({});
         deletedCounts.accountingEntries = entriesResult.deletedCount || 0;
@@ -130,9 +155,6 @@ export class SystemAdminService {
         const financialAccounts = await this.financialAccountModel.find({});
 
         for (const account of financialAccounts) {
-          // Resetear el saldo_inicial al valor original de creación
-          // Si tienes un campo "saldo_inicial_original", úsalo aquí
-          // Por ahora, lo ponemos en 0
           await this.financialAccountModel.updateOne(
             { _id: account._id },
             { $set: { saldo_inicial: 0 } },
@@ -147,6 +169,7 @@ export class SystemAdminService {
         deletedCounts.accountingEntries = entriesCount;
         deletedCounts.transactions = transactionsCount;
         deletedCounts.receipts = receiptsCount;
+        deletedCounts.receiptFiles = receiptFilesCount;
         deletedCounts.cashBoxMovements = cashBoxCount;
         deletedCounts.financialAccountsReset = financialAccountsCount;
 
@@ -157,14 +180,18 @@ export class SystemAdminService {
 
       const executionTime = Date.now() - startTime;
       this.logger.log(
-        `⏱️  Tiempo de ejecución: ${executionTime}ms (${(executionTime / 1000).toFixed(2)}s)`,
+        `⏱️  Tiempo de ejecución: ${executionTime}ms (${(
+          executionTime / 1000
+        ).toFixed(2)}s)`,
       );
 
       return {
         success: true,
         message: isDryRun
           ? 'Simulación completada. No se eliminaron datos reales.'
-          : `Sistema reseteado exitosamente. Se eliminaron ${Object.values(deletedCounts).reduce((a, b) => a + b, 0)} registros en total.`,
+          : `Sistema reseteado exitosamente. Se eliminaron ${Object.values(
+              deletedCounts,
+            ).reduce((a, b) => a + b, 0)} registros en total.`,
         deletedCounts,
         timestamp: new Date(),
         isDryRun,

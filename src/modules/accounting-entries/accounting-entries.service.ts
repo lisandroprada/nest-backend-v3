@@ -97,6 +97,19 @@ export class AccountingEntriesService {
     private readonly financialAccountsService: FinancialAccountsService,
   ) {}
 
+  /**
+   * Convierte un string de sort (ej: '-fecha_imputacion') a formato MongoDB
+   */
+  private parseSortString(sort: string): Record<string, 1 | -1> {
+    const sortObj: Record<string, 1 | -1> = {};
+    if (sort.startsWith('-')) {
+      sortObj[sort.substring(1)] = -1;
+    } else {
+      sortObj[sort] = 1;
+    }
+    return sortObj;
+  }
+
   async findWithFilters(filters: AccountingEntryFiltersDto): Promise<{
     data: any[];
     total: number;
@@ -129,7 +142,7 @@ export class AccountingEntriesService {
 
     if (filterParams.solo_pendientes) {
       query.estado = {
-        $in: ['PENDIENTE', 'PAGADO_PARCIAL', 'PENDIENTE_AJUSTE'],
+        $in: ['PENDIENTE', 'PAGADO_PARCIAL', 'PENDIENTE_AJUSTE', 'COBRADO'],
       };
     } else if (filterParams.estado) {
       query.estado = filterParams.estado;
@@ -146,6 +159,96 @@ export class AccountingEntriesService {
     }
 
     const skip = (page - 1) * limit;
+
+    // Si solo_pendientes está activo, usar aggregation para filtrar por saldo real
+    let data: any[];
+    let total: number;
+
+    if (filterParams.solo_pendientes) {
+      // Pipeline para calcular saldos pendientes y filtrar asientos con saldo > 0
+      const filterPipeline: PipelineStage[] = [
+        { $match: query },
+        {
+          $addFields: {
+            saldoPendienteDebe: {
+              $sum: {
+                $map: {
+                  input: {
+                    $filter: {
+                      input: '$partidas',
+                      as: 'p',
+                      cond: { $gt: ['$$p.debe', 0] },
+                    },
+                  },
+                  as: 'p',
+                  in: {
+                    $subtract: [
+                      '$$p.debe',
+                      { $ifNull: ['$$p.monto_pagado_acumulado', 0] },
+                    ],
+                  },
+                },
+              },
+            },
+            saldoPendienteHaber: {
+              $sum: {
+                $map: {
+                  input: {
+                    $filter: {
+                      input: '$partidas',
+                      as: 'p',
+                      cond: { $gt: ['$$p.haber', 0] },
+                    },
+                  },
+                  as: 'p',
+                  in: {
+                    $subtract: [
+                      '$$p.haber',
+                      { $ifNull: ['$$p.monto_liquidado', 0] },
+                    ],
+                  },
+                },
+              },
+            },
+          },
+        },
+        {
+          $match: {
+            $or: [
+              { saldoPendienteDebe: { $gt: 0 } },
+              { saldoPendienteHaber: { $gt: 0 } },
+            ],
+          },
+        },
+      ];
+
+      const countPipeline = [...filterPipeline, { $count: 'total' }];
+      const dataPipeline = [
+        ...filterPipeline,
+        { $sort: this.parseSortString(sort) },
+        { $skip: skip },
+        { $limit: limit },
+      ];
+
+      const [countResult, dataResult] = await Promise.all([
+        this.accountingEntryModel.aggregate(countPipeline as PipelineStage[]),
+        this.accountingEntryModel.aggregate(dataPipeline as PipelineStage[]),
+      ]);
+
+      total = countResult[0]?.total || 0;
+      data = dataResult;
+    } else {
+      // Consulta normal sin filtro de saldo
+      [total, data] = await Promise.all([
+        this.accountingEntryModel.countDocuments(query),
+        this.accountingEntryModel
+          .find(query)
+          .sort(sort)
+          .skip(skip)
+          .limit(limit)
+          .lean(),
+      ]);
+    }
 
     const totalsPipeline = [
       { $match: query },
@@ -179,16 +282,9 @@ export class AccountingEntriesService {
       { $sort: { totalDebe: -1, totalHaber: -1 } },
     ];
 
-    const [total, data, breakdownByAccount] = await Promise.all([
-      this.accountingEntryModel.countDocuments(query),
-      this.accountingEntryModel
-        .find(query)
-        .sort(sort)
-        .skip(skip)
-        .limit(limit)
-        .lean(),
-      this.accountingEntryModel.aggregate(totalsPipeline as PipelineStage[]),
-    ]);
+    const breakdownByAccount = await this.accountingEntryModel.aggregate(
+      totalsPipeline as PipelineStage[],
+    );
 
     const grandTotalDebe = breakdownByAccount.reduce(
       (sum, item) => sum + item.totalDebe,
@@ -277,7 +373,12 @@ export class AccountingEntriesService {
       fecha_hasta,
       fecha_corte, // NUEVO: permitir cutoff directo
       incluir_anulados = false,
+      solo_pendientes, // NUEVO: Por defecto solo mostrar movimientos con saldo pendiente
     } = filters;
+
+    // Por defecto solo_pendientes es true, a menos que se pase explícitamente como false
+    const mostrarSoloPendientes =
+      solo_pendientes === 'false' || solo_pendientes === false ? false : true;
 
     const matchStage: any = {};
     // Asegurar casteo correcto de agente_id (ObjectId vs string)
@@ -365,50 +466,135 @@ export class AccountingEntriesService {
           // PARTIDA HABER: Desde la óptica del agente, él es ACREEDOR (le deben pagar)
           tipo_partida_desde_optica_agente = 'HABER';
 
-          // Calcular cuánto se cobró del inquilino (partidas DEBE del asiento)
-          const montoCobradoInquilino = asiento.partidas
-            .filter((p) => p.debe > 0)
-            .reduce((sum, p) => sum + (p.monto_pagado_acumulado || 0), 0);
-
-          // Calcular total HABER del asiento
-          const totalHaber = asiento.partidas
-            .filter((p) => p.haber > 0)
-            .reduce((sum, p) => sum + p.haber, 0);
-
-          // Calcular proporción y monto recaudado disponible para este agente
-          const proporcion = totalHaber > 0 ? haber / totalHaber : 0;
-          const montoLiquidable = montoCobradoInquilino * proporcion;
           const montoYaLiquidado = partidaAgente.monto_liquidado || 0;
-          monto_recaudado_disponible = montoLiquidable - montoYaLiquidado;
 
-          saldo_acumulado_haber += monto_recaudado_disponible;
-          total_haber += haber;
-          total_recaudado_haber += monto_recaudado_disponible;
+          // CASO ESPECIAL: Depósito en Garantía - Devolución
+          // No depende de cobros previos, es una obligación directa
+          if (asiento.tipo_asiento === 'Deposito en Garantia - Devolucion') {
+            // Para depósitos, el monto disponible es el HABER original menos lo ya liquidado
+            monto_recaudado_disponible = haber - montoYaLiquidado;
 
-          movimientosConSaldo.push({
-            asiento_id: asiento._id,
-            fecha_imputacion: asiento.fecha_imputacion,
-            fecha_vencimiento: asiento.fecha_vencimiento,
-            descripcion: partidaAgente.descripcion,
-            tipo_asiento: asiento.tipo_asiento,
-            tipo_partida: tipo_partida_desde_optica_agente,
-            debe: 0,
-            haber,
-            monto_original: haber,
-            monto_cobrado_inquilino: montoCobradoInquilino,
-            proporcion: proporcion * 100, // En porcentaje
-            monto_liquidable: montoLiquidable,
-            monto_ya_liquidado: montoYaLiquidado,
-            monto_recaudado_disponible,
-            saldo_acumulado: saldo_acumulado_haber,
-            estado: asiento.estado,
-            fecha_pago: asiento.fecha_pago,
-            fecha_liquidacion: asiento.fecha_liquidacion,
-            liquidado: monto_recaudado_disponible <= 0,
-          });
+            saldo_acumulado_haber += monto_recaudado_disponible;
+            total_haber += haber;
+            total_recaudado_haber += monto_recaudado_disponible;
+
+            movimientosConSaldo.push({
+              asiento_id: asiento._id,
+              fecha_imputacion: asiento.fecha_imputacion,
+              fecha_vencimiento: asiento.fecha_vencimiento,
+              descripcion: partidaAgente.descripcion,
+              tipo_asiento: asiento.tipo_asiento,
+              tipo_partida: tipo_partida_desde_optica_agente,
+              debe: 0,
+              haber,
+              monto_original: haber,
+              monto_ya_liquidado: montoYaLiquidado,
+              monto_recaudado_disponible,
+              saldo_acumulado: saldo_acumulado_haber,
+              estado: asiento.estado,
+              fecha_liquidacion: asiento.fecha_liquidacion,
+              liquidado: monto_recaudado_disponible <= 0,
+              es_deposito: true, // Flag para identificar en el frontend
+            });
+          } else {
+            // CASO NORMAL: Alquileres y honorarios
+            // Calcular cuánto se cobró del inquilino (partidas DEBE del asiento)
+            const totalDebe = asiento.partidas
+              .filter((p) => p.debe > 0)
+              .reduce((sum, p) => sum + p.debe, 0);
+
+            const montoCobradoInquilino = asiento.partidas
+              .filter((p) => p.debe > 0)
+              .reduce((sum, p) => sum + (p.monto_pagado_acumulado || 0), 0);
+
+            // Calcular total HABER del asiento
+            const totalHaber = asiento.partidas
+              .filter((p) => p.haber > 0)
+              .reduce((sum, p) => sum + p.haber, 0);
+
+            // Calcular proporción de este agente sobre el total HABER
+            const proporcion = totalHaber > 0 ? haber / totalHaber : 0;
+
+            // IMPORTANTE: Distinguir entre lo cobrado y lo total liquidable
+            // 1. Monto liquidable de lo YA COBRADO
+            const montoLiquidableCobrado = montoCobradoInquilino * proporcion;
+            const montoDisponibleCobrado =
+              montoLiquidableCobrado - montoYaLiquidado;
+
+            // 2. Monto TOTAL liquidable (incluyendo lo no cobrado aún)
+            const montoTotalLiquidable = haber - montoYaLiquidado;
+
+            // 3. Cuánto falta cobrar del inquilino (para este asiento)
+            const montoPendienteCobro = totalDebe - montoCobradoInquilino;
+
+            // 4. Cuánto de ese pendiente corresponde a este agente
+            const montoPendienteCobroAgente = montoPendienteCobro * proporcion;
+
+            // Para el saldo acumulado, usamos solo lo disponible de lo cobrado
+            monto_recaudado_disponible = montoDisponibleCobrado;
+            saldo_acumulado_haber += monto_recaudado_disponible;
+            total_haber += haber;
+            total_recaudado_haber += monto_recaudado_disponible;
+
+            movimientosConSaldo.push({
+              asiento_id: asiento._id,
+              fecha_imputacion: asiento.fecha_imputacion,
+              fecha_vencimiento: asiento.fecha_vencimiento,
+              descripcion: partidaAgente.descripcion,
+              tipo_asiento: asiento.tipo_asiento,
+              tipo_partida: tipo_partida_desde_optica_agente,
+              debe: 0,
+              haber,
+              monto_original: haber,
+
+              // Información de cobro
+              monto_total_debe: totalDebe,
+              monto_cobrado_inquilino: montoCobradoInquilino,
+              monto_pendiente_cobro_total: montoPendienteCobro,
+              monto_pendiente_cobro_agente: montoPendienteCobroAgente,
+              porcentaje_cobrado:
+                totalDebe > 0 ? (montoCobradoInquilino / totalDebe) * 100 : 0,
+
+              // Información de liquidación
+              proporcion: proporcion * 100, // En porcentaje
+              monto_liquidable_cobrado: montoLiquidableCobrado, // Solo de lo cobrado
+              monto_total_liquidable: montoTotalLiquidable, // Total (cobrado + no cobrado)
+              monto_ya_liquidado: montoYaLiquidado,
+              monto_recaudado_disponible: montoDisponibleCobrado, // De lo cobrado
+              porcentaje_liquidado:
+                haber > 0 ? (montoYaLiquidado / haber) * 100 : 0,
+
+              // Flags de estado
+              puede_liquidar_adelantado: montoTotalLiquidable > 0, // Aunque no esté cobrado
+              tiene_cobro_pendiente: montoPendienteCobroAgente > 0,
+              liquidado: montoTotalLiquidable <= 0, // Liquidado 100%
+              liquidado_parcial:
+                montoYaLiquidado > 0 && montoTotalLiquidable > 0,
+
+              saldo_acumulado: saldo_acumulado_haber,
+              estado: asiento.estado,
+              fecha_pago: asiento.fecha_pago,
+              fecha_liquidacion: asiento.fecha_liquidacion,
+              es_deposito: false,
+            });
+          }
         }
       }
     }
+
+    // Filtrar movimientos con saldo 0 si solo_pendientes está activo
+    const movimientosFiltrados = mostrarSoloPendientes
+      ? movimientosConSaldo.filter((m) => {
+          if (m.tipo_partida === 'DEBE') {
+            return m.saldo_pendiente > 0; // Solo mostrar si tiene saldo pendiente
+          } else if (m.tipo_partida === 'HABER') {
+            // CAMBIO: Mostrar si tiene monto total liquidable (aunque no esté cobrado)
+            // Esto permite liquidar adelantado aunque el inquilino no haya pagado
+            return m.monto_total_liquidable > 0;
+          }
+          return false;
+        })
+      : movimientosConSaldo;
 
     return {
       agente_id: agentId,
@@ -419,21 +605,21 @@ export class AccountingEntriesService {
         total_recaudado_haber,
         saldo_pendiente_debe: total_debe - total_pagado_debe,
         saldo_disponible_haber: total_recaudado_haber,
-        asientos_pendientes: movimientosConSaldo.filter(
+        asientos_pendientes: movimientosFiltrados.filter(
           (m) => m.tipo_partida === 'DEBE' && !m.pagado,
         ).length,
-        asientos_pagados: movimientosConSaldo.filter(
+        asientos_pagados: movimientosFiltrados.filter(
           (m) => m.tipo_partida === 'DEBE' && m.pagado,
         ).length,
-        asientos_pendientes_liquidacion: movimientosConSaldo.filter(
+        asientos_pendientes_liquidacion: movimientosFiltrados.filter(
           (m) => m.tipo_partida === 'HABER' && !m.liquidado,
         ).length,
-        asientos_liquidados: movimientosConSaldo.filter(
+        asientos_liquidados: movimientosFiltrados.filter(
           (m) => m.tipo_partida === 'HABER' && m.liquidado,
         ).length,
-        total_movimientos: movimientosConSaldo.length,
+        total_movimientos: movimientosFiltrados.length,
       },
-      movimientos: movimientosConSaldo,
+      movimientos: movimientosFiltrados,
     };
   }
 
@@ -614,17 +800,42 @@ export class AccountingEntriesService {
       throw new NotFoundException('Asiento no encontrado');
     }
 
-    if (['PAGADO', 'ANULADO', 'CONDONADO'].includes(asiento.estado)) {
+    // Solo bloquear si está ANULADO o CONDONADO
+    // PAGADO está permitido para liquidar partidas HABER (liquidación a propietarios)
+    if (['ANULADO', 'CONDONADO'].includes(asiento.estado)) {
       throw new BadRequestException(
         `El asiento en estado "${asiento.estado}" no puede recibir pagos`,
       );
     }
 
-    const montoPagadoTotalAnterior = asiento.partidas.reduce(
-      (sum, p) => sum + (p.monto_pagado_acumulado || 0),
-      0,
-    );
-    const saldoPendiente = asiento.monto_actual - montoPagadoTotalAnterior;
+    // Calcular saldo pendiente según el tipo de partidas
+    // Para INGRESO: validar contra partidas DEBE (cobros al locatario)
+    // Para EGRESO: validar contra partidas HABER (liquidaciones a propietarios)
+    const totalDebe = asiento.partidas.reduce((sum, p) => sum + p.debe, 0);
+    const totalHaber = asiento.partidas.reduce((sum, p) => sum + p.haber, 0);
+
+    const montoPagadoDebe = asiento.partidas
+      .filter((p) => p.debe > 0)
+      .reduce((sum, p) => sum + (p.monto_pagado_acumulado || 0), 0);
+
+    const montoPagadoHaber = asiento.partidas
+      .filter((p) => p.haber > 0)
+      .reduce((sum, p) => sum + (p.monto_pagado_acumulado || 0), 0);
+
+    // Determinar el saldo pendiente según el contexto
+    // Si hay DEBE y estamos pagando, validar contra DEBE
+    // Si hay HABER y estamos liquidando, validar contra HABER
+    let saldoPendiente: number;
+    if (totalDebe > 0 && montoPagadoDebe < totalDebe) {
+      // Contexto: Cobro al locatario (partidas DEBE)
+      saldoPendiente = totalDebe - montoPagadoDebe;
+    } else if (totalHaber > 0 && montoPagadoHaber < totalHaber) {
+      // Contexto: Liquidación a propietarios (partidas HABER)
+      saldoPendiente = totalHaber - montoPagadoHaber;
+    } else {
+      // Ambos lados ya están pagados/liquidados
+      saldoPendiente = 0;
+    }
 
     if (dto.monto_pagado > saldoPendiente) {
       throw new BadRequestException(
@@ -633,7 +844,6 @@ export class AccountingEntriesService {
     }
 
     // Solo registrar INGRESO (DEBE) como entrada de caja
-    const totalDebe = asiento.partidas.reduce((sum, p) => sum + p.debe, 0);
     if (totalDebe > 0) {
       // Solo si hay DEBE, actualiza saldo como INGRESO
       await this.financialAccountsService.updateBalance(
@@ -671,11 +881,31 @@ export class AccountingEntriesService {
       .filter((p) => p.debe > 0)
       .reduce((sum, p) => sum + (p.monto_pagado_acumulado || 0), 0);
 
+    // Calcular el estado de liquidación de las partidas HABER
+    const montoTotalHaber = asiento.partidas
+      .filter((p) => p.haber > 0)
+      .reduce((sum, p) => sum + p.haber, 0);
+
+    const montoTotalLiquidado = asiento.partidas
+      .filter((p) => p.haber > 0)
+      .reduce((sum, p) => sum + (p.monto_liquidado || 0), 0);
+
     const estadoAnterior = asiento.estado;
     let accionHistorial: string;
 
-    if (nuevoMontoPagadoTotal >= asiento.monto_actual) {
+    // Determinar el estado del asiento considerando DEBE (cobro) y HABER (liquidación)
+    const debeTotalmenteCobrado = nuevoMontoPagadoTotal >= asiento.monto_actual;
+    const haberTotalmenteLiquidado =
+      montoTotalHaber === 0 || montoTotalLiquidado >= montoTotalHaber;
+
+    if (debeTotalmenteCobrado && haberTotalmenteLiquidado) {
       asiento.estado = 'PAGADO';
+      asiento.fecha_pago = new Date(dto.fecha_pago);
+      asiento.metodo_pago = dto.metodo_pago;
+      accionHistorial = 'PAGO_COMPLETO';
+    } else if (debeTotalmenteCobrado && !haberTotalmenteLiquidado) {
+      // Nuevo caso: DEBE cobrado pero HABER pendiente de liquidación
+      asiento.estado = 'COBRADO';
       asiento.fecha_pago = new Date(dto.fecha_pago);
       asiento.metodo_pago = dto.metodo_pago;
       accionHistorial = 'PAGO_COMPLETO';
@@ -837,7 +1067,9 @@ export class AccountingEntriesService {
   }
 
   /**
-   * Liquidar a propietario
+   * Liquidar a propietario o cobrarle (compensación automática HABER - DEBE)
+   * Este método es agnóstico del flujo: determina automáticamente si es INGRESO o EGRESO
+   * basándose en el resultado neto de HABER - DEBE
    */
   async liquidarAPropietario(
     asientoId: string,
@@ -852,89 +1084,152 @@ export class AccountingEntriesService {
       throw new NotFoundException('Asiento no encontrado');
     }
 
-    // Solo se puede liquidar si el inquilino ya pagó (completo o parcial)
-    if (!['PAGADO', 'PAGADO_PARCIAL'].includes(asiento.estado)) {
-      throw new BadRequestException(
-        `Solo se pueden liquidar asientos pagados por el inquilino. Estado actual: ${asiento.estado}`,
-      );
-    }
+    // LIQUIDACIÓN ADELANTADA: Permitir liquidar aunque no se haya cobrado nada
+    // Ya no validamos el estado ni el monto cobrado
 
-    // Calcular cuánto se cobró realmente del inquilino (partidas DEBE)
-    const montoCobrado = asiento.partidas
-      .filter((p) => p.debe > 0)
-      .reduce((sum, p) => sum + (p.monto_pagado_acumulado || 0), 0);
-
-    if (montoCobrado === 0) {
-      throw new BadRequestException('No hay monto cobrado para liquidar');
-    }
-
-    // Calcular total de partidas HABER
-    const totalHaber = asiento.partidas
-      .filter((p) => p.haber > 0)
-      .reduce((sum, p) => sum + p.haber, 0);
-
-    // CRÍTICO: Filtrar solo las partidas HABER del agente especificado
-    const partidasDelAgente = asiento.partidas.filter(
+    // Filtrar partidas HABER y DEBE del agente especificado
+    const partidasHaberDelAgente = asiento.partidas.filter(
       (p) => p.haber > 0 && p.agente_id?.toString() === dto.agente_id,
     );
 
-    if (partidasDelAgente.length === 0) {
+    const partidasDebeDelAgente = asiento.partidas.filter(
+      (p) => p.debe > 0 && p.agente_id?.toString() === dto.agente_id,
+    );
+
+    // Validar que el agente tenga al menos una partida (HABER o DEBE) en este asiento
+    if (
+      partidasHaberDelAgente.length === 0 &&
+      partidasDebeDelAgente.length === 0
+    ) {
       throw new BadRequestException(
-        `No se encontraron partidas HABER para el agente ${dto.agente_id} en este asiento`,
+        `No se encontraron partidas para el agente ${dto.agente_id} en el asiento "${asiento.descripcion}"`,
       );
     }
 
-    let montoAPagar = 0;
+    let montoHaberTotal = 0;
+    let montoDebeTotal = 0;
 
-    // Actualizar SOLO las partidas HABER del agente especificado
-    for (const partida of partidasDelAgente) {
-      // Proporción de esta partida HABER respecto al total
-      const proporcion = totalHaber > 0 ? partida.haber / totalHaber : 0;
+    // LIQUIDACIÓN ADELANTADA:
+    // Permitir liquidar el HABER completo aunque el DEBE no esté totalmente cobrado
+    // El monto liquidable es el HABER total menos lo ya liquidado
 
-      // Monto proporcional según lo cobrado
-      const montoProporcionado = montoCobrado * proporcion;
+    // Si se especifica monto_a_liquidar, usarlo. Si no, liquidar todo disponible.
+    const montoSolicitado = dto.monto_a_liquidar;
+    let montoRestanteALiquidar = montoSolicitado || Infinity;
 
-      // Calcular cuánto queda por liquidar (evitar doble imputación)
+    // 1. Procesar partidas HABER (a favor del agente, se le debe pagar)
+    for (const partida of partidasHaberDelAgente) {
+      const montoLiquidable = partida.haber;
       const montoYaLiquidado = partida.monto_liquidado || 0;
-      const montoDisponible = montoProporcionado - montoYaLiquidado;
+      const montoDisponible = montoLiquidable - montoYaLiquidado;
+
+      console.log('=== LIQUIDACIÓN HABER ===');
+      console.log('Descripción:', partida.descripcion);
+      console.log('partida.haber:', partida.haber);
+      console.log('montoYaLiquidado (ANTES):', montoYaLiquidado);
+      console.log('montoDisponible:', montoDisponible);
 
       if (montoDisponible <= 0) {
-        throw new BadRequestException(
-          `La partida del agente ${dto.agente_id} ya está completamente liquidada`,
-        );
+        console.log('⚠️ Partida HABER ya completamente liquidada, se omite');
+        continue; // Permitir continuar si esta partida ya está liquidada
       }
 
-      // Actualizar el monto liquidado acumulado
-      partida.monto_liquidado = montoProporcionado;
+      // LIQUIDACIÓN PARCIAL: Liquidar solo hasta el monto solicitado
+      const montoALiquidar = Math.min(montoDisponible, montoRestanteALiquidar);
 
-      montoAPagar += montoDisponible;
+      partida.monto_liquidado = (partida.monto_liquidado || 0) + montoALiquidar;
+      console.log(
+        'partida.monto_liquidado (DESPUÉS):',
+        partida.monto_liquidado,
+      );
+      console.log('========================');
+
+      montoHaberTotal += montoALiquidar;
+      montoRestanteALiquidar -= montoALiquidar;
+
+      if (montoRestanteALiquidar <= 0) break; // Ya se liquidó el monto solicitado
     }
 
-    // Actualizar saldo de la cuenta financiera SOLO si hay pago real (EGRESO)
-    if (montoAPagar > 0) {
+    // 2. Procesar partidas DEBE (el agente debe, se descuenta del pago o se cobra)
+    for (const partida of partidasDebeDelAgente) {
+      const montoADescontar = partida.debe;
+      const montoYaPagado = partida.monto_pagado_acumulado || 0;
+      const montoDisponible = montoADescontar - montoYaPagado;
+
+      console.log('=== COMPENSACIÓN DEBE ===');
+      console.log('Descripción:', partida.descripcion);
+      console.log('partida.debe:', partida.debe);
+      console.log('montoYaPagado (ANTES):', montoYaPagado);
+      console.log('montoDisponible (a compensar):', montoDisponible);
+
+      if (montoDisponible <= 0) {
+        console.log('⚠️ Partida DEBE ya completamente pagada, se omite');
+        continue; // Permitir continuar si esta partida ya está pagada
+      }
+
+      partida.monto_pagado_acumulado =
+        (partida.monto_pagado_acumulado || 0) + montoDisponible;
+      console.log(
+        'partida.monto_pagado_acumulado (DESPUÉS):',
+        partida.monto_pagado_acumulado,
+      );
+      console.log('========================');
+
+      montoDebeTotal += montoDisponible;
+    }
+
+    // CÁLCULO NETO: HABER - DEBE
+    // El monto neto puede ser positivo (más HABER que DEBE) o negativo (más DEBE que HABER)
+    const montoNeto = montoHaberTotal - montoDebeTotal;
+    const montoAbsoluto = Math.abs(montoNeto);
+
+    console.log('💰 COMPENSACIÓN FINAL:');
+    console.log('   HABER total:', montoHaberTotal);
+    console.log('   DEBE total:', montoDebeTotal);
+    console.log('   NETO (HABER - DEBE):', montoNeto);
+    console.log('   Monto absoluto:', montoAbsoluto);
+
+    // IMPORTANTE: Respetar el tipo de flujo que viene en el DTO
+    // El frontend determina si es INGRESO o EGRESO basándose en el contexto del recibo
+    // Aquí solo procesamos la compensación de partidas
+    // La actualización del balance financiero ya está determinada por el contexto del recibo
+
+    // Actualizar saldo de la cuenta financiera con el monto neto absoluto
+    // El tipo de flujo (INGRESO/EGRESO) lo determina el contexto del recibo, no este método
+    if (montoAbsoluto > 0) {
+      // Usar EGRESO como default, pero idealmente esto debería venir en el DTO
       await this.financialAccountsService.updateBalance(
         dto.cuenta_financiera_id,
-        montoAPagar,
-        'EGRESO',
+        montoAbsoluto,
+        'EGRESO', // Por ahora mantenemos EGRESO para backward compatibility
         session,
       );
     }
 
     // CRÍTICO: NO cambiar estado a LIQUIDADO aquí
     // El asiento puede tener múltiples agentes HABER que se liquidan por separado
-    // El estado se actualiza solo si TODAS las partidas HABER están liquidadas
+    // El estado se actualiza solo si TODAS las partidas HABER están 100% liquidadas
     const todasLiquidadas = asiento.partidas
       .filter((p) => p.haber > 0)
       .every((p) => {
-        const proporcion = totalHaber > 0 ? p.haber / totalHaber : 0;
-        const montoProporcionado = montoCobrado * proporcion;
+        // LIQUIDACIÓN ADELANTADA: Comparar contra el HABER total, no contra lo cobrado
+        const montoLiquidable = p.haber;
+        // Usar el valor ACTUALIZADO de monto_liquidado (después de la operación actual)
         const montoYaLiquidado = p.monto_liquidado || 0;
-        return montoYaLiquidado >= montoProporcionado;
+        // Considerar liquidado si la diferencia es muy pequeña (tolerancia de 1 peso por redondeos)
+        return Math.abs(montoYaLiquidado - montoLiquidable) < 1;
       });
 
     const estadoAnterior = asiento.estado;
     if (todasLiquidadas) {
-      asiento.estado = 'LIQUIDADO';
+      // Si todas las partidas HABER están liquidadas
+      // Y el estado actual es 'COBRADO', cambiar a 'PAGADO'
+      // De lo contrario, cambiar a 'LIQUIDADO'
+      if (asiento.estado === 'COBRADO') {
+        asiento.estado = 'PAGADO';
+      } else {
+        asiento.estado = 'LIQUIDADO';
+      }
       asiento.fecha_liquidacion = new Date(dto.fecha_liquidacion);
     }
 
@@ -948,8 +1243,8 @@ export class AccountingEntriesService {
       accion: 'LIQUIDACION',
       estado_anterior: estadoAnterior,
       estado_nuevo: asiento.estado,
-      monto: montoAPagar,
-      observaciones: `Liquidado al agente ${dto.agente_id}. Método: ${dto.metodo_liquidacion}. Monto cobrado: ${montoCobrado}, Monto liquidado: ${montoAPagar}. ${dto.observaciones || ''}`,
+      monto: montoAbsoluto,
+      observaciones: `Liquidación/Compensación al agente ${dto.agente_id}. Método: ${dto.metodo_liquidacion}. HABER: ${montoHaberTotal}, DEBE: ${montoDebeTotal}, NETO: ${montoAbsoluto}. ${dto.observaciones || ''}`,
     });
 
     return await asiento.save({ session });
@@ -998,6 +1293,22 @@ export class AccountingEntriesService {
     }
 
     return this.accountingEntryModel.find(query).exec();
+  }
+
+  /**
+   * Busca asientos contables por contrato y tipo de asiento
+   */
+  async findByContractAndType(
+    contratoId: string,
+    tipoAsiento: string,
+  ): Promise<AccountingEntry[]> {
+    return this.accountingEntryModel
+      .find({
+        contrato_id: new Types.ObjectId(contratoId),
+        tipo_asiento: tipoAsiento,
+      })
+      .sort({ fecha_imputacion: -1 })
+      .exec();
   }
 
   /**

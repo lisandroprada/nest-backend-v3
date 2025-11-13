@@ -65,6 +65,7 @@ export class AccountingEntry extends Document {
       'PENDIENTE_AJUSTE',
       'PAGADO',
       'PAGADO_PARCIAL',
+      'COBRADO', // DEBE cobrado pero HABER pendiente de liquidación
       'ANULADO',
       'CONDONADO',
       'PENDIENTE_APROBACION',

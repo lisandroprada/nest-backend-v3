@@ -36,9 +36,8 @@ export class AgentsService {
   }
 
   async findAll(paginationDto: PaginationDto) {
-    return this.paginationService.paginate(this.agentModel, paginationDto, {
-      populate: 'cuentas_bancarias.bank_id',
-    });
+    // Si el frontend envía populate, lo aplicamos; si no, solo datos básicos
+    return this.paginationService.paginate(this.agentModel, paginationDto);
   }
 
   async findOne(id: string): Promise<Agent> {
