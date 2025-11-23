@@ -633,7 +633,7 @@ El módulo de contratos está **fuertemente acoplado** con el módulo de contabi
 
 4. **Aplicar ajustes automáticos:**
    - ICL: Buscar valor ICL en fecha de ajuste
-   - IPC: Buscar valor IPC/RIPTE en fecha de ajuste
+   - IPC: Buscar valor IPC en fecha de ajuste
    - FIJO: Aplicar `ajuste_porcentaje` cada `ajuste_periodicidad_meses`
 
 **Estimación:** Los 838 contratos migrados generarían aproximadamente **~23,000 asientos contables** históricos.
@@ -741,127 +741,86 @@ const contrato = await contractsService.create(createContractDto, userId);
 // Total: 16 asientos contables
 ```
 
-## Queries Útiles (MongoDB)
+## Ejemplos de Payload para Servicios Públicos e Impuestos
 
-```javascript
-// Ver un contrato con todos los campos de honorarios
-db.contracts.findOne(
-  {},
-  {
-    duracion_meses: 1,
-    'terminos_financieros.comision_administracion_porcentaje': 1,
-    'terminos_financieros.honorarios_locador_porcentaje': 1,
-    'terminos_financieros.honorarios_locador_cuotas': 1,
-    'terminos_financieros.honorarios_locatario_porcentaje': 1,
-    'terminos_financieros.honorarios_locatario_cuotas': 1,
-    'terminos_financieros.ajuste_periodicidad_meses': 1,
-    deposito_cuotas: 1,
+### Ejemplo: Crear contrato con servicios públicos
+
+```json
+{
+  "propiedad_id": "68ed6beea2f299e1a0b2b1c7",
+  "partes": [
+    { "agente_id": "68ed6be9a2f299e1a0b2af45", "rol": "LOCADOR" },
+    { "agente_id": "68ed6be9a2f299e1a0b2af89", "rol": "LOCATARIO" }
+  ],
+  "fecha_inicio": "2025-01-01T00:00:00.000Z",
+  "fecha_final": "2027-01-01T00:00:00.000Z",
+  "duracion_meses": 24,
+  "terminos_financieros": {
+    /* ... */
   },
-);
-
-// Contar contratos por tipo de comisión
-db.contracts.aggregate([
-  {
-    $group: {
-      _id: '$terminos_financieros.comision_administracion_porcentaje',
-      count: { $sum: 1 },
+  "servicios_impuestos_contrato": [
+    {
+      "proveedor_id": "68ed6be9a2f299e1a0b2af99", // Agent con rol PROVEEDOR_SERVICIO_PUBLICO
+      "identificador_servicio": "1234567890", // Número de medidor/cuenta
+      "porcentaje_aplicacion": 100,
+      "origen": "LOCATARIO",
+      "destino": "PRESTADOR"
     },
-  },
-  { $sort: { count: -1 } },
-]);
-
-// Contratos vigentes con comisión mayor a 7%
-db.contracts
-  .find({
-    status: 'VIGENTE',
-    'terminos_financieros.comision_administracion_porcentaje': { $gt: 7 },
-  })
-  .count();
-
-// Promedios de honorarios
-db.contracts.aggregate([
-  {
-    $group: {
-      _id: null,
-      avg_comision: {
-        $avg: '$terminos_financieros.comision_administracion_porcentaje',
-      },
-      avg_hon_locador: {
-        $avg: '$terminos_financieros.honorarios_locador_porcentaje',
-      },
-      avg_hon_locatario: {
-        $avg: '$terminos_financieros.honorarios_locatario_porcentaje',
-      },
-    },
-  },
-]);
-
-// Contratos por tipo de ajuste y status
-db.contracts.aggregate([
-  {
-    $group: {
-      _id: {
-        indice: '$terminos_financieros.indice_tipo',
-        status: '$status',
-      },
-      count: { $sum: 1 },
-    },
-  },
-  { $sort: { count: -1 } },
-]);
+    {
+      "proveedor_id": "68ed6be9a2f299e1a0b2af98",
+      "identificador_servicio": "", // <-- Backend debe avisar si falta
+      "porcentaje_aplicacion": 50,
+      "origen": "LOCADOR",
+      "destino": "PRESTADOR"
+    }
+  ]
+}
 ```
 
-## Próximas Mejoras
+### Validaciones Backend
 
-### 1. Generación de Asientos Contables (PENDIENTE)
+- Si `identificador_servicio` está vacío o no existe en la propiedad, el backend debe devolver error:
 
-**Estado:** Los 838 contratos están en MongoDB con toda la información, pero sin asientos contables generados.
+```json
+{
+  "error": "La propiedad no tiene asociado un número de medidor/cuenta para el servicio seleccionado (proveedor_id: 68ed6be9a2f299e1a0b2af98)"
+}
+```
 
-**Tareas:**
+### Ejemplo: Respuesta de contrato creado
 
-- [ ] Crear script `generate-accounting-entries.js`
-- [ ] Generar ~23,000 asientos históricos para los 838 contratos
-- [ ] Implementar lógica de ajustes ICL/IPC
-- [ ] Aplicar honorarios y depósitos según cuotas
+```json
+{
+  "_id": "68ed6bf0a2f299e1a0b2b31a",
+  "propiedad_id": "68ed6beea2f299e1a0b2b1c7",
+  "servicios_impuestos_contrato": [
+    {
+      "proveedor_id": "68ed6be9a2f299e1a0b2af99",
+      "identificador_servicio": "1234567890",
+      "porcentaje_aplicacion": 100,
+      "origen": "LOCATARIO",
+      "destino": "PRESTADOR"
+    }
+  ]
+  /* ...otros campos del contrato... */
+}
+```
 
-### 2. Ajustes Automáticos de Alquileres
+### Ejemplo: Payload para actualizar servicios en contrato
 
-**Tarea programada que debe:**
-
-- Detectar contratos ICL/IPC con `ajuste_programado` ≤ hoy
-- Buscar valor actual del índice (ICL o IPC)
-- Calcular nuevo `monto_base_vigente`
-- Generar nuevos asientos hasta próximo ajuste
-- Actualizar `ajuste_programado`
-
-### 3. Validaciones en Runtime
-
-- [ ] Validar disponibilidad de propiedad antes de crear contrato
-- [ ] Prevenir contratos superpuestos en la misma propiedad
-- [ ] Validar que honorarios y comisiones no superen límites razonables
-- [ ] Verificar coherencia de fechas (inicio < final)
-
-### 4. Rescisión Anticipada Completa
-
-- [ ] Al establecer `fecha_recision_anticipada`:
-  - Cambiar `status` a `RESCINDIDO`
-  - Cancelar asientos posteriores a la fecha
-  - Liberar propiedad (estado → `DISPONIBLE`)
-  - Calcular devolución proporcional de depósito
-
-### 5. Notificaciones Automáticas
-
-- [ ] Alertas de vencimiento próximo (30/60/90 días)
-- [ ] Notificaciones de ajuste programado
-- [ ] Recordatorios de cobro de honorarios pendientes
-- [ ] Avisos de mora en pagos
-
-### 6. Reportes y Proyecciones
-
-- [ ] Reporte de ingresos proyectados por comisiones
-- [ ] Dashboard de contratos vigentes vs finalizados
-- [ ] Análisis de rentabilidad por tipo de comisión
-- [ ] Proyección de flujo de caja
+```json
+{
+  "servicios_impuestos_contrato": [
+    {
+      "proveedor_id": "68ed6be9a2f299e1a0b2af99",
+      "identificador_servicio": "1234567890",
+      "porcentaje_aplicacion": 100,
+      "origen": "LOCATARIO",
+      "destino": "PRESTADOR"
+    }
+  ]
+}
+```
 
 ---
 

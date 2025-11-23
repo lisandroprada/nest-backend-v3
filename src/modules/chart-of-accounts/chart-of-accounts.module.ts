@@ -6,6 +6,7 @@ import {
   ChartOfAccount,
   ChartOfAccountSchema,
 } from './entities/chart-of-account.entity';
+import { PaginationService } from 'src/common/pagination/pagination.service';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import {
     ]),
   ],
   controllers: [ChartOfAccountsController],
-  providers: [ChartOfAccountsService],
+  providers: [ChartOfAccountsService, PaginationService],
   exports: [ChartOfAccountsService],
 })
 export class ChartOfAccountsModule {}

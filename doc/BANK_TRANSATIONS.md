@@ -188,7 +188,7 @@ Content-Type: application/json
   "host_imap": "mail.dominio.com",
   "port_imap": 993,
   "secure": true,
-  "check_period_days": 7
+  "check_period_days": 15
 }
 ```
 
@@ -577,7 +577,7 @@ export interface CreateSystemConfigDto {
   host_imap: string;
   port_imap: number; // 1..65535
   secure?: boolean; // default true
-  check_period_days?: number; // default 7 (1..30)
+  check_period_days?: number; // default 15 (1..30)
 }
 
 // src/modules/system-config/dto/update-system-config.dto.ts
@@ -604,7 +604,7 @@ Ejemplo de respuesta:
   "host_imap": "mail.dominio.com",
   "port_imap": 993,
   "secure": true,
-  "check_period_days": 7,
+  "check_period_days": 15,
   "activo": true
 }
 ```

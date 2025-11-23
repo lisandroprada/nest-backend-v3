@@ -46,8 +46,11 @@ Construido sobre principios de **Diseño Guiado por el Dominio (DDD)**, este bac
 
 El sistema utiliza un modelo de `Agente` unificado que representa a cualquier persona o empresa. La diferenciación se realiza a través de roles, permitiendo que una entidad sea, por ejemplo, `LOCADOR` y `PROVEEDOR` al mismo tiempo.
 
-- **Roles Soportados:** `LOCADOR`, `LOCATARIO`, `FIADOR`, `PROVEEDOR`, `INMOBILIARIA`, `COMPRADOR`, `VENDEDOR`.
+- **Roles de Negocio:** `CLIENTE`, `LOCADOR`, `LOCATARIO`, `FIADOR`
+- **Roles Operacionales:** `PROVEEDOR`, `PROVEEDOR_SERVICIO_PUBLICO`, `INMOBILIARIA`, `COMPRADOR`, `VENDEDOR`
 - **Datos Completos:** Almacena información fiscal, de contacto, domicilios, datos de apoderados y configuraciones específicas para proveedores de servicios.
+
+**Nuevo:** Rol `PROVEEDOR_SERVICIO_PUBLICO` para proveedores de servicios públicos e impuestos (Camuzzi, Cooperativas, Municipalidades) con sincronización automática de comunicaciones vía IMAP.
 
 ### 2.2. Gestión Integral de Propiedades (`Properties`)
 
@@ -99,7 +102,19 @@ Cada operación financiera genera un asiento contable balanceado, garantizando l
 
 Para una integración detallada con el frontend, por favor, consulta los siguientes documentos en la carpeta `/doc` de este repositorio:
 
-- `AGENTS_API.md`: Guía completa para el módulo de Agentes.
-- `PROPERTIES_API.md`: Guía completa para el módulo de Propiedades.
-- `PAGINATION_API.md`: Guía de uso del sistema de paginación y filtrado.
-- Y otros documentos de diseño (DDD, DCD, DEA).
+### APIs Principales
+
+- `AGENTS_API.md`: Guía completa para el módulo de Agentes (incluye `PROVEEDOR_SERVICIO_PUBLICO`)
+- `PROPERTIES_API.md`: Guía completa para el módulo de Propiedades
+- `SERVICE_SYNC_API.md`: API de sincronización de comunicaciones de proveedores de servicios
+- `PAGINATION_API.md`: Guía de uso del sistema de paginación y filtrado
+
+### Módulos Especializados
+
+- `PROVEEDOR_SERVICIO_PUBLICO.md`: Implementación del nuevo rol para servicios públicos e impuestos
+- `CAMUZZI_SCRAPPING.md`: Especificación original de sincronización Camuzzi
+- Y otros documentos de diseño (DDD, DCD, DEA)
+
+### Scripts de Seed
+
+- `scripts/README_SEED_SERVICE_PROVIDERS.md`: Guía para importar proveedores de servicios públicos

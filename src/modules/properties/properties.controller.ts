@@ -21,6 +21,12 @@ import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id
 export class PropertiesController {
   constructor(private readonly propertiesService: PropertiesService) {}
 
+  @Get('by-medidor/:identificador_servicio')
+  async findByMedidor(
+    @Param('identificador_servicio') identificador_servicio: string,
+  ) {
+    return this.propertiesService.findByMedidor(identificador_servicio);
+  }
   @Post()
   @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
   async create(

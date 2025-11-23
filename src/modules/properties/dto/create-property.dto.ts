@@ -229,6 +229,23 @@ class CaracteristicasDto {
   amenities?: string[];
 }
 
+class ServicioImpuestoDto {
+  @IsMongoId()
+  proveedor_id: string;
+
+  @IsString()
+  identificador_servicio: string;
+
+  @IsNumber()
+  porcentaje_aplicacion: number;
+
+  @IsEnum(['LOCADOR', 'LOCATARIO'])
+  origen: string;
+
+  @IsEnum(['PRESTADOR', 'LOCADOR'])
+  destino: string;
+}
+
 export class CreatePropertyDto {
   @IsArray()
   @IsString({ each: true })
@@ -329,4 +346,10 @@ export class CreatePropertyDto {
   @IsMongoId()
   @IsOptional()
   contrato_vigente_id?: string;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ServicioImpuestoDto)
+  @IsOptional()
+  servicios_impuestos?: ServicioImpuestoDto[];
 }

@@ -45,7 +45,7 @@ async function run() {
   const host = process.env.IMAP_HOST || 'mail.ipropietas.com.ar';
   const port = Number(process.env.IMAP_PORT) || 993;
   const secure = (process.env.IMAP_SECURE || 'true') === 'true';
-  const checkPeriod = Number(process.env.IMAP_CHECK_PERIOD_DAYS) || 7;
+  const checkPeriod = Number(process.env.IMAP_CHECK_PERIOD_DAYS) || 15;
 
   // Encriptación igual que SystemConfigService (AES-256-CBC)
   const algorithm = 'aes-256-cbc';

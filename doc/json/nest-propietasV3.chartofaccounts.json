@@ -392,18 +392,6 @@
 },
 {
   "_id": {
-    "$oid": "69092a2b384cbd332489d738"
-  },
-  "codigo": "PAS_PRO",
-  "nombre": "Pasivo - Proveedores",
-  "tipo_cuenta": "PASIVO",
-  "descripcion": "Deudas con proveedores de servicios y bienes.",
-  "es_imputable": true,
-  "tasa_iva_aplicable": 0,
-  "es_facturable": false
-},
-{
-  "_id": {
     "$oid": "69092a2b384cbd332489d739"
   },
   "codigo": "PAS_SAL",
@@ -459,6 +447,30 @@
   "tipo_cuenta": "PATRIMONIO_NETO",
   "descripcion": "Ganancia o pérdida del ejercicio contable en curso.",
   "es_imputable": false,
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "6920a0f0ce629c47ae519400"
+  },
+  "codigo": "CXC_SERVICIOS",
+  "nombre": "Cuentas por Cobrar - Servicios",
+  "tipo_cuenta": "ACTIVO",
+  "descripcion": "Servicios públicos e impuestos a cobrar a propietarios/locatarios",
+  "es_imputable": true,
+  "tasa_iva_aplicable": 0,
+  "es_facturable": false
+},
+{
+  "_id": {
+    "$oid": "6920a0f0ce629c47ae519401"
+  },
+  "codigo": "CXP_SERVICIOS",
+  "nombre": "Cuentas por Pagar - Servicios",
+  "tipo_cuenta": "PASIVO",
+  "descripcion": "Servicios públicos e impuestos a pagar a proveedores",
+  "es_imputable": true,
   "tasa_iva_aplicable": 0,
   "es_facturable": false
 }]

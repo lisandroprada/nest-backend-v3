@@ -1,0 +1,89 @@
+[
+  {
+    "nombre": "Camuzzi Gas Pampeana S.A.",
+    "cuit": "30657864427",
+    "rol": ["PROVEEDOR_SERVICIO_PUBLICO"],
+    "persona_tipo": "JURIDICA",
+    "nomenclador_fiscal": "RI",
+    "email_principal": "avisos@camuzzigas.com.ar",
+    "check_automatizado": true,
+    "dominios_notificacion": ["avisos.camuzzigas.com.ar", "camuzzigas.com"],
+    "servicio_id_regex": "Cuenta[:\\s]+(\\d+/\\d+-\\d+-\\d+-\\d+/\\d+)",
+    "monto_regex": "Total\\s*:\\s*\\$\\s*([\\d,.]+)",
+    "pdf_search_key": "CAMUZZI GAS PAMPEANA",
+    "pdf_attachment_names": ["factura_camuzzi.pdf", "estado_cuenta_*.pdf"]
+  },
+  {
+    "nombre": "Cooperativa Popular de Electricidad Ltda. - Santa Rosa",
+    "cuit": "30546520669",
+    "rol": ["PROVEEDOR_SERVICIO_PUBLICO"],
+    "persona_tipo": "JURIDICA",
+    "nomenclador_fiscal": "RI",
+    "email_principal": "facturacion@cpe.coop",
+    "check_automatizado": true,
+    "dominios_notificacion": ["cpe.coop", "avisos.cpe.coop"],
+    "servicio_id_regex": "N[úu]mero de Socio[:\\s]+(\\d+)",
+    "monto_regex": "Importe Total[:\\s]*\\$\\s*([\\d,.]+)",
+    "pdf_search_key": "COOPERATIVA POPULAR",
+    "pdf_attachment_names": ["factura_cpe.pdf", "factura_*.pdf"]
+  },
+  {
+    "nombre": "Municipalidad de Santa Rosa",
+    "cuit": "30999033336",
+    "rol": ["PROVEEDOR_SERVICIO_PUBLICO"],
+    "persona_tipo": "JURIDICA",
+    "nomenclador_fiscal": "RI",
+    "email_principal": "rentas@santarosa.gov.ar",
+    "check_automatizado": true,
+    "dominios_notificacion": ["santarosa.gov.ar", "rentas.santarosa.gov.ar"],
+    "servicio_id_regex": "Partida[:\\s]+(\\d+-\\d+)",
+    "monto_regex": "Total a Pagar[:\\s]*\\$\\s*([\\d,.]+)",
+    "pdf_search_key": "MUNICIPALIDAD DE SANTA ROSA",
+    "pdf_attachment_names": ["tasa_*.pdf", "liquidacion_*.pdf"]
+  },
+  {
+    "nombre": "Ente Provincial del Río Colorado (EPRE)",
+    "cuit": "30999044447",
+    "rol": ["PROVEEDOR_SERVICIO_PUBLICO"],
+    "persona_tipo": "JURIDICA",
+    "nomenclador_fiscal": "RI",
+    "email_principal": "facturacion@epre.gov.ar",
+    "check_automatizado": true,
+    "dominios_notificacion": ["epre.gov.ar", "avisos.epre.gov.ar"],
+    "servicio_id_regex": "N[úu]mero de Usuario[:\\s]+(\\d+)",
+    "monto_regex": "Total[:\\s]*\\$\\s*([\\d,.]+)",
+    "pdf_search_key": "ENTE PROVINCIAL",
+    "pdf_attachment_names": ["factura_agua.pdf", "liquidacion_*.pdf"]
+  },
+  {
+    "nombre": "Municipalidad de General Pico",
+    "cuit": "30999055558",
+    "rol": ["PROVEEDOR_SERVICIO_PUBLICO"],
+    "persona_tipo": "JURIDICA",
+    "nomenclador_fiscal": "RI",
+    "email_principal": "rentas@generalpico.gov.ar",
+    "check_automatizado": true,
+    "dominios_notificacion": [
+      "generalpico.gov.ar",
+      "rentas.generalpico.gov.ar"
+    ],
+    "servicio_id_regex": "Partida[:\\s]+(\\d+-\\d+)",
+    "monto_regex": "Total[:\\s]*\\$\\s*([\\d,.]+)",
+    "pdf_search_key": "MUNICIPALIDAD DE GENERAL PICO",
+    "pdf_attachment_names": ["tasa_*.pdf"]
+  },
+  {
+    "nombre": "ASSA (Administración de Servicios Sanitarios y Ambientales)",
+    "cuit": "30999066669",
+    "rol": ["PROVEEDOR_SERVICIO_PUBLICO"],
+    "persona_tipo": "JURIDICA",
+    "nomenclador_fiscal": "RI",
+    "email_principal": "cobranzas@assa.gob.ar",
+    "check_automatizado": true,
+    "dominios_notificacion": ["assa.gob.ar", "avisos.assa.gob.ar"],
+    "servicio_id_regex": "Cuenta[:\\s]+(\\d+)",
+    "monto_regex": "Total[:\\s]*\\$\\s*([\\d,.]+)",
+    "pdf_search_key": "ASSA",
+    "pdf_attachment_names": ["factura_assa.pdf", "aviso_*.pdf"]
+  }
+]

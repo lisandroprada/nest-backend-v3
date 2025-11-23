@@ -2,7 +2,11 @@ import {
   BadRequestException,
   Injectable,
   NotFoundException,
+  Inject,
+  forwardRef,
+  Logger,
 } from '@nestjs/common';
+import { ModuleRef } from '@nestjs/core';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types, PipelineStage } from 'mongoose';
 import { AccountingEntry } from './entities/accounting-entry.entity';
@@ -16,6 +20,11 @@ import { CondonarAsientoDto } from './dto/condonar-asiento.dto';
 import { LiquidarAsientoDto } from './dto/liquidar-asiento.dto';
 import { AccountingEntryFiltersDto } from './dto/accounting-entry-filters.dto';
 import { FinancialAccountsService } from '../financial-accounts/financial-accounts.service';
+import { DetectedExpensesService } from '../detected-expenses/detected-expenses.service';
+import { PropertiesService } from '../properties/properties.service';
+import { ServiceAccountMappingsService } from '../service-account-mappings/service-account-mappings.service';
+import { ContractsService } from '../contracts/contracts.service';
+import { ChartOfAccountsService } from '../chart-of-accounts/chart-of-accounts.service';
 import {
   ProcessReceiptDto,
   TipoOperacionRecibo,
@@ -23,6 +32,7 @@ import {
 
 @Injectable()
 export class AccountingEntriesService {
+  private readonly logger = new Logger(AccountingEntriesService.name);
   /**
    * Actualiza los asientos "PENDIENTE_AJUSTE" de un contrato aplicando el índice correspondiente.
    * @param contratoId ID del contrato
@@ -95,7 +105,24 @@ export class AccountingEntriesService {
     private readonly accountingEntryModel: Model<AccountingEntry>,
     private readonly paginationService: PaginationService,
     private readonly financialAccountsService: FinancialAccountsService,
+    private readonly detectedExpensesService: DetectedExpensesService,
+    @Inject(forwardRef(() => PropertiesService))
+    private readonly propertiesService: PropertiesService,
+    private readonly moduleRef: ModuleRef,
+    private readonly serviceAccountMappingsService: ServiceAccountMappingsService,
+    private readonly chartOfAccountsService: ChartOfAccountsService,
   ) {}
+
+  private contractsServiceInstance?: ContractsService;
+
+  private getContractsService(): ContractsService {
+    if (!this.contractsServiceInstance) {
+      this.contractsServiceInstance = this.moduleRef.get(ContractsService, {
+        strict: false,
+      });
+    }
+    return this.contractsServiceInstance as ContractsService;
+  }
 
   /**
    * Convierte un string de sort (ej: '-fecha_imputacion') a formato MongoDB
@@ -720,6 +747,111 @@ export class AccountingEntriesService {
     return resultado;
   }
 
+  /**
+   * Procesa gastos detectados (facturas/avisos de servicios) y genera una propuesta
+   * de asiento por cada gasto. La propuesta se guarda dentro del documento
+   * `gastos_detectados` como `propuesta_asiento` y el estado se marca como `ASIGNADO`.
+   * NOTA: Esta implementación genera una propuesta (draft) y no crea el asiento
+   * contable definitivo porque la asignación de cuentas del plan contable debe
+   * ser validada (evita crear asientos con cuentas no configuradas).
+   *
+   * Opciones:
+   * - detectedExpenseIds?: string[] => procesar solo estos IDs
+   * - dryRun?: boolean => no persiste cambios si true
+   * - limit?: number => máximo items a procesar
+   */
+  async processDetectedUtilityInvoices(options?: {
+    detectedExpenseIds?: string[];
+    dryRun?: boolean;
+    limit?: number;
+  }): Promise<{ processed: number; details: any[] }> {
+    const all = await this.detectedExpensesService.findAll();
+    const pending = all.filter(
+      (d: any) => d.estado_procesamiento === 'PENDIENTE_VALIDACION',
+    );
+
+    const toProcess = (
+      options?.detectedExpenseIds
+        ? pending.filter((p: any) =>
+            options.detectedExpenseIds!.includes(p._id.toString()),
+          )
+        : pending
+    ).slice(0, options?.limit || pending.length);
+
+    const details: any[] = [];
+
+    for (const det of toProcess) {
+      // Buscar propiedades asociadas al identificador de servicio
+      const properties = await this.propertiesService.findByMedidor(
+        det.identificador_servicio,
+      );
+
+      if (!properties || properties.length === 0) {
+        // No asociadas: marcar para revisión y continuar
+        if (!options?.dryRun) {
+          await this.detectedExpensesService.update(det._id.toString(), {
+            estado_procesamiento: 'DESCARTADO',
+            cuerpo_email: det.cuerpo_email,
+          } as any);
+        }
+        details.push({ id: det._id, status: 'NO_PROPERTIES' });
+        continue;
+      }
+
+      // Construir prorrateo usando porcentaje_aplicacion si está disponible
+      let totalPct = 0;
+      const shares = properties.map((p: any) => {
+        const svc = (p.servicios_impuestos || []).find(
+          (s: any) => s.identificador_servicio === det.identificador_servicio,
+        );
+        const pct =
+          svc && svc.porcentaje_aplicacion ? svc.porcentaje_aplicacion : null;
+        if (pct) totalPct += pct;
+        return { property: p, pct };
+      });
+
+      if (totalPct === 0) {
+        // repartir en partes iguales
+        shares.forEach((s) => (s.pct = 100 / shares.length));
+      } else {
+        // normalizar a 100%
+        shares.forEach((s) => (s.pct = (s.pct / totalPct) * 100));
+      }
+
+      const montoTotal = det.monto_estimado || 0;
+      const partidasPropuesta = shares.map((s: any) => ({
+        descripcion: `Gasto detectado ${det.tipo_alerta} ${det.identificador_servicio} - ${s.property.identificador_interno}`,
+        agente_id: (s.property.propietarios_ids || [])[0] || null,
+        monto:
+          Math.round((montoTotal * (s.pct / 100) + Number.EPSILON) * 100) / 100,
+        porcentaje: s.pct,
+        suggested_account_code: 'EGRESO_SERVICIOS', // sugerencia, requiere validación manual o mapeo
+      }));
+
+      const propuesta = {
+        fecha_imputacion: new Date(),
+        fecha_vencimiento: det.fecha_deteccion || new Date(),
+        descripcion: `Propuesta para gasto detectado ${det.identificador_servicio}`,
+        tipo_asiento: 'Gasto Servicio Detectado',
+        monto_original: montoTotal,
+        partidas_propuesta: partidasPropuesta,
+        detected_expense_id: det._id,
+      };
+
+      if (!options?.dryRun) {
+        // Guardar la propuesta y actualizar estado en el gasto detectado
+        await this.detectedExpensesService.update(det._id.toString(), {
+          estado_procesamiento: 'ASIGNADO',
+          propuesta_asiento: propuesta,
+        } as any);
+      }
+
+      details.push({ id: det._id, status: 'PROPOSED', propuesta });
+    }
+
+    return { processed: details.length, details };
+  }
+
   async find(filter: any, session?: any): Promise<AccountingEntry[]> {
     return this.accountingEntryModel.find(filter, null, { session }).exec();
   }
@@ -783,6 +915,189 @@ export class AccountingEntriesService {
       estadoCuenta?.resumen?.saldo_disponible_haber || 0;
     // Definición: balance = deuda pendiente - crédito disponible (mismo signo que antes)
     return deudaPendiente - creditoDisponible;
+  }
+
+  /**
+   * Procesa una propuesta (propuesta_asiento) almacenada en un DetectedExpense
+   * y crea un AccountingEntry definitivo usando el mapeo proveedor->cuentas.
+   * Si mappingId no se provee, se intenta resolver por provider_agent_id.
+   */
+  async processDetectedExpenseToEntry(dto: {
+    detectedExpenseId: string;
+    mappingId?: string;
+  }): Promise<any> {
+    const { detectedExpenseId, mappingId } = dto;
+
+    const det: any =
+      await this.detectedExpensesService.findOne(detectedExpenseId);
+    if (!det) throw new NotFoundException('DetectedExpense no encontrado');
+
+    if (!det.propuesta_asiento) {
+      throw new BadRequestException('No existe una propuesta para este gasto');
+    }
+
+    // Resolver mapping
+    let mapping: any = null;
+    if (mappingId) {
+      mapping = await this.serviceAccountMappingsService.findOne(mappingId);
+    } else {
+      // Try resolving by agent id (if present). If not found, try by provider CUIT
+      const agentIdOrNull = det.agente_proveedor_id
+        ? det.agente_proveedor_id.toString()
+        : null;
+      if (agentIdOrNull) {
+        mapping =
+          await this.serviceAccountMappingsService.findByProviderAgentId(
+            agentIdOrNull,
+            det.identificador_servicio,
+          );
+      }
+      if (!mapping && (det as any).provider_cuit) {
+        mapping =
+          await this.serviceAccountMappingsService.findByProviderAgentId(
+            (det as any).provider_cuit,
+            det.identificador_servicio,
+          );
+      }
+    }
+
+    if (!mapping) {
+      throw new NotFoundException(
+        'No se encontró mapping proveedor->cuentas. Configure uno antes de procesar.',
+      );
+    }
+
+    // Resolver IDs de cuentas contables por código
+    const requiredCodes = [
+      mapping.cuenta_por_cobrar_codigo,
+      mapping.cuenta_por_pagar_codigo,
+    ].filter(Boolean) as string[];
+
+    if (requiredCodes.length === 0) {
+      throw new BadRequestException(
+        'El mapping no define códigos de cuenta válidos',
+      );
+    }
+
+    const accountIdsMap =
+      await this.chartOfAccountsService.getAccountIdsByCode(requiredCodes);
+
+    // Preparar partidas: una partida por propiedad (DEBE) y una partida contrapartida (HABER)
+    const propuesta = det.propuesta_asiento as any;
+    const partidas: any[] = [];
+    let total = 0;
+
+    // Buscar propiedades asociadas al identificador de servicio para poder
+    // comprobar contratos vigentes y propietarios (locador) en caso de fallback.
+    const properties =
+      det?.identificador_servicio && this.propertiesService
+        ? await this.propertiesService.findByMedidor(det.identificador_servicio)
+        : [];
+
+    for (const p of propuesta.partidas_propuesta || []) {
+      const amount = p.monto || 0;
+      total += amount;
+
+      // Determinar agente final para la partida: si el agente propuesto es un
+      // locatario pero no existe un contrato vigente para esa propiedad, usamos
+      // el locador (primer propietario) como fallback.
+      let finalAgenteId = p.agente_id || null;
+
+      try {
+        if (finalAgenteId && properties && properties.length > 0) {
+          let hasActiveContract = false;
+          // Revisar cada propiedad que coincide con el identificador
+          for (const prop of properties) {
+            if (prop.contrato_vigente_id) {
+              try {
+                const contract = await this.getContractsService().findOne(
+                  prop.contrato_vigente_id.toString(),
+                );
+                if (contract && Array.isArray(contract.partes)) {
+                  const isLocatarioInContract = contract.partes.some(
+                    (part: any) =>
+                      part.rol === 'LOCATARIO' &&
+                      part.agente_id?.toString() === finalAgenteId?.toString(),
+                  );
+                  if (isLocatarioInContract) {
+                    hasActiveContract = true;
+                    break;
+                  }
+                }
+              } catch (e) {
+                // ignore contract lookup errors and continue
+              }
+            }
+          }
+
+          if (!hasActiveContract) {
+            // fallback: usar el primer propietario conocido (locador) si existe
+            const propWithOwner = properties.find(
+              (pp: any) =>
+                Array.isArray(pp.propietarios_ids) &&
+                pp.propietarios_ids.length > 0,
+            );
+            if (propWithOwner) {
+              finalAgenteId = propWithOwner.propietarios_ids[0];
+            }
+          }
+        }
+      } catch (e) {
+        // En caso de cualquier fallo en la lógica de fallback, no romper el flujo;
+        // dejamos finalAgenteId tal como vino en p.agente_id
+      }
+
+      partidas.push({
+        cuenta_id: accountIdsMap[mapping.cuenta_por_cobrar_codigo],
+        descripcion: p.descripcion || propuesta.descripcion,
+        debe: amount,
+        haber: 0,
+        agente_id: finalAgenteId ? new Types.ObjectId(finalAgenteId) : null,
+      });
+    }
+
+    // Contrapartida: cuenta por pagar al proveedor
+    partidas.push({
+      cuenta_id: accountIdsMap[mapping.cuenta_por_pagar_codigo],
+      descripcion: `Pago a proveedor ${mapping.provider_agent_id}`,
+      debe: 0,
+      haber: Math.round((total + Number.EPSILON) * 100) / 100,
+      agente_id: new Types.ObjectId(mapping.provider_agent_id),
+    });
+
+    const asientoDto: Partial<AccountingEntry> = {
+      tipo_asiento: propuesta.tipo_asiento || 'Gasto Servicio',
+      fecha_imputacion: propuesta.fecha_imputacion || new Date(),
+      fecha_vencimiento: propuesta.fecha_vencimiento || new Date(),
+      descripcion:
+        propuesta.descripcion ||
+        `Gasto detectado ${det.identificador_servicio}`,
+      monto_original: propuesta.monto_original || total,
+      // monto_actual debe inicializarse igual al monto_original al crear el asiento
+      monto_actual: propuesta.monto_original || total,
+      partidas,
+    };
+
+    const asiento = await this.create(asientoDto);
+
+    // Actualizar detected expense con referencia al asiento creado
+    await this.detectedExpensesService.update(detectedExpenseId, {
+      estado_procesamiento: 'ASIGNADO',
+      asiento_creado_id: asiento._id,
+      estado_final: 'PROCESADO',
+    } as any);
+
+    // Fetch the updated detected expense so the controller/frontend can refresh state
+    let updatedDetected: any = null;
+    try {
+      updatedDetected =
+        await this.detectedExpensesService.findOne(detectedExpenseId);
+    } catch (e) {
+      // if fetching updated detected expense fails, ignore and return asiento anyway
+      updatedDetected = null;
+    }
+
+    return { accountingEntry: asiento, detectedExpense: updatedDetected };
   }
 
   // ==================== FASE 3: ACCIONES SOBRE ASIENTOS ====================
@@ -1123,14 +1438,18 @@ export class AccountingEntriesService {
       const montoYaLiquidado = partida.monto_liquidado || 0;
       const montoDisponible = montoLiquidable - montoYaLiquidado;
 
-      console.log('=== LIQUIDACIÓN HABER ===');
-      console.log('Descripción:', partida.descripcion);
-      console.log('partida.haber:', partida.haber);
-      console.log('montoYaLiquidado (ANTES):', montoYaLiquidado);
-      console.log('montoDisponible:', montoDisponible);
+      this.logger.debug('=== LIQUIDACIÓN HABER ===');
+      this.logger.debug('Descripción: ' + String(partida.descripcion));
+      this.logger.debug('partida.haber: ' + String(partida.haber));
+      this.logger.debug(
+        'montoYaLiquidado (ANTES): ' + String(montoYaLiquidado),
+      );
+      this.logger.debug('montoDisponible: ' + String(montoDisponible));
 
       if (montoDisponible <= 0) {
-        console.log('⚠️ Partida HABER ya completamente liquidada, se omite');
+        this.logger.debug(
+          '⚠️ Partida HABER ya completamente liquidada, se omite',
+        );
         continue; // Permitir continuar si esta partida ya está liquidada
       }
 
@@ -1138,11 +1457,10 @@ export class AccountingEntriesService {
       const montoALiquidar = Math.min(montoDisponible, montoRestanteALiquidar);
 
       partida.monto_liquidado = (partida.monto_liquidado || 0) + montoALiquidar;
-      console.log(
-        'partida.monto_liquidado (DESPUÉS):',
-        partida.monto_liquidado,
+      this.logger.debug(
+        'partida.monto_liquidado (DESPUÉS): ' + String(partida.monto_liquidado),
       );
-      console.log('========================');
+      this.logger.debug('========================');
 
       montoHaberTotal += montoALiquidar;
       montoRestanteALiquidar -= montoALiquidar;
@@ -1156,24 +1474,26 @@ export class AccountingEntriesService {
       const montoYaPagado = partida.monto_pagado_acumulado || 0;
       const montoDisponible = montoADescontar - montoYaPagado;
 
-      console.log('=== COMPENSACIÓN DEBE ===');
-      console.log('Descripción:', partida.descripcion);
-      console.log('partida.debe:', partida.debe);
-      console.log('montoYaPagado (ANTES):', montoYaPagado);
-      console.log('montoDisponible (a compensar):', montoDisponible);
+      this.logger.debug('=== COMPENSACIÓN DEBE ===');
+      this.logger.debug('Descripción: ' + String(partida.descripcion));
+      this.logger.debug('partida.debe: ' + String(partida.debe));
+      this.logger.debug('montoYaPagado (ANTES): ' + String(montoYaPagado));
+      this.logger.debug(
+        'montoDisponible (a compensar): ' + String(montoDisponible),
+      );
 
       if (montoDisponible <= 0) {
-        console.log('⚠️ Partida DEBE ya completamente pagada, se omite');
+        this.logger.debug('⚠️ Partida DEBE ya completamente pagada, se omite');
         continue; // Permitir continuar si esta partida ya está pagada
       }
 
       partida.monto_pagado_acumulado =
         (partida.monto_pagado_acumulado || 0) + montoDisponible;
-      console.log(
-        'partida.monto_pagado_acumulado (DESPUÉS):',
-        partida.monto_pagado_acumulado,
+      this.logger.debug(
+        'partida.monto_pagado_acumulado (DESPUÉS): ' +
+          String(partida.monto_pagado_acumulado),
       );
-      console.log('========================');
+      this.logger.debug('========================');
 
       montoDebeTotal += montoDisponible;
     }
@@ -1183,11 +1503,11 @@ export class AccountingEntriesService {
     const montoNeto = montoHaberTotal - montoDebeTotal;
     const montoAbsoluto = Math.abs(montoNeto);
 
-    console.log('💰 COMPENSACIÓN FINAL:');
-    console.log('   HABER total:', montoHaberTotal);
-    console.log('   DEBE total:', montoDebeTotal);
-    console.log('   NETO (HABER - DEBE):', montoNeto);
-    console.log('   Monto absoluto:', montoAbsoluto);
+    this.logger.debug('💰 COMPENSACIÓN FINAL:');
+    this.logger.debug('   HABER total: ' + String(montoHaberTotal));
+    this.logger.debug('   DEBE total: ' + String(montoDebeTotal));
+    this.logger.debug('   NETO (HABER - DEBE): ' + String(montoNeto));
+    this.logger.debug('   Monto absoluto: ' + String(montoAbsoluto));
 
     // IMPORTANTE: Respetar el tipo de flujo que viene en el DTO
     // El frontend determina si es INGRESO o EGRESO basándose en el contexto del recibo

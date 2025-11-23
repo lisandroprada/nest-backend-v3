@@ -2,6 +2,8 @@ import {
   Injectable,
   NotFoundException,
   BadRequestException,
+  Inject,
+  forwardRef,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
@@ -16,10 +18,18 @@ import { PaginationService } from '../../common/pagination/pagination.service';
 export class PropertiesService {
   constructor(
     @InjectModel(Property.name) private readonly propertyModel: Model<Property>,
+    @Inject(forwardRef(() => AgentsService))
     private readonly agentsService: AgentsService, // Para validar propietarios_ids
     private readonly paginationService: PaginationService,
   ) {}
 
+  async findByMedidor(identificador_servicio: string): Promise<Property[]> {
+    return this.propertyModel
+      .find({
+        'servicios_impuestos.identificador_servicio': identificador_servicio,
+      })
+      .exec();
+  }
   async create(
     createPropertyDto: CreatePropertyDto,
     userId: string,

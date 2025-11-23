@@ -6,6 +6,9 @@ export class DetectedExpense extends Document {
   @Prop({ type: Types.ObjectId, ref: 'Agent', required: true, index: true })
   agente_proveedor_id: Types.ObjectId;
 
+  @Prop({ type: String, index: true, required: false })
+  provider_cuit?: string;
+
   @Prop({ type: Date, default: Date.now, index: true })
   fecha_deteccion: Date;
 
@@ -35,6 +38,15 @@ export class DetectedExpense extends Document {
 
   @Prop({ type: String })
   adjunto_referencia_url: string;
+
+  @Prop({ type: Object })
+  propuesta_asiento?: any; // Guarda la propuesta generada por processDetectedUtilityInvoices
+
+  @Prop({ type: Types.ObjectId, ref: 'AccountingEntry' })
+  asiento_creado_id?: Types.ObjectId;
+
+  @Prop({ type: String })
+  estado_final?: string;
 }
 
 export const DetectedExpenseSchema =

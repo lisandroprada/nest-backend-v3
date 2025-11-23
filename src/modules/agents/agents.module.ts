@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { AgentsService } from './agents.service';
 import { AgentsController } from './agents.controller';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -13,7 +13,7 @@ import { BanksModule } from '../banks/banks.module'; // Import BanksModule
   imports: [
     MongooseModule.forFeature([{ name: Agent.name, schema: AgentSchema }]),
     AuthModule,
-    AccountingEntriesModule,
+    forwardRef(() => AccountingEntriesModule),
     CommonModule,
     CuitModule,
     BanksModule, // Add BanksModule here

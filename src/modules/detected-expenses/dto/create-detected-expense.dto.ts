@@ -24,6 +24,10 @@ export class CreateDetectedExpenseDto {
   @IsOptional()
   monto_estimado?: number;
 
+  @IsOptional()
+  @IsString()
+  provider_cuit?: string;
+
   @IsEnum(['PENDIENTE_VALIDACION', 'ASIGNADO', 'DESCARTADO'])
   @IsOptional()
   estado_procesamiento?: string;
@@ -35,4 +39,13 @@ export class CreateDetectedExpenseDto {
   @IsString()
   @IsOptional()
   adjunto_referencia_url?: string;
+
+  @IsOptional()
+  propuesta_asiento?: any;
+
+  @IsOptional()
+  asiento_creado_id?: string;
+
+  @IsOptional()
+  estado_final?: string;
 }

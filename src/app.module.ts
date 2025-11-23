@@ -41,6 +41,7 @@ import { DocumentsModule } from './modules/documents/documents.module';
 
 import { DetectedExpensesModule } from './modules/detected-expenses/detected-expenses.module';
 import { ExpensesModule } from './modules/expenses/expenses.module';
+import { ServiceAccountMappingsModule } from './modules/service-account-mappings/service-account-mappings.module';
 
 import { FiscalModule } from './modules/fiscal/fiscal.module';
 
@@ -52,6 +53,7 @@ import { FinancialReportsModule } from './modules/financial-reports/financial-re
 import { SystemAdminModule } from './modules/system-admin/system-admin.module';
 import { SystemConfigModule } from './modules/system-config/system-config.module';
 import { BankingSyncModule } from './modules/banking-sync/banking-sync.module';
+import { ServiceSyncModule } from './modules/service-sync/service-sync.module';
 
 @Module({
   imports: [
@@ -102,6 +104,7 @@ import { BankingSyncModule } from './modules/banking-sync/banking-sync.module';
     DocumentsModule,
     DetectedExpensesModule,
     ExpensesModule,
+    ServiceAccountMappingsModule,
     FiscalModule,
     ValuationsModule,
     CuitModule,
@@ -111,6 +114,7 @@ import { BankingSyncModule } from './modules/banking-sync/banking-sync.module';
     SystemAdminModule,
     SystemConfigModule,
     BankingSyncModule,
+    ServiceSyncModule,
   ],
   controllers: [AppController],
   providers: [

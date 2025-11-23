@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { PropertiesService } from './properties.service';
 import { PropertiesController } from './properties.controller';
 import { PropertyFilesController } from './property-files.controller';
@@ -17,7 +17,7 @@ import { CommonModule } from 'src/common/common.module';
     MongooseModule.forFeature([
       { name: Property.name, schema: PropertySchema },
     ]),
-    AgentsModule,
+    forwardRef(() => AgentsModule),
     AuthModule,
     CommonModule,
   ],

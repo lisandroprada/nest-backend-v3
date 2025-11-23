@@ -9,6 +9,7 @@ import { AccountingEntryFiltersDto } from './dto/accounting-entry-filters.dto';
 import { AnularAsientoDto } from './dto/anular-asiento.dto';
 import { CondonarAsientoDto } from './dto/condonar-asiento.dto';
 import { ProcessReceiptDto } from './dto/process-receipt.dto';
+import { ProcessDetectedExpenseDto } from './dto/process-proposal.dto';
 
 @Controller('accounting-entries')
 @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.contabilidad)
@@ -114,6 +115,16 @@ export class AccountingEntriesController {
   @Post('process-receipt')
   async processReceipt(@Body() dto: ProcessReceiptDto) {
     return this.accountingEntriesService.processReceipt(dto);
+  }
+
+  /**
+   * POST /accounting-entries/process-detected-expense
+   * Convierte una propuesta generada por `processDetectedUtilityInvoices` en un
+   * asiento contable definitivo usando el mapeo proveedor->cuentas.
+   */
+  @Post('process-detected-expense')
+  async processDetectedExpense(@Body() dto: ProcessDetectedExpenseDto) {
+    return this.accountingEntriesService.processDetectedExpenseToEntry(dto);
   }
 
   /**

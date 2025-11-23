@@ -18,7 +18,7 @@ export class SystemConfig extends Document {
   @Prop({ required: false, default: true })
   secure: boolean; // SSL/TLS
 
-  @Prop({ required: true, default: 7 })
+  @Prop({ required: true, default: 15 })
   check_period_days: number; // Días a escanear hacia atrás
 
   @Prop({ type: Date })

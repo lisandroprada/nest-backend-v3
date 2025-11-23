@@ -23,7 +23,7 @@ export class CashBoxController {
   @Post('open')
   createOpening(
     @Body() createCashBoxMovementDto: CreateCashBoxMovementDto,
-    @Req() req: Request,
+    @Req() req: any,
   ) {
     const user_id = (req.user as any).id; // Cast req.user to any
     if (!user_id) {
@@ -40,7 +40,7 @@ export class CashBoxController {
   @Post('partial-close')
   createPartialClosure(
     @Body() createCashBoxMovementDto: CreateCashBoxMovementDto,
-    @Req() req: Request,
+    @Req() req: any,
   ) {
     const user_id = (req.user as any).id;
     if (!user_id) {
@@ -60,7 +60,7 @@ export class CashBoxController {
   @Post('final-close')
   createFinalClosure(
     @Body() createCashBoxMovementDto: CreateCashBoxMovementDto,
-    @Req() req: Request,
+    @Req() req: any,
   ) {
     const user_id = (req.user as any).id;
     if (!user_id) {

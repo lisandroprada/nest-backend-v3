@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import { AgenteRoles } from '../../agents/constants/agent-roles.enum';
+import { ServicioImpuestoSchema } from '../../properties/entities/property.entity';
 
 @Schema({ _id: false })
 class Parte {
@@ -148,6 +149,9 @@ export class Contract extends Document {
 
   @Prop({ type: Types.ObjectId, ref: 'User' })
   usuario_modificacion_id: Types.ObjectId;
+  // Servicios e impuestos específicos del contrato (override de la propiedad)
+  @Prop({ type: [ServicioImpuestoSchema], default: [] })
+  servicios_impuestos_contrato: any[];
   contract: typeof Object;
 }
 

@@ -34,7 +34,7 @@ export class AdjustmentService {
         `Se encontraron ${contractsToAdjust.length} contratos para ajustar.`,
       );
       // Por ahora, solo se muestra en consola. Aquí iría la lógica de ajuste.
-      console.log(contractsToAdjust);
+      this.logger.debug(JSON.stringify(contractsToAdjust));
     } catch (error) {
       this.logger.error(
         'Error durante el barrido de ajuste de contratos',

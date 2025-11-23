@@ -9,8 +9,10 @@ import {
   IsObject,
   IsOptional,
   ValidateNested,
+  IsBoolean,
 } from 'class-validator';
 import { AgenteRoles } from '../../agents/constants/agent-roles.enum';
+import { ServicioImpuesto } from '../../properties/entities/property.entity';
 
 class ParteDto {
   @IsMongoId()
@@ -58,15 +60,24 @@ class TerminosFinancierosDto {
 
 export class CreateContractDto {
   @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ServicioImpuesto)
+  servicios_impuestos_contrato?: ServicioImpuesto[];
+  @IsOptional()
+  @IsBoolean()
   firmas_completas?: boolean;
 
   @IsOptional()
+  @IsBoolean()
   documentacion_completa?: boolean;
 
   @IsOptional()
+  @IsBoolean()
   visita_realizada?: boolean;
 
   @IsOptional()
+  @IsBoolean()
   inventario_actualizado?: boolean;
 
   @IsOptional()

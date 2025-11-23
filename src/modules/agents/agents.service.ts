@@ -2,6 +2,8 @@ import {
   Injectable,
   NotFoundException,
   BadRequestException,
+  Inject,
+  forwardRef,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
@@ -19,6 +21,7 @@ import { AgenteRoles } from './constants/agent-roles.enum';
 export class AgentsService {
   constructor(
     @InjectModel(Agent.name) private readonly agentModel: Model<Agent>,
+    @Inject(forwardRef(() => AccountingEntriesService))
     private readonly accountingEntriesService: AccountingEntriesService,
     private readonly paginationService: PaginationService,
     private readonly cuitService: CuitService,

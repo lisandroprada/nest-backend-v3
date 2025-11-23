@@ -4,12 +4,15 @@ import { Model, Types } from 'mongoose';
 import { ChartOfAccount } from './entities/chart-of-account.entity';
 import { CreateChartOfAccountDto } from './dto/create-chart-of-account.dto';
 import { UpdateChartOfAccountDto } from './dto/update-chart-of-account.dto';
+import { PaginationDto } from '../../common/pagination/dto/pagination.dto';
+import { PaginationService } from '../../common/pagination/pagination.service';
 
 @Injectable()
 export class ChartOfAccountsService {
   constructor(
     @InjectModel(ChartOfAccount.name)
     private readonly chartOfAccountModel: Model<ChartOfAccount>,
+    private readonly paginationService: PaginationService,
   ) {}
 
   async create(createDto: CreateChartOfAccountDto): Promise<ChartOfAccount> {
@@ -17,7 +20,11 @@ export class ChartOfAccountsService {
     return await newAccount.save();
   }
 
-  async findAll(): Promise<ChartOfAccount[]> {
+  async findAll(paginationDto: PaginationDto) {
+    return this.paginationService.paginate(this.chartOfAccountModel, paginationDto);
+  }
+
+  async findAllWithoutPagination(): Promise<ChartOfAccount[]> {
     return await this.chartOfAccountModel.find().exec();
   }
 

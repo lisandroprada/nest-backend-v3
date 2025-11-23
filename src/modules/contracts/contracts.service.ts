@@ -2,7 +2,9 @@ import {
   Injectable,
   NotFoundException,
   BadRequestException,
+  Logger,
 } from '@nestjs/common';
+import { ModuleRef } from '@nestjs/core';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Contract } from './entities/contract.entity';
@@ -23,12 +25,12 @@ import {
   PartidaPreviewDto,
 } from './dto/calculate-initial-payments.dto';
 import { DepositoPendienteResponseDto } from './dto/depositos-pendientes.dto';
-import * as fs from 'fs';
 import { AgentsService } from '../agents/agents.service';
 import { Property } from '../properties/entities/property.entity';
 
 @Injectable()
 export class ContractsService {
+  private readonly logger = new Logger(ContractsService.name);
   private readonly REQUIRED_ACCOUNTS = [
     'CXC_ALQ', // Alquiler a Cobrar
     'CXP_LOC', // Alquiler a Pagar a Locador
@@ -39,22 +41,43 @@ export class ContractsService {
   ];
   private accountIdsCache: Record<string, Types.ObjectId>;
 
+  private accountingEntriesServiceInstance?: AccountingEntriesService;
+  private agentsServiceInstance?: AgentsService;
+
   constructor(
     @InjectModel(Contract.name) private readonly contractModel: Model<Contract>,
-    private readonly accountingEntriesService: AccountingEntriesService,
     private readonly chartOfAccountsService: ChartOfAccountsService,
     private readonly propertiesService: PropertiesService,
     private readonly paginationService: PaginationService,
     private readonly contractSettingsService: ContractSettingsService,
-    private readonly agentsService: AgentsService,
+    private readonly moduleRef: ModuleRef,
   ) {}
+
+  private getAccountingEntriesService(): AccountingEntriesService {
+    if (!this.accountingEntriesServiceInstance) {
+      this.accountingEntriesServiceInstance = this.moduleRef.get(
+        AccountingEntriesService,
+        { strict: false },
+      );
+    }
+    return this.accountingEntriesServiceInstance as AccountingEntriesService;
+  }
+
+  private getAgentsService(): AgentsService {
+    if (!this.agentsServiceInstance) {
+      this.agentsServiceInstance = this.moduleRef.get(AgentsService, {
+        strict: false,
+      });
+    }
+    return this.agentsServiceInstance as AgentsService;
+  }
 
   private inmobiliariaAgentIdCache: Types.ObjectId | null = null;
 
   private async getInmobiliariaAgentId(): Promise<Types.ObjectId | null> {
     if (this.inmobiliariaAgentIdCache) return this.inmobiliariaAgentIdCache;
     try {
-      const agent = await this.agentsService.findOneByRole(
+      const agent = await this.getAgentsService().findOneByRole(
         AgenteRoles.INMOBILIARIA,
       );
       if (agent?._id) {
@@ -256,10 +279,10 @@ export class ContractsService {
 
     if (!locador || !locatario) return;
 
-    const locadorAgent = await this.agentsService.findOne(
+    const locadorAgent = await this.getAgentsService().findOne(
       locador.agente_id.toString(),
     );
-    const locatarioAgent = await this.agentsService.findOne(
+    const locatarioAgent = await this.getAgentsService().findOne(
       locatario.agente_id.toString(),
     );
 
@@ -308,7 +331,7 @@ export class ContractsService {
       locatarioName: locatarioName,
     };
 
-    await this.accountingEntriesService.create({
+    await this.getAccountingEntriesService().create({
       contrato_id: contract._id as Types.ObjectId,
       tipo_asiento: 'Deposito en Garantia - Cobro',
       fecha_imputacion: new Date(contract.fecha_inicio),
@@ -356,7 +379,7 @@ export class ContractsService {
       locadorName: locadorName,
     };
 
-    await this.accountingEntriesService.create({
+    await this.getAccountingEntriesService().create({
       contrato_id: contract._id as Types.ObjectId,
       tipo_asiento: 'Deposito en Garantia - Devolucion',
       fecha_imputacion: new Date(contract.fecha_final),
@@ -388,7 +411,7 @@ export class ContractsService {
     const locatario = partes.find((p) => p.rol === AgenteRoles.LOCATARIO);
     if (!locador || !locatario) return;
 
-    const locadorAgent = await this.agentsService.findOne(
+    const locadorAgent = await this.getAgentsService().findOne(
       locador.agente_id.toString(),
     );
 
@@ -396,7 +419,7 @@ export class ContractsService {
       console.warn(`Agente locador con ID ${locador.agente_id} no encontrado.`);
     }
 
-    const locatarioAgent = await this.agentsService.findOne(
+    const locatarioAgent = await this.getAgentsService().findOne(
       locatario.agente_id.toString(),
     );
 
@@ -472,7 +495,7 @@ export class ContractsService {
           0,
         );
         const montoActual = montoOriginal;
-        await this.accountingEntriesService.create({
+        await this.getAccountingEntriesService().create({
           contrato_id: contract._id as Types.ObjectId,
           tipo_asiento: 'Honorarios Locador',
           fecha_imputacion: fechaInicio.plus({ months: i }).toJSDate(),
@@ -538,7 +561,7 @@ export class ContractsService {
           0,
         );
         const montoActual = montoOriginal;
-        await this.accountingEntriesService.create({
+        await this.getAccountingEntriesService().create({
           contrato_id: contract._id as Types.ObjectId,
           tipo_asiento: 'Honorarios Locatario',
           fecha_imputacion: fechaInicio.plus({ months: i }).toJSDate(),
@@ -563,22 +586,6 @@ export class ContractsService {
     contract: Contract & { propiedad_id: Property },
     userId: string,
   ): Promise<void> {
-    const logData = {
-      timestamp: new Date().toISOString(),
-      contrato_id: contract._id,
-      fecha_inicio: contract.fecha_inicio,
-      fecha_final: contract.fecha_final,
-      partes: contract.partes,
-      terminos_financieros: contract.terminos_financieros,
-      deposito_monto: contract.deposito_monto,
-      deposito_cuotas: contract.deposito_cuotas,
-      deposito_tipo_ajuste: contract.deposito_tipo_ajuste,
-      status: contract.status,
-    };
-    fs.appendFileSync(
-      'asientos_debug.txt',
-      JSON.stringify(logData, null, 2) + '\n',
-    );
     const { terminos_financieros, fecha_inicio, fecha_final, partes } =
       contract;
 
@@ -599,7 +606,7 @@ export class ContractsService {
       );
     }
 
-    const locadorAgent = await this.agentsService.findOne(
+    const locadorAgent = await this.getAgentsService().findOne(
       locador.agente_id.toString(),
     );
 
@@ -609,7 +616,7 @@ export class ContractsService {
       );
     }
 
-    const locatarioAgent = await this.agentsService.findOne(
+    const locatarioAgent = await this.getAgentsService().findOne(
       locatario.agente_id.toString(),
     );
 
@@ -719,17 +726,24 @@ export class ContractsService {
 
       const montoOriginal = partidas.reduce((sum, p) => sum + (p.debe || 0), 0);
       const montoActual = montoOriginal;
-      console.log('[GENERATE ASIENTO]', {
-        contrato_id: contract._id,
-        fecha_vencimiento: fechaVencimiento,
-        descripcion: descripcionBase,
-        partidas,
-        monto_original: montoOriginal,
-        monto_actual: montoActual,
-        estado,
-        es_ajustable: estado === 'PENDIENTE_AJUSTE',
-        metadata: metadata,
-      });
+      this.logger.debug(
+        '[GENERATE ASIENTO] ' +
+          JSON.stringify(
+            {
+              contrato_id: contract._id,
+              fecha_vencimiento: fechaVencimiento,
+              descripcion: descripcionBase,
+              partidas,
+              monto_original: montoOriginal,
+              monto_actual: montoActual,
+              estado,
+              es_ajustable: estado === 'PENDIENTE_AJUSTE',
+              metadata: metadata,
+            },
+            null,
+            2,
+          ),
+      );
       if (!partidas || partidas.length === 0) {
         console.error(
           '[ERROR ASIENTO] Se intenta persistir asiento con partidas vacías',
@@ -740,7 +754,7 @@ export class ContractsService {
           },
         );
       }
-      await this.accountingEntriesService.create({
+      await this.getAccountingEntriesService().create({
         contrato_id: contract._id as Types.ObjectId,
         tipo_asiento: 'Alquiler',
         fecha_imputacion: fechaPeriodo.toJSDate(),
@@ -773,7 +787,7 @@ export class ContractsService {
     }
 
     // 3. Obtener información de las cuentas para los códigos/nombres
-    const cuentas = await this.chartOfAccountsService.findAll();
+    const cuentas = await this.chartOfAccountsService.findAllWithoutPagination();
     const cuentasMap = new Map(
       cuentas.map((c) => [
         c._id.toString(),
@@ -1306,7 +1320,9 @@ export class ContractsService {
   ): Promise<{ contratoEliminado: boolean; asientosEliminados: number }> {
     // Los parámetros _dto y _userId están presentes para compatibilidad futura y trazabilidad, pero no se usan actualmente.
     const asientosResult =
-      await this.accountingEntriesService.deleteManyByContractId(contratoId);
+      await this.getAccountingEntriesService().deleteManyByContractId(
+        contratoId,
+      );
 
     const contratoResult = await this.contractModel.deleteOne({
       _id: contratoId,
@@ -1325,7 +1341,7 @@ export class ContractsService {
   ): Promise<number> {
     // Buscar asientos de tipo 'Alquiler' y 'Honorarios' en el periodo
     const asientos =
-      await this.accountingEntriesService.findByContractAndDateRange(
+      await this.getAccountingEntriesService().findByContractAndDateRange(
         contratoId,
         fechaInicio,
         fechaFin,
@@ -1348,7 +1364,9 @@ export class ContractsService {
     _fechaNotificacion: Date,
     _fechaRecision: Date,
   ) {
-    console.log(_contractId, _fechaNotificacion, _fechaRecision);
+    this.logger.debug(
+      `calcularRescision: ${_contractId} ${_fechaNotificacion} ${_fechaRecision}`,
+    );
     // TODO: Implementar lógica de cálculo de rescisión
     return Promise.resolve({ monto_penalidad: 0 });
   }
@@ -1361,13 +1379,8 @@ export class ContractsService {
     _motivo: string,
     _userId: string,
   ) {
-    console.log(
-      _contractId,
-      _fechaNotificacion,
-      _fechaRecision,
-      _penalidadMonto,
-      _motivo,
-      _userId,
+    this.logger.debug(
+      `registrarRescision: ${_contractId} ${_fechaNotificacion} ${_fechaRecision} ${_penalidadMonto} ${_motivo} ${_userId}`,
     );
     // TODO: Implementar lógica de registro de rescisión
     return Promise.resolve({});
@@ -1410,7 +1423,7 @@ export class ContractsService {
     for (const contrato of contratos) {
       // Buscar el asiento de depósito en garantía
       const asientosDeposito =
-        await this.accountingEntriesService.findByContractAndType(
+        await this.getAccountingEntriesService().findByContractAndType(
           contrato._id.toString(),
           'Deposito en Garantia',
         );
@@ -1437,7 +1450,7 @@ export class ContractsService {
       if (contrato.deposito_tipo_ajuste === 'AL_ULTIMO_ALQUILER') {
         // Buscar el último asiento de alquiler para obtener el monto actualizado
         const ultimosAlquileres =
-          await this.accountingEntriesService.findByContractAndType(
+          await this.getAccountingEntriesService().findByContractAndType(
             contrato._id.toString(),
             'Alquiler',
           );
@@ -1464,10 +1477,10 @@ export class ContractsService {
 
       if (!locador || !locatario) continue;
 
-      const locadorAgent = await this.agentsService.findOne(
+      const locadorAgent = await this.getAgentsService().findOne(
         locador.agente_id.toString(),
       );
-      const locatarioAgent = await this.agentsService.findOne(
+      const locatarioAgent = await this.getAgentsService().findOne(
         locatario.agente_id.toString(),
       );
 

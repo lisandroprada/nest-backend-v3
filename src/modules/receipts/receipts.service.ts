@@ -4,6 +4,7 @@ import {
   Injectable,
   NotFoundException,
   forwardRef,
+  Logger,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
@@ -23,6 +24,8 @@ import { PaginationService } from '../../common/pagination/pagination.service';
 
 @Injectable()
 export class ReceiptsService {
+  private readonly logger = new Logger(ReceiptsService.name);
+
   constructor(
     @InjectModel(Receipt.name) private readonly receiptModel: Model<Receipt>,
     private readonly sequenceService: SequenceService,
@@ -205,15 +208,15 @@ export class ReceiptsService {
         dto.tipo_flujo_neto &&
         dto.tipo_flujo_neto !== tipoFlujoNetoCalculado
       ) {
-        console.warn(
+        this.logger.warn(
           `⚠️ Tipo flujo neto enviado (${dto.tipo_flujo_neto}) no coincide con el calculado (${tipoFlujoNetoCalculado}). Se usará el calculado.`,
         );
       }
 
-      console.log('💰 RESUMEN DEL RECIBO:');
-      console.log(`   Cobros (DEBE): $${montoCobrosTotal}`);
-      console.log(`   Pagos (HABER): $${montoPagosTotal}`);
-      console.log(`   NETO: $${montoNeto} (${tipoFlujoNetoCalculado})`);
+      this.logger.debug('💰 RESUMEN DEL RECIBO:');
+      this.logger.debug(`   Cobros (DEBE): $${montoCobrosTotal}`);
+      this.logger.debug(`   Pagos (HABER): $${montoPagosTotal}`);
+      this.logger.debug(`   NETO: $${montoNeto} (${tipoFlujoNetoCalculado})`);
 
       // Manejo de Saldo a Favor (si aplica)
       let saldoAFavorEntryId: Types.ObjectId | undefined;

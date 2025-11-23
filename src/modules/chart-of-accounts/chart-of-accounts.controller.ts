@@ -6,11 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { ChartOfAccountsService } from './chart-of-accounts.service';
 import { CreateChartOfAccountDto } from './dto/create-chart-of-account.dto';
 import { UpdateChartOfAccountDto } from './dto/update-chart-of-account.dto';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id.pipe';
+import { PaginationDto } from 'src/common/pagination/dto/pagination.dto';
 
 @Controller('chart-of-accounts')
 export class ChartOfAccountsController {
@@ -24,8 +26,8 @@ export class ChartOfAccountsController {
   }
 
   @Get()
-  findAll() {
-    return this.chartOfAccountsService.findAll();
+  findAll(@Query() paginationDto: PaginationDto) {
+    return this.chartOfAccountsService.findAll(paginationDto);
   }
 
   @Get(':id')
