@@ -54,6 +54,7 @@ import { SystemAdminModule } from './modules/system-admin/system-admin.module';
 import { SystemConfigModule } from './modules/system-config/system-config.module';
 import { BankingSyncModule } from './modules/banking-sync/banking-sync.module';
 import { ServiceSyncModule } from './modules/service-sync/service-sync.module';
+import { BotModule } from './modules/bot/bot.module';
 
 @Module({
   imports: [
@@ -115,6 +116,7 @@ import { ServiceSyncModule } from './modules/service-sync/service-sync.module';
     SystemConfigModule,
     BankingSyncModule,
     ServiceSyncModule,
+    BotModule,
   ],
   controllers: [AppController],
   providers: [
