@@ -30,6 +30,50 @@ export class PropertiesService {
       })
       .exec();
   }
+
+  async search(filters: any) {
+    // TODO: Implementar búsqueda real con filtros de MongoDB
+    // Por ahora devolvemos datos mockeados para que el bot funcione
+    return [
+      {
+        id: 'prop_001',
+        title: 'Departamento 2 ambientes en Palermo (VERIFICADO)',
+        address: 'Av. Santa Fe 3456',
+        zone: 'Palermo',
+        type: 'apartment',
+        rooms: 2,
+        price: 500000,
+        currency: 'ARS',
+        surface: 50,
+        url: 'https://propietas.com/prop/001'
+      },
+      {
+        id: 'prop_002',
+        title: 'Casa 3 ambientes en Zona Norte',
+        address: 'Calle Olivos 789',
+        zone: 'Norte',
+        type: 'house',
+        rooms: 3,
+        price: 850000,
+        currency: 'ARS',
+        surface: 120,
+        url: 'https://propietas.com/prop/002'
+      },
+      {
+        id: 'prop_003',
+        title: 'Monoambiente en Belgrano',
+        address: 'Av. Cabildo 2000',
+        zone: 'Belgrano',
+        type: 'apartment',
+        rooms: 1,
+        price: 350000,
+        currency: 'ARS',
+        surface: 35,
+        url: 'https://propietas.com/prop/003'
+      }
+    ];
+  }
+
   async create(
     createPropertyDto: CreatePropertyDto,
     userId: string,

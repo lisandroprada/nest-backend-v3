@@ -1,33 +1,43 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { BotController } from './bot.controller';
 import { BotService } from './bot.service';
-import { ApiKeyGuard } from './guards/api-key.guard';
 import { Agent, AgentSchema } from '../agents/entities/agent.entity';
-import { AgentsModule } from '../agents/agents.module';
+import { Property, PropertySchema } from '../properties/entities/property.entity';
+import { AccountingEntriesModule } from '../accounting-entries/accounting-entries.module';
+import { OtpModule } from '../otp/otp.module';
+import { TicketsModule } from '../tickets/tickets.module';
 
 /**
  * BotModule - Módulo para endpoints del WhatsApp Bot
  * 
- * Proporciona:
- * - Autenticación via API Key
- * - Rate limiting (100 req/min)
- * - Endpoints para consultas de clientes, saldo, reclamos, etc.
+ * Proporciona API protegida con API Key para:
+ * - Consultas de clientes y saldos
+ * - Validación de identidad con OTP
+ * - Creación de reclamos
+ * - Búsqueda de propiedades publicadas
+ * 
+ * Incluye rate limiting para prevenir abuso
  */
 @Module({
   imports: [
-    ConfigModule,
-    MongooseModule.forFeature([{ name: Agent.name, schema: AgentSchema }]),
-    ThrottlerModule.forRoot([{
-      ttl: 60000, // 60 segundos en milisegundos
-      limit: 100, // 100 requests
-    }]),
-    AgentsModule, // Para acceder a AgentsService
+    MongooseModule.forFeature([
+      { name: Agent.name, schema: AgentSchema },
+      { name: Property.name, schema: PropertySchema },
+    ]),
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000, // 1 minuto
+        limit: 30, // 30 requests por minuto
+      },
+    ]),
+    AccountingEntriesModule,
+    OtpModule,
+    TicketsModule,
   ],
   controllers: [BotController],
-  providers: [BotService, ApiKeyGuard],
+  providers: [BotService],
   exports: [BotService],
 })
 export class BotModule {}

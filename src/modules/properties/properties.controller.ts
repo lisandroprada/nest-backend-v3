@@ -27,6 +27,12 @@ export class PropertiesController {
   ) {
     return this.propertiesService.findByMedidor(identificador_servicio);
   }
+
+  @Get('search')
+  async search(@Query() filters: any) {
+    return this.propertiesService.search(filters);
+  }
+
   @Post()
   @Auth(ValidRoles.admin, ValidRoles.superUser, ValidRoles.agente)
   async create(
