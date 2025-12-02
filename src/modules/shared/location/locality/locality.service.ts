@@ -164,6 +164,21 @@ export class LocalityService {
       .exec();
   }
 
+  /**
+   * Autocomplete search for localities
+   * Returns localities with province data, limited to 15 results
+   * Useful for autocomplete/typeahead components
+   */
+  async autocomplete(query: string, limit: number = 15) {
+    if (!query || query.trim().length < 2) return [];
+    
+    return this.localityModel
+      .find({ nombre: { $regex: accentInsensitive(query.trim()), $options: 'i' } })
+      .collation({ locale: 'es', strength: 1 })
+      .limit(limit)
+      .exec();
+  }
+
   async findById(id: string) {
     return await this.localityModel.findById(id);
   }

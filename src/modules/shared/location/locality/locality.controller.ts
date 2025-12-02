@@ -46,6 +46,16 @@ export class LocalityController {
     return await this.localityService.testQuery();
   }
 
+  @Get('autocomplete')
+  @Auth(ValidRoles.user, ValidRoles.admin, ValidRoles.superUser)
+  async autocomplete(
+    @Query('q') query: string,
+    @Query('limit') limit?: string,
+  ) {
+    const limitNum = limit ? parseInt(limit, 10) : 15;
+    return this.localityService.autocomplete(query, limitNum);
+  }
+
   @Get('search')
   async searchByName(
     @Query('name') name: string,

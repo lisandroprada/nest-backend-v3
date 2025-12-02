@@ -10,9 +10,55 @@ import {
   IsDateString,
   IsMongoId,
   ArrayMinSize,
+  IsNumber,
+  IsEmail,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { AgenteRoles } from '../constants/agent-roles.enum';
+
+class TelefonoDto {
+  @IsString()
+  @IsNotEmpty()
+  numero: string;
+
+  @IsEnum(['MOVIL', 'FIJO'])
+  @IsNotEmpty()
+  tipo: string;
+}
+
+class DireccionDto {
+  @IsString()
+  @IsOptional()
+  calle?: string;
+
+  @IsString()
+  @IsOptional()
+  numero?: string;
+
+  @IsString()
+  @IsOptional()
+  piso_dpto?: string;
+
+  @IsMongoId()
+  @IsOptional()
+  provincia_id?: string;
+
+  @IsMongoId()
+  @IsOptional()
+  localidad_id?: string;
+
+  @IsString()
+  @IsOptional()
+  codigo_postal?: string;
+
+  @IsNumber()
+  @IsOptional()
+  latitud?: number;
+
+  @IsNumber()
+  @IsOptional()
+  longitud?: number;
+}
 
 class CuentaBancariaDto {
   @IsString()
@@ -41,7 +87,7 @@ export class CreateAgentDto {
   @ArrayMinSize(0)
   @IsEnum(AgenteRoles, { each: true })
   @IsOptional()
-  rol: AgenteRoles[];
+  rol?: AgenteRoles[];
 
   @IsEnum(['FISICA', 'JURIDICA'])
   @IsNotEmpty()
@@ -61,23 +107,23 @@ export class CreateAgentDto {
 
   @IsString()
   @IsOptional()
-  nombres: string;
+  nombres?: string;
 
   @IsString()
   @IsOptional()
-  apellidos: string;
+  apellidos?: string;
 
   @IsEnum(['MASCULINO', 'FEMENINO', 'PERSONA_JURIDICA'])
   @IsOptional()
-  genero: string;
+  genero?: string;
 
   @IsEnum(['DNI', 'LE', 'LC', 'PASAPORTE'])
   @IsOptional()
-  documento_tipo: string;
+  documento_tipo?: string;
 
   @IsString()
   @IsOptional()
-  documento_numero: string;
+  documento_numero?: string;
 
   @IsBoolean()
   @IsOptional()
@@ -86,6 +132,28 @@ export class CreateAgentDto {
   @IsDateString()
   @IsOptional()
   cuit_validado_en?: string;
+
+  @IsEmail()
+  @IsOptional()
+  email_principal?: string;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => TelefonoDto)
+  @IsOptional()
+  telefonos?: TelefonoDto[];
+
+  @IsObject()
+  @ValidateNested()
+  @Type(() => DireccionDto)
+  @IsOptional()
+  direccion_fiscal?: DireccionDto;
+
+  @IsObject()
+  @ValidateNested()
+  @Type(() => DireccionDto)
+  @IsOptional()
+  direccion_real?: DireccionDto;
 
   @IsObject()
   @IsOptional()

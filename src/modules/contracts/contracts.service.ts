@@ -199,14 +199,8 @@ export class ContractsService {
         typeof updateContractDto.visita_realizada === 'boolean'
           ? updateContractDto.visita_realizada
           : contract.visita_realizada;
-      const inventario_actualizado =
-        typeof updateContractDto.inventario_actualizado === 'boolean'
-          ? updateContractDto.inventario_actualizado
-          : contract.inventario_actualizado;
-      const fotos_inventario =
-        updateContractDto.fotos_inventario !== undefined
-          ? updateContractDto.fotos_inventario
-          : contract.fotos_inventario;
+      const inventory_version_id =
+        updateContractDto.inventory_version_id || contract.inventory_version_id;
 
       if (!firmas_completas)
         throw new BadRequestException(
@@ -220,14 +214,11 @@ export class ContractsService {
         throw new BadRequestException(
           'No se puede activar el contrato: falta registrar la visita a la vivienda.',
         );
-      if (!inventario_actualizado)
+      if (!inventory_version_id)
         throw new BadRequestException(
-          'No se puede activar el contrato: falta actualizar el inventario.',
+          'No se puede activar el contrato: debe seleccionar una versión de inventario.',
         );
-      if (!fotos_inventario || fotos_inventario.length === 0)
-        throw new BadRequestException(
-          'No se puede activar el contrato: faltan fotos de la vivienda en el inventario.',
-        );
+
 
       if (contract.status === 'PENDIENTE') {
         generarAsientos = true;

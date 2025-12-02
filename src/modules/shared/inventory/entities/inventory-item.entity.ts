@@ -14,6 +14,9 @@ export class InventoryItem extends Document {
 
   @Prop({ type: String })
   modelo: string;
+
+  @Prop({ type: [String], default: [] })
+  fotos_urls: string[];
 }
 
 export const InventoryItemSchema = SchemaFactory.createForClass(InventoryItem);

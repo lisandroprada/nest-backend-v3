@@ -16,4 +16,8 @@ export class CreateInventoryItemDto {
   @IsString()
   @IsOptional()
   modelo?: string;
+
+  @IsString({ each: true })
+  @IsOptional()
+  fotos_urls?: string[];
 }

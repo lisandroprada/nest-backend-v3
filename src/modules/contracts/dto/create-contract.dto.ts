@@ -77,12 +77,9 @@ export class CreateContractDto {
   visita_realizada?: boolean;
 
   @IsOptional()
-  @IsBoolean()
-  inventario_actualizado?: boolean;
+  @IsMongoId()
+  inventory_version_id?: string;
 
-  @IsOptional()
-  @IsArray()
-  fotos_inventario?: string[];
   @IsEnum(['VIGENTE', 'FINALIZADO', 'RESCINDIDO', 'PENDIENTE'])
   @IsOptional()
   status?: string;

@@ -273,7 +273,12 @@ export class Property extends Document {
     precio: number;
     moneda: string;
     superficie_m2: number;
-  }[];
+  }[]
+
+;
+
+  @Prop({ type: Types.ObjectId, ref: 'PropertyInventory' })
+  property_inventory_id: Types.ObjectId;
 
   @Prop({ type: Types.ObjectId, ref: 'User' })
   usuario_creacion_id: Types.ObjectId;

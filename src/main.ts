@@ -23,6 +23,8 @@ async function bootstrap() {
       'https://backend.netra.com.ar',
       'https://www.ipropietas.com.ar',
       'https://ipropietas.com.ar',
+      'http://192.168.1.242:3001',
+      'http://192.168.2.246:3001',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
