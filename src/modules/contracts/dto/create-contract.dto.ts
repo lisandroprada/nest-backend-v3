@@ -77,6 +77,14 @@ export class CreateContractDto {
   visita_realizada?: boolean;
 
   @IsOptional()
+  @IsBoolean()
+  inventario_actualizado?: boolean;
+
+  @IsOptional()
+  @IsArray()
+  fotos_inventario?: string[];
+
+  @IsOptional()
   @IsMongoId()
   inventory_version_id?: string;
 

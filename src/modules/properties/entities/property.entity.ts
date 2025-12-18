@@ -289,6 +289,11 @@ export class Property extends Document {
 
 export const PropertySchema = SchemaFactory.createForClass(Property);
 
+// Index for geo-spatial queries
+PropertySchema.index({ 'direccion.latitud': 1, 'direccion.longitud': 1 });
+// For future 2dsphere support (requires GeoJSON format, but compound index works for scalar bounds)
+// PropertySchema.index({ direccion: '2dsphere' });
+
 // Virtual para obtener el título, con fallback a la dirección
 PropertySchema.virtual('titulo_display').get(function () {
   if (this.titulo) {

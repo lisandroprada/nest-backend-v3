@@ -5,7 +5,7 @@ import {
   Min,
   ValidateNested,
 } from 'class-validator';
-import { Type } from 'class-transformer';
+import { Type, Transform } from 'class-transformer';
 import { AdvancedSearchDto } from './advanced-search.dto';
 
 export class PaginationDto {

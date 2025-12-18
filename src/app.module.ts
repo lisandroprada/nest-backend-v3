@@ -56,6 +56,8 @@ import { BankingSyncModule } from './modules/banking-sync/banking-sync.module';
 import { ServiceSyncModule } from './modules/service-sync/service-sync.module';
 import { BotModule } from './modules/bot/bot.module';
 import { BrandCatalogModule } from './modules/shared/brand-catalog/brand-catalog.module';
+import { InboxModule } from './modules/inbox/inbox.module';
+import { EmailSyncModule } from './modules/email-sync/email-sync.module';
 
 @Module({
   imports: [
@@ -75,6 +77,15 @@ import { BrandCatalogModule } from './modules/shared/brand-catalog/brand-catalog
     MongooseModule.forRootAsync({
       useFactory: () => ({
         uri: process.env.MONGODB,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }),
+    }),
+    MongooseModule.forRootAsync({
+      connectionName: 'LEGACY_DB',
+      useFactory: () => ({
+        uri:
+          process.env.MONGODB_LEGACY || 'mongodb://127.0.0.1:27017/propietas',
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }),
@@ -119,6 +130,8 @@ import { BrandCatalogModule } from './modules/shared/brand-catalog/brand-catalog
     ServiceSyncModule,
     BotModule,
     BrandCatalogModule,
+    InboxModule,
+    EmailSyncModule,
   ],
   controllers: [AppController],
   providers: [

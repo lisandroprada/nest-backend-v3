@@ -19,6 +19,8 @@ async function bootstrap() {
       'http://localhost:5174',
       'http://localhost:3001',
       'http://localhost:3002',
+      'http://localhost:3003',
+      'http://localhost:3004',
       'https://backoffice.netra.com.ar',
       'https://backend.netra.com.ar',
       'https://www.ipropietas.com.ar',

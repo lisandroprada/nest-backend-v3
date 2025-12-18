@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Contract } from './entities/contract.entity';
 import { AccountingEntry } from '../accounting-entries/entities/accounting-entry.entity';
+import { Property } from '../properties/entities/property.entity';
 import { AccountingEntriesService } from '../accounting-entries/accounting-entries.service';
 import { ChartOfAccountsService } from '../chart-of-accounts/chart-of-accounts.service';
 import { IndexValueService } from '../external-apis/index-value/index-value.service';
@@ -42,8 +43,8 @@ export class ContractsMigrationService {
     'CXC_ALQ', // Cuenta por Cobrar - Alquileres
     'CXP_LOC', // Cuenta por Pagar - Locador
     'ING_HNR', // Ingresos - Honorarios
-    'PASIVO_DEPOSITO', // Pasivo - Depósitos en Garantía
-    'ACTIVO_FIDUCIARIO', // Activo - Fondos de Terceros
+    'PAS_DEP', // Pasivo - Depósitos en Garantía (antes PASIVO_DEPOSITO)
+    'ACT_FID', // Activo - Fondos de Terceros (antes ACTIVO_FIDUCIARIO)
   ];
 
   constructor(
@@ -51,6 +52,8 @@ export class ContractsMigrationService {
     private readonly contractModel: Model<Contract>,
     @InjectModel(AccountingEntry.name)
     private readonly accountingEntryModel: Model<AccountingEntry>,
+    @InjectModel(Property.name)
+    private readonly propertyModel: Model<Property>,
     private readonly accountingEntriesService: AccountingEntriesService,
     private readonly chartOfAccountsService: ChartOfAccountsService,
     private readonly indexValueService: IndexValueService,
@@ -334,6 +337,7 @@ export class ContractsMigrationService {
         contrato_id: contract._id as Types.ObjectId,
         tipo_asiento: 'SALDO_APERTURA_DEVENGADO',
         fecha_vencimiento: today.toJSDate(),
+        fecha_imputacion: today.toJSDate(),
         descripcion: `Saldo de apertura - Alquileres devengados hasta ${today.toFormat('dd/MM/yyyy')}`,
         partidas: partidasFinal,
         monto_original: montoOriginal,
@@ -557,10 +561,14 @@ export class ContractsMigrationService {
       ];
 
       if (!dryRun) {
+        const montoOriginal = this.roundToTwoDecimals(montoVigente);
+        const montoActual = montoOriginal;
+        
         await this.accountingEntriesService.create({
           contrato_id: contract._id as Types.ObjectId,
           tipo_asiento: 'Alquiler',
           fecha_vencimiento: fechaVencimiento,
+          fecha_imputacion: fechaActual.toJSDate(),
           descripcion: `Devengamiento alquiler ${fechaActual.toFormat('MM/yyyy')}`,
           partidas: partidas.map((p) => ({
             ...p,
@@ -569,6 +577,8 @@ export class ContractsMigrationService {
             monto_base_imponible: 0,
             monto_iva_calculado: 0,
           })),
+          monto_original: montoOriginal,
+          monto_actual: montoActual,
           usuario_creacion_id: new Types.ObjectId(userId),
           usuario_modificacion_id: new Types.ObjectId(userId),
         });
@@ -603,14 +613,19 @@ export class ContractsMigrationService {
       fecha_final,
       ajuste_programado,
       partes,
+      propiedad_id,
     } = contract;
+
+    // Obtener propiedad para usar su dirección en las descripciones
+    const propiedad = await this.propertyModel.findById(propiedad_id).lean();
+    const propiedadRef = propiedad?.direccion?.calle || propiedad?.identificador_interno || 'N/A';
 
     // Para FULL_HISTORY generamos TODO el historial hasta fecha_final
     // sin importar si es futuro o pasado
     const fechaFinProyeccion = DateTime.fromJSDate(fecha_final);
 
     this.logger.debug(
-      `Generando asientos desde ${DateTime.fromJSDate(fecha_inicio).toFormat('MM/yyyy')} hasta ${fechaFinProyeccion.toFormat('MM/yyyy')}`,
+      `Generando asientos desde ${DateTime.fromJSDate(fecha_inicio).toFormat('MM/yyyy')} hasta ${fechaFinProyeccion.toFormat('MM/yyyy')} - Propiedad: ${propiedadRef}`,
     );
 
     this.logger.debug(
@@ -626,6 +641,42 @@ export class ContractsMigrationService {
 
     const locador = partes.find((p) => p.rol === AgenteRoles.LOCADOR);
     const locatario = partes.find((p) => p.rol === AgenteRoles.LOCATARIO);
+
+    // NUEVO: Calcular monto total del contrato para honorarios
+    const totalMesesContrato = Math.ceil(
+      fechaFinProyeccion.diff(DateTime.fromJSDate(fecha_inicio), 'months')
+        .months,
+    );
+    const montoTotalContrato = this.roundToTwoDecimals(
+      montoVigente * totalMesesContrato,
+    );
+
+    // Calcular honorarios totales
+    const honorariosLocadorTotal = this.roundToTwoDecimals(
+      (montoTotalContrato *
+        (terminos_financieros.honorarios_locador_porcentaje || 0)) /
+        100,
+    );
+    const honorariosLocatarioTotal = this.roundToTwoDecimals(
+      (montoTotalContrato *
+        (terminos_financieros.honorarios_locatario_porcentaje || 0)) /
+        100,
+    );
+
+    // Calcular cuota mensual de honorarios
+    const cuotasLocador = terminos_financieros.honorarios_locador_cuotas || 1;
+    const cuotasLocatario =
+      terminos_financieros.honorarios_locatario_cuotas || 1;
+    const honorariosLocadorPorCuota = this.roundToTwoDecimals(
+      honorariosLocadorTotal / cuotasLocador,
+    );
+    const honorariosLocatarioPorCuota = this.roundToTwoDecimals(
+      honorariosLocatarioTotal / cuotasLocatario,
+    );
+
+    this.logger.debug(
+      `Honorarios - Total contrato: $${montoTotalContrato}, Locador: $${honorariosLocadorTotal} (${cuotasLocador} cuotas), Locatario: $${honorariosLocatarioTotal} (${cuotasLocatario} cuotas)`,
+    );
 
     // Obtener períodos de ajuste para aplicar ICL/IPC
     let adjustmentPeriods = [];
@@ -687,38 +738,51 @@ export class ContractsMigrationService {
       const comision = this.roundToTwoDecimals(
         montoVigente * comisionPorcentaje,
       );
-      const netoLocador = this.roundToTwoDecimals(montoVigente - comision);
+      const creditoLocador = this.roundToTwoDecimals(montoVigente - comision);
 
+      // Generar asiento de alquiler mensual (SOLO 3 partidas, sin honorarios)
+      const numeroCuota = count + 1;
+      const periodoDesc = `Período ${numeroCuota}/${totalMesesContrato}`;
+      
       const partidas = [
         {
           cuenta_id: this.accountIdsCache['CXC_ALQ'],
-          descripcion: `Alquiler ${fechaActual.toFormat('MM/yyyy')}`,
-          debe: this.roundToTwoDecimals(montoVigente),
+          descripcion: `Alquiler a cobrar - ${propiedadRef} - ${fechaActual.toFormat('MM/yyyy')}`,
+          debe: montoVigente,
           haber: 0,
           agente_id: locatario.agente_id,
-          monto_pagado_acumulado: 0, // ✅ Campo clave para tracking de cobranzas
+          monto_pagado_acumulado: 0,
         },
         {
           cuenta_id: this.accountIdsCache['CXP_LOC'],
-          descripcion: `Crédito por alquiler ${fechaActual.toFormat('MM/yyyy')}`,
+          descripcion: `Alquiler a pagar al locador - ${propiedadRef} - ${fechaActual.toFormat('MM/yyyy')}`,
           debe: 0,
-          haber: netoLocador,
+          haber: creditoLocador,
           agente_id: locador.agente_id,
         },
         {
           cuenta_id: this.accountIdsCache['ING_HNR'],
-          descripcion: `Honorarios por alquiler ${fechaActual.toFormat('MM/yyyy')}`,
+          descripcion: `Comisión administración - ${propiedadRef} - ${fechaActual.toFormat('MM/yyyy')}`,
           debe: 0,
           haber: comision,
         },
       ];
 
       if (!dryRun) {
+        const montoOriginal = this.roundToTwoDecimals(montoVigente);
+        const montoActual = montoOriginal;
+        
         await this.accountingEntriesService.create({
           contrato_id: contract._id as Types.ObjectId,
           tipo_asiento: 'Alquiler',
           fecha_vencimiento: fechaVencimiento,
-          descripcion: `Devengamiento alquiler ${fechaActual.toFormat('MM/yyyy')}`,
+          fecha_imputacion: fechaActual.toJSDate(),
+          descripcion: `Alquiler ${fechaActual.toFormat('MM/yyyy')} - ${periodoDesc} - ${propiedadRef}`,
+          metadata: {
+            periodo: numeroCuota, // **AGREGADO** - Número de período para matching
+            mes: fechaActual.month,
+            anio: fechaActual.year,
+          },
           partidas: partidas.map((p) => ({
             ...p,
             es_iva_incluido: false,
@@ -726,6 +790,8 @@ export class ContractsMigrationService {
             monto_base_imponible: 0,
             monto_iva_calculado: 0,
           })),
+          monto_original: montoOriginal,
+          monto_actual: montoActual,
           usuario_creacion_id: new Types.ObjectId(userId),
           usuario_modificacion_id: new Types.ObjectId(userId),
         });
@@ -743,8 +809,109 @@ export class ContractsMigrationService {
       }
     }
 
+    // Generar asientos de honorarios locador (asientos separados)
+    if (honorariosLocadorPorCuota > 0) {
+      for (let i = 0; i < cuotasLocador; i++) {
+        const fechaHonorario = DateTime.fromJSDate(fecha_inicio).plus({ months: i });
+        const fechaVenc = fechaHonorario.plus({ days: 10 });
+        
+        if (!dryRun) {
+          await this.accountingEntriesService.create({
+            contrato_id: contract._id as Types.ObjectId,
+            tipo_asiento: 'Honorarios Locador',
+            fecha_imputacion: fechaHonorario.toJSDate(),
+            fecha_vencimiento: fechaVenc.toJSDate(),
+            descripcion: `Honorarios Locador - Cuota ${i + 1}/${cuotasLocador} - ${propiedadRef}`,
+            metadata: {
+              periodo: i + 1, // Período = número de cuota
+              tipo_honorario: 'locador',
+            },
+            partidas: [
+              {
+                cuenta_id: this.accountIdsCache['CXP_LOC'],
+                descripcion: `Descuento honorarios locador - ${propiedadRef} - Cuota ${i + 1}/${cuotasLocador}`,
+
+                debe: honorariosLocadorPorCuota,
+                haber: 0,
+                agente_id: locador.agente_id,
+                es_iva_incluido: false,
+                tasa_iva_aplicada: 0,
+                monto_base_imponible: 0,
+                monto_iva_calculado: 0,
+              },
+              {
+                cuenta_id: this.accountIdsCache['ING_HNR'],
+                descripcion: `Ingreso honorarios locador - ${propiedadRef} - Cuota ${i + 1}/${cuotasLocador}`,
+                debe: 0,
+                haber: honorariosLocadorPorCuota,
+                es_iva_incluido: false,
+                tasa_iva_aplicada: 0,
+                monto_base_imponible: 0,
+                monto_iva_calculado: 0,
+              },
+            ],
+            monto_original: honorariosLocadorPorCuota,
+            monto_actual: honorariosLocadorPorCuota,
+            usuario_creacion_id: new Types.ObjectId(userId),
+            usuario_modificacion_id: new Types.ObjectId(userId),
+          });
+        }
+        count++;
+      }
+    }
+
+    // Generar asientos de honorarios locatario (asientos separados)
+    if (honorariosLocatarioPorCuota > 0) {
+      for (let i = 0; i < cuotasLocatario; i++) {
+        const fechaHonorario = DateTime.fromJSDate(fecha_inicio).plus({ months: i });
+        const fechaVenc = fechaHonorario.plus({ days: 10 });
+        
+        if (!dryRun) {
+          await this.accountingEntriesService.create({
+            contrato_id: contract._id as Types.ObjectId,
+            tipo_asiento: 'Honorarios Locatario',
+            fecha_imputacion: fechaHonorario.toJSDate(),
+            fecha_vencimiento: fechaVenc.toJSDate(),
+            descripcion: `Honorarios Locatario - Cuota ${i + 1}/${cuotasLocatario} - ${propiedadRef}`,
+            metadata: {
+              periodo: i + 1, // Período = número de cuota
+              tipo_honorario: 'locatario',
+            },
+            partidas: [
+              {
+                cuenta_id: this.accountIdsCache['CXC_ALQ'],
+                descripcion: `Cargo honorarios locatario - ${propiedadRef} - Cuota ${i + 1}/${cuotasLocatario}`,
+                debe: honorariosLocatarioPorCuota,
+                haber: 0,
+                agente_id: locatario.agente_id,
+                es_iva_incluido: false,
+                tasa_iva_aplicada: 0,
+                monto_base_imponible: 0,
+                monto_iva_calculado: 0,
+              },
+              {
+                cuenta_id: this.accountIdsCache['ING_HNR'],
+                descripcion: `Ingreso honorarios locatario - ${propiedadRef} - Cuota ${i + 1}/${cuotasLocatario}`,
+                debe: 0,
+                haber: honorariosLocatarioPorCuota,
+                es_iva_incluido: false,
+                tasa_iva_aplicada: 0,
+                monto_base_imponible: 0,
+                monto_iva_calculado: 0,
+              },
+            ],
+            monto_original: honorariosLocatarioPorCuota,
+            monto_actual: honorariosLocatarioPorCuota,
+            usuario_creacion_id: new Types.ObjectId(userId),
+            usuario_modificacion_id: new Types.ObjectId(userId),
+          });
+        }
+        count++;
+      }
+    }
+
     this.logger.log(
-      `Historial completo generado: ${count} asientos, Total: $${total.toFixed(2)}`,
+      `Historial completo generado: ${count} asientos (${count - cuotasLocador - cuotasLocatario} alquileres + ${cuotasLocador} hon. locador + ${cuotasLocatario} hon. locatario), Total: $${total.toFixed(2)}`,
     );
     return { count, total: this.roundToTwoDecimals(total) };
   }
@@ -774,14 +941,14 @@ export class ContractsMigrationService {
     // ========================================
     const partidasCobro = [
       {
-        cuenta_id: this.accountIdsCache['CUENTAS_POR_COBRAR_ALQUILERES'],
+        cuenta_id: this.accountIdsCache['CXC_ALQ'],
         descripcion: 'Depósito en garantía a cobrar al locatario',
         debe: depositoRedondeado,
         haber: 0,
         agente_id: locatario.agente_id, // LOCATARIO debe pagar
       },
       {
-        cuenta_id: this.accountIdsCache['ACTIVO_FIDUCIARIO'],
+        cuenta_id: this.accountIdsCache['ACT_FID'],
         descripcion: 'Ingreso de depósito en garantía a caja/banco fiduciaria',
         debe: 0,
         haber: depositoRedondeado,
@@ -803,6 +970,10 @@ export class ContractsMigrationService {
         fecha_imputacion: fecha_inicio,
         fecha_vencimiento: fecha_inicio,
         descripcion: 'Cobro de depósito en garantía al locatario',
+        metadata: {
+          periodo: 0, // Depósito = período 0 (especial)
+          tipo: 'cobro',
+        },
         partidas: partidasCobroFinal,
         monto_original: montoOriginal,
         monto_actual: montoOriginal,
@@ -816,13 +987,13 @@ export class ContractsMigrationService {
     // ========================================
     const partidasDevolucion = [
       {
-        cuenta_id: this.accountIdsCache['ACTIVO_FIDUCIARIO'],
+        cuenta_id: this.accountIdsCache['ACT_FID'],
         descripcion: 'Egreso de depósito en garantía desde caja/banco',
         debe: depositoRedondeado,
         haber: 0,
       },
       {
-        cuenta_id: this.accountIdsCache['PASIVO_DEPOSITO'],
+        cuenta_id: this.accountIdsCache['PAS_DEP'],
         descripcion: 'Depósito en garantía a devolver al locador',
         debe: 0,
         haber: depositoRedondeado,
@@ -845,6 +1016,10 @@ export class ContractsMigrationService {
         fecha_imputacion: fecha_final,
         fecha_vencimiento: fecha_final,
         descripcion: 'Devolución de depósito en garantía al locador',
+        metadata: {
+          periodo: 0, // Depósito = período 0 (especial)
+          tipo: 'devolucion',
+        },
         partidas: partidasDevolucionFinal,
         monto_original: montoOriginal,
         monto_actual: montoOriginal,
@@ -860,15 +1035,28 @@ export class ContractsMigrationService {
   private async getContractsToMigrate(
     contractIds?: string[],
   ): Promise<Contract[]> {
-    let query: any = { status: 'VIGENTE' };
+    let query: any;
 
     if (contractIds && contractIds.length > 0) {
+      // Si se proporcionan IDs específicos, SOLO filtrar por esos IDs
+      // NO filtrar por status para permitir migrar TODOS los contratos legacy
+      this.logger.debug(`🔍 MIGRATION DEBUG: Recibidos ${contractIds.length} contract IDs`);
+      this.logger.debug(`🔍 MIGRATION DEBUG: Primeros 3 IDs: ${contractIds.slice(0, 3).join(', ')}`);
+      
       query = {
         _id: { $in: contractIds.map((id) => new Types.ObjectId(id)) },
       };
-    }
+    } else {
+    // Si NO se proporcionan IDs, procesar TODOS los contratos
+    // CAMBIO CRÍTICO: Incluir FINALIZADOS y PENDIENTES para migración completa FULL_HISTORY
+    this.logger.debug(`🔍 MIGRATION DEBUG: SIN contract IDs, procesando TODOS los contratos`);
+    query = {}; // Sin filtro de status - procesar TODOS los contratos
+  }
 
-    return await this.contractModel.find(query).exec();
+    const results = await this.contractModel.find(query).exec();
+    this.logger.debug(`🔍 MIGRATION DEBUG: Query devolvió ${results.length} contratos`);
+    
+    return results;
   }
 
   /**
@@ -905,5 +1093,105 @@ export class ContractsMigrationService {
     }
 
     return contractsWithoutEntries;
+  }
+
+  /**
+   * Migra propiedades desde la BD legacy manteniendo _id originales
+   */
+  async migratePropertiesFromLegacy(deleteExisting: boolean = false): Promise<any> {
+    const mongoose = require('mongoose');
+    const legacyConnection = mongoose.createConnection(
+      'mongodb://127.0.0.1:27017/propietas',
+    );
+
+    try {
+      this.logger.log('🔄 Iniciando migración de propiedades...');
+
+      // Esperar conexión
+      await new Promise((resolve) => legacyConnection.once('open', resolve));
+
+      const LegacyProperty = legacyConnection.model(
+        'Property',
+        new mongoose.Schema({}, { strict: false }),
+      );
+
+      // Obtener propiedades de legacy
+      const legacyProperties = await LegacyProperty.find({}).lean();
+      this.logger.log(`📥 Propiedades en legacy: ${legacyProperties.length}`);
+
+      // Eliminar existentes si se solicita
+      if (deleteExisting) {
+        await this.propertyModel.deleteMany({});
+        this.logger.log('✅ Propiedades existentes eliminadas');
+      }
+
+      let inserted = 0;
+      let errors = 0;
+      const errorDetails = [];
+
+      for (const prop of legacyProperties) {
+        try {
+          // Transformación simple manteniendo _id original
+          const v3Property = {
+            _id: prop._id, // MANTENER ID ORIGINAL
+            propietarios_ids: prop.owner?.map((o) => o._id) || [],
+            identificador_interno: `PROP-${prop._id.toString().slice(-8).toUpperCase()}`,
+            titulo: prop.detailedDescription?.title || '',
+            descripcion: prop.detailedDescription?.brief || '',
+            direccion: {
+              calle: prop.address || '',
+              numero: '',
+              piso_dpto: '',
+              codigo_postal: '',
+              latitud: prop.lat || null,
+              longitud: prop.lng || null,
+            },
+            caracteristicas: {
+              tipo_propiedad: prop.type || 'departamento',
+              dormitorios: prop.detailedDescription?.rooms || null,
+              banos: prop.detailedDescription?.bathrooms || null,
+              metraje_total: prop.detailedDescription?.sqFt || null,
+              metraje_cubierto: prop.detailedDescription?.buildSqFt || null,
+              antiguedad_anos: prop.detailedDescription?.age || null,
+            },
+            valor_venta: prop.valueForSale?.amount || null,
+            valor_alquiler: prop.valueForRent?.amount || null,
+            publicar_para_venta: prop.publishForSale || false,
+            publicar_para_alquiler: prop.publishForRent || false,
+            status: prop.status || 'DISPONIBLE',
+            estado_ocupacional: prop.tenant?._id ? 'ALQUILADA' : 'DISPONIBLE',
+            contrato_vigente_id: prop.leaseAgreement || null,
+            createdAt: prop.createdAt || new Date(),
+            updatedAt: new Date(),
+          };
+
+          await this.propertyModel.create(v3Property);
+          inserted++;
+
+          if (inserted % 100 === 0) {
+            this.logger.log(`  Progreso: ${inserted}/${legacyProperties.length}...`);
+          }
+        } catch (error) {
+          errors++;
+          if (errors < 10) {
+            errorDetails.push({
+              propertyId: prop._id,
+              error: error.message,
+            });
+          }
+        }
+      }
+
+      this.logger.log(`✅ Migración completada: ${inserted} propiedades`);
+
+      return {
+        total: legacyProperties.length,
+        inserted,
+        errors,
+        errorDetails,
+      };
+    } finally {
+      await legacyConnection.close();
+    }
   }
 }

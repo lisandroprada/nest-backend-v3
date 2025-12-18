@@ -1,0 +1,4132 @@
+[{
+  "_id": {
+    "$oid": "6893aa758a803de3137e26b8"
+  },
+  "address": "PR5R+4M Rawson, Chubut Province, Argentina",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.29214012945782,
+  "lng": -65.15826160888672,
+  "owners": [
+    "68934aab422f3480846154c1"
+  ],
+  "suppliers": [],
+  "specs": [
+    "calefaccion",
+    "lavadero",
+    "piscina",
+    "jardin",
+    "parrilla"
+  ],
+  "type": "casa",
+  "purpose": "comercial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 250000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-06T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-06T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 0,
+    "buildSqFt": 0,
+    "age": 0,
+    "petFriendly": false,
+    "rooms": 1,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "orientation": "",
+    "title": "Barrio Rodaj Park: Un Encuentro entre la Naturaleza y la Conveniencia Urbana",
+    "brief": "Situado en la periferia de Rawson, el Barrio Rodaj Park ofrece un retiro único que combina la serenidad de un parque con la proximidad a las conveniencias urbanas. Este exclusivo sector, caracterizado por su abundante vegetación y amplias zonas parquizadas, no solo promueve un estilo de vida tranquilo y conectado con la naturaleza, sino que también permite fácil acceso al vibrante centro de la ciudad, ubicado a solo minutos de distancia.\nEn Barrio Paraíso, los residentes disfrutan de la paz y la privacidad de un entorno tipo parque, donde cada propiedad se integra armoniosamente con el paisaje natural. La dualidad de estar cerca de la naturaleza, con el río Chubut fluyendo suavemente a su alcance, mientras se encuentra a un corto trayecto en coche de todas las facilidades y servicios urbanos, hace de este lugar un espacio ideal para aquellos que buscan lo mejor de ambos mundos.\nEl diseño del barrio refleja un compromiso con la calidad de vida y el respeto por el entorno natural, proporcionando a los habitantes un lugar seguro, tranquilo y estéticamente agradable para llamar hogar. Aquí, cada día ofrece la oportunidad de escapar del bullicio urbano y sumergirse en un oasis de calma y belleza, sin renunciar a la conveniencia de la vida en la ciudad."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "9f75e1d8-6731-46d7-85f8-ed47b193b277.webp",
+      "thumb": "/uploads/properties/thumb/9f75e1d8-6731-46d7-85f8-ed47b193b277.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9f75e1d8-6731-46d7-85f8-ed47b193b277.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9f75e1d8-6731-46d7-85f8-ed47b193b277.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:45:27.158Z"
+      },
+      "_id": {
+        "$oid": "6893b0d78a803de3137e2702"
+      }
+    },
+    {
+      "name": "aeb3b37b-8da2-495f-84dc-0e5163fd1971.webp",
+      "thumb": "/uploads/properties/thumb/aeb3b37b-8da2-495f-84dc-0e5163fd1971.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/aeb3b37b-8da2-495f-84dc-0e5163fd1971.webp",
+      "imgSlider": "/uploads/properties/imgSlider/aeb3b37b-8da2-495f-84dc-0e5163fd1971.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:01.563Z"
+      },
+      "_id": {
+        "$oid": "6893b2258a803de3137e275a"
+      }
+    },
+    {
+      "name": "730f3004-5c31-44d8-be97-b13db404a383.webp",
+      "thumb": "/uploads/properties/thumb/730f3004-5c31-44d8-be97-b13db404a383.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/730f3004-5c31-44d8-be97-b13db404a383.webp",
+      "imgSlider": "/uploads/properties/imgSlider/730f3004-5c31-44d8-be97-b13db404a383.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:01.879Z"
+      },
+      "_id": {
+        "$oid": "6893b2258a803de3137e275b"
+      }
+    },
+    {
+      "name": "c1ad6d59-af03-467a-9b0a-a15913436097.webp",
+      "thumb": "/uploads/properties/thumb/c1ad6d59-af03-467a-9b0a-a15913436097.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c1ad6d59-af03-467a-9b0a-a15913436097.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c1ad6d59-af03-467a-9b0a-a15913436097.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:31.456Z"
+      },
+      "_id": {
+        "$oid": "6893b2448a803de3137e2762"
+      }
+    },
+    {
+      "name": "f6d28714-7191-46f3-901e-ed6cf9a3715c.webp",
+      "thumb": "/uploads/properties/thumb/f6d28714-7191-46f3-901e-ed6cf9a3715c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/f6d28714-7191-46f3-901e-ed6cf9a3715c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/f6d28714-7191-46f3-901e-ed6cf9a3715c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:31.627Z"
+      },
+      "_id": {
+        "$oid": "6893b2448a803de3137e2763"
+      }
+    },
+    {
+      "name": "6735e01a-1a8f-4cd1-809c-90dbbfeafdaf.webp",
+      "thumb": "/uploads/properties/thumb/6735e01a-1a8f-4cd1-809c-90dbbfeafdaf.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/6735e01a-1a8f-4cd1-809c-90dbbfeafdaf.webp",
+      "imgSlider": "/uploads/properties/imgSlider/6735e01a-1a8f-4cd1-809c-90dbbfeafdaf.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:31.807Z"
+      },
+      "_id": {
+        "$oid": "6893b2448a803de3137e2764"
+      }
+    },
+    {
+      "name": "41aca8c2-1c2c-4095-aad4-c2753f9d54ea.webp",
+      "thumb": "/uploads/properties/thumb/41aca8c2-1c2c-4095-aad4-c2753f9d54ea.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/41aca8c2-1c2c-4095-aad4-c2753f9d54ea.webp",
+      "imgSlider": "/uploads/properties/imgSlider/41aca8c2-1c2c-4095-aad4-c2753f9d54ea.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:31.960Z"
+      },
+      "_id": {
+        "$oid": "6893b2448a803de3137e2765"
+      }
+    },
+    {
+      "name": "3d6a6fc2-72e9-48dd-b5b5-7fe63dd77ee1.webp",
+      "thumb": "/uploads/properties/thumb/3d6a6fc2-72e9-48dd-b5b5-7fe63dd77ee1.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3d6a6fc2-72e9-48dd-b5b5-7fe63dd77ee1.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3d6a6fc2-72e9-48dd-b5b5-7fe63dd77ee1.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:32.201Z"
+      },
+      "_id": {
+        "$oid": "6893b2448a803de3137e2766"
+      }
+    },
+    {
+      "name": "bc8fb816-36ca-4ac7-a7b9-4711e84232f4.webp",
+      "thumb": "/uploads/properties/thumb/bc8fb816-36ca-4ac7-a7b9-4711e84232f4.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/bc8fb816-36ca-4ac7-a7b9-4711e84232f4.webp",
+      "imgSlider": "/uploads/properties/imgSlider/bc8fb816-36ca-4ac7-a7b9-4711e84232f4.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:32.440Z"
+      },
+      "_id": {
+        "$oid": "6893b2448a803de3137e2767"
+      }
+    },
+    {
+      "name": "99ea0d9d-e96b-43b6-8e35-e7e19040fd45.webp",
+      "thumb": "/uploads/properties/thumb/99ea0d9d-e96b-43b6-8e35-e7e19040fd45.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/99ea0d9d-e96b-43b6-8e35-e7e19040fd45.webp",
+      "imgSlider": "/uploads/properties/imgSlider/99ea0d9d-e96b-43b6-8e35-e7e19040fd45.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-06T19:51:32.688Z"
+      },
+      "_id": {
+        "$oid": "6893b2448a803de3137e2768"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-06T16:18:13.323Z"
+  },
+  "__v": 5,
+  "imgCover": {
+    "name": "9f75e1d8-6731-46d7-85f8-ed47b193b277.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/9f75e1d8-6731-46d7-85f8-ed47b193b277.webp",
+    "createdAt": {
+      "$date": "2025-08-06T19:45:27.159Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6894e2eb8a803de3137e2f5e"
+  },
+  "address": "PR6Q+6V Rawson, Chubut Province, Argentina",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.2894849557707,
+  "lng": -65.16027863006592,
+  "owners": [
+    "6894e1c88a803de3137e2f3d"
+  ],
+  "suppliers": [],
+  "specs": [
+    "calefaccion",
+    "cochera",
+    "piscina",
+    "jardin",
+    "aire_acondicionado",
+    "parrilla",
+    "lavadero"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 210000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-07T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-07T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 1400,
+    "buildSqFt": 130,
+    "age": 4,
+    "petFriendly": true,
+    "rooms": 5,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "orientation": "",
+    "title": "Rodaj Park: Donde la naturaleza se encuentra con tu estilo de vida.",
+    "brief": "A pocos minutos del centro de Rawson, Rodaj Park se presenta como\nuna de las zonas más atractivas para quienes buscan equilibrio entre\ntranquilidad y acceso urbano. Este barrio residencial, rodeado de\nvegetación y amplios espacios verdes, ofrece un entorno tipo parque\ndonde cada propiedad se integra con el paisaje de manera\narmoniosa.\nCon el río Chubut como vecino cercano y el sonido de la ciudad a la\ndistancia justa, Rodaj Park es ideal para quienes desean vivir\nrodeados de naturaleza sin alejarse de los servicios, comercios y\npuntos clave del Valle. Su diseño urbano respeta el entorno y\npromueve una calidad de vida excepcional: calles amplias, lotes bien\ndistribuidos, privacidad, seguridad y un entorno estéticamente\ncuidado.\nAquí, cada día empieza con aire puro y verde a la vista, y termina con\nla comodidad de saber que todo lo que necesitás está a minutos de\ncasa. Rodaj Park no es solo un lugar donde vivir: es una experiencia\ncotidiana de bienestar."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "9397499d-8d55-473a-ba49-9773c90d5dc8.webp",
+      "thumb": "/uploads/properties/thumb/9397499d-8d55-473a-ba49-9773c90d5dc8.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9397499d-8d55-473a-ba49-9773c90d5dc8.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9397499d-8d55-473a-ba49-9773c90d5dc8.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:37.712Z"
+      },
+      "_id": {
+        "$oid": "6894e2f98a803de3137e2f7b"
+      }
+    },
+    {
+      "name": "e4fe24cd-962c-4c9c-927d-664f2b592ecd.webp",
+      "thumb": "/uploads/properties/thumb/e4fe24cd-962c-4c9c-927d-664f2b592ecd.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/e4fe24cd-962c-4c9c-927d-664f2b592ecd.webp",
+      "imgSlider": "/uploads/properties/imgSlider/e4fe24cd-962c-4c9c-927d-664f2b592ecd.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:52.706Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f81"
+      }
+    },
+    {
+      "name": "3cbb856f-65fb-48b6-9548-6738606c2dea.webp",
+      "thumb": "/uploads/properties/thumb/3cbb856f-65fb-48b6-9548-6738606c2dea.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3cbb856f-65fb-48b6-9548-6738606c2dea.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3cbb856f-65fb-48b6-9548-6738606c2dea.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:52.527Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f80"
+      }
+    },
+    {
+      "name": "80333a04-ea44-4bc4-ba77-aa24e2c70b5c.webp",
+      "thumb": "/uploads/properties/thumb/80333a04-ea44-4bc4-ba77-aa24e2c70b5c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/80333a04-ea44-4bc4-ba77-aa24e2c70b5c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/80333a04-ea44-4bc4-ba77-aa24e2c70b5c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:53.099Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f83"
+      }
+    },
+    {
+      "name": "2e1d3cd3-b164-4f61-8b5a-1d0a2c7fec03.webp",
+      "thumb": "/uploads/properties/thumb/2e1d3cd3-b164-4f61-8b5a-1d0a2c7fec03.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/2e1d3cd3-b164-4f61-8b5a-1d0a2c7fec03.webp",
+      "imgSlider": "/uploads/properties/imgSlider/2e1d3cd3-b164-4f61-8b5a-1d0a2c7fec03.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:53.287Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f84"
+      }
+    },
+    {
+      "name": "a7104777-a1e9-4b4f-8cb6-c071c7089ed4.webp",
+      "thumb": "/uploads/properties/thumb/a7104777-a1e9-4b4f-8cb6-c071c7089ed4.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/a7104777-a1e9-4b4f-8cb6-c071c7089ed4.webp",
+      "imgSlider": "/uploads/properties/imgSlider/a7104777-a1e9-4b4f-8cb6-c071c7089ed4.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:53.461Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f85"
+      }
+    },
+    {
+      "name": "42772616-89df-4a91-a279-e40946ab8fcd.webp",
+      "thumb": "/uploads/properties/thumb/42772616-89df-4a91-a279-e40946ab8fcd.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/42772616-89df-4a91-a279-e40946ab8fcd.webp",
+      "imgSlider": "/uploads/properties/imgSlider/42772616-89df-4a91-a279-e40946ab8fcd.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:53.620Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f86"
+      }
+    },
+    {
+      "name": "bb0241f1-e16f-4f85-8560-33667708af95.webp",
+      "thumb": "/uploads/properties/thumb/bb0241f1-e16f-4f85-8560-33667708af95.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/bb0241f1-e16f-4f85-8560-33667708af95.webp",
+      "imgSlider": "/uploads/properties/imgSlider/bb0241f1-e16f-4f85-8560-33667708af95.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:53.816Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f87"
+      }
+    },
+    {
+      "name": "9fb305c5-e23b-4116-a078-5319575f63be.webp",
+      "thumb": "/uploads/properties/thumb/9fb305c5-e23b-4116-a078-5319575f63be.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9fb305c5-e23b-4116-a078-5319575f63be.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9fb305c5-e23b-4116-a078-5319575f63be.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:31:53.977Z"
+      },
+      "_id": {
+        "$oid": "6894e30a8a803de3137e2f88"
+      }
+    },
+    {
+      "name": "b89ce63b-6c8f-4184-a115-76cf440a6520.webp",
+      "thumb": "/uploads/properties/thumb/b89ce63b-6c8f-4184-a115-76cf440a6520.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b89ce63b-6c8f-4184-a115-76cf440a6520.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b89ce63b-6c8f-4184-a115-76cf440a6520.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:02.011Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fcd"
+      }
+    },
+    {
+      "name": "b4e729f7-b0c5-4058-9558-86cc1cbc1bd6.webp",
+      "thumb": "/uploads/properties/thumb/b4e729f7-b0c5-4058-9558-86cc1cbc1bd6.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b4e729f7-b0c5-4058-9558-86cc1cbc1bd6.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b4e729f7-b0c5-4058-9558-86cc1cbc1bd6.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:02.175Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fce"
+      }
+    },
+    {
+      "name": "5f0f08bc-66fd-45e7-8ba3-dfb02ad91814.webp",
+      "thumb": "/uploads/properties/thumb/5f0f08bc-66fd-45e7-8ba3-dfb02ad91814.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/5f0f08bc-66fd-45e7-8ba3-dfb02ad91814.webp",
+      "imgSlider": "/uploads/properties/imgSlider/5f0f08bc-66fd-45e7-8ba3-dfb02ad91814.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:02.330Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fcf"
+      }
+    },
+    {
+      "name": "f3acc840-1337-44b4-be44-bf40266557ff.webp",
+      "thumb": "/uploads/properties/thumb/f3acc840-1337-44b4-be44-bf40266557ff.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/f3acc840-1337-44b4-be44-bf40266557ff.webp",
+      "imgSlider": "/uploads/properties/imgSlider/f3acc840-1337-44b4-be44-bf40266557ff.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:02.484Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fd0"
+      }
+    },
+    {
+      "name": "d6f78cfc-ac19-4782-ae68-5cbca8ab971d.webp",
+      "thumb": "/uploads/properties/thumb/d6f78cfc-ac19-4782-ae68-5cbca8ab971d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/d6f78cfc-ac19-4782-ae68-5cbca8ab971d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/d6f78cfc-ac19-4782-ae68-5cbca8ab971d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:02.667Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fd1"
+      }
+    },
+    {
+      "name": "ecb06ebf-b54e-4048-ac71-817c658f7baf.webp",
+      "thumb": "/uploads/properties/thumb/ecb06ebf-b54e-4048-ac71-817c658f7baf.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/ecb06ebf-b54e-4048-ac71-817c658f7baf.webp",
+      "imgSlider": "/uploads/properties/imgSlider/ecb06ebf-b54e-4048-ac71-817c658f7baf.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:02.863Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fd2"
+      }
+    },
+    {
+      "name": "91e959e9-c488-41d3-a360-c371846bf42a.webp",
+      "thumb": "/uploads/properties/thumb/91e959e9-c488-41d3-a360-c371846bf42a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/91e959e9-c488-41d3-a360-c371846bf42a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/91e959e9-c488-41d3-a360-c371846bf42a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:03.025Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fd3"
+      }
+    },
+    {
+      "name": "c06bcb26-914f-4aa6-94ae-e3de90121ad6.webp",
+      "thumb": "/uploads/properties/thumb/c06bcb26-914f-4aa6-94ae-e3de90121ad6.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c06bcb26-914f-4aa6-94ae-e3de90121ad6.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c06bcb26-914f-4aa6-94ae-e3de90121ad6.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:03.220Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fd4"
+      }
+    },
+    {
+      "name": "a4aec186-f42b-428d-8a20-4e569a26f161.webp",
+      "thumb": "/uploads/properties/thumb/a4aec186-f42b-428d-8a20-4e569a26f161.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/a4aec186-f42b-428d-8a20-4e569a26f161.webp",
+      "imgSlider": "/uploads/properties/imgSlider/a4aec186-f42b-428d-8a20-4e569a26f161.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:03.381Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fd5"
+      }
+    },
+    {
+      "name": "bdf6d0f3-c8f5-445a-88d2-e9d082a2acce.webp",
+      "thumb": "/uploads/properties/thumb/bdf6d0f3-c8f5-445a-88d2-e9d082a2acce.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/bdf6d0f3-c8f5-445a-88d2-e9d082a2acce.webp",
+      "imgSlider": "/uploads/properties/imgSlider/bdf6d0f3-c8f5-445a-88d2-e9d082a2acce.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-07T17:33:03.569Z"
+      },
+      "_id": {
+        "$oid": "6894e34f8a803de3137e2fd6"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-07T14:31:23.525Z"
+  },
+  "__v": 9,
+  "imgCover": {
+    "name": "9397499d-8d55-473a-ba49-9773c90d5dc8.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/9397499d-8d55-473a-ba49-9773c90d5dc8.webp",
+    "createdAt": {
+      "$date": "2025-08-07T17:33:25.004Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6896010af18b7b23251d7c98"
+  },
+  "address": "Luis Costa 482",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.304919,
+  "lng": -65.1010526,
+  "owners": [
+    "6895fae1f18b7b23251d7c67"
+  ],
+  "suppliers": [],
+  "specs": [
+    "aire_acondicionado",
+    "calefaccion",
+    "portero",
+    "cochera",
+    "jardin",
+    "lavadero",
+    "balcon",
+    "parrilla",
+    "sum"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "ocupada",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 140000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 252,
+    "buildSqFt": 153,
+    "age": 15,
+    "petFriendly": true,
+    "rooms": 6,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "orientation": "suroeste",
+    "title": "Vivienda residencial en pleno centro de Rawson. ",
+    "brief": "Ubicada en la calle Luis Costa 482, en el corazón del casco céntrico de Rawson, esta casa de construcción tradicional con ladrillos se presenta como una oportunidad inmejorable. Su estado de conservación es excelente, habiendo sido ampliada y mejorada respecto a su construcción original para ofrecer mayor comodidad y funcionalidad.\n\nLa vivienda cuenta con tres dormitorios y dos baños, distribuidos de manera que optimizan el espacio y la privacidad. La calidad se percibe en cada detalle, desde sus aberturas de aluminio hasta la cuidada decoración interior.\n\nUno de sus mayores atractivos es el área social, pensada para el disfrute y el entretenimiento. La propiedad dispone de un quincho independiente y un garage, que ofrecen versatilidad y espacio extra. Además, posee un hermoso patio trasero parquizado, ideal para el descanso al aire libre.\n\nEsta propiedad representa una opción ideal para quienes buscan una vivienda lista para habitar, con una excelente calidad constructiva y una ubicación privilegiada en la ciudad."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "f5396371-83de-4bfc-865c-451cdcb80a70.webp",
+      "thumb": "/uploads/properties/thumb/f5396371-83de-4bfc-865c-451cdcb80a70.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/f5396371-83de-4bfc-865c-451cdcb80a70.webp",
+      "imgSlider": "/uploads/properties/imgSlider/f5396371-83de-4bfc-865c-451cdcb80a70.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:52:24.967Z"
+      },
+      "_id": {
+        "$oid": "68960118f18b7b23251d7cc8"
+      }
+    },
+    {
+      "name": "4e90b218-474f-4445-9f6d-eecdb92f8bda.webp",
+      "thumb": "/uploads/properties/thumb/4e90b218-474f-4445-9f6d-eecdb92f8bda.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/4e90b218-474f-4445-9f6d-eecdb92f8bda.webp",
+      "imgSlider": "/uploads/properties/imgSlider/4e90b218-474f-4445-9f6d-eecdb92f8bda.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:53:11.465Z"
+      },
+      "_id": {
+        "$oid": "68960148f18b7b23251d7ccf"
+      }
+    },
+    {
+      "name": "b9648ca7-660d-4c8d-9a23-c429827dcc1b.webp",
+      "thumb": "/uploads/properties/thumb/b9648ca7-660d-4c8d-9a23-c429827dcc1b.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b9648ca7-660d-4c8d-9a23-c429827dcc1b.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b9648ca7-660d-4c8d-9a23-c429827dcc1b.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:53:11.659Z"
+      },
+      "_id": {
+        "$oid": "68960148f18b7b23251d7cd0"
+      }
+    },
+    {
+      "name": "a5e5991c-e083-4c56-b299-f89ac559058b.webp",
+      "thumb": "/uploads/properties/thumb/a5e5991c-e083-4c56-b299-f89ac559058b.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/a5e5991c-e083-4c56-b299-f89ac559058b.webp",
+      "imgSlider": "/uploads/properties/imgSlider/a5e5991c-e083-4c56-b299-f89ac559058b.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:53:12.023Z"
+      },
+      "_id": {
+        "$oid": "68960148f18b7b23251d7cd2"
+      }
+    },
+    {
+      "name": "37830b1a-e676-46bb-a131-53471a8037b4.webp",
+      "thumb": "/uploads/properties/thumb/37830b1a-e676-46bb-a131-53471a8037b4.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/37830b1a-e676-46bb-a131-53471a8037b4.webp",
+      "imgSlider": "/uploads/properties/imgSlider/37830b1a-e676-46bb-a131-53471a8037b4.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:53:12.645Z"
+      },
+      "_id": {
+        "$oid": "68960148f18b7b23251d7cd5"
+      }
+    },
+    {
+      "name": "25529586-b7da-40f6-9eb0-ba9f3e85c599.webp",
+      "thumb": "/uploads/properties/thumb/25529586-b7da-40f6-9eb0-ba9f3e85c599.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/25529586-b7da-40f6-9eb0-ba9f3e85c599.webp",
+      "imgSlider": "/uploads/properties/imgSlider/25529586-b7da-40f6-9eb0-ba9f3e85c599.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:53:12.836Z"
+      },
+      "_id": {
+        "$oid": "68960148f18b7b23251d7cd6"
+      }
+    },
+    {
+      "name": "654c83c9-83c7-425d-acda-d98718695200.webp",
+      "thumb": "/uploads/properties/thumb/654c83c9-83c7-425d-acda-d98718695200.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/654c83c9-83c7-425d-acda-d98718695200.webp",
+      "imgSlider": "/uploads/properties/imgSlider/654c83c9-83c7-425d-acda-d98718695200.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:37.444Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf2"
+      }
+    },
+    {
+      "name": "353db880-7c04-46c0-9535-f494bb57090a.webp",
+      "thumb": "/uploads/properties/thumb/353db880-7c04-46c0-9535-f494bb57090a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/353db880-7c04-46c0-9535-f494bb57090a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/353db880-7c04-46c0-9535-f494bb57090a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:37.611Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf3"
+      }
+    },
+    {
+      "name": "22f223ad-3447-49f0-a386-465680c9a31e.webp",
+      "thumb": "/uploads/properties/thumb/22f223ad-3447-49f0-a386-465680c9a31e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/22f223ad-3447-49f0-a386-465680c9a31e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/22f223ad-3447-49f0-a386-465680c9a31e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:37.794Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf4"
+      }
+    },
+    {
+      "name": "49fd0712-ebc4-4134-b6c5-e37793b5370d.webp",
+      "thumb": "/uploads/properties/thumb/49fd0712-ebc4-4134-b6c5-e37793b5370d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/49fd0712-ebc4-4134-b6c5-e37793b5370d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/49fd0712-ebc4-4134-b6c5-e37793b5370d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:37.989Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf5"
+      }
+    },
+    {
+      "name": "b101f64a-8b4e-4a9c-b491-a848ed0a8570.webp",
+      "thumb": "/uploads/properties/thumb/b101f64a-8b4e-4a9c-b491-a848ed0a8570.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b101f64a-8b4e-4a9c-b491-a848ed0a8570.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b101f64a-8b4e-4a9c-b491-a848ed0a8570.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:38.187Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf6"
+      }
+    },
+    {
+      "name": "7bb37f73-eb06-4cc5-a0e9-e687fe5984fd.webp",
+      "thumb": "/uploads/properties/thumb/7bb37f73-eb06-4cc5-a0e9-e687fe5984fd.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/7bb37f73-eb06-4cc5-a0e9-e687fe5984fd.webp",
+      "imgSlider": "/uploads/properties/imgSlider/7bb37f73-eb06-4cc5-a0e9-e687fe5984fd.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:38.363Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf7"
+      }
+    },
+    {
+      "name": "6ad22ba5-9361-418b-bc01-c8b77a7dd509.webp",
+      "thumb": "/uploads/properties/thumb/6ad22ba5-9361-418b-bc01-c8b77a7dd509.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/6ad22ba5-9361-418b-bc01-c8b77a7dd509.webp",
+      "imgSlider": "/uploads/properties/imgSlider/6ad22ba5-9361-418b-bc01-c8b77a7dd509.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:38.539Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf8"
+      }
+    },
+    {
+      "name": "15de587c-902a-4a83-886e-204a4de32fe2.webp",
+      "thumb": "/uploads/properties/thumb/15de587c-902a-4a83-886e-204a4de32fe2.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/15de587c-902a-4a83-886e-204a4de32fe2.webp",
+      "imgSlider": "/uploads/properties/imgSlider/15de587c-902a-4a83-886e-204a4de32fe2.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:53:11.146Z"
+      },
+      "_id": {
+        "$oid": "68960148f18b7b23251d7ccd"
+      }
+    },
+    {
+      "name": "13374d22-1315-49f8-9575-1d81fc4282a2.webp",
+      "thumb": "/uploads/properties/thumb/13374d22-1315-49f8-9575-1d81fc4282a2.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/13374d22-1315-49f8-9575-1d81fc4282a2.webp",
+      "imgSlider": "/uploads/properties/imgSlider/13374d22-1315-49f8-9575-1d81fc4282a2.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:38.735Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cf9"
+      }
+    },
+    {
+      "name": "7ed06436-7fdb-4a3a-847f-a926ad3f3b3c.webp",
+      "thumb": "/uploads/properties/thumb/7ed06436-7fdb-4a3a-847f-a926ad3f3b3c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/7ed06436-7fdb-4a3a-847f-a926ad3f3b3c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/7ed06436-7fdb-4a3a-847f-a926ad3f3b3c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:38.925Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cfa"
+      }
+    },
+    {
+      "name": "e4ead0ed-5468-46c9-ae9f-c4e0ca707338.webp",
+      "thumb": "/uploads/properties/thumb/e4ead0ed-5468-46c9-ae9f-c4e0ca707338.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/e4ead0ed-5468-46c9-ae9f-c4e0ca707338.webp",
+      "imgSlider": "/uploads/properties/imgSlider/e4ead0ed-5468-46c9-ae9f-c4e0ca707338.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:39.115Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cfb"
+      }
+    },
+    {
+      "name": "6a245fcb-2805-4dc1-9d83-dd9d5c0a26ce.webp",
+      "thumb": "/uploads/properties/thumb/6a245fcb-2805-4dc1-9d83-dd9d5c0a26ce.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/6a245fcb-2805-4dc1-9d83-dd9d5c0a26ce.webp",
+      "imgSlider": "/uploads/properties/imgSlider/6a245fcb-2805-4dc1-9d83-dd9d5c0a26ce.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:39.565Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cfd"
+      }
+    },
+    {
+      "name": "3a63bc10-74d5-4b45-bb06-9a4ec20092a0.webp",
+      "thumb": "/uploads/properties/thumb/3a63bc10-74d5-4b45-bb06-9a4ec20092a0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3a63bc10-74d5-4b45-bb06-9a4ec20092a0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3a63bc10-74d5-4b45-bb06-9a4ec20092a0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:39.779Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cfe"
+      }
+    },
+    {
+      "name": "bfbd13c5-bcfc-4296-95f7-d66e40ed9103.webp",
+      "thumb": "/uploads/properties/thumb/bfbd13c5-bcfc-4296-95f7-d66e40ed9103.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/bfbd13c5-bcfc-4296-95f7-d66e40ed9103.webp",
+      "imgSlider": "/uploads/properties/imgSlider/bfbd13c5-bcfc-4296-95f7-d66e40ed9103.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T13:53:12.493Z"
+      },
+      "_id": {
+        "$oid": "68960148f18b7b23251d7cd4"
+      }
+    },
+    {
+      "name": "db432556-8179-48e9-a997-71dfc57b2c8c.webp",
+      "thumb": "/uploads/properties/thumb/db432556-8179-48e9-a997-71dfc57b2c8c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/db432556-8179-48e9-a997-71dfc57b2c8c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/db432556-8179-48e9-a997-71dfc57b2c8c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:39.407Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cfc"
+      }
+    },
+    {
+      "name": "8d84f23b-fb8b-45f1-9ef0-a4e11dc0e6ac.webp",
+      "thumb": "/uploads/properties/thumb/8d84f23b-fb8b-45f1-9ef0-a4e11dc0e6ac.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/8d84f23b-fb8b-45f1-9ef0-a4e11dc0e6ac.webp",
+      "imgSlider": "/uploads/properties/imgSlider/8d84f23b-fb8b-45f1-9ef0-a4e11dc0e6ac.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:39.990Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7cff"
+      }
+    },
+    {
+      "name": "138a85eb-a77f-474b-b7ac-8668f8fb4dd0.webp",
+      "thumb": "/uploads/properties/thumb/138a85eb-a77f-474b-b7ac-8668f8fb4dd0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/138a85eb-a77f-474b-b7ac-8668f8fb4dd0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/138a85eb-a77f-474b-b7ac-8668f8fb4dd0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:03:40.190Z"
+      },
+      "_id": {
+        "$oid": "689603bcf18b7b23251d7d00"
+      }
+    }
+  ],
+  "floorPlans": [
+    {
+      "url": "/uploads/properties/floorplans/1d273908-fae9-4d57-aea0-b9aa3555130f.png",
+      "name": "Screenshot 2025-08-08 at 10.42.06â¯AM.png",
+      "uploadedAt": {
+        "$date": "2025-08-08T14:05:10.502Z"
+      },
+      "_id": {
+        "$oid": "6896042df18b7b23251d7e79"
+      }
+    },
+    {
+      "url": "/uploads/properties/floorplans/e0e849fd-10da-41e3-86e1-4b7383525efc.png",
+      "name": "Screenshot 2025-08-08 at 10.42.15â¯AM.png",
+      "uploadedAt": {
+        "$date": "2025-08-08T14:05:10.502Z"
+      },
+      "_id": {
+        "$oid": "6896042df18b7b23251d7e7a"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-08-08T10:52:10.792Z"
+  },
+  "__v": 12,
+  "imgCover": {
+    "name": "f5396371-83de-4bfc-865c-451cdcb80a70.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/f5396371-83de-4bfc-865c-451cdcb80a70.webp",
+    "createdAt": {
+      "$date": "2025-08-08T13:52:24.969Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "689606ebf18b7b23251d7fa8"
+  },
+  "address": "Francisco Pietrobell 272",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.2889097,
+  "lng": -65.1171305,
+  "owners": [
+    "689604c5f18b7b23251d7f5b"
+  ],
+  "suppliers": [],
+  "specs": [
+    "cochera",
+    "jardin",
+    "calefaccion"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 64000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 300,
+    "buildSqFt": 191,
+    "age": 20,
+    "petFriendly": true,
+    "rooms": 4,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "orientation": "",
+    "title": "Casa residencial Barrio Gregorio Mayo",
+    "brief": "Ubicación: La propiedad se encuentra en el Barrio Gregorio Mayo, calle Pietrobelli 272, en los márgenes de la ciudad de Rawson. Este barrio es conocido por su tranquilidad y ambiente residencial, lo que lo convierte en una opción atractiva para quienes buscan un entorno apacible.\nDescripción de la Propiedad:\nSuperficie del Terreno: 300 m².\nSuperficie Construida: 191 m².\nDistribución Interior:\nDormitorios: 2 dormitorios.\nBaño: 1 baño completo.\nLiving, Cocina y Comedor Integrados: La disposición de estos espacios permite una buena circulación interna y aprovecha la luz natural.\nLocal Adicional (Garage / Apto Comercio): El local anexo tipo garaje tiene potencial comercial.\nEstado de Conservación:\nCalidad de Construcción: Construcción tradicional de calidad media, lo que implica que, aunque funcional y en condiciones de habitabilidad, el inmueble requiere reformas o reparaciones para mejorar su estado general.\nReparaciones Necesarias: Las áreas a revisar pueden incluir sanitarios, revestimientos, y otros aspectos menores que mejorarían la habitabilidad y el valor de mercado de la vivienda.\n"
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "245f7433-a1cf-491f-b0c0-2eb4f64f8366.webp",
+      "thumb": "/uploads/properties/thumb/245f7433-a1cf-491f-b0c0-2eb4f64f8366.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/245f7433-a1cf-491f-b0c0-2eb4f64f8366.webp",
+      "imgSlider": "/uploads/properties/imgSlider/245f7433-a1cf-491f-b0c0-2eb4f64f8366.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:18:32.310Z"
+      },
+      "_id": {
+        "$oid": "6896074af18b7b23251d7ffd"
+      }
+    },
+    {
+      "name": "cbc4d2b9-8cec-4b02-a6b0-0677a66807f8.webp",
+      "thumb": "/uploads/properties/thumb/cbc4d2b9-8cec-4b02-a6b0-0677a66807f8.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/cbc4d2b9-8cec-4b02-a6b0-0677a66807f8.webp",
+      "imgSlider": "/uploads/properties/imgSlider/cbc4d2b9-8cec-4b02-a6b0-0677a66807f8.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:18:35.444Z"
+      },
+      "_id": {
+        "$oid": "6896074af18b7b23251d7fff"
+      }
+    },
+    {
+      "name": "fd122ab1-18b0-43f1-8287-c84f26157b20.webp",
+      "thumb": "/uploads/properties/thumb/fd122ab1-18b0-43f1-8287-c84f26157b20.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fd122ab1-18b0-43f1-8287-c84f26157b20.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fd122ab1-18b0-43f1-8287-c84f26157b20.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:18:43.573Z"
+      },
+      "_id": {
+        "$oid": "6896074af18b7b23251d8005"
+      }
+    },
+    {
+      "name": "1f895a7e-dcdc-4ccb-a388-05ac3684d6e1.webp",
+      "thumb": "/uploads/properties/thumb/1f895a7e-dcdc-4ccb-a388-05ac3684d6e1.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1f895a7e-dcdc-4ccb-a388-05ac3684d6e1.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1f895a7e-dcdc-4ccb-a388-05ac3684d6e1.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T14:18:44.966Z"
+      },
+      "_id": {
+        "$oid": "6896074af18b7b23251d8006"
+      }
+    }
+  ],
+  "floorPlans": [
+    {
+      "url": "/uploads/properties/floorplans/1eb16c38-1fee-4ac6-a176-ec7c964718ab.jpg",
+      "name": "Pietrobell_planos4.jpg",
+      "uploadedAt": {
+        "$date": "2025-08-08T14:21:47.046Z"
+      },
+      "_id": {
+        "$oid": "689607fff18b7b23251d82f2"
+      }
+    },
+    {
+      "url": "/uploads/properties/floorplans/ba896ca5-5b0b-46bc-a8aa-3072aa15c1af.jpg",
+      "name": "Pietrobell_planos5.jpg",
+      "uploadedAt": {
+        "$date": "2025-08-08T14:21:47.046Z"
+      },
+      "_id": {
+        "$oid": "689607fff18b7b23251d82f3"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-08-08T11:17:15.774Z"
+  },
+  "__v": 27,
+  "imgCover": {
+    "name": "245f7433-a1cf-491f-b0c0-2eb4f64f8366.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/245f7433-a1cf-491f-b0c0-2eb4f64f8366.webp",
+    "createdAt": {
+      "$date": "2025-08-08T14:18:50.618Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "68963e53f18b7b23251d85d3"
+  },
+  "address": "PQHR+7J, Trelew, Chubut Province, Argentina",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c5",
+  "lat": -43.270676761057295,
+  "lng": -65.2086871383667,
+  "owners": [
+    "68963cbcf18b7b23251d857d"
+  ],
+  "suppliers": [],
+  "specs": [
+    "aire_acondicionado",
+    "calefaccion",
+    "piscina",
+    "parrilla",
+    "terraza",
+    "lavadero",
+    "jardin"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 160000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 750,
+    "buildSqFt": 160,
+    "age": 0,
+    "petFriendly": true,
+    "rooms": 7,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "orientation": "noroeste",
+    "title": "Tu Oasis de Tranquilidad te Espera en Este Exclusivo Barrio Parque",
+    "brief": "Descubrí la combinación perfecta de lujo, comodidad y tranquilidad en esta exclusiva propiedad ubicada en el prestigioso barrio parque Villa Casas Blancas en Rawson, Chubut. Un entorno seguro, con abundante vegetación y monitoreo las 24 horas del día, te invita a vivir una experiencia inigualable.\n\nLa planta baja se presenta con un amplio living comedor de excelente iluminación natural, ideal para la vida familiar y social. La cocina moderna, equipada con anafe a inducción y horno eléctrico, se complementa con una práctica despensa y un lavadero separado. Un toilette de recepción completa este nivel.\n\nEn la planta alta, la suite principal es un verdadero refugio, con un baño privado y un amplio vestidor. Disfrutá de vistas abiertas desde el balcón con excelente orientación. Dos dormitorios adicionales, ambos con placares integrados, y un baño completo con ducha escocesa, garantizan confort para toda la familia. Además, un espacio de guardado que podría convertirse en un escritorio funcional añade versatilidad a la planta.\n\nEl exterior es un oasis privado con una pileta para disfrutar todo el año. La propiedad cuenta con aire acondicionado frío/calor en todos los ambientes y cortinas roller ya instaladas. La seguridad está garantizada por un sistema de alarma completo. Esta casa es la elección perfecta para quienes buscan un estilo de vida de calidad en un entorno inmejorable."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "9791b22f-f068-4633-960a-c7439fdf45a4.webp",
+      "thumb": "/uploads/properties/thumb/9791b22f-f068-4633-960a-c7439fdf45a4.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9791b22f-f068-4633-960a-c7439fdf45a4.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9791b22f-f068-4633-960a-c7439fdf45a4.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:54.715Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8638"
+      }
+    },
+    {
+      "name": "304e62d1-40f5-40fb-a28a-28c52b0ab98d.webp",
+      "thumb": "/uploads/properties/thumb/304e62d1-40f5-40fb-a28a-28c52b0ab98d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/304e62d1-40f5-40fb-a28a-28c52b0ab98d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/304e62d1-40f5-40fb-a28a-28c52b0ab98d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:54.155Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8636"
+      }
+    },
+    {
+      "name": "30bf5d84-4190-4ca9-b268-4458af42dd5e.webp",
+      "thumb": "/uploads/properties/thumb/30bf5d84-4190-4ca9-b268-4458af42dd5e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/30bf5d84-4190-4ca9-b268-4458af42dd5e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/30bf5d84-4190-4ca9-b268-4458af42dd5e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:54.529Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8637"
+      }
+    },
+    {
+      "name": "fbccdbd0-93ad-4293-9ec9-b6bc6d105a8f.webp",
+      "thumb": "/uploads/properties/thumb/fbccdbd0-93ad-4293-9ec9-b6bc6d105a8f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fbccdbd0-93ad-4293-9ec9-b6bc6d105a8f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fbccdbd0-93ad-4293-9ec9-b6bc6d105a8f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:54.873Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8639"
+      }
+    },
+    {
+      "name": "0a4bec38-a36f-4609-967c-ac65804a1e56.webp",
+      "thumb": "/uploads/properties/thumb/0a4bec38-a36f-4609-967c-ac65804a1e56.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/0a4bec38-a36f-4609-967c-ac65804a1e56.webp",
+      "imgSlider": "/uploads/properties/imgSlider/0a4bec38-a36f-4609-967c-ac65804a1e56.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:54.993Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d863a"
+      }
+    },
+    {
+      "name": "847b9688-9090-482f-abbd-fba152404d09.webp",
+      "thumb": "/uploads/properties/thumb/847b9688-9090-482f-abbd-fba152404d09.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/847b9688-9090-482f-abbd-fba152404d09.webp",
+      "imgSlider": "/uploads/properties/imgSlider/847b9688-9090-482f-abbd-fba152404d09.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:55.162Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d863b"
+      }
+    },
+    {
+      "name": "f22ee8b3-c155-48d7-924d-611dd7bb0cd7.webp",
+      "thumb": "/uploads/properties/thumb/f22ee8b3-c155-48d7-924d-611dd7bb0cd7.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/f22ee8b3-c155-48d7-924d-611dd7bb0cd7.webp",
+      "imgSlider": "/uploads/properties/imgSlider/f22ee8b3-c155-48d7-924d-611dd7bb0cd7.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:55.323Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d863c"
+      }
+    },
+    {
+      "name": "98a68734-eb64-4c70-92ee-7ca0370d800c.webp",
+      "thumb": "/uploads/properties/thumb/98a68734-eb64-4c70-92ee-7ca0370d800c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/98a68734-eb64-4c70-92ee-7ca0370d800c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/98a68734-eb64-4c70-92ee-7ca0370d800c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:55.496Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d863d"
+      }
+    },
+    {
+      "name": "1f700ab1-a3dc-479f-8497-c8fab7db3375.webp",
+      "thumb": "/uploads/properties/thumb/1f700ab1-a3dc-479f-8497-c8fab7db3375.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1f700ab1-a3dc-479f-8497-c8fab7db3375.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1f700ab1-a3dc-479f-8497-c8fab7db3375.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:55.659Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d863e"
+      }
+    },
+    {
+      "name": "b8403b46-9d4a-49d1-99f9-dc043096a13f.webp",
+      "thumb": "/uploads/properties/thumb/b8403b46-9d4a-49d1-99f9-dc043096a13f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b8403b46-9d4a-49d1-99f9-dc043096a13f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b8403b46-9d4a-49d1-99f9-dc043096a13f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:55.815Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d863f"
+      }
+    },
+    {
+      "name": "0c114651-a19a-4c67-80cf-a28ae5d84ddd.webp",
+      "thumb": "/uploads/properties/thumb/0c114651-a19a-4c67-80cf-a28ae5d84ddd.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/0c114651-a19a-4c67-80cf-a28ae5d84ddd.webp",
+      "imgSlider": "/uploads/properties/imgSlider/0c114651-a19a-4c67-80cf-a28ae5d84ddd.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:56.000Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8640"
+      }
+    },
+    {
+      "name": "a42154c4-d4ad-4e34-b804-c55087ee843e.webp",
+      "thumb": "/uploads/properties/thumb/a42154c4-d4ad-4e34-b804-c55087ee843e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/a42154c4-d4ad-4e34-b804-c55087ee843e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/a42154c4-d4ad-4e34-b804-c55087ee843e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:56.228Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8641"
+      }
+    },
+    {
+      "name": "4f07b76f-1939-4a20-8d3b-b989bfeb9172.webp",
+      "thumb": "/uploads/properties/thumb/4f07b76f-1939-4a20-8d3b-b989bfeb9172.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/4f07b76f-1939-4a20-8d3b-b989bfeb9172.webp",
+      "imgSlider": "/uploads/properties/imgSlider/4f07b76f-1939-4a20-8d3b-b989bfeb9172.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:56.378Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8642"
+      }
+    },
+    {
+      "name": "d80590d0-07cd-41df-a162-e83180bab2e6.webp",
+      "thumb": "/uploads/properties/thumb/d80590d0-07cd-41df-a162-e83180bab2e6.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/d80590d0-07cd-41df-a162-e83180bab2e6.webp",
+      "imgSlider": "/uploads/properties/imgSlider/d80590d0-07cd-41df-a162-e83180bab2e6.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:56.513Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8643"
+      }
+    },
+    {
+      "name": "e6d4e5f1-d98a-4e9c-8644-4c1ab726add9.webp",
+      "thumb": "/uploads/properties/thumb/e6d4e5f1-d98a-4e9c-8644-4c1ab726add9.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/e6d4e5f1-d98a-4e9c-8644-4c1ab726add9.webp",
+      "imgSlider": "/uploads/properties/imgSlider/e6d4e5f1-d98a-4e9c-8644-4c1ab726add9.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:56.672Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8644"
+      }
+    },
+    {
+      "name": "897a3bf5-85b3-4554-ab8f-f5d94c1fbb60.webp",
+      "thumb": "/uploads/properties/thumb/897a3bf5-85b3-4554-ab8f-f5d94c1fbb60.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/897a3bf5-85b3-4554-ab8f-f5d94c1fbb60.webp",
+      "imgSlider": "/uploads/properties/imgSlider/897a3bf5-85b3-4554-ab8f-f5d94c1fbb60.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:56.906Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8645"
+      }
+    },
+    {
+      "name": "50f539c2-2501-43b5-a070-87647179b4c5.webp",
+      "thumb": "/uploads/properties/thumb/50f539c2-2501-43b5-a070-87647179b4c5.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/50f539c2-2501-43b5-a070-87647179b4c5.webp",
+      "imgSlider": "/uploads/properties/imgSlider/50f539c2-2501-43b5-a070-87647179b4c5.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:57.049Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8646"
+      }
+    },
+    {
+      "name": "8e172b57-d472-4bb2-9b30-8bc55639a6ff.webp",
+      "thumb": "/uploads/properties/thumb/8e172b57-d472-4bb2-9b30-8bc55639a6ff.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/8e172b57-d472-4bb2-9b30-8bc55639a6ff.webp",
+      "imgSlider": "/uploads/properties/imgSlider/8e172b57-d472-4bb2-9b30-8bc55639a6ff.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:57.190Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8647"
+      }
+    },
+    {
+      "name": "e04ff6dc-53e4-430c-ba64-fd886d4f2ae3.webp",
+      "thumb": "/uploads/properties/thumb/e04ff6dc-53e4-430c-ba64-fd886d4f2ae3.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/e04ff6dc-53e4-430c-ba64-fd886d4f2ae3.webp",
+      "imgSlider": "/uploads/properties/imgSlider/e04ff6dc-53e4-430c-ba64-fd886d4f2ae3.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:57.318Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8648"
+      }
+    },
+    {
+      "name": "e5e32952-ab2e-48d5-9c14-5b5787ff0389.webp",
+      "thumb": "/uploads/properties/thumb/e5e32952-ab2e-48d5-9c14-5b5787ff0389.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/e5e32952-ab2e-48d5-9c14-5b5787ff0389.webp",
+      "imgSlider": "/uploads/properties/imgSlider/e5e32952-ab2e-48d5-9c14-5b5787ff0389.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:57.455Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d8649"
+      }
+    },
+    {
+      "name": "fc7ce5c8-6bf1-4df0-9ca7-329388e17393.webp",
+      "thumb": "/uploads/properties/thumb/fc7ce5c8-6bf1-4df0-9ca7-329388e17393.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fc7ce5c8-6bf1-4df0-9ca7-329388e17393.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fc7ce5c8-6bf1-4df0-9ca7-329388e17393.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:57.602Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d864a"
+      }
+    },
+    {
+      "name": "dce3e17f-4e32-48cd-9069-b75f19b3c6d0.webp",
+      "thumb": "/uploads/properties/thumb/dce3e17f-4e32-48cd-9069-b75f19b3c6d0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/dce3e17f-4e32-48cd-9069-b75f19b3c6d0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/dce3e17f-4e32-48cd-9069-b75f19b3c6d0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:57.869Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d864b"
+      }
+    },
+    {
+      "name": "3ac2a5f1-92bb-4f88-89a9-c6397d0a0f05.webp",
+      "thumb": "/uploads/properties/thumb/3ac2a5f1-92bb-4f88-89a9-c6397d0a0f05.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3ac2a5f1-92bb-4f88-89a9-c6397d0a0f05.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3ac2a5f1-92bb-4f88-89a9-c6397d0a0f05.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:58.169Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d864c"
+      }
+    },
+    {
+      "name": "af1b416b-5f14-4548-915a-bbf70c60934d.webp",
+      "thumb": "/uploads/properties/thumb/af1b416b-5f14-4548-915a-bbf70c60934d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/af1b416b-5f14-4548-915a-bbf70c60934d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/af1b416b-5f14-4548-915a-bbf70c60934d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:19:58.345Z"
+      },
+      "_id": {
+        "$oid": "68963fcef18b7b23251d864d"
+      }
+    }
+  ],
+  "floorPlans": [
+    {
+      "url": "/uploads/properties/floorplans/217c935c-232c-4050-ace9-5c31490f47af.png",
+      "name": "Screenshot 2025-08-08 at 3.17.00â¯PM.png",
+      "uploadedAt": {
+        "$date": "2025-08-08T18:18:45.971Z"
+      },
+      "_id": {
+        "$oid": "68963feff18b7b23251d868e"
+      }
+    },
+    {
+      "url": "/uploads/properties/floorplans/4ce8fbaa-c025-488a-a7de-b5a05e19a19d.png",
+      "name": "Screenshot 2025-08-08 at 3.17.08â¯PM.png",
+      "uploadedAt": {
+        "$date": "2025-08-08T18:18:45.971Z"
+      },
+      "_id": {
+        "$oid": "68963feff18b7b23251d868f"
+      }
+    },
+    {
+      "url": "/uploads/properties/floorplans/2c28043b-b656-4493-a7cc-4d52df392b6e.png",
+      "name": "Screenshot 2025-08-08 at 3.17.26â¯PM.png",
+      "uploadedAt": {
+        "$date": "2025-08-08T18:18:45.971Z"
+      },
+      "_id": {
+        "$oid": "68963feff18b7b23251d8690"
+      }
+    },
+    {
+      "url": "/uploads/properties/floorplans/137d6641-5a98-4943-97f0-95c0d27adf1e.png",
+      "name": "Screenshot 2025-08-08 at 3.17.39â¯PM.png",
+      "uploadedAt": {
+        "$date": "2025-08-08T18:18:45.971Z"
+      },
+      "_id": {
+        "$oid": "68963feff18b7b23251d8691"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-08-08T15:13:39.004Z"
+  },
+  "__v": 3,
+  "imgCover": {
+    "name": "9791b22f-f068-4633-960a-c7439fdf45a4.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/9791b22f-f068-4633-960a-c7439fdf45a4.webp",
+    "createdAt": {
+      "$date": "2025-08-08T18:20:04.440Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "68964468f18b7b23251d8ab2"
+  },
+  "address": "Love Parry 159",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c5",
+  "lat": -43.2614949,
+  "lng": -65.2908046,
+  "owners": [
+    "689643e9f18b7b23251d8a42"
+  ],
+  "suppliers": [],
+  "specs": [
+    "aire_acondicionado",
+    "calefaccion",
+    "parrilla",
+    "balcon"
+  ],
+  "type": "duplex",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 75000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 100,
+    "buildSqFt": 890,
+    "age": 15,
+    "petFriendly": true,
+    "rooms": 4,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "orientation": "oeste",
+    "title": "Hermoso duplex. Zona céntrica.",
+    "brief": "Descubrí la comodidad y la excelente ubicación en este hermoso dúplex ubicado en la calle Love Parry 159, en la ciudad de Trelew. Estratégicamente situado a metros de la avenida Hipólito Yrigoyen, este departamento combina la tranquilidad de un hogar con la conveniencia de un acceso rápido a las principales arterias de la ciudad.\n\nEl interior se distribuye de manera funcional, ofreciendo un área integrada de cocina y living, ideal para la vida cotidiana. La propiedad cuenta con dos habitaciones y dos baños, garantizando privacidad y confort para sus habitantes.\n\nAdemás, el dúplex se distingue por sus comodidades exteriores, que incluyen un práctico patio con fogón, perfecto para disfrutar de reuniones al aire libre, y una entrada de auto propia, un valor agregado que facilita el día a día.\n\nEsta propiedad es una opción ideal para quienes buscan una vivienda moderna y bien ubicada en Trelew, con todas las prestaciones necesarias para un estilo de vida cómodo y práctico."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "c7b67d1d-dd19-4a26-934c-aec82b0894f0.webp",
+      "thumb": "/uploads/properties/thumb/c7b67d1d-dd19-4a26-934c-aec82b0894f0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c7b67d1d-dd19-4a26-934c-aec82b0894f0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c7b67d1d-dd19-4a26-934c-aec82b0894f0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:42:33.826Z"
+      },
+      "_id": {
+        "$oid": "6896451af18b7b23251d8b23"
+      }
+    },
+    {
+      "name": "076bda24-7271-483b-b69d-aaef2396cc4b.webp",
+      "thumb": "/uploads/properties/thumb/076bda24-7271-483b-b69d-aaef2396cc4b.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/076bda24-7271-483b-b69d-aaef2396cc4b.webp",
+      "imgSlider": "/uploads/properties/imgSlider/076bda24-7271-483b-b69d-aaef2396cc4b.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:42:32.499Z"
+      },
+      "_id": {
+        "$oid": "6896451af18b7b23251d8b1d"
+      }
+    },
+    {
+      "name": "492f7a0e-92ff-4738-bf4c-6ba1960eacd0.webp",
+      "thumb": "/uploads/properties/thumb/492f7a0e-92ff-4738-bf4c-6ba1960eacd0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/492f7a0e-92ff-4738-bf4c-6ba1960eacd0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/492f7a0e-92ff-4738-bf4c-6ba1960eacd0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:42:32.715Z"
+      },
+      "_id": {
+        "$oid": "6896451af18b7b23251d8b1e"
+      }
+    },
+    {
+      "name": "235f303b-a4e7-441b-8f8c-dc9dfb06a29a.webp",
+      "thumb": "/uploads/properties/thumb/235f303b-a4e7-441b-8f8c-dc9dfb06a29a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/235f303b-a4e7-441b-8f8c-dc9dfb06a29a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/235f303b-a4e7-441b-8f8c-dc9dfb06a29a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:42:32.935Z"
+      },
+      "_id": {
+        "$oid": "6896451af18b7b23251d8b1f"
+      }
+    },
+    {
+      "name": "8fa347b7-24a7-4899-be44-507263c01f25.webp",
+      "thumb": "/uploads/properties/thumb/8fa347b7-24a7-4899-be44-507263c01f25.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/8fa347b7-24a7-4899-be44-507263c01f25.webp",
+      "imgSlider": "/uploads/properties/imgSlider/8fa347b7-24a7-4899-be44-507263c01f25.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:42:33.142Z"
+      },
+      "_id": {
+        "$oid": "6896451af18b7b23251d8b20"
+      }
+    },
+    {
+      "name": "fb0d2f82-e912-4645-a210-d18a77672f0f.webp",
+      "thumb": "/uploads/properties/thumb/fb0d2f82-e912-4645-a210-d18a77672f0f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fb0d2f82-e912-4645-a210-d18a77672f0f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fb0d2f82-e912-4645-a210-d18a77672f0f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:42:33.356Z"
+      },
+      "_id": {
+        "$oid": "6896451af18b7b23251d8b21"
+      }
+    },
+    {
+      "name": "1aa3004f-baa2-4835-ae3b-047fbc180ccd.webp",
+      "thumb": "/uploads/properties/thumb/1aa3004f-baa2-4835-ae3b-047fbc180ccd.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1aa3004f-baa2-4835-ae3b-047fbc180ccd.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1aa3004f-baa2-4835-ae3b-047fbc180ccd.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:42:34.075Z"
+      },
+      "_id": {
+        "$oid": "6896451af18b7b23251d8b24"
+      }
+    },
+    {
+      "name": "76d0b823-6dac-48fe-ba06-0b22719e77ad.webp",
+      "thumb": "/uploads/properties/thumb/76d0b823-6dac-48fe-ba06-0b22719e77ad.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/76d0b823-6dac-48fe-ba06-0b22719e77ad.webp",
+      "imgSlider": "/uploads/properties/imgSlider/76d0b823-6dac-48fe-ba06-0b22719e77ad.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:43:00.241Z"
+      },
+      "_id": {
+        "$oid": "68964534f18b7b23251d8b50"
+      }
+    },
+    {
+      "name": "67b17c80-f50f-43f9-9032-a9ce73df9dae.webp",
+      "thumb": "/uploads/properties/thumb/67b17c80-f50f-43f9-9032-a9ce73df9dae.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/67b17c80-f50f-43f9-9032-a9ce73df9dae.webp",
+      "imgSlider": "/uploads/properties/imgSlider/67b17c80-f50f-43f9-9032-a9ce73df9dae.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T18:43:08.186Z"
+      },
+      "_id": {
+        "$oid": "6896453cf18b7b23251d8b5c"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-08T15:39:36.280Z"
+  },
+  "__v": 5,
+  "imgCover": {
+    "name": "c7b67d1d-dd19-4a26-934c-aec82b0894f0.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/c7b67d1d-dd19-4a26-934c-aec82b0894f0.webp",
+    "createdAt": {
+      "$date": "2025-08-08T18:42:41.017Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "68964a14f18b7b23251d9154"
+  },
+  "address": "C. Ciudadela 416, Playa Union, Chubut, Argentina",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c3",
+  "lat": -43.30436414682072,
+  "lng": -65.03219242076874,
+  "owners": [
+    "6896494bf18b7b23251d906c"
+  ],
+  "suppliers": [],
+  "specs": [
+    "calefaccion",
+    "piscina",
+    "parrilla",
+    "aire_acondicionado",
+    "balcon",
+    "terraza",
+    "seguridad_24h"
+  ],
+  "type": "triplex",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 280000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-08T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 200,
+    "buildSqFt": 160,
+    "age": 15,
+    "petFriendly": true,
+    "rooms": 6,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "orientation": "",
+    "title": "Villa Costa Blanca: Un enclave único.",
+    "brief": "Experimentá la vida costera en este hermoso triplex completamente remodelado, ubicado en el corazón de la costa patagónica con incomparables vistas al Océano Atlántico en Playa Unión, cerca de Rawson. Este hogar no es solo un lugar para vivir, es un destino para disfrutar de lo mejor de ambos mundos: la serenidad del mar y la conveniencia de la vida urbana, a pocos minutos del centro. Además, su estratégica ubicación ofrece fácil acceso a Puerto Madryn y las principales rutas de la región.\n\nEl triplex ha sido reimaginado por completo, fusionando un diseño contemporáneo con la calidez de una casa costera. Sus tres niveles están inteligentemente distribuidos para maximizar el espacio y la luz natural, permitiendo que las espectaculares vistas al océano sean el protagonista desde cada rincón.\n\nLa planta principal, el corazón de la casa, alberga un amplio y luminoso espacio integral que incluye el living, la cocina y el comedor. Este diseño abierto fomenta la convivencia y permite disfrutar de la vista panorámica al mar y de la luz natural durante todo el día. Además, cuenta con un moderno sistema de calefacción por radiadores, que proporciona una calidez homogénea en cualquier estación del año.\n\nLos tres dormitorios, ubicados en las plantas superiores, han sido diseñados como refugios de paz con vistas directas al mar. Despertar aquí es un privilegio, siendo recibido por la inmensidad del océano. La propiedad dispone de tres dormitorios, dos baños completos y un toilette de recepción. Con sus espacios amplios y un 100% de vista al mar, este triplex es el oasis de bienestar perfecto para aquellos que buscan un estilo de vida único."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "131710a7-3f95-4a76-8190-3ebca946eb42.webp",
+      "thumb": "/uploads/properties/thumb/131710a7-3f95-4a76-8190-3ebca946eb42.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/131710a7-3f95-4a76-8190-3ebca946eb42.webp",
+      "imgSlider": "/uploads/properties/imgSlider/131710a7-3f95-4a76-8190-3ebca946eb42.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:26.103Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91dc"
+      }
+    },
+    {
+      "name": "409c253f-98f8-44fa-9ddb-abcd3ab87b29.webp",
+      "thumb": "/uploads/properties/thumb/409c253f-98f8-44fa-9ddb-abcd3ab87b29.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/409c253f-98f8-44fa-9ddb-abcd3ab87b29.webp",
+      "imgSlider": "/uploads/properties/imgSlider/409c253f-98f8-44fa-9ddb-abcd3ab87b29.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:21.990Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91c9"
+      }
+    },
+    {
+      "name": "54aed9d0-765c-4635-bb5d-55eb58a13798.webp",
+      "thumb": "/uploads/properties/thumb/54aed9d0-765c-4635-bb5d-55eb58a13798.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/54aed9d0-765c-4635-bb5d-55eb58a13798.webp",
+      "imgSlider": "/uploads/properties/imgSlider/54aed9d0-765c-4635-bb5d-55eb58a13798.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:25.883Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91db"
+      }
+    },
+    {
+      "name": "33fe12c7-9c91-40ff-b060-b3ed84996380.webp",
+      "thumb": "/uploads/properties/thumb/33fe12c7-9c91-40ff-b060-b3ed84996380.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/33fe12c7-9c91-40ff-b060-b3ed84996380.webp",
+      "imgSlider": "/uploads/properties/imgSlider/33fe12c7-9c91-40ff-b060-b3ed84996380.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:21.765Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91c8"
+      }
+    },
+    {
+      "name": "40ea4bf0-9194-4e7f-995f-5644fd53fdb1.webp",
+      "thumb": "/uploads/properties/thumb/40ea4bf0-9194-4e7f-995f-5644fd53fdb1.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/40ea4bf0-9194-4e7f-995f-5644fd53fdb1.webp",
+      "imgSlider": "/uploads/properties/imgSlider/40ea4bf0-9194-4e7f-995f-5644fd53fdb1.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:22.214Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91ca"
+      }
+    },
+    {
+      "name": "09780bb5-9262-4b9a-9c12-9d6e12a2d587.webp",
+      "thumb": "/uploads/properties/thumb/09780bb5-9262-4b9a-9c12-9d6e12a2d587.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/09780bb5-9262-4b9a-9c12-9d6e12a2d587.webp",
+      "imgSlider": "/uploads/properties/imgSlider/09780bb5-9262-4b9a-9c12-9d6e12a2d587.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:22.428Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91cb"
+      }
+    },
+    {
+      "name": "d2f0d613-367a-464f-9236-0477e599581a.webp",
+      "thumb": "/uploads/properties/thumb/d2f0d613-367a-464f-9236-0477e599581a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/d2f0d613-367a-464f-9236-0477e599581a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/d2f0d613-367a-464f-9236-0477e599581a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:22.630Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91cc"
+      }
+    },
+    {
+      "name": "1821c3f6-8737-493c-9a7e-ccf70a034e1a.webp",
+      "thumb": "/uploads/properties/thumb/1821c3f6-8737-493c-9a7e-ccf70a034e1a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1821c3f6-8737-493c-9a7e-ccf70a034e1a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1821c3f6-8737-493c-9a7e-ccf70a034e1a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:22.855Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91cd"
+      }
+    },
+    {
+      "name": "4cddbfcc-bf31-4633-ba38-8c585c958e06.webp",
+      "thumb": "/uploads/properties/thumb/4cddbfcc-bf31-4633-ba38-8c585c958e06.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/4cddbfcc-bf31-4633-ba38-8c585c958e06.webp",
+      "imgSlider": "/uploads/properties/imgSlider/4cddbfcc-bf31-4633-ba38-8c585c958e06.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:23.068Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91ce"
+      }
+    },
+    {
+      "name": "57e2e08e-e7c2-4d23-bf2f-8d67e6723ccd.webp",
+      "thumb": "/uploads/properties/thumb/57e2e08e-e7c2-4d23-bf2f-8d67e6723ccd.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/57e2e08e-e7c2-4d23-bf2f-8d67e6723ccd.webp",
+      "imgSlider": "/uploads/properties/imgSlider/57e2e08e-e7c2-4d23-bf2f-8d67e6723ccd.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:23.314Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91cf"
+      }
+    },
+    {
+      "name": "aed0b9bc-03a9-4f7b-983a-1654f136ac12.webp",
+      "thumb": "/uploads/properties/thumb/aed0b9bc-03a9-4f7b-983a-1654f136ac12.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/aed0b9bc-03a9-4f7b-983a-1654f136ac12.webp",
+      "imgSlider": "/uploads/properties/imgSlider/aed0b9bc-03a9-4f7b-983a-1654f136ac12.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:23.535Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d0"
+      }
+    },
+    {
+      "name": "7d800361-7fc9-4567-88b9-fdabef967d29.webp",
+      "thumb": "/uploads/properties/thumb/7d800361-7fc9-4567-88b9-fdabef967d29.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/7d800361-7fc9-4567-88b9-fdabef967d29.webp",
+      "imgSlider": "/uploads/properties/imgSlider/7d800361-7fc9-4567-88b9-fdabef967d29.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:23.758Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d1"
+      }
+    },
+    {
+      "name": "b9e34551-2dcb-4603-a546-b996dd7d21b5.webp",
+      "thumb": "/uploads/properties/thumb/b9e34551-2dcb-4603-a546-b996dd7d21b5.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b9e34551-2dcb-4603-a546-b996dd7d21b5.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b9e34551-2dcb-4603-a546-b996dd7d21b5.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:23.961Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d2"
+      }
+    },
+    {
+      "name": "95b81ed3-94ac-4dbb-be34-8f062a194bc4.webp",
+      "thumb": "/uploads/properties/thumb/95b81ed3-94ac-4dbb-be34-8f062a194bc4.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/95b81ed3-94ac-4dbb-be34-8f062a194bc4.webp",
+      "imgSlider": "/uploads/properties/imgSlider/95b81ed3-94ac-4dbb-be34-8f062a194bc4.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:24.167Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d3"
+      }
+    },
+    {
+      "name": "67b4345a-4fe7-403a-971a-4c29fc3b2704.webp",
+      "thumb": "/uploads/properties/thumb/67b4345a-4fe7-403a-971a-4c29fc3b2704.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/67b4345a-4fe7-403a-971a-4c29fc3b2704.webp",
+      "imgSlider": "/uploads/properties/imgSlider/67b4345a-4fe7-403a-971a-4c29fc3b2704.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:24.398Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d4"
+      }
+    },
+    {
+      "name": "12db7927-7b3f-421e-b94c-499f5a6e50d4.webp",
+      "thumb": "/uploads/properties/thumb/12db7927-7b3f-421e-b94c-499f5a6e50d4.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/12db7927-7b3f-421e-b94c-499f5a6e50d4.webp",
+      "imgSlider": "/uploads/properties/imgSlider/12db7927-7b3f-421e-b94c-499f5a6e50d4.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:24.605Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d5"
+      }
+    },
+    {
+      "name": "5d1373c0-3b25-4473-8c8b-9d416369d557.webp",
+      "thumb": "/uploads/properties/thumb/5d1373c0-3b25-4473-8c8b-9d416369d557.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/5d1373c0-3b25-4473-8c8b-9d416369d557.webp",
+      "imgSlider": "/uploads/properties/imgSlider/5d1373c0-3b25-4473-8c8b-9d416369d557.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:24.815Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d6"
+      }
+    },
+    {
+      "name": "42090c96-341b-4aed-a918-0cb2feb83b0d.webp",
+      "thumb": "/uploads/properties/thumb/42090c96-341b-4aed-a918-0cb2feb83b0d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/42090c96-341b-4aed-a918-0cb2feb83b0d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/42090c96-341b-4aed-a918-0cb2feb83b0d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:25.020Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d7"
+      }
+    },
+    {
+      "name": "198e4789-1c68-4295-aac6-f89b9d486a71.webp",
+      "thumb": "/uploads/properties/thumb/198e4789-1c68-4295-aac6-f89b9d486a71.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/198e4789-1c68-4295-aac6-f89b9d486a71.webp",
+      "imgSlider": "/uploads/properties/imgSlider/198e4789-1c68-4295-aac6-f89b9d486a71.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:25.236Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d8"
+      }
+    },
+    {
+      "name": "63c05131-7927-4712-82af-c528ad3ebb46.webp",
+      "thumb": "/uploads/properties/thumb/63c05131-7927-4712-82af-c528ad3ebb46.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/63c05131-7927-4712-82af-c528ad3ebb46.webp",
+      "imgSlider": "/uploads/properties/imgSlider/63c05131-7927-4712-82af-c528ad3ebb46.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:25.452Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91d9"
+      }
+    },
+    {
+      "name": "b1a3942b-20aa-4ac6-b326-d7902d13f3d1.webp",
+      "thumb": "/uploads/properties/thumb/b1a3942b-20aa-4ac6-b326-d7902d13f3d1.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b1a3942b-20aa-4ac6-b326-d7902d13f3d1.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b1a3942b-20aa-4ac6-b326-d7902d13f3d1.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:25.658Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91da"
+      }
+    },
+    {
+      "name": "9e1797b7-ca74-4b81-a0bc-21b0abd835fe.webp",
+      "thumb": "/uploads/properties/thumb/9e1797b7-ca74-4b81-a0bc-21b0abd835fe.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9e1797b7-ca74-4b81-a0bc-21b0abd835fe.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9e1797b7-ca74-4b81-a0bc-21b0abd835fe.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:26.311Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91dd"
+      }
+    },
+    {
+      "name": "aa106fc8-cde2-4740-8fe7-8d13eb7602d0.webp",
+      "thumb": "/uploads/properties/thumb/aa106fc8-cde2-4740-8fe7-8d13eb7602d0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/aa106fc8-cde2-4740-8fe7-8d13eb7602d0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/aa106fc8-cde2-4740-8fe7-8d13eb7602d0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:26.527Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91de"
+      }
+    },
+    {
+      "name": "3ef91e65-731f-4bae-b7a9-47f05804e7b3.webp",
+      "thumb": "/uploads/properties/thumb/3ef91e65-731f-4bae-b7a9-47f05804e7b3.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3ef91e65-731f-4bae-b7a9-47f05804e7b3.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3ef91e65-731f-4bae-b7a9-47f05804e7b3.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-08T19:04:26.728Z"
+      },
+      "_id": {
+        "$oid": "68964a3cf18b7b23251d91df"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-08T16:03:48.951Z"
+  },
+  "__v": 5,
+  "imgCover": {
+    "name": "131710a7-3f95-4a76-8190-3ebca946eb42.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/131710a7-3f95-4a76-8190-3ebca946eb42.webp",
+    "createdAt": {
+      "$date": "2025-08-08T19:04:47.087Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "68971afe8dfb6c39b1126de9"
+  },
+  "address": "Jose Coronel 640",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c3",
+  "lat": -43.3116323,
+  "lng": -65.048958,
+  "owners": [
+    "68971a278dfb6c39b1126c05"
+  ],
+  "suppliers": [],
+  "specs": [
+    "parrilla",
+    "jardin",
+    "aire_acondicionado",
+    "calefaccion",
+    "balcon"
+  ],
+  "type": "duplex",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 100000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-09T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-09T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 100,
+    "buildSqFt": 100.8,
+    "age": 5,
+    "petFriendly": false,
+    "rooms": 5,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "orientation": "oeste",
+    "title": "Hermoso duplex. Zona Playa Unión.",
+    "brief": "Distribución:\nPlanta Baja:\nCocina comedor\nEstar\nBaño completo\nPlanta Alta:\nDos dormitorios amplios\nBaño completo\nCaracterísticas Adicionales\nEstado de Conservación: Muy bueno\nTipología: Vivienda tipo dúplex de construcción tradicional\nDistribución Interna: Excelente aprovechamiento del espacio, destacándose la\nubicación de la escalera que permite una fluida conexión entre las áreas comunes.\nExteriores:\nPatio al fondo\nQuincho equipado con parrilla\nPosibilidad de ingreso vehicular\nPotencial de Inversión\nListo para Ingresar: La vivienda no requiere mejoras, permitiendo una ocupación\ninmediata.\nAlquiler Anual o Temporario: Por su ubicación en Playa Unión y el estado general de\nla propiedad, representa una excelente oportunidad para renta tanto en temporada\ncomo de forma permanente.\nVersatilidad y Funcionalidad: Ideal para una familia tipo de hasta 4 personas.\nReserva de Valor: Dada su ubicación, calidad constructiva y conservación, es una\nalternativa sólida para quienes buscan preservar capital en bienes raíces con alto\npotencial de valorización."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "867a1206-b2fd-4e70-a1c9-aa3339a2134f.webp",
+      "thumb": "/uploads/properties/thumb/867a1206-b2fd-4e70-a1c9-aa3339a2134f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/867a1206-b2fd-4e70-a1c9-aa3339a2134f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/867a1206-b2fd-4e70-a1c9-aa3339a2134f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.998Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126eea"
+      }
+    },
+    {
+      "name": "93a48941-9097-4c48-bfbd-e9cfe48e9471.webp",
+      "thumb": "/uploads/properties/thumb/93a48941-9097-4c48-bfbd-e9cfe48e9471.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/93a48941-9097-4c48-bfbd-e9cfe48e9471.webp",
+      "imgSlider": "/uploads/properties/imgSlider/93a48941-9097-4c48-bfbd-e9cfe48e9471.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:45.908Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee0"
+      }
+    },
+    {
+      "name": "239e20a7-1b9e-4526-a27e-8834b8beb22c.webp",
+      "thumb": "/uploads/properties/thumb/239e20a7-1b9e-4526-a27e-8834b8beb22c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/239e20a7-1b9e-4526-a27e-8834b8beb22c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/239e20a7-1b9e-4526-a27e-8834b8beb22c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.013Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee1"
+      }
+    },
+    {
+      "name": "8a951cc9-93b6-4e9c-976d-03e60088b97b.webp",
+      "thumb": "/uploads/properties/thumb/8a951cc9-93b6-4e9c-976d-03e60088b97b.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/8a951cc9-93b6-4e9c-976d-03e60088b97b.webp",
+      "imgSlider": "/uploads/properties/imgSlider/8a951cc9-93b6-4e9c-976d-03e60088b97b.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.126Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee2"
+      }
+    },
+    {
+      "name": "fb8e115f-306d-4cfd-ace9-f741a361a6e0.webp",
+      "thumb": "/uploads/properties/thumb/fb8e115f-306d-4cfd-ace9-f741a361a6e0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fb8e115f-306d-4cfd-ace9-f741a361a6e0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fb8e115f-306d-4cfd-ace9-f741a361a6e0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.221Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee3"
+      }
+    },
+    {
+      "name": "88b899a4-d569-4557-ad81-1b3001544a76.webp",
+      "thumb": "/uploads/properties/thumb/88b899a4-d569-4557-ad81-1b3001544a76.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/88b899a4-d569-4557-ad81-1b3001544a76.webp",
+      "imgSlider": "/uploads/properties/imgSlider/88b899a4-d569-4557-ad81-1b3001544a76.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.329Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee4"
+      }
+    },
+    {
+      "name": "3fa424bb-69cf-4c04-869d-348eeb948a94.webp",
+      "thumb": "/uploads/properties/thumb/3fa424bb-69cf-4c04-869d-348eeb948a94.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3fa424bb-69cf-4c04-869d-348eeb948a94.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3fa424bb-69cf-4c04-869d-348eeb948a94.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.451Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee5"
+      }
+    },
+    {
+      "name": "ef3cf7d5-3954-4369-9eea-85f55768e821.webp",
+      "thumb": "/uploads/properties/thumb/ef3cf7d5-3954-4369-9eea-85f55768e821.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/ef3cf7d5-3954-4369-9eea-85f55768e821.webp",
+      "imgSlider": "/uploads/properties/imgSlider/ef3cf7d5-3954-4369-9eea-85f55768e821.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.566Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee6"
+      }
+    },
+    {
+      "name": "75559814-e38d-4054-a625-9fbaea58a16c.webp",
+      "thumb": "/uploads/properties/thumb/75559814-e38d-4054-a625-9fbaea58a16c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/75559814-e38d-4054-a625-9fbaea58a16c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/75559814-e38d-4054-a625-9fbaea58a16c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.673Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee7"
+      }
+    },
+    {
+      "name": "c198f78a-d9fc-4115-a8b5-fccd45f370c7.webp",
+      "thumb": "/uploads/properties/thumb/c198f78a-d9fc-4115-a8b5-fccd45f370c7.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c198f78a-d9fc-4115-a8b5-fccd45f370c7.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c198f78a-d9fc-4115-a8b5-fccd45f370c7.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.784Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee8"
+      }
+    },
+    {
+      "name": "fc91270c-196c-451b-9bbf-8f6c03546c08.webp",
+      "thumb": "/uploads/properties/thumb/fc91270c-196c-451b-9bbf-8f6c03546c08.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fc91270c-196c-451b-9bbf-8f6c03546c08.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fc91270c-196c-451b-9bbf-8f6c03546c08.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:46.889Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126ee9"
+      }
+    },
+    {
+      "name": "fa02eccf-d5e6-4a24-ac84-0c4427633b98.webp",
+      "thumb": "/uploads/properties/thumb/fa02eccf-d5e6-4a24-ac84-0c4427633b98.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fa02eccf-d5e6-4a24-ac84-0c4427633b98.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fa02eccf-d5e6-4a24-ac84-0c4427633b98.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:47.115Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126eeb"
+      }
+    },
+    {
+      "name": "5bc29cc7-5851-4c67-a898-45b127ac2c14.webp",
+      "thumb": "/uploads/properties/thumb/5bc29cc7-5851-4c67-a898-45b127ac2c14.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/5bc29cc7-5851-4c67-a898-45b127ac2c14.webp",
+      "imgSlider": "/uploads/properties/imgSlider/5bc29cc7-5851-4c67-a898-45b127ac2c14.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:47.244Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126eec"
+      }
+    },
+    {
+      "name": "3a1834ed-b4ce-4401-b4ee-55d7ddf9da19.webp",
+      "thumb": "/uploads/properties/thumb/3a1834ed-b4ce-4401-b4ee-55d7ddf9da19.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3a1834ed-b4ce-4401-b4ee-55d7ddf9da19.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3a1834ed-b4ce-4401-b4ee-55d7ddf9da19.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:47.376Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126eed"
+      }
+    },
+    {
+      "name": "b9b366f0-c9e7-49bd-b9e7-453bdb683718.webp",
+      "thumb": "/uploads/properties/thumb/b9b366f0-c9e7-49bd-b9e7-453bdb683718.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b9b366f0-c9e7-49bd-b9e7-453bdb683718.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b9b366f0-c9e7-49bd-b9e7-453bdb683718.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:47.502Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126eee"
+      }
+    },
+    {
+      "name": "c193a94b-d857-46ff-9506-bfd7dd1c8f77.webp",
+      "thumb": "/uploads/properties/thumb/c193a94b-d857-46ff-9506-bfd7dd1c8f77.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c193a94b-d857-46ff-9506-bfd7dd1c8f77.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c193a94b-d857-46ff-9506-bfd7dd1c8f77.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-09T09:57:47.611Z"
+      },
+      "_id": {
+        "$oid": "68971b9b8dfb6c39b1126eef"
+      }
+    }
+  ],
+  "floorPlans": [
+    {
+      "url": "/uploads/properties/floorplans/8b8152a3-ffc1-4668-8532-ed86869ffc86.jpeg",
+      "name": "IMG_9913 Large.jpeg",
+      "uploadedAt": {
+        "$date": "2025-08-09T10:01:02.978Z"
+      },
+      "_id": {
+        "$oid": "68971c9a8dfb6c39b11271ec"
+      }
+    },
+    {
+      "url": "/uploads/properties/floorplans/8751c3e4-62cd-4929-b931-e7655c60c088.jpeg",
+      "name": "IMG_9914 Large.jpeg",
+      "uploadedAt": {
+        "$date": "2025-08-09T10:01:02.978Z"
+      },
+      "_id": {
+        "$oid": "68971c9a8dfb6c39b11271ed"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-08-09T06:55:10.052Z"
+  },
+  "__v": 3,
+  "imgCover": {
+    "name": "867a1206-b2fd-4e70-a1c9-aa3339a2134f.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/867a1206-b2fd-4e70-a1c9-aa3339a2134f.webp",
+    "createdAt": {
+      "$date": "2025-08-09T10:01:46.212Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "689b32420c14dffd39c0fcbd"
+  },
+  "address": "Inmigrantes 351",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c5",
+  "lat": -43.2557085,
+  "lng": -65.3094892,
+  "owners": [
+    "689b31b20c14dffd39c0fbff"
+  ],
+  "suppliers": [],
+  "specs": [
+    "calefaccion",
+    "jardin",
+    "parrilla"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 110000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-12T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-12T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 191,
+    "buildSqFt": 109,
+    "age": 0,
+    "petFriendly": true,
+    "rooms": 4,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "orientation": "este",
+    "title": "Propiedad céntrica en Trelew",
+    "brief": "Ubicación: La vivienda se encuentra en Inmigrantes 351, en la ciudad de Trelew, Chubut, en una ubicación céntrica que ofrece cercanía a diversos servicios como comercios, supermercados, farmacias y el hospital. La accesibilidad a servicios esenciales incrementa el valor de la propiedad.\n\nDescripción de la Propiedad:\nSuperficie del Terreno: 191m²\nSuperficie Construida: 109m²\nDistribución Interior:\nDormitorios: 2 dormitorios.\nBaño: 1 baño completo.\nCocina: Funcional y bien distribuida.\nComedor: Espacio cómodo y bien iluminado.\nSala de Estar: Sala de estar amplia que proporciona un área social espaciosa para la familia.\nEscalera exterior para acceso a la terraza.\nLavadero\n\nEstado de Conservación: A pesar de tener varios años de construcción, la vivienda se encuentra en buen estado general de conservación, con el mantenimiento adecuado para preservar su funcionalidad.\n\nDetalles Técnicos:\nUbicación: En una zona céntrica con proximidad a servicios esenciales, la propiedad tiene un perfil atractivo tanto para uso residencial como para inversión.\nUso Potencial: Esta vivienda es apta para uso residencial, ofreciendo una excelente oportunidad de inversión en una zona demandada de la ciudad."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "c2795188-1cd9-4ec0-a81d-ab7b47f1bb8e.webp",
+      "thumb": "/uploads/properties/thumb/c2795188-1cd9-4ec0-a81d-ab7b47f1bb8e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c2795188-1cd9-4ec0-a81d-ab7b47f1bb8e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c2795188-1cd9-4ec0-a81d-ab7b47f1bb8e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T12:25:44.881Z"
+      },
+      "_id": {
+        "$oid": "689b32c80c14dffd39c0fe86"
+      }
+    },
+    {
+      "name": "1ba48313-67fa-473a-a54d-4ca82957e0c5.webp",
+      "thumb": "/uploads/properties/thumb/1ba48313-67fa-473a-a54d-4ca82957e0c5.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1ba48313-67fa-473a-a54d-4ca82957e0c5.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1ba48313-67fa-473a-a54d-4ca82957e0c5.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T12:25:44.365Z"
+      },
+      "_id": {
+        "$oid": "689b32c80c14dffd39c0fe85"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-12T09:23:30.331Z"
+  },
+  "__v": 2,
+  "imgCover": {
+    "name": "c2795188-1cd9-4ec0-a81d-ab7b47f1bb8e.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/c2795188-1cd9-4ec0-a81d-ab7b47f1bb8e.webp",
+    "createdAt": {
+      "$date": "2025-08-12T12:25:50.200Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "689b38650c14dffd39c10d6f"
+  },
+  "address": "Roque González 1086, U9103 Playa Union, Chubut, Argentina",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c3",
+  "lat": -43.293787840722054,
+  "lng": -65.02706403713226,
+  "owners": [
+    "688e3d448a81308a8e1e18f6"
+  ],
+  "suppliers": [],
+  "specs": [
+    "aire_acondicionado",
+    "calefaccion",
+    "jardin",
+    "parrilla"
+  ],
+  "type": "duplex",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 80000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-12T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-12T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 125,
+    "buildSqFt": 76,
+    "age": 4,
+    "petFriendly": false,
+    "rooms": 4,
+    "bedrooms": 1,
+    "bathrooms": 2,
+    "orientation": "sur",
+    "title": "Dúplex en venta - Loteo Los Palos, Ribera Norte, Playa Unión",
+    "brief": "Descubrí este dúplex en el exclusivo loteo Los Palos, en el sector Ribera Norte de Playa Unión, una ubicación que combina la tranquilidad de un barrio en crecimiento con la cercanía al mar. A pocos metros de la costa, este hogar ofrece un estilo de vida relajado y confortable.\n\nCon 80 m² de superficie cubierta sobre una parcela de 95 m², este dúplex destaca por sus ambientes amplios y luminosos, diseñados para maximizar la entrada de luz natural. La construcción incluye aberturas de aluminio con doble vidrio hermético (DVH), garantizando una óptima aislación térmica y acústica.\n\nEl confort está asegurado con un sistema de calefacción por piso radiante, complementado con agua caliente a través de una moderna caldera. La propiedad cuenta con dos dormitorios con muebles a medida y dos baños, pensados para el bienestar de toda la familia. La cocina también dispone de mobiliario hecho a medida, fusionando funcionalidad y diseño.\n\nEste dúplex es la opción perfecta para quienes buscan un lugar cálido, luminoso y tranquilo, ideal para vivir o invertir en un entorno de constante revalorización."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "b3aa1951-1138-4b33-bade-8f221e17a7fe.webp",
+      "thumb": "/uploads/properties/thumb/b3aa1951-1138-4b33-bade-8f221e17a7fe.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b3aa1951-1138-4b33-bade-8f221e17a7fe.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b3aa1951-1138-4b33-bade-8f221e17a7fe.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:56.602Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11987"
+      }
+    },
+    {
+      "name": "c6036ddf-c17e-4177-8939-6cd4b1904fed.webp",
+      "thumb": "/uploads/properties/thumb/c6036ddf-c17e-4177-8939-6cd4b1904fed.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c6036ddf-c17e-4177-8939-6cd4b1904fed.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c6036ddf-c17e-4177-8939-6cd4b1904fed.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:54.111Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1197a"
+      }
+    },
+    {
+      "name": "e156c45f-0d81-4b2f-a042-35d700ddb07e.webp",
+      "thumb": "/uploads/properties/thumb/e156c45f-0d81-4b2f-a042-35d700ddb07e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/e156c45f-0d81-4b2f-a042-35d700ddb07e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/e156c45f-0d81-4b2f-a042-35d700ddb07e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:54.316Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1197b"
+      }
+    },
+    {
+      "name": "ab1b3910-cdb7-43ef-ba39-abe6065e83b3.webp",
+      "thumb": "/uploads/properties/thumb/ab1b3910-cdb7-43ef-ba39-abe6065e83b3.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/ab1b3910-cdb7-43ef-ba39-abe6065e83b3.webp",
+      "imgSlider": "/uploads/properties/imgSlider/ab1b3910-cdb7-43ef-ba39-abe6065e83b3.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:54.510Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1197c"
+      }
+    },
+    {
+      "name": "ac0f6395-36da-4a5d-b2db-c1e1f8fc1c6d.webp",
+      "thumb": "/uploads/properties/thumb/ac0f6395-36da-4a5d-b2db-c1e1f8fc1c6d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/ac0f6395-36da-4a5d-b2db-c1e1f8fc1c6d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/ac0f6395-36da-4a5d-b2db-c1e1f8fc1c6d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:54.836Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1197e"
+      }
+    },
+    {
+      "name": "9a1d5bf4-9db0-4d85-accf-fd98189ae99e.webp",
+      "thumb": "/uploads/properties/thumb/9a1d5bf4-9db0-4d85-accf-fd98189ae99e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9a1d5bf4-9db0-4d85-accf-fd98189ae99e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9a1d5bf4-9db0-4d85-accf-fd98189ae99e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:55.082Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1197f"
+      }
+    },
+    {
+      "name": "d007b7af-1be9-4cc0-be9d-fb8adc35faca.webp",
+      "thumb": "/uploads/properties/thumb/d007b7af-1be9-4cc0-be9d-fb8adc35faca.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/d007b7af-1be9-4cc0-be9d-fb8adc35faca.webp",
+      "imgSlider": "/uploads/properties/imgSlider/d007b7af-1be9-4cc0-be9d-fb8adc35faca.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:56.799Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11988"
+      }
+    },
+    {
+      "name": "0e0e5b95-1245-4533-a0cc-f862147eddab.webp",
+      "thumb": "/uploads/properties/thumb/0e0e5b95-1245-4533-a0cc-f862147eddab.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/0e0e5b95-1245-4533-a0cc-f862147eddab.webp",
+      "imgSlider": "/uploads/properties/imgSlider/0e0e5b95-1245-4533-a0cc-f862147eddab.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:55.326Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11980"
+      }
+    },
+    {
+      "name": "df4d7c88-0213-44d4-9342-15c2d87f7273.webp",
+      "thumb": "/uploads/properties/thumb/df4d7c88-0213-44d4-9342-15c2d87f7273.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/df4d7c88-0213-44d4-9342-15c2d87f7273.webp",
+      "imgSlider": "/uploads/properties/imgSlider/df4d7c88-0213-44d4-9342-15c2d87f7273.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:55.550Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11981"
+      }
+    },
+    {
+      "name": "0e0c652c-3d65-4c62-a876-ad6e1d663b07.webp",
+      "thumb": "/uploads/properties/thumb/0e0c652c-3d65-4c62-a876-ad6e1d663b07.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/0e0c652c-3d65-4c62-a876-ad6e1d663b07.webp",
+      "imgSlider": "/uploads/properties/imgSlider/0e0c652c-3d65-4c62-a876-ad6e1d663b07.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:55.729Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11982"
+      }
+    },
+    {
+      "name": "57f593bf-da57-4ef9-9dab-9bf6c38574d7.webp",
+      "thumb": "/uploads/properties/thumb/57f593bf-da57-4ef9-9dab-9bf6c38574d7.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/57f593bf-da57-4ef9-9dab-9bf6c38574d7.webp",
+      "imgSlider": "/uploads/properties/imgSlider/57f593bf-da57-4ef9-9dab-9bf6c38574d7.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:57.150Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1198a"
+      }
+    },
+    {
+      "name": "d5c7c6e2-0ea9-4703-8169-ed5123273f0e.webp",
+      "thumb": "/uploads/properties/thumb/d5c7c6e2-0ea9-4703-8169-ed5123273f0e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/d5c7c6e2-0ea9-4703-8169-ed5123273f0e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/d5c7c6e2-0ea9-4703-8169-ed5123273f0e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:55.882Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11983"
+      }
+    },
+    {
+      "name": "f8114f3d-74a7-4ce5-813c-046b8afcb42e.webp",
+      "thumb": "/uploads/properties/thumb/f8114f3d-74a7-4ce5-813c-046b8afcb42e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/f8114f3d-74a7-4ce5-813c-046b8afcb42e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/f8114f3d-74a7-4ce5-813c-046b8afcb42e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:56.073Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11984"
+      }
+    },
+    {
+      "name": "0e4df94a-31dd-40cf-a222-0f9cd0d911db.webp",
+      "thumb": "/uploads/properties/thumb/0e4df94a-31dd-40cf-a222-0f9cd0d911db.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/0e4df94a-31dd-40cf-a222-0f9cd0d911db.webp",
+      "imgSlider": "/uploads/properties/imgSlider/0e4df94a-31dd-40cf-a222-0f9cd0d911db.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:56.222Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11985"
+      }
+    },
+    {
+      "name": "dca47c3b-26b7-4575-831f-d814e7bf4de5.webp",
+      "thumb": "/uploads/properties/thumb/dca47c3b-26b7-4575-831f-d814e7bf4de5.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/dca47c3b-26b7-4575-831f-d814e7bf4de5.webp",
+      "imgSlider": "/uploads/properties/imgSlider/dca47c3b-26b7-4575-831f-d814e7bf4de5.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:54.661Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1197d"
+      }
+    },
+    {
+      "name": "f3cf9766-da9d-4b3b-a743-43647e85f671.webp",
+      "thumb": "/uploads/properties/thumb/f3cf9766-da9d-4b3b-a743-43647e85f671.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/f3cf9766-da9d-4b3b-a743-43647e85f671.webp",
+      "imgSlider": "/uploads/properties/imgSlider/f3cf9766-da9d-4b3b-a743-43647e85f671.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:53.937Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11979"
+      }
+    },
+    {
+      "name": "12f53f57-0d42-4dce-bb9b-9882f26d5c32.webp",
+      "thumb": "/uploads/properties/thumb/12f53f57-0d42-4dce-bb9b-9882f26d5c32.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/12f53f57-0d42-4dce-bb9b-9882f26d5c32.webp",
+      "imgSlider": "/uploads/properties/imgSlider/12f53f57-0d42-4dce-bb9b-9882f26d5c32.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:56.380Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11986"
+      }
+    },
+    {
+      "name": "b2281818-9b7d-43e2-b34e-16b6183815d7.webp",
+      "thumb": "/uploads/properties/thumb/b2281818-9b7d-43e2-b34e-16b6183815d7.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/b2281818-9b7d-43e2-b34e-16b6183815d7.webp",
+      "imgSlider": "/uploads/properties/imgSlider/b2281818-9b7d-43e2-b34e-16b6183815d7.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:56.937Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c11989"
+      }
+    },
+    {
+      "name": "ffdbcdf5-c1a5-4228-8532-b8d4873fb63a.webp",
+      "thumb": "/uploads/properties/thumb/ffdbcdf5-c1a5-4228-8532-b8d4873fb63a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/ffdbcdf5-c1a5-4228-8532-b8d4873fb63a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/ffdbcdf5-c1a5-4228-8532-b8d4873fb63a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-12T13:21:57.367Z"
+      },
+      "_id": {
+        "$oid": "689b3ff50c14dffd39c1198b"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-12T09:49:41.783Z"
+  },
+  "__v": 6,
+  "imgCover": {
+    "name": "b3aa1951-1138-4b33-bade-8f221e17a7fe.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/b3aa1951-1138-4b33-bade-8f221e17a7fe.webp",
+    "createdAt": {
+      "$date": "2025-08-12T13:22:29.524Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "689c8e480c14dffd39c15ad2"
+  },
+  "address": "Av. Juan Vucetich 576",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.2992466,
+  "lng": -65.0914739,
+  "owners": [
+    "689c8dfa0c14dffd39c15a12"
+  ],
+  "suppliers": [],
+  "specs": [
+    "jardin",
+    "cochera",
+    "calefaccion",
+    "lavadero"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": false,
+  "publishForRent": false,
+  "publishForSale": false,
+  "valueForSale": {
+    "amount": 0,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-13T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 750000,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-13T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 300,
+    "buildSqFt": 120,
+    "age": 15,
+    "petFriendly": false,
+    "rooms": 5,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "orientation": "sur",
+    "title": "Casa 23 - Barrio Covira I",
+    "brief": ""
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "f39afb56-178a-4b8e-950d-9003412d8a63.webp",
+      "thumb": "/uploads/properties/thumb/f39afb56-178a-4b8e-950d-9003412d8a63.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/f39afb56-178a-4b8e-950d-9003412d8a63.webp",
+      "imgSlider": "/uploads/properties/imgSlider/f39afb56-178a-4b8e-950d-9003412d8a63.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:14.256Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bb8"
+      }
+    },
+    {
+      "name": "183aee69-4814-4d06-9bea-5a6dcf6d6615.webp",
+      "thumb": "/uploads/properties/thumb/183aee69-4814-4d06-9bea-5a6dcf6d6615.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/183aee69-4814-4d06-9bea-5a6dcf6d6615.webp",
+      "imgSlider": "/uploads/properties/imgSlider/183aee69-4814-4d06-9bea-5a6dcf6d6615.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:16.098Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bc3"
+      }
+    },
+    {
+      "name": "1995102e-1056-4df0-8db6-9702d2d0be92.webp",
+      "thumb": "/uploads/properties/thumb/1995102e-1056-4df0-8db6-9702d2d0be92.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1995102e-1056-4df0-8db6-9702d2d0be92.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1995102e-1056-4df0-8db6-9702d2d0be92.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:15.917Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bc2"
+      }
+    },
+    {
+      "name": "af99b750-366d-4c6f-97ea-bf5c026f7e00.webp",
+      "thumb": "/uploads/properties/thumb/af99b750-366d-4c6f-97ea-bf5c026f7e00.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/af99b750-366d-4c6f-97ea-bf5c026f7e00.webp",
+      "imgSlider": "/uploads/properties/imgSlider/af99b750-366d-4c6f-97ea-bf5c026f7e00.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:15.713Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bc1"
+      }
+    },
+    {
+      "name": "faa21ca4-8eaf-44f5-b73b-a136bc82378e.webp",
+      "thumb": "/uploads/properties/thumb/faa21ca4-8eaf-44f5-b73b-a136bc82378e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/faa21ca4-8eaf-44f5-b73b-a136bc82378e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/faa21ca4-8eaf-44f5-b73b-a136bc82378e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:13.894Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bb6"
+      }
+    },
+    {
+      "name": "a6569195-7e9e-47ed-a22b-11c686aec274.webp",
+      "thumb": "/uploads/properties/thumb/a6569195-7e9e-47ed-a22b-11c686aec274.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/a6569195-7e9e-47ed-a22b-11c686aec274.webp",
+      "imgSlider": "/uploads/properties/imgSlider/a6569195-7e9e-47ed-a22b-11c686aec274.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:14.077Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bb7"
+      }
+    },
+    {
+      "name": "60560d4c-a5dc-4b14-b8a0-66ae8d0794b5.webp",
+      "thumb": "/uploads/properties/thumb/60560d4c-a5dc-4b14-b8a0-66ae8d0794b5.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/60560d4c-a5dc-4b14-b8a0-66ae8d0794b5.webp",
+      "imgSlider": "/uploads/properties/imgSlider/60560d4c-a5dc-4b14-b8a0-66ae8d0794b5.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:14.397Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bb9"
+      }
+    },
+    {
+      "name": "fbaced9d-296d-469d-97c3-2d606f66ffaa.webp",
+      "thumb": "/uploads/properties/thumb/fbaced9d-296d-469d-97c3-2d606f66ffaa.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fbaced9d-296d-469d-97c3-2d606f66ffaa.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fbaced9d-296d-469d-97c3-2d606f66ffaa.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:14.548Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bba"
+      }
+    },
+    {
+      "name": "eee7b2cd-0857-4de3-8514-41cc50bbe31f.webp",
+      "thumb": "/uploads/properties/thumb/eee7b2cd-0857-4de3-8514-41cc50bbe31f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/eee7b2cd-0857-4de3-8514-41cc50bbe31f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/eee7b2cd-0857-4de3-8514-41cc50bbe31f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:14.708Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bbb"
+      }
+    },
+    {
+      "name": "fab60cbe-cdfb-4b86-b578-260e5e840c99.webp",
+      "thumb": "/uploads/properties/thumb/fab60cbe-cdfb-4b86-b578-260e5e840c99.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fab60cbe-cdfb-4b86-b578-260e5e840c99.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fab60cbe-cdfb-4b86-b578-260e5e840c99.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:15.058Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bbd"
+      }
+    },
+    {
+      "name": "61674c79-1a67-415e-9ef1-50c741112fa7.webp",
+      "thumb": "/uploads/properties/thumb/61674c79-1a67-415e-9ef1-50c741112fa7.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/61674c79-1a67-415e-9ef1-50c741112fa7.webp",
+      "imgSlider": "/uploads/properties/imgSlider/61674c79-1a67-415e-9ef1-50c741112fa7.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:15.209Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bbe"
+      }
+    },
+    {
+      "name": "fc567d72-3dff-45da-89b4-56768c1443a7.webp",
+      "thumb": "/uploads/properties/thumb/fc567d72-3dff-45da-89b4-56768c1443a7.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/fc567d72-3dff-45da-89b4-56768c1443a7.webp",
+      "imgSlider": "/uploads/properties/imgSlider/fc567d72-3dff-45da-89b4-56768c1443a7.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:15.541Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bc0"
+      }
+    },
+    {
+      "name": "22cc9ab6-f2f1-4d6b-b6af-8575fb7bbd33.webp",
+      "thumb": "/uploads/properties/thumb/22cc9ab6-f2f1-4d6b-b6af-8575fb7bbd33.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/22cc9ab6-f2f1-4d6b-b6af-8575fb7bbd33.webp",
+      "imgSlider": "/uploads/properties/imgSlider/22cc9ab6-f2f1-4d6b-b6af-8575fb7bbd33.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:14:16.439Z"
+      },
+      "_id": {
+        "$oid": "689c8fa80c14dffd39c15bc5"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-13T10:08:24.675Z"
+  },
+  "__v": 9,
+  "imgCover": {
+    "name": "f39afb56-178a-4b8e-950d-9003412d8a63.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/f39afb56-178a-4b8e-950d-9003412d8a63.webp",
+    "createdAt": {
+      "$date": "2025-08-13T13:14:20.698Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "689c971de101ca1769f2ba69"
+  },
+  "address": "298, Martín Miguel de Güemes 264, U9103 Rawson, Chubut, Argentina",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.29609143803029,
+  "lng": -65.09283716659543,
+  "owners": [
+    "689c9694e101ca1769f2b9a7"
+  ],
+  "suppliers": [],
+  "specs": [
+    "calefaccion",
+    "lavadero"
+  ],
+  "type": "departamento",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": false,
+  "publishForRent": true,
+  "publishForSale": false,
+  "valueForSale": {
+    "amount": 0,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-13T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 350000,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-13T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 40,
+    "buildSqFt": 40,
+    "age": 40,
+    "petFriendly": true,
+    "rooms": 4,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "orientation": "norte",
+    "title": "Barrio 2 de Abril Edificio 18 Escalera 4 Departamento C",
+    "brief": "Departamento en Barrio 2 de Abril.\nDos dormitorios, un baño, cocina y comedor. Lavadero."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "7df91ab0-0a66-42dc-9ea4-3fbcff1115d3.webp",
+      "thumb": "/uploads/properties/thumb/7df91ab0-0a66-42dc-9ea4-3fbcff1115d3.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/7df91ab0-0a66-42dc-9ea4-3fbcff1115d3.webp",
+      "imgSlider": "/uploads/properties/imgSlider/7df91ab0-0a66-42dc-9ea4-3fbcff1115d3.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:50:44.355Z"
+      },
+      "_id": {
+        "$oid": "689c9835e101ca1769f2bb2a"
+      }
+    },
+    {
+      "name": "5858bfe6-7283-4657-b292-f95236496241.webp",
+      "thumb": "/uploads/properties/thumb/5858bfe6-7283-4657-b292-f95236496241.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/5858bfe6-7283-4657-b292-f95236496241.webp",
+      "imgSlider": "/uploads/properties/imgSlider/5858bfe6-7283-4657-b292-f95236496241.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:50:44.531Z"
+      },
+      "_id": {
+        "$oid": "689c9835e101ca1769f2bb2b"
+      }
+    },
+    {
+      "name": "e2584985-d4c3-41d5-a979-2367451ad2fb.webp",
+      "thumb": "/uploads/properties/thumb/e2584985-d4c3-41d5-a979-2367451ad2fb.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/e2584985-d4c3-41d5-a979-2367451ad2fb.webp",
+      "imgSlider": "/uploads/properties/imgSlider/e2584985-d4c3-41d5-a979-2367451ad2fb.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:50:44.750Z"
+      },
+      "_id": {
+        "$oid": "689c9835e101ca1769f2bb2c"
+      }
+    },
+    {
+      "name": "80be1de3-a07e-46a7-ae80-a88cab3e1f52.webp",
+      "thumb": "/uploads/properties/thumb/80be1de3-a07e-46a7-ae80-a88cab3e1f52.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/80be1de3-a07e-46a7-ae80-a88cab3e1f52.webp",
+      "imgSlider": "/uploads/properties/imgSlider/80be1de3-a07e-46a7-ae80-a88cab3e1f52.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:50:44.902Z"
+      },
+      "_id": {
+        "$oid": "689c9835e101ca1769f2bb2d"
+      }
+    },
+    {
+      "name": "72207765-e16e-4b6e-a4df-4bdde44d83a0.webp",
+      "thumb": "/uploads/properties/thumb/72207765-e16e-4b6e-a4df-4bdde44d83a0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/72207765-e16e-4b6e-a4df-4bdde44d83a0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/72207765-e16e-4b6e-a4df-4bdde44d83a0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:50:45.078Z"
+      },
+      "_id": {
+        "$oid": "689c9835e101ca1769f2bb2e"
+      }
+    },
+    {
+      "name": "c80f01bb-e949-4eaf-8ef6-e1998a988f6a.webp",
+      "thumb": "/uploads/properties/thumb/c80f01bb-e949-4eaf-8ef6-e1998a988f6a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c80f01bb-e949-4eaf-8ef6-e1998a988f6a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c80f01bb-e949-4eaf-8ef6-e1998a988f6a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:50:45.243Z"
+      },
+      "_id": {
+        "$oid": "689c9835e101ca1769f2bb2f"
+      }
+    },
+    {
+      "name": "1978e3fb-bc4b-467a-a5ad-631798bfffe3.webp",
+      "thumb": "/uploads/properties/thumb/1978e3fb-bc4b-467a-a5ad-631798bfffe3.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1978e3fb-bc4b-467a-a5ad-631798bfffe3.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1978e3fb-bc4b-467a-a5ad-631798bfffe3.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T13:50:45.431Z"
+      },
+      "_id": {
+        "$oid": "689c9835e101ca1769f2bb30"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-13T10:46:05.482Z"
+  },
+  "__v": 1,
+  "imgCover": {
+    "name": "7df91ab0-0a66-42dc-9ea4-3fbcff1115d3.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/7df91ab0-0a66-42dc-9ea4-3fbcff1115d3.webp",
+    "createdAt": {
+      "$date": "2025-08-13T13:50:45.433Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "689c9c7de101ca1769f2bf44"
+  },
+  "address": "Dr. Zorrilla Sanchez 1551",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c3",
+  "lat": -43.3245266,
+  "lng": -65.0534914,
+  "owners": [
+    "689c9c0ee101ca1769f2be84"
+  ],
+  "suppliers": [],
+  "specs": [
+    "calefaccion",
+    "jardin"
+  ],
+  "type": "duplex",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": false,
+  "publishForRent": true,
+  "publishForSale": false,
+  "valueForSale": {
+    "amount": 0,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-13T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 450000,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-13T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 0,
+    "buildSqFt": 0,
+    "age": 0,
+    "petFriendly": false,
+    "rooms": 1,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "orientation": "",
+    "title": "Duplex 2 Dormitorios | Playa Unión. ",
+    "brief": "Dos dormitorios, un baño. Patio."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "4a20a522-8d5d-48a9-a6f2-b2d10c2e1c60.webp",
+      "thumb": "/uploads/properties/thumb/4a20a522-8d5d-48a9-a6f2-b2d10c2e1c60.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/4a20a522-8d5d-48a9-a6f2-b2d10c2e1c60.webp",
+      "imgSlider": "/uploads/properties/imgSlider/4a20a522-8d5d-48a9-a6f2-b2d10c2e1c60.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:58.201Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0d6"
+      }
+    },
+    {
+      "name": "27b1be70-8a4c-4771-961c-9f3e037a04a1.webp",
+      "thumb": "/uploads/properties/thumb/27b1be70-8a4c-4771-961c-9f3e037a04a1.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/27b1be70-8a4c-4771-961c-9f3e037a04a1.webp",
+      "imgSlider": "/uploads/properties/imgSlider/27b1be70-8a4c-4771-961c-9f3e037a04a1.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:58.451Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0d7"
+      }
+    },
+    {
+      "name": "84e4354f-98fb-4f8c-a43e-540e0143b3e2.webp",
+      "thumb": "/uploads/properties/thumb/84e4354f-98fb-4f8c-a43e-540e0143b3e2.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/84e4354f-98fb-4f8c-a43e-540e0143b3e2.webp",
+      "imgSlider": "/uploads/properties/imgSlider/84e4354f-98fb-4f8c-a43e-540e0143b3e2.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:58.647Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0d8"
+      }
+    },
+    {
+      "name": "deb72b61-55fe-4ace-b4cd-ef10c5a889fc.webp",
+      "thumb": "/uploads/properties/thumb/deb72b61-55fe-4ace-b4cd-ef10c5a889fc.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/deb72b61-55fe-4ace-b4cd-ef10c5a889fc.webp",
+      "imgSlider": "/uploads/properties/imgSlider/deb72b61-55fe-4ace-b4cd-ef10c5a889fc.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:58.885Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0d9"
+      }
+    },
+    {
+      "name": "53bdb65f-c0a0-4291-9c9c-b31488e3a7ae.webp",
+      "thumb": "/uploads/properties/thumb/53bdb65f-c0a0-4291-9c9c-b31488e3a7ae.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/53bdb65f-c0a0-4291-9c9c-b31488e3a7ae.webp",
+      "imgSlider": "/uploads/properties/imgSlider/53bdb65f-c0a0-4291-9c9c-b31488e3a7ae.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:59.092Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0da"
+      }
+    },
+    {
+      "name": "325df97c-358d-4c6e-81af-06824f5fc9b4.webp",
+      "thumb": "/uploads/properties/thumb/325df97c-358d-4c6e-81af-06824f5fc9b4.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/325df97c-358d-4c6e-81af-06824f5fc9b4.webp",
+      "imgSlider": "/uploads/properties/imgSlider/325df97c-358d-4c6e-81af-06824f5fc9b4.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:59.293Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0db"
+      }
+    },
+    {
+      "name": "091d8c77-53df-4a2c-ada1-072373e768d3.webp",
+      "thumb": "/uploads/properties/thumb/091d8c77-53df-4a2c-ada1-072373e768d3.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/091d8c77-53df-4a2c-ada1-072373e768d3.webp",
+      "imgSlider": "/uploads/properties/imgSlider/091d8c77-53df-4a2c-ada1-072373e768d3.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:59.475Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0dc"
+      }
+    },
+    {
+      "name": "0153fe64-33b8-420e-9ae2-fc51fdc6a302.webp",
+      "thumb": "/uploads/properties/thumb/0153fe64-33b8-420e-9ae2-fc51fdc6a302.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/0153fe64-33b8-420e-9ae2-fc51fdc6a302.webp",
+      "imgSlider": "/uploads/properties/imgSlider/0153fe64-33b8-420e-9ae2-fc51fdc6a302.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:59.675Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0dd"
+      }
+    },
+    {
+      "name": "02c68d0b-b1f0-4c7d-8d38-1585739c124c.webp",
+      "thumb": "/uploads/properties/thumb/02c68d0b-b1f0-4c7d-8d38-1585739c124c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/02c68d0b-b1f0-4c7d-8d38-1585739c124c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/02c68d0b-b1f0-4c7d-8d38-1585739c124c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:11:59.879Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0de"
+      }
+    },
+    {
+      "name": "282b90a8-1d9e-4b8d-be9c-34c282c6153b.webp",
+      "thumb": "/uploads/properties/thumb/282b90a8-1d9e-4b8d-be9c-34c282c6153b.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/282b90a8-1d9e-4b8d-be9c-34c282c6153b.webp",
+      "imgSlider": "/uploads/properties/imgSlider/282b90a8-1d9e-4b8d-be9c-34c282c6153b.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:12:00.071Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0df"
+      }
+    },
+    {
+      "name": "732896c6-cb2c-4cfb-a551-a36e261e1e94.webp",
+      "thumb": "/uploads/properties/thumb/732896c6-cb2c-4cfb-a551-a36e261e1e94.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/732896c6-cb2c-4cfb-a551-a36e261e1e94.webp",
+      "imgSlider": "/uploads/properties/imgSlider/732896c6-cb2c-4cfb-a551-a36e261e1e94.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:12:00.283Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0e0"
+      }
+    },
+    {
+      "name": "ddc7238f-521a-4f0e-ad07-df0f82b53c66.webp",
+      "thumb": "/uploads/properties/thumb/ddc7238f-521a-4f0e-ad07-df0f82b53c66.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/ddc7238f-521a-4f0e-ad07-df0f82b53c66.webp",
+      "imgSlider": "/uploads/properties/imgSlider/ddc7238f-521a-4f0e-ad07-df0f82b53c66.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:12:00.498Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0e1"
+      }
+    },
+    {
+      "name": "4f1f95a3-9831-4af9-823b-6d125e5c6cd0.webp",
+      "thumb": "/uploads/properties/thumb/4f1f95a3-9831-4af9-823b-6d125e5c6cd0.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/4f1f95a3-9831-4af9-823b-6d125e5c6cd0.webp",
+      "imgSlider": "/uploads/properties/imgSlider/4f1f95a3-9831-4af9-823b-6d125e5c6cd0.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-13T14:12:00.710Z"
+      },
+      "_id": {
+        "$oid": "689c9d30e101ca1769f2c0e2"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-13T11:09:01.386Z"
+  },
+  "__v": 1,
+  "imgCover": {
+    "name": "4a20a522-8d5d-48a9-a6f2-b2d10c2e1c60.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/4a20a522-8d5d-48a9-a6f2-b2d10c2e1c60.webp",
+    "createdAt": {
+      "$date": "2025-08-13T14:12:00.712Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "68a36299e101ca1769f44328"
+  },
+  "address": "Capdevilla 252",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.3112048,
+  "lng": -65.1046185,
+  "owners": [
+    "68a360d9e101ca1769f43f91"
+  ],
+  "suppliers": [],
+  "specs": [
+    "cochera",
+    "calefaccion",
+    "parrilla"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 64000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-18T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-18T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "availableServices": [],
+    "sqFt": 2500,
+    "buildSqFt": 690,
+    "age": 10,
+    "petFriendly": true,
+    "rooms": 4,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "orientation": "",
+    "title": "Casa en venta - Vivienda unifamiliar en Rawson.",
+    "brief": "Descubrí la comodidad y funcionalidad en esta linda casa unifamiliar en Rawson, ideal para quienes buscan un hogar práctico y listo para habitar. La propiedad se encuentra sobre una parcela de 250 m², con una superficie construida de 69 m².\n\nLa vivienda cuenta con una distribución muy bien pensada que integra una cocina, living comedor, un baño y un lavadero. Además, dispone de dos dormitorios que garantizan un espacio de descanso confortable.\n\nEl exterior de la propiedad es un punto a destacar: un amplio patio y un práctico ingreso de auto, que cuenta con un portón metálico. La seguridad y privacidad están aseguradas por un cerco de mampostería.\n\nEsta casa, de construcción tradicional, es una excelente oportunidad para quienes valoran un hogar con un diseño funcional, un buen aprovechamiento del espacio y una parcela ideal para el disfrute al aire libre."
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "8066ec63-c4e5-41cd-b8fa-5f36992991a6.webp",
+      "thumb": "/uploads/properties/thumb/8066ec63-c4e5-41cd-b8fa-5f36992991a6.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/8066ec63-c4e5-41cd-b8fa-5f36992991a6.webp",
+      "imgSlider": "/uploads/properties/imgSlider/8066ec63-c4e5-41cd-b8fa-5f36992991a6.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:24.912Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c06"
+      }
+    },
+    {
+      "name": "9574c3e2-4031-4018-9cbe-8a1f4c1208c7.webp",
+      "thumb": "/uploads/properties/thumb/9574c3e2-4031-4018-9cbe-8a1f4c1208c7.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9574c3e2-4031-4018-9cbe-8a1f4c1208c7.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9574c3e2-4031-4018-9cbe-8a1f4c1208c7.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:25.085Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c07"
+      }
+    },
+    {
+      "name": "3a03c5ec-a392-47a9-821f-08146c2f452d.webp",
+      "thumb": "/uploads/properties/thumb/3a03c5ec-a392-47a9-821f-08146c2f452d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3a03c5ec-a392-47a9-821f-08146c2f452d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3a03c5ec-a392-47a9-821f-08146c2f452d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:25.384Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c09"
+      }
+    },
+    {
+      "name": "1958c465-b273-4f19-8f78-1f3582d4b31f.webp",
+      "thumb": "/uploads/properties/thumb/1958c465-b273-4f19-8f78-1f3582d4b31f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1958c465-b273-4f19-8f78-1f3582d4b31f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1958c465-b273-4f19-8f78-1f3582d4b31f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:25.534Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c0a"
+      }
+    },
+    {
+      "name": "1776b6f5-795f-40f5-9167-74eb3fd0630d.webp",
+      "thumb": "/uploads/properties/thumb/1776b6f5-795f-40f5-9167-74eb3fd0630d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/1776b6f5-795f-40f5-9167-74eb3fd0630d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/1776b6f5-795f-40f5-9167-74eb3fd0630d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:25.676Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c0b"
+      }
+    },
+    {
+      "name": "ed4490b0-082c-4051-99fc-55f3f60b788e.webp",
+      "thumb": "/uploads/properties/thumb/ed4490b0-082c-4051-99fc-55f3f60b788e.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/ed4490b0-082c-4051-99fc-55f3f60b788e.webp",
+      "imgSlider": "/uploads/properties/imgSlider/ed4490b0-082c-4051-99fc-55f3f60b788e.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:25.811Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c0c"
+      }
+    },
+    {
+      "name": "6fd2551b-966b-44ac-a402-9a2fea17ab8d.webp",
+      "thumb": "/uploads/properties/thumb/6fd2551b-966b-44ac-a402-9a2fea17ab8d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/6fd2551b-966b-44ac-a402-9a2fea17ab8d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/6fd2551b-966b-44ac-a402-9a2fea17ab8d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:25.960Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c0d"
+      }
+    },
+    {
+      "name": "d748cc6e-6977-432e-a66d-b3ff98ce1c81.webp",
+      "thumb": "/uploads/properties/thumb/d748cc6e-6977-432e-a66d-b3ff98ce1c81.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/d748cc6e-6977-432e-a66d-b3ff98ce1c81.webp",
+      "imgSlider": "/uploads/properties/imgSlider/d748cc6e-6977-432e-a66d-b3ff98ce1c81.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:26.100Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c0e"
+      }
+    },
+    {
+      "name": "2102ec21-c941-4f45-98a6-6819ef053693.webp",
+      "thumb": "/uploads/properties/thumb/2102ec21-c941-4f45-98a6-6819ef053693.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/2102ec21-c941-4f45-98a6-6819ef053693.webp",
+      "imgSlider": "/uploads/properties/imgSlider/2102ec21-c941-4f45-98a6-6819ef053693.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:34:25.244Z"
+      },
+      "_id": {
+        "$oid": "68a36422e101ca1769f44c08"
+      }
+    }
+  ],
+  "floorPlans": [
+    {
+      "url": "/uploads/properties/floorplans/9f42b941-1b68-405a-ae45-de3cf69a5ee8.png",
+      "name": "Screenshot 2025-08-18 at 2.32.28â¯PM.png",
+      "uploadedAt": {
+        "$date": "2025-08-18T17:35:01.784Z"
+      },
+      "_id": {
+        "$oid": "68a36449e101ca1769f44c50"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-08-18T14:27:53.973Z"
+  },
+  "__v": 6,
+  "imgCover": {
+    "name": "8066ec63-c4e5-41cd-b8fa-5f36992991a6.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/8066ec63-c4e5-41cd-b8fa-5f36992991a6.webp",
+    "createdAt": {
+      "$date": "2025-08-18T17:34:26.261Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "68a36765e101ca1769f452ad"
+  },
+  "address": "Vuelta de Obligado 434, U9103 Rawson, Chubut, Argentina",
+  "province": "66a25a8e1f1570568e03e1d8",
+  "locality": "66a25b0d1f1570568e03e9c4",
+  "lat": -43.293295874734916,
+  "lng": -65.10908062438965,
+  "owners": [
+    "68a3504be101ca1769f432ef"
+  ],
+  "suppliers": [],
+  "specs": [
+    "cochera",
+    "calefaccion",
+    "parrilla",
+    "jardin"
+  ],
+  "type": "casa",
+  "purpose": "residencial",
+  "status": "disponible",
+  "availableForSale": true,
+  "publishForRent": false,
+  "publishForSale": true,
+  "valueForSale": {
+    "amount": 90000,
+    "currency": "USD",
+    "pricePublic": true,
+    "paymentMethod": "contado",
+    "description": "",
+    "date": "2025-08-18T00:00:00.000Z"
+  },
+  "valueForRent": {
+    "amount": 0,
+    "currency": "ARS",
+    "pricePublic": true,
+    "paymentMethod": "transferencia",
+    "description": "",
+    "date": "2025-08-18T00:00:00.000Z"
+  },
+  "available": true,
+  "associatedServices": [],
+  "detailedDescription": {
+    "rooms": 5,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "sqFt": 300,
+    "buildSqFt": 80,
+    "age": 25,
+    "petFriendly": false,
+    "orientation": "",
+    "title": "Casa en venta - Sobre Avenida 9 de Julio. Ingreso a Rawson.",
+    "brief": "Descubrí esta práctica y funcional vivienda unifamiliar ubicada estratégicamente sobre la Avenida 9 de Julio, en el ingreso a la ciudad de Rawson. Esta propiedad se presenta como una excelente oportunidad para quienes buscan un hogar con una ubicación de fácil acceso y con todas las comodidades.\n\nLa casa, de construcción tradicional, se asienta sobre una parcela de 300 m² y cuenta con una superficie cubierta de 80 m². Su distribución ha sido pensada para la comodidad diaria, integrando una cocina, un living comedor, un baño y un lavadero. Además, dispone de dos dormitorios que ofrecen el espacio de descanso ideal.\n\nEl exterior de la propiedad complementa su funcionalidad con un amplio patio y un cómodo ingreso de auto, asegurado por un portón metálico. La privacidad y la seguridad están garantizadas por el cerco de mampostería perimetral.\n\nEsta vivienda es la opción perfecta para quienes valoran una ubicación clave, un diseño práctico y un espacio exterior ideal para el disfrute en familia.",
+    "availableServices": []
+  },
+  "documents": [],
+  "active": true,
+  "inventory": [],
+  "img": [
+    {
+      "name": "abc080ba-9109-43e0-990e-298f820bfd6f.webp",
+      "thumb": "/uploads/properties/thumb/abc080ba-9109-43e0-990e-298f820bfd6f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/abc080ba-9109-43e0-990e-298f820bfd6f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/abc080ba-9109-43e0-990e-298f820bfd6f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:06.313Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45416"
+      }
+    },
+    {
+      "name": "03ea69b0-f0a2-41a5-813c-ea219f637919.webp",
+      "thumb": "/uploads/properties/thumb/03ea69b0-f0a2-41a5-813c-ea219f637919.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/03ea69b0-f0a2-41a5-813c-ea219f637919.webp",
+      "imgSlider": "/uploads/properties/imgSlider/03ea69b0-f0a2-41a5-813c-ea219f637919.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:04.790Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f4540a"
+      }
+    },
+    {
+      "name": "9ce3cba2-7715-4e0f-98a6-0b550284f8de.webp",
+      "thumb": "/uploads/properties/thumb/9ce3cba2-7715-4e0f-98a6-0b550284f8de.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/9ce3cba2-7715-4e0f-98a6-0b550284f8de.webp",
+      "imgSlider": "/uploads/properties/imgSlider/9ce3cba2-7715-4e0f-98a6-0b550284f8de.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:04.922Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f4540b"
+      }
+    },
+    {
+      "name": "64993358-c519-4430-ad5e-f69adff343b1.webp",
+      "thumb": "/uploads/properties/thumb/64993358-c519-4430-ad5e-f69adff343b1.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/64993358-c519-4430-ad5e-f69adff343b1.webp",
+      "imgSlider": "/uploads/properties/imgSlider/64993358-c519-4430-ad5e-f69adff343b1.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:05.042Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f4540c"
+      }
+    },
+    {
+      "name": "40cd273c-e97a-40f1-8f9e-2c72a100099c.webp",
+      "thumb": "/uploads/properties/thumb/40cd273c-e97a-40f1-8f9e-2c72a100099c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/40cd273c-e97a-40f1-8f9e-2c72a100099c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/40cd273c-e97a-40f1-8f9e-2c72a100099c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:05.193Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f4540d"
+      }
+    },
+    {
+      "name": "a0565d90-eeff-42ec-93c7-b8e0548fc38a.webp",
+      "thumb": "/uploads/properties/thumb/a0565d90-eeff-42ec-93c7-b8e0548fc38a.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/a0565d90-eeff-42ec-93c7-b8e0548fc38a.webp",
+      "imgSlider": "/uploads/properties/imgSlider/a0565d90-eeff-42ec-93c7-b8e0548fc38a.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:05.353Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f4540e"
+      }
+    },
+    {
+      "name": "2502337f-437b-4606-aa19-4d2735c30bd8.webp",
+      "thumb": "/uploads/properties/thumb/2502337f-437b-4606-aa19-4d2735c30bd8.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/2502337f-437b-4606-aa19-4d2735c30bd8.webp",
+      "imgSlider": "/uploads/properties/imgSlider/2502337f-437b-4606-aa19-4d2735c30bd8.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:05.477Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f4540f"
+      }
+    },
+    {
+      "name": "5d709a38-5b72-40a4-a64c-b4773c6f035d.webp",
+      "thumb": "/uploads/properties/thumb/5d709a38-5b72-40a4-a64c-b4773c6f035d.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/5d709a38-5b72-40a4-a64c-b4773c6f035d.webp",
+      "imgSlider": "/uploads/properties/imgSlider/5d709a38-5b72-40a4-a64c-b4773c6f035d.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:05.596Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45410"
+      }
+    },
+    {
+      "name": "3078e125-b29f-435c-8ecb-da8b3cc87a2f.webp",
+      "thumb": "/uploads/properties/thumb/3078e125-b29f-435c-8ecb-da8b3cc87a2f.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/3078e125-b29f-435c-8ecb-da8b3cc87a2f.webp",
+      "imgSlider": "/uploads/properties/imgSlider/3078e125-b29f-435c-8ecb-da8b3cc87a2f.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:05.710Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45411"
+      }
+    },
+    {
+      "name": "d197ed70-7b58-4287-97e2-659eccc05128.webp",
+      "thumb": "/uploads/properties/thumb/d197ed70-7b58-4287-97e2-659eccc05128.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/d197ed70-7b58-4287-97e2-659eccc05128.webp",
+      "imgSlider": "/uploads/properties/imgSlider/d197ed70-7b58-4287-97e2-659eccc05128.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:05.825Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45412"
+      }
+    },
+    {
+      "name": "525de535-ae50-4bce-99b1-ba71be9cce64.webp",
+      "thumb": "/uploads/properties/thumb/525de535-ae50-4bce-99b1-ba71be9cce64.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/525de535-ae50-4bce-99b1-ba71be9cce64.webp",
+      "imgSlider": "/uploads/properties/imgSlider/525de535-ae50-4bce-99b1-ba71be9cce64.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:06.015Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45414"
+      }
+    },
+    {
+      "name": "c9ffdd44-390f-429f-9ef0-12c77d7552f6.webp",
+      "thumb": "/uploads/properties/thumb/c9ffdd44-390f-429f-9ef0-12c77d7552f6.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/c9ffdd44-390f-429f-9ef0-12c77d7552f6.webp",
+      "imgSlider": "/uploads/properties/imgSlider/c9ffdd44-390f-429f-9ef0-12c77d7552f6.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:06.163Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45415"
+      }
+    },
+    {
+      "name": "84d84b32-91d8-40ba-96cb-259e6f5cc09c.webp",
+      "thumb": "/uploads/properties/thumb/84d84b32-91d8-40ba-96cb-259e6f5cc09c.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/84d84b32-91d8-40ba-96cb-259e6f5cc09c.webp",
+      "imgSlider": "/uploads/properties/imgSlider/84d84b32-91d8-40ba-96cb-259e6f5cc09c.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:06.448Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45417"
+      }
+    },
+    {
+      "name": "525ce316-2d52-466e-81fa-56be24fa3865.webp",
+      "thumb": "/uploads/properties/thumb/525ce316-2d52-466e-81fa-56be24fa3865.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/525ce316-2d52-466e-81fa-56be24fa3865.webp",
+      "imgSlider": "/uploads/properties/imgSlider/525ce316-2d52-466e-81fa-56be24fa3865.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:06.595Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45418"
+      }
+    },
+    {
+      "name": "68983f6d-4dbc-4409-9021-61ce96bbd969.webp",
+      "thumb": "/uploads/properties/thumb/68983f6d-4dbc-4409-9021-61ce96bbd969.webp",
+      "thumbWeb": "/uploads/properties/thumbWeb/68983f6d-4dbc-4409-9021-61ce96bbd969.webp",
+      "imgSlider": "/uploads/properties/imgSlider/68983f6d-4dbc-4409-9021-61ce96bbd969.webp",
+      "title": "",
+      "description": "",
+      "createdAt": {
+        "$date": "2025-08-18T17:57:06.736Z"
+      },
+      "_id": {
+        "$oid": "68a36972e101ca1769f45419"
+      }
+    }
+  ],
+  "floorPlans": [],
+  "createdAt": {
+    "$date": "2025-08-18T14:48:21.534Z"
+  },
+  "__v": 3,
+  "imgCover": {
+    "name": "abc080ba-9109-43e0-990e-298f820bfd6f.webp",
+    "thumbWeb": "/uploads/properties/thumbWeb/abc080ba-9109-43e0-990e-298f820bfd6f.webp",
+    "createdAt": {
+      "$date": "2025-08-18T17:57:21.067Z"
+    }
+  }
+}]

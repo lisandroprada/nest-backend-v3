@@ -13,6 +13,8 @@ import { DetectedExpensesModule } from '../detected-expenses/detected-expenses.m
 import { PropertiesModule } from '../properties/properties.module';
 import { ChartOfAccountsModule } from '../chart-of-accounts/chart-of-accounts.module';
 import { ServiceAccountMappingsModule } from '../service-account-mappings/service-account-mappings.module';
+import { AccountingEntryBuilder } from './builders/accounting-entry.builder';
+import { AccountingEntryFactory } from './factories/accounting-entry.factory';
 
 @Module({
   imports: [
@@ -28,7 +30,11 @@ import { ServiceAccountMappingsModule } from '../service-account-mappings/servic
     ServiceAccountMappingsModule,
   ],
   controllers: [AccountingEntriesController],
-  providers: [AccountingEntriesService],
-  exports: [AccountingEntriesService],
+  providers: [
+    AccountingEntriesService,
+    AccountingEntryBuilder,
+    AccountingEntryFactory,
+  ],
+  exports: [AccountingEntriesService, AccountingEntryFactory],
 })
 export class AccountingEntriesModule {}

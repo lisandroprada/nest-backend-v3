@@ -23,6 +23,37 @@ export class PropertiesService {
     private readonly paginationService: PaginationService,
   ) {}
 
+  getModel() {
+    return this.propertyModel;
+  }
+
+  async findByAddressText(searchText: string) {
+    const accentInsensitivePattern = this.accentInsensitive(searchText);
+    
+    return this.propertyModel
+      .find({
+        $or: [
+          // Nuevo schema
+          { 'direccion.calle': { $regex: new RegExp(accentInsensitivePattern, 'i') } },
+          { 'direccion.numero': { $regex: new RegExp(accentInsensitivePattern, 'i') } },
+          { 'identificador_interno': { $regex: new RegExp(accentInsensitivePattern, 'i') } },
+          // Schema viejo (address como string)
+          { 'address': { $regex: new RegExp(accentInsensitivePattern, 'i') } },
+        ],
+      })
+      .collation({ locale: 'es', strength: 1 })
+      .exec();
+  }
+
+  private accentInsensitive(term: string): string {
+    return term
+      .replace(/a/gi, '[aá]')
+      .replace(/e/gi, '[eé]')
+      .replace(/i/gi, '[ií]')
+      .replace(/o/gi, '[oó]')
+      .replace(/u/gi, '[uúü]');
+  }
+
   async findByMedidor(identificador_servicio: string): Promise<Property[]> {
     return this.propertyModel
       .find({
@@ -100,6 +131,18 @@ export class PropertiesService {
   }
 
   async findAll(paginationDto: PaginationDto) {
+    if (paginationDto.search?.criteria) {
+      paginationDto.search.criteria.forEach((criterion) => {
+        if (
+          criterion.field === 'propietarios_ids' &&
+          criterion.operation === 'eq'
+        ) {
+          if (Types.ObjectId.isValid(criterion.term)) {
+            (criterion as any).term = new Types.ObjectId(criterion.term);
+          }
+        }
+      });
+    }
     return this.paginationService.paginate(this.propertyModel, paginationDto);
   }
 

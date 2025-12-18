@@ -71,6 +71,12 @@ export class Contract extends Document {
   @Prop({ type: Boolean, default: false })
   visita_realizada: boolean;
 
+  @Prop({ type: Boolean, default: false })
+  inventario_actualizado: boolean;
+
+  @Prop({ type: [String], default: [] })
+  fotos_inventario: string[];
+
   // Referencia a la versión específica del inventario asociada al contrato
   @Prop({ type: Types.ObjectId, ref: 'InventoryVersion' })
   inventory_version_id: Types.ObjectId;

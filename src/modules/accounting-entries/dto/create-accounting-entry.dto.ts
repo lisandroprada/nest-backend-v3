@@ -1,6 +1,7 @@
 import { Type } from 'class-transformer';
 import {
   IsArray,
+  IsBoolean,
   IsDateString,
   IsMongoId,
   IsNotEmpty,
@@ -22,15 +23,31 @@ class PartidaDto {
 
   @IsNumber()
   @IsOptional()
-  debe?: number;
+  debe: number;
 
   @IsNumber()
   @IsOptional()
-  haber?: number;
+  haber: number;
 
   @IsMongoId()
   @IsOptional()
   agente_id?: Types.ObjectId;
+
+  @IsBoolean()
+  @IsOptional()
+  es_iva_incluido: boolean;
+
+  @IsNumber()
+  @IsOptional()
+  tasa_iva_aplicada: number;
+
+  @IsNumber()
+  @IsOptional()
+  monto_base_imponible: number;
+
+  @IsNumber()
+  @IsOptional()
+  monto_iva_calculado: number;
 }
 
 export class CreateAccountingEntryDto {

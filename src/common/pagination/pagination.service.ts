@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { PaginationDto } from './dto/pagination.dto';
 import { SearchOperation } from '../pagination/dto/search-operations.enum';
 
@@ -42,7 +42,7 @@ export class PaginationService {
 
     const queryConditions: any[] = []; // Initialize as an array for $and conditions
 
-    if (search && search.criteria.length > 0) {
+    if (search && search.criteria && search.criteria.length > 0) {
       for (const criterion of search.criteria) {
         const { field, term, operation } = criterion;
         const orFields = field.split(',').map((f) => f.trim());
@@ -82,14 +82,34 @@ export class PaginationService {
             } else {
               condition = { owners: { $in: ownerIds } };
             }
+          } else if (
+            singleField === 'caracteristicas.amenities' &&
+            operation === SearchOperation.CONTAINS
+          ) {
+            // Special handling for amenities filter
+            const AmenityModel = model.db.model('Amenity');
+            const amenityDocs = await AmenityModel.find({
+              nombre: { $regex: new RegExp(accentInsensitive(term), 'i') },
+            }).select('_id');
+            const amenityIds = amenityDocs.map((doc) => doc._id);
+            if (amenityIds.length === 0) {
+              condition = { _id: null }; // No amenities found, so no documents will match
+            } else {
+              condition = { 'caracteristicas.amenities': { $in: amenityIds } };
+            }
           } else {
             switch (operation) {
               case SearchOperation.EQUALS:
-                const parsed = Number(term);
-                if (!isNaN(parsed) && term.trim() !== '') {
-                  condition = { [singleField]: parsed };
+                // Check if field ends with _id and term is a valid ObjectId string
+                if (singleField.endsWith('_id') && Types.ObjectId.isValid(term)) {
+                  condition = { [singleField]: new Types.ObjectId(term) };
                 } else {
-                  condition = { [singleField]: term };
+                  const parsed = Number(term);
+                  if (!isNaN(parsed) && term.trim() !== '') {
+                    condition = { [singleField]: parsed };
+                  } else {
+                    condition = { [singleField]: term };
+                  }
                 }
                 break;
               case SearchOperation.CONTAINS:
@@ -138,18 +158,21 @@ export class PaginationService {
       }
     }
 
-    // Combine base filter + search conditions
-    let finalFilter: any = { ...filter };
-    if (queryConditions.length > 0) {
-      if (Object.keys(finalFilter).length > 0) {
-        finalFilter = { $and: [finalFilter, ...queryConditions] };
+    // Combine baseFilter with queryConditions
+    let finalQuery: any = {};
+
+    if (filter && Object.keys(filter).length > 0) {
+      if (queryConditions.length > 0) {
+        finalQuery = { $and: [filter, ...queryConditions] };
       } else {
-        finalFilter = { $and: queryConditions };
+        finalQuery = filter;
       }
+    } else if (queryConditions.length > 0) {
+      finalQuery = { $and: queryConditions };
     }
 
     let query = model
-      .find(finalFilter)
+      .find(finalQuery)
       .collation({ locale: 'es', strength: 1 });
 
     if (populate) {
@@ -197,7 +220,7 @@ export class PaginationService {
       .exec();
 
     const totalItems = await model
-      .countDocuments(finalFilter)
+      .countDocuments(finalQuery)
       .collation({ locale: 'es', strength: 1 });
     const totalPages = Math.ceil(totalItems / pageSize);
 

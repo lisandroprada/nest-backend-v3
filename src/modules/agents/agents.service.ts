@@ -60,6 +60,33 @@ export class AgentsService {
     return this.agentModel.findOne({ rol: role }).exec();
   }
 
+  /**
+   * Busca agentes por nombre (búsqueda insensible a mayúsculas y acentos)
+   * Busca en: nombres, apellidos, nombre_razon_social
+   */
+  async findByName(searchText: string): Promise<Agent[]> {
+    const accentInsensitivePattern = this.accentInsensitive(searchText);
+    
+    return this.agentModel
+      .find({
+        $or: [
+          { nombres: { $regex: new RegExp(accentInsensitivePattern, 'i') } },
+          { apellidos: { $regex: new RegExp(accentInsensitivePattern, 'i') } },
+          { nombre_razon_social: { $regex: new RegExp(accentInsensitivePattern, 'i') } },
+        ],
+      })
+      .collation({ locale: 'es', strength: 1 });
+  }
+
+  private accentInsensitive(term: string): string {
+    return term
+      .replace(/a/gi, '[aá]')
+      .replace(/e/gi, '[eé]')
+      .replace(/i/gi, '[ií]')
+      .replace(/o/gi, '[oó]')
+      .replace(/u/gi, '[uúü]');
+  }
+
   async update(
     id: string,
     updateAgentDto: UpdateAgentDto,

@@ -22,14 +22,22 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
   async validate(payload: JwtPayload): Promise<User> {
-    // console.log('=== JWT Strategy Validate ===');
-    // console.log('Payload:', payload);
-    // console.log('Attempting to validate token');
+    console.log('=== JWT Strategy Validate ===');
+    console.log('Payload:', payload);
+    console.log('Attempting to validate token');
 
     const { _id } = payload;
     const user = await this.userModel.findOne({ _id });
     if (!user) throw new UnauthorizedException('Token not valid ');
     if (!user.isActive) throw new UnauthorizedException('User is not active');
+    
+    console.log('[JWT Strategy] User found:', { 
+      _id: user._id, 
+      username: user.username, 
+      email: user.email,
+      roles: user.roles 
+    });
+    
     user.password = undefined;
     return user;
   }

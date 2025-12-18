@@ -24,6 +24,20 @@ export class LocalityController {
     return this.localityService.create(createLocalityDto);
   }
 
+  /**
+   * GET /locality/with-available-properties
+   * Retorna localidades donde existen propiedades disponibles
+   * Ejemplo: /locality/with-available-properties?type=sale
+   */
+  @Get('with-available-properties')
+  async getLocalitiesWithAvailableProperties(
+    @Query('type') type: 'sale' | 'rent' | 'all' = 'all',
+  ) {
+    return await this.localityService.getLocalitiesWithAvailableProperties(
+      type,
+    );
+  }
+
   @Get()
   @Auth(ValidRoles.user, ValidRoles.admin, ValidRoles.superUser)
   findAll() {

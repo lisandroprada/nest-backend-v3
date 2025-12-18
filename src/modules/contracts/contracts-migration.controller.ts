@@ -1,5 +1,6 @@
 import { Controller, Post, Get, Body, Param } from '@nestjs/common';
 import { ContractsMigrationService } from './contracts-migration.service';
+// import { PaymentsMigrationService } from './payments-migration.service';
 import { Auth, GetUser } from '../auth/decorators';
 import { ValidRoles } from '../auth/interfaces';
 import { User } from '../user/entities/user.entity';
@@ -14,7 +15,10 @@ class MigrateAccountingEntriesDto {
 @Controller('contracts/migration')
 @Auth(ValidRoles.admin, ValidRoles.superUser)
 export class ContractsMigrationController {
-  constructor(private readonly migrationService: ContractsMigrationService) {}
+  constructor(
+    private readonly migrationService: ContractsMigrationService,
+    // private readonly paymentsMigrationService: PaymentsMigrationService,
+  ) {}
 
   /**
    * Endpoint principal de migración
@@ -35,7 +39,7 @@ export class ContractsMigrationController {
     const {
       contractIds,
       dryRun = false,
-      strategy = 'OPENING_BALANCE',
+      strategy = 'FULL_HISTORY',
       deleteExisting = false,
     } = dto;
 
@@ -114,4 +118,49 @@ export class ContractsMigrationController {
       result: result.results[0],
     };
   }
+
+  /**
+   * Migrar propiedades desde BD legacy
+   * POST /contracts/migration/migrate-properties
+   * Body: { "deleteExisting": false }
+   */
+  @Post('migrate-properties')
+  async migrateProperties(
+    @Body() body: { deleteExisting?: boolean },
+  ): Promise<any> {
+    const result = await this.migrationService.migratePropertiesFromLegacy(
+      body.deleteExisting || false,
+    );
+
+    return {
+      message: 'Migración de propiedades completada',
+      summary: result,
+    };
+  }
+
+  /**
+   * Migrar pagos de contratos desde Legacy
+   * POST /contracts/migration/migrate-payments
+   * Body: { "contractIds": [], "dryRun": false }
+   */
+  /*
+  @Post('migrate-payments')
+  async migratePayments(
+    @Body() dto: { contractIds?: string[]; dryRun?: boolean },
+    @GetUser() user: User,
+  ): Promise<any> {
+    const result =
+      await this.paymentsMigrationService.migratePaymentsForContracts(
+        user._id.toString(),
+        dto,
+      );
+
+    return {
+      message: dto.dryRun
+        ? 'Simulación de migración de pagos completada'
+        : 'Migración de pagos completada',
+      summary: result,
+    };
+  }
+  */
 }

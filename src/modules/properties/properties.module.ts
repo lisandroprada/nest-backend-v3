@@ -22,9 +22,9 @@ import { CommonModule } from 'src/common/common.module';
     CommonModule,
   ],
   controllers: [
+    PublicPropertiesController,
     PropertiesController,
     PropertyFilesController,
-    PublicPropertiesController,
   ],
   providers: [
     PropertiesService,

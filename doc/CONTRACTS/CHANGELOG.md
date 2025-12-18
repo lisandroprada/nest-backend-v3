@@ -15,6 +15,96 @@ Cada entrada debe incluir:
 
 ---
 
+## [2025-12-04] - Renombramiento y Ordenamiento de Archivos
+
+### [DOC] Reorganización de nombres de archivos
+
+- **Renombrados:** 8 archivos con numeración secuencial y títulos consistentes
+- **Objetivo:** Facilitar navegación y mantener orden lógico
+
+**Archivos renombrados:**
+
+| Nombre Anterior | Nombre Nuevo |
+|----------------|--------------|
+| `01_INDEX.md` | `01_INDICE_GENERAL.md` |
+| `05_SISTEMA_CONTABLE_ESTADO_ACTUAL.md` | `02_ESTADO_ACTUAL_MIGRACION.md` |
+| `CONTRACTS_COLLECTION.md` | `03_SCHEMA_CONTRATOS.md` |
+| `06_ACCOUNTING_ENTRIES_API.md` | `04_API_ASIENTOS_CONTABLES.md` |
+| `07_CALCULATE_INITIAL_PAYMENTS_API.md` | `05_API_VISTA_PREVIA_PAGOS.md` |
+| `CONTRACT_SETTINGS_API.md` | `06_API_CONFIGURACION.md` |
+| `08_RESCISION_CONTRATO.md` | `07_API_RESCISION.md` |
+| `CONTRACTS_DASHBOARD.md` | `08_DASHBOARD_CONTRATOS.md` |
+
+**Estructura final (10 archivos):**
+
+1. `01_INDICE_GENERAL.md` - Índice completo
+2. `02_ESTADO_ACTUAL_MIGRACION.md` - Estado y migración pendiente ⭐
+3. `03_SCHEMA_CONTRATOS.md` - Schema de MongoDB
+4. `04_API_ASIENTOS_CONTABLES.md` - API de asientos
+5. `05_API_VISTA_PREVIA_PAGOS.md` - API de vista previa
+6. `06_API_CONFIGURACION.md` - API de configuración
+7. `07_API_RESCISION.md` - API de rescisión
+8. `08_DASHBOARD_CONTRATOS.md` - Dashboard
+9. `CHANGELOG.md` - Este archivo
+10. `README.md` - Introducción
+
+---
+
+## [2025-12-04] - Depuración y Consolidación de Documentación de Migración
+
+### [DOC] Consolidación final de documentación
+
+- **Reducido:** 15 → 10 documentos (33% menos)
+- **Actualizado:** SISTEMA_CONTABLE_ESTADO_ACTUAL.md con información crítica de migración
+- **Eliminados:** Documentos redundantes y obsoletos
+- **Consolidado:** Información de migración en documentos existentes
+
+**Documentos eliminados:**
+
+- 02_RESUMEN_EJECUTIVO.md (información consolidada en SISTEMA_CONTABLE_ESTADO_ACTUAL.md)
+- 03_ARQUITECTURA_COMPLETA.md (información en CONTRACTS_COLLECTION.md)
+- 04_AGENT_ACCOUNT_STATEMENT_API.md (consolidado en ACCOUNTING_ENTRIES_API.md)
+- PROGRESS_DASHBOARD.md (obsoleto)
+- FIX_LIQUIDACION_DOUBLE_ACCOUNTING.md (fix específico ya aplicado)
+
+**Archivos actualizados:**
+
+- SISTEMA_CONTABLE_ESTADO_ACTUAL.md:
+  - Agregada sección "MIGRACIÓN PENDIENTE - CRÍTICO"
+  - Documentadas diferencias críticas con sistema legacy
+  - Plan de acción inmediato para completar migración
+  - Información sobre honorarios v1.1 (BREAKING CHANGE)
+  - Referencias a documentación legacy
+
+**Archivos mantenidos (10):**
+
+1. 01_INDEX.md
+2. README.md
+3. 05_SISTEMA_CONTABLE_ESTADO_ACTUAL.md (actualizado)
+4. 06_ACCOUNTING_ENTRIES_API.md
+5. 07_CALCULATE_INITIAL_PAYMENTS_API.md
+6. 08_RESCISION_CONTRATO.md
+7. CHANGELOG.md
+8. CONTRACTS_COLLECTION.md
+9. CONTRACTS_DASHBOARD.md
+10. CONTRACT_SETTINGS_API.md
+
+**Estado de migración documentado:**
+
+- ✅ Contratos migrados: 838/852 (98.4%)
+- ⚠️ Asientos generados: 3,556 (parcial, estrategia OPENING_BALANCE)
+- ❌ Asientos históricos pendientes: ~19,500 (estrategia FULL_HISTORY no implementada)
+- ❌ Validación y reconciliación: Pendiente
+
+**Próximos pasos críticos:**
+
+1. Implementar estrategia FULL_HISTORY (2-3 días estimados)
+2. Generar ~19,500 asientos históricos faltantes
+3. Validar y reconciliar con sistema legacy
+4. Integrar con frontend
+
+---
+
 ## [2025-10-15] - Consolidación de Documentación
 
 ### [DOC] Reducción masiva de documentos

@@ -5,6 +5,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Locality } from './entities/locality.entity';
 import { Province } from '../province/entities/province.entity';
 import { Model, Types } from 'mongoose';
+import { Property } from 'src/modules/properties/entities/property.entity';
 
 function accentInsensitive(term: string) {
   return term
@@ -21,15 +22,54 @@ export class LocalityService {
     @InjectModel(Locality.name)
     private readonly localityModel: Model<Locality>,
     @InjectModel(Province.name) private provinceModel: Model<Province>,
+    @InjectModel(Property.name) private propertyModel: Model<Property>,
   ) {}
 
   /**
-   * Devuelve localidades y provincias donde existan propiedades disponibles
-   */
-  /**
-   * Devuelve localidades y provincias donde existan propiedades disponibles para venta, alquiler o ambos.
+   * Devuelve localidades donde existan propiedades disponibles para venta, alquiler o ambos.
    * @param type 'sale' | 'rent' | 'all' (default: 'all')
    */
+  async getLocalitiesWithAvailableProperties(
+    type: 'sale' | 'rent' | 'all' = 'all',
+  ) {
+    // Build filter based on type
+    let filter: any = { status: 'DISPONIBLE' };
+    if (type === 'sale') {
+      filter.publicar_para_venta = true;
+    } else if (type === 'rent') {
+      filter.publicar_para_alquiler = true;
+    } else {
+      filter.$or = [
+        { publicar_para_venta: true },
+        { publicar_para_alquiler: true },
+      ];
+    }
+
+    // Get unique locality IDs from properties
+    const properties = await this.propertyModel
+      .find(filter, { 'direccion.localidad_id': 1, _id: 0 })
+      .lean();
+
+    const localityIds = [
+      ...new Set(
+        properties
+          .map((p) => p.direccion?.localidad_id?.toString())
+          .filter(Boolean),
+      ),
+    ];
+
+    // Fetch localities by IDs
+    const localities = await this.localityModel
+      .find({ _id: { $in: localityIds.map((id) => new Types.ObjectId(id)) } })
+      .lean();
+
+    // Map to required format
+    return localities.map((l) => ({
+      _id: l._id,
+      nombre: l.nombre,
+      provincia: l.provincia?.nombre || null,
+    }));
+  }
 
   create(createLocalityDto: CreateLocalityDto) {
     console.log(createLocalityDto);
