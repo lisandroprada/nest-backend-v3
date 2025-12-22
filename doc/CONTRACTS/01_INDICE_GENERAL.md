@@ -14,12 +14,13 @@
 
 1. **[README.md](./README.md)** - Introducción y guía rápida
 2. **[RESUMEN_EJECUTIVO.md](./RESUMEN_EJECUTIVO.md)** - Visión general ejecutiva del proyecto
-3. **[SISTEMA_CONTABLE_ESTADO_ACTUAL.md](./SISTEMA_CONTABLE_ESTADO_ACTUAL.md)** - Estado completo y detallado del sistema
+3. **[02_ESTADO_ACTUAL_MIGRACION.md](./02_ESTADO_ACTUAL_MIGRACION.md)** - Estado completo de la migración
+4. **[09_LOGICA_PAGOS_Y_LIQUIDACION.md](./09_LOGICA_PAGOS_Y_LIQUIDACION.md)** - Lógica de estados contables y liquidación (⭐ NUEVO)
 
 ### 📊 Dashboards
 
-4. **[PROGRESS_DASHBOARD.md](./PROGRESS_DASHBOARD.md)** - Dashboard de progreso del proyecto
-5. **[CONTRACTS_DASHBOARD.md](./CONTRACTS_DASHBOARD.md)** - Dashboard de contratos y métricas
+5. **[03_SCHEMA_CONTRATOS.md](./03_SCHEMA_CONTRATOS.md)** - Schema de MongoDB y estructura de datos
+6. **[ARQUITECTURA_COMPLETA.md](./ARQUITECTURA_COMPLETA.md)** - Arquitectura completa del sistema
 
 ### 🏗️ Arquitectura y Schemas
 

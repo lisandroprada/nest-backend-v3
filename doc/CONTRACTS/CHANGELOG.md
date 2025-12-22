@@ -15,6 +15,19 @@ Cada entrada debe incluir:
 
 ---
 
+## [2025-12-18] - Consolidación de Lógica Contable y UX
+### [FIX] Paridad de Saldos y Estados de Liquidación
+- **Cambio:** Implementación de lógica estricta para el campo `estado` en asientos contables. El estado `LIQUIDADO` ahora requiere que tanto locatario (DEBE) como locador (HABER) hayan cumplido sus obligaciones.
+- **Técnico:** Diferenciación de campos `monto_pagado_acumulado` vs `monto_liquidado` para evitar colisiones.
+- **UX:** Mejora en `FinanceTab.tsx` para sugerir montos seguros ($0/Cobrado) y evitar errores financieros al liquidar haberes.
+- **MIGRACIÓN:** Validación exitosa del "Modelo Quirúrgico" en Contrato 6902.
+
+### [DOC] Nuevo Manual de Liquidación
+- **Nuevo:** [09_LOGICA_PAGOS_Y_LIQUIDACION.md](./09_LOGICA_PAGOS_Y_LIQUIDACION.md)
+- **Actualizado:** [01_INDICE_GENERAL.md](./01_INDICE_GENERAL.md) y [02_ESTADO_ACTUAL_MIGRACION.md](./02_ESTADO_ACTUAL_MIGRACION.md)
+
+---
+
 ## [2025-12-04] - Renombramiento y Ordenamiento de Archivos
 
 ### [DOC] Reorganización de nombres de archivos

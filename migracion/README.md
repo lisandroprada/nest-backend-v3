@@ -1,6 +1,18 @@
 # Especificación Técnica y Guía Maestra de Migración: Legacy a Rentia (V3)
 
-## 1. Información General y Accesos
+> [!IMPORTANT]
+> **📘 GUÍA DEFINITIVA ACTUALIZADA**
+> 
+> Este documento contiene la especificación técnica original. Para el proceso paso a paso validado y actualizado, consultar:
+> 
+> **👉 [GUIA_MIGRACION_DEFINITIVA.md](./GUIA_MIGRACION_DEFINITIVA.md)** ⭐
+> 
+> La guía definitiva incluye:
+> - ✅ Proceso validado con Contrato 6902
+> - ✅ Lógica de estados contables (LIQUIDADO/COBRADO)
+> - ✅ Pasos exactos y replicables
+> - ✅ Troubleshooting y validaciones
+
 
 ### Entorno de Trabajo
 

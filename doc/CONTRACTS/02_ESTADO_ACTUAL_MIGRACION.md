@@ -628,13 +628,16 @@ mongosh mongodb://localhost:27017/nest-propietasV3 --eval "
 
 ---
 
-## 🚨 MIGRACIÓN PENDIENTE - CRÍTICO
+## ✅ MIGRACIÓN CONTABLE - LÓGICA CONSOLIDADA (Diciembre 2025)
 
-### Estado Actual de Asientos
+### Estado Actual de Asientos y Pagos
 
-- ✅ **Asientos generados:** 3,556 (estrategia OPENING_BALANCE)
-- ⚠️ **Asientos históricos pendientes:** ~19,500 (estimado)
-- ❌ **Estrategia FULL_HISTORY:** NO implementada
+- ✅ **Lógica de Estados:** Validada la transición `PENDIENTE` → `COBRADO` → `LIQUIDADO`.
+- ✅ **Paridad de Saldos:** Lograda en el Contrato 6902 (modelo quirúrgico).
+- ✅ **Campos Técnicos:** Uso de `monto_pagado_acumulado` para deudores y `monto_liquidado` para acreedores.
+- ✅ **Vinculación:** Automatizada la relación `Receipt` → `AccountingEntry`.
+
+Para más detalles, consultar [09_LOGICA_PAGOS_Y_LIQUIDACION.md](./09_LOGICA_PAGOS_Y_LIQUIDACION.md).
 
 ### Próximos Pasos Críticos
 
@@ -735,10 +738,10 @@ honorarios = (duracion_meses × monto_base_vigente) × (porcentaje / 100)
    - Validar balances debe/haber
    - Comparar saldos con sistema legacy
 
-3. **Documentar Discrepancias**
-   - Registrar diferencias encontradas
-   - Analizar causas (honorarios v1.1, ajustes ICL/IPC)
-   - Definir acciones correctivas
+3. **Documentar y Replicar**
+   - ✅ Generado manual de paridad y liquidación quirúrgica.
+   - ✅ Implementadas salvaguardas de UX en el frontend.
+   - [ ] Continuar con la migración masiva aplicando el modelo quirúrgico validado.
 
 ### Próxima Semana
 
