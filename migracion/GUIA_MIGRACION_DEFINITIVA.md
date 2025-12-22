@@ -100,6 +100,23 @@ graph TD
 
 **Criticidad:** 🔴 ALTA - Base de toda la pirámide de datos.
 
+> [!IMPORTANT]
+> **Estrategia de Migración: Incremental por Defecto**
+> 
+> Los scripts de migración están diseñados para ser **incrementales** y **idempotentes**:
+> - ✅ **NO requieren** borrar datos existentes en V3
+> - ✅ Detectan duplicados automáticamente (por `_id`)
+> - ✅ Omiten registros ya migrados
+> - ✅ Pueden re-ejecutarse de forma segura
+> 
+> **Opción de Borrado Completo (Solo si es necesario):**
+> ```bash
+> # CUIDADO: Esto elimina TODOS los agentes en V3
+> npx ts-node scripts/fase-1-agentes/02-migrate-agents.ts --truncate
+> ```
+> 
+> **Recomendación:** Ejecutar SIN `--truncate` para migración incremental segura.
+
 #### 1.1 Preparación
 
 ```bash
@@ -109,6 +126,7 @@ db.agents.dropIndex('identificador_fiscal_1');
 print('✅ Índice eliminado');
 "
 ```
+
 
 #### 1.2 Ejecución
 
