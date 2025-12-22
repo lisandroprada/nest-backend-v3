@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"8264cc5669194e41a48308c515bb032f","collectionName":"accountingentries_backup_2025-12-12T14-19-16","type":"collection"}

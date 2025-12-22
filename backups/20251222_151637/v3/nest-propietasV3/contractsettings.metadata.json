@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"activo":{"$numberInt":"1"}},"name":"activo_1","background":true,"unique":true,"partialFilterExpression":{"activo":true}}],"uuid":"3f8a6f5ddfdb4e3989abf5581a7f2111","collectionName":"contractsettings","type":"collection"}

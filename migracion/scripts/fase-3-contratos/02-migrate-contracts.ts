@@ -350,9 +350,12 @@ async function migrateContracts(options: { dryRun?: boolean; truncateFirst?: boo
     // Leer contratos
     logger.info('📖 Leyendo contratos de Legacy...');
     
-    // FILTRO QUIRÚRGICO: Solo el contrato problemático
-    const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131'; // Retamosa/Murua
-    const query = { _id: new ObjectId(TARGET_CONTRACT_ID) };
+    // FILTRO QUIRÚRGICO (COMENTADO - Para migración masiva usar query vacío)
+    // const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131'; // Retamosa/Murua
+    // const query = { _id: new ObjectId(TARGET_CONTRACT_ID) };
+    
+    // Migración masiva: todos los contratos
+    const query = {};
     
     const legacyContracts = await legacyCollection.find(query as any).toArray();
     logger.info(`Total de contratos a migrar: ${legacyContracts.length}`);

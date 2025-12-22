@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"984c9eebc4ba47e5b405f9b081768f83","collectionName":"cashboxmovements","type":"collection"}

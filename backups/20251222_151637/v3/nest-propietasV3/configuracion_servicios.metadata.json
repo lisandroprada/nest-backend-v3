@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"email_consulta":{"$numberInt":"1"}},"name":"email_consulta_1","background":true,"unique":true}],"uuid":"125915e3c9224fe0918351ff97c7c9c6","collectionName":"configuracion_servicios","type":"collection"}

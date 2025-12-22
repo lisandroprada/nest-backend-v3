@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-12-22T18:29:17.300Z",
+  "fase": "Fase 3 - Migración de Contratos",
+  "estadisticas": {
+    "legacy": 1,
+    "transformados": 1,
+    "omitidos": 0,
+    "insertados": 0,
+    "duplicados": 1,
+    "errores": 0,
+    "tasa_exito": "0.00%"
+  }
+}

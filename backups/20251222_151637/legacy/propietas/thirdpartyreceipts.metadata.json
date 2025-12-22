@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"7cd2016e04f34e1684113ed66fa8a08a","collectionName":"thirdpartyreceipts","type":"collection"}

@@ -37,12 +37,12 @@ async function linkReceipts() {
     // 1. Obtener Pagos Legacy que tengan recibo
     logger.info('🔍 Cargando AccountEntries con receiptId...');
     // Proyección para optimizar memoria
-    // FILTRO QUIRÚRGICO
-    const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
+    // FILTRO QUIRÚRGICO (COMENTADO - Para migración masiva)
+    // const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
     
-    // 1. Obtener MasterAccounts del contrato
+    // 1. Obtener TODOS los MasterAccounts (migración masiva)
     const masterAccounts = await legacyDb.collection('masteraccounts').find({
-        origin: TARGET_CONTRACT_ID
+        // origin: TARGET_CONTRACT_ID  // Comentado para migración masiva
     }, { projection: { _id: 1 } }).toArray();
     const masterIds = masterAccounts.map(m => m._id);
 
@@ -154,8 +154,8 @@ async function linkReceipts() {
                 filter: { _id: update.receiptId },
                 update: {
                     $set: { 
-                        asientos_afectados: update.asientos,
-                        contrato_id: new ObjectId(TARGET_CONTRACT_ID) // <--- CRITICO
+                        asientos_afectados: update.asientos
+                        // contrato_id removido - no aplica en migración masiva
                     }
                 }
             }

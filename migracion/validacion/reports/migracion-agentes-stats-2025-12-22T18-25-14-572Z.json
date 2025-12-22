@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-12-22T18:25:14.572Z",
+  "fase": "Fase 1 - Migración de Agentes",
+  "estadisticas": {
+    "legacy": 1630,
+    "transformados": 1630,
+    "omitidos": 0,
+    "insertados": 4,
+    "duplicados": 1626,
+    "errores": 0,
+    "tasa_exito": "0.25%"
+  },
+  "colecciones": {
+    "provincias_cargadas": 24,
+    "localidades_cargadas": 1885
+  }
+}

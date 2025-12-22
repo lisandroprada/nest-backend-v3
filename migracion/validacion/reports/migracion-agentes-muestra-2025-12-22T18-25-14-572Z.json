@@ -1,0 +1,599 @@
+{
+  "total": 1630,
+  "muestra": [
+    {
+      "_id": "602b36dcd9c61b619f0c61b6",
+      "rol": [
+        "PROVEEDOR"
+      ],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "TEMP-602b36dcd9c61b619f0c61b6",
+      "cuit_validado": false,
+      "nombre_razon_social": "Hector Trujillo",
+      "nombres": "Hector",
+      "apellidos": "Trujillo",
+      "direccion_real": {
+        "calle": "Sin dirección especificada",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Sin dirección especificada",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804623526",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "hector@gmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyData": {
+        "agentType": "Proveedor",
+        "consortiumDetails": [],
+        "createdAt": "2021-02-15T23:57:30.341Z"
+      },
+      "_migrationNotes": [
+        "Temporary fiscal ID generated - requires manual update",
+        "Default location used - no location data in Legacy"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "60674bafc6213139a3d3b617",
+      "rol": [
+        "CLIENTE"
+      ],
+      "persona_tipo": "JURIDICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "TEMP-60674bafc6213139a3d3b617",
+      "cuit_validado": false,
+      "nombre_razon_social": "Edificio Cooperativa",
+      "nombres": "Edificio Cooperativa",
+      "documento_tipo": "DNI",
+      "documento_numero": "12345678902",
+      "direccion_real": {
+        "calle": "Sin dirección especificada",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Sin dirección especificada",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "484220",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "cop@consorcio.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyData": {
+        "agentType": "Consorcio",
+        "supplierMask": null,
+        "consortiumDetails": [
+          {
+            "_id": "64525962603a7f6473d6a910",
+            "expenseName": "Departamento un dormitorio",
+            "expenseAmount": 22500,
+            "consortiumId": ""
+          },
+          {
+            "_id": "64525962603a7f6473d6a911",
+            "expenseName": "Departamento dos dormitorios",
+            "expenseAmount": 16800,
+            "consortiumId": null
+          },
+          {
+            "_id": "64525962603a7f6473d6a912",
+            "expenseName": "Departamento tres dormitorios",
+            "expenseAmount": 18000,
+            "consortiumId": null
+          }
+        ],
+        "createdAt": "2021-04-01T21:05:35.682Z"
+      },
+      "_migrationNotes": [
+        "Temporary fiscal ID generated - requires manual update",
+        "Default location used - no location data in Legacy"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "606c35dfc6213139a3d3b81d",
+      "rol": [],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "20367570870",
+      "cuit_validado": false,
+      "nombre_razon_social": "Xiomara Yael Martin Escobar",
+      "nombres": "Xiomara Yael",
+      "apellidos": "Martin Escobar",
+      "genero": "MASCULINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "36757087",
+      "direccion_real": {
+        "calle": "Perito Moreno 240 - Departamento 1",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Perito Moreno 240 - Departamento 1",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804262034",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "xiomytta_09@hotmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "26",
+          "nombre": "Chubut"
+        },
+        "city": {
+          "id": "260112",
+          "nombre": "Rawson"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-01T21:05:35.682Z"
+      },
+      "_migrationNotes": [
+        "CUIT generated from DNI without real verification digit",
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "606c36d7c6213139a3d3b81f",
+      "rol": [],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "20230651293",
+      "cuit_validado": false,
+      "nombre_razon_social": "Norman Gustavo Freeman",
+      "nombres": "Norman Gustavo",
+      "apellidos": "Freeman",
+      "genero": "MASCULINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "23065129",
+      "direccion_real": {
+        "calle": "Edificio 22 Escalera 1 Bº 2 de Abril",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Edificio 22 Escalera 1 Bº 2 de Abril",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804040280",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "gusfree2006@gmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "26",
+          "nombre": "Chubut"
+        },
+        "city": {
+          "id": "260112",
+          "nombre": "Rawson"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-01T21:05:35.682Z"
+      },
+      "_migrationNotes": [
+        "CUIT generated from DNI without real verification digit",
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "606eeebf4cb768c49f9ea295",
+      "rol": [],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "27249316307",
+      "cuit_validado": false,
+      "nombre_razon_social": "Nancy Noemi Armenta",
+      "nombres": "Nancy Noemi",
+      "apellidos": "Armenta",
+      "genero": "FEMENINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "24931630",
+      "direccion_real": {
+        "calle": "Quilimbay 2017 - Barrio la Isla",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Quilimbay 2017 - Barrio la Isla",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804999512",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "omiloba@gmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "26",
+          "nombre": "Chubut"
+        },
+        "city": {
+          "id": "260112",
+          "nombre": "Rawson"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-07T22:53:55.825Z"
+      },
+      "_migrationNotes": [
+        "CUIT generated from DNI without real verification digit",
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "606f0f1c4cb768c49f9ea343",
+      "rol": [],
+      "persona_tipo": "JURIDICA",
+      "nomenclador_fiscal": "RI",
+      "identificador_fiscal": "30716110342",
+      "cuit_validado": false,
+      "nombre_razon_social": "Andamios S.A.S",
+      "nombres": "Andamios S.A.S",
+      "genero": "MASCULINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "30716110342",
+      "direccion_real": {
+        "calle": "2 de Abril Nº 1532",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "2 de Abril Nº 1532",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804661420",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "fondacarojosef@live.com.ar",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "26",
+          "nombre": "Chubut"
+        },
+        "city": {
+          "id": "260112",
+          "nombre": "Rawson"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-07T22:53:55.825Z"
+      },
+      "_migrationNotes": [
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "606f11544cb768c49f9ea346",
+      "rol": [],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "20937463185",
+      "cuit_validado": false,
+      "nombre_razon_social": "Francisco Aiza Rodriguez",
+      "nombres": "Francisco",
+      "apellidos": "Aiza Rodriguez",
+      "genero": "MASCULINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "93746318",
+      "direccion_real": {
+        "calle": "Chacra 147",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c5",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Chacra 147",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c5",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804708332",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "aizafrancisco.r@gmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "26",
+          "nombre": "Chubut"
+        },
+        "city": {
+          "id": "260119",
+          "nombre": "Trelew"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-07T22:53:55.825Z"
+      },
+      "_migrationNotes": [
+        "CUIT generated from DNI without real verification digit",
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "607049c512718ddc165212d7",
+      "rol": [],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "23179534959",
+      "cuit_validado": false,
+      "nombre_razon_social": "Gustavo Lorenzo Cabral",
+      "nombres": "Gustavo Lorenzo",
+      "apellidos": "Cabral",
+      "genero": "MASCULINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "17953495",
+      "direccion_real": {
+        "calle": "Juan Domingo Peron 951",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Juan Domingo Peron 951",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804778190",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "cabralgustavo66@gmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "26",
+          "nombre": "Chubut"
+        },
+        "city": {
+          "id": "260112",
+          "nombre": "Rawson"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-08T23:49:52.252Z"
+      },
+      "_migrationNotes": [
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "6070503212718ddc16521536",
+      "rol": [],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "20215578489",
+      "cuit_validado": false,
+      "nombre_razon_social": "Aldo Victor Gutierrez",
+      "nombres": "Aldo Victor",
+      "apellidos": "Gutierrez",
+      "genero": "MASCULINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "21557848",
+      "direccion_real": {
+        "calle": "Gregorio Mayo 118",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Gregorio Mayo 118",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "1164009725",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "aldobwillis@gmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "06",
+          "nombre": "Buenos Aires"
+        },
+        "city": {
+          "id": "060861",
+          "nombre": "Vicente López"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-08T23:49:52.252Z"
+      },
+      "_migrationNotes": [
+        "Global default location (Rawson, Chubut) used",
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    },
+    {
+      "_id": "6070582712718ddc16521539",
+      "rol": [],
+      "persona_tipo": "FISICA",
+      "nomenclador_fiscal": "CF",
+      "identificador_fiscal": "27177372056",
+      "cuit_validado": false,
+      "nombre_razon_social": "Claudia Noemi Alewy",
+      "nombres": "Claudia Noemi",
+      "apellidos": "Alewy",
+      "genero": "FEMENINO",
+      "documento_tipo": "DNI",
+      "documento_numero": "17737205",
+      "direccion_real": {
+        "calle": "Pasaje Inmigrantes Nº 316",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "direccion_fiscal": {
+        "calle": "Pasaje Inmigrantes Nº 316",
+        "numero": "",
+        "piso_dpto": "",
+        "provincia_id": "66a25a8e1f1570568e03e1d8",
+        "localidad_id": "66a25b0d1f1570568e03e9c4",
+        "codigo_postal": ""
+      },
+      "telefonos": [
+        {
+          "numero": "2804977618",
+          "tipo": "MOVIL"
+        }
+      ],
+      "email_principal": "claudiagalen41@gmail.com",
+      "cuentas_bancarias": [],
+      "status": "ACTIVO",
+      "_legacyLocationIds": {
+        "state": {
+          "id": "26",
+          "nombre": "Chubut"
+        },
+        "city": {
+          "id": "260112",
+          "nombre": "Rawson"
+        }
+      },
+      "_legacyData": {
+        "agentType": "Cliente",
+        "supplierMask": null,
+        "consortiumDetails": [],
+        "createdAt": "2021-04-08T23:49:52.252Z"
+      },
+      "_migrationNotes": [
+        "CUIT generated from DNI without real verification digit",
+        "Role \"Cliente\" left empty for manual assignment"
+      ],
+      "redes_sociales": []
+    }
+  ]
+}

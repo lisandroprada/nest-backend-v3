@@ -40,12 +40,12 @@ async function migratePayments() {
     
     logger.info('🔍 Cargando AccountEntries (Pagos) de Legacy...');
     
-    // FILTRO QUIRÚRGICO
-    const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
+    // FILTRO QUIRÚRGICO (COMENTADO - Para migración masiva)
+    // const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
     
-    // 1. Obtener MasterAccounts del contrato
+    // 1. Obtener TODOS los MasterAccounts (migración masiva)
     const masterAccounts = await legacyDb.collection('masteraccounts').find({
-        origin: TARGET_CONTRACT_ID
+        // origin: TARGET_CONTRACT_ID  // Comentado para migración masiva
     }, { projection: { _id: 1 } }).toArray();
     const masterIds = masterAccounts.map(m => m._id);
 
@@ -70,7 +70,7 @@ async function migratePayments() {
         ]
     }).toArray();
 
-    logger.info(`   Encontrados ${legacyEntries.length} movimientos para contrato ${TARGET_CONTRACT_ID}.`);
+    logger.info(`   Encontrados ${legacyEntries.length} movimientos en total.`);
 
     // Obtener Receipts para info de caja (opcional, por ahora usaremos info del entry o default)
     // const receipts = await legacyDb.collection('receipts').find({}).toArray();
