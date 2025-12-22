@@ -39,14 +39,15 @@ async function linkContractualEntries() {
     const legacyDb = await dbConnections.getLegacyDB();
     const v3Db = await dbConnections.getV3DB();
 
-    // 1. Obtener MasterAccounts Contractuales (FILTRADO)
-    const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
+    // 1. Obtener MasterAccounts Contractuales (MIGRACIÓN MASIVA)
+    // FILTRO QUIRÚRGICO (COMENTADO - Para migración masiva)
+    // const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
     logger.info(`🔍 Conectado a DB Legacy: ${legacyDb.databaseName}`);
-    logger.info(`🔍 Buscando cuentas Legacy para contrato ${TARGET_CONTRACT_ID}...`);
+    logger.info(`🔍 Buscando todas las cuentas Legacy contractuales...`);
     
     const query = {
-      type: { $in: CONTRACTUAL_TYPES },
-      origin: TARGET_CONTRACT_ID 
+      type: { $in: CONTRACTUAL_TYPES }
+      // origin: TARGET_CONTRACT_ID  // Comentado para migración masiva
     };
     
     const masterAccounts = await legacyDb.collection('masteraccounts').find(query).toArray();

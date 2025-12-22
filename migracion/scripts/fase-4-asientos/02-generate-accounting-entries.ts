@@ -22,14 +22,17 @@ async function generateAccountingEntries(options: { dryRun?: boolean } = {}) {
   let mongoClient: MongoClient | null = null;
 
   try {
-    // 1. Conectar a MongoDB para obtener TODOS los IDs de contratos (FILTRADO)
+    // 1. Conectar a MongoDB para obtener TODOS los IDs de contratos
     logger.info('📊 Conectando a MongoDB para obtener IDs de contratos...');
     mongoClient = await MongoClient.connect('mongodb://127.0.0.1:27017/nest-propietasV3');
     const db = mongoClient.db();
     
-    // FILTRO QUIRÚRGICO
-    const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
-    const query = { _id: new ObjectId(TARGET_CONTRACT_ID) };
+    // FILTRO QUIRÚRGICO (COMENTADO - Para migración masiva)
+    // const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
+    // const query = { _id: new ObjectId(TARGET_CONTRACT_ID) };
+    
+    // Migración masiva: todos los contratos
+    const query = {};
 
     const allContracts = await db.collection('contracts').find(query, { projection: { _id: 1 } }).toArray();
     const contractIds = allContracts.map(c => c._id.toString());

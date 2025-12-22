@@ -148,30 +148,17 @@ async function migrateReceipts(): Promise<MigrationStats> {
     DEFAULT_FINANCIAL_ACCOUNT_ID = defaultAccount._id;
     log(`💰 Cuenta financiera por defecto: ${defaultAccount.nombre} (${DEFAULT_FINANCIAL_ACCOUNT_ID})\n`);
 
-    // FILTRO QUIRÚRGICO
-    const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
-    log(`🔍 Buscando recibos para contrato ${TARGET_CONTRACT_ID}...`);
+    // FILTRO QUIRÚRGICO (COMENTADO - Para migración masiva)
+    // const TARGET_CONTRACT_ID = '6902560abbb2614a30d9d131';
+    log(`🔍 Buscando todos los recibos...`);
     
-    // 1. Obtener MasterAccounts del contrato
-    const masterAccounts = await legacyDb.collection('masteraccounts').find({
-        origin: TARGET_CONTRACT_ID
-    }, { projection: { _id: 1 } }).toArray();
-    const masterIds = masterAccounts.map(m => m._id);
-
-    // 2. Obtener Accounts
-    const accounts = await legacyDb.collection('accounts').find({
-        masterAccount: { $in: masterIds }
-    }, { projection: { _id: 1 } }).toArray();
-    const accountIds = accounts.map(a => a._id);
-
-    // 3. Obtener ReceiptIds de AccountEntries
+    // Migración masiva: obtener TODOS los recibos con receiptId
     const entries = await legacyDb.collection('accountentries').find({
-        accountId: { $in: accountIds },
         receiptId: { $ne: null }
     }, { projection: { receiptId: 1 } }).toArray();
     
     const receiptIds = [...new Set(entries.map(e => e.receiptId))];
-    log(`   Encontrados ${receiptIds.length} IDs de recibos únicos para este contrato.`);
+    log(`   Encontrados ${receiptIds.length} IDs de recibos únicos en total.`);
 
     // Obtener total de recibos filtrados
     stats.totalLegacyReceipts = receiptIds.length;
